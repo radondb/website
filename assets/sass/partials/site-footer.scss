@@ -1,0 +1,75 @@
+.footer {
+  padding: 77px 130px 24px 130px;
+  background: #242e42;
+  color: #ffffff;
+  .content {
+    @extend .h-center;
+    width: 1180px;
+    padding-bottom: 60px;
+    font-size: 14px;
+    line-height: 24px;
+    & > div {
+      height: 100%;
+    }
+    .column-head {
+      margin-bottom: 4px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 22px;
+    }
+    a,
+    p {
+      display: block;
+      margin-top: 16px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    .logo {
+      height: 34px;
+    }
+    .github {
+      display: flex;
+      align-items: center;
+      img {
+        margin-right: 4px;
+      }
+    }
+    .wechat {
+      margin-top: 40px;
+      img {
+        margin-top: 10px;
+      }
+    }
+    .other {
+      width: 420px;
+      padding-left: 60px;
+      border-left: 1px solid rgba(255, 255, 255, 0.15);
+      .column-head {
+        margin-top: 50px;
+      }
+      .input {
+        width: 360px;
+        height: 48px;
+        margin-top: 24px;
+        padding: 4px 5px 4px 20px;
+        background: #f5f8f9;
+        border: 1px solid #ccd3db;
+        box-sizing: border-box;
+        border-radius: 24px;
+        .btn {
+          padding: 9px 27px;
+          color: #ffffff;
+          background-color: #326bf6;
+          box-shadow: 0px 8px 16px rgba(33, 43, 61, 0.2),
+            0px 10px 50px rgba(34, 43, 62, 0.1);
+          border-radius: 20px;
+        }
+      }
+    }
+  }
+  .copyright {
+    text-align: center;
+    font-size: 14px;
+    line-height: 24px;
+    color: rgba(255, 255, 255, 0.5);
+  }
+}

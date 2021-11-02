@@ -1,0 +1,49 @@
+{{ define "header" }}
+<header class="about-header" style="background-image: url('{{ .Params.header_image }}');">
+  {{ partial "site-navigation.html" . }}
+  <h1>{{ .Site.Title }}</h1>
+  <h2>{{ .Site.Params.description }}</h2>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<div class="about-content">
+  <h2>{{ .Title }}</h2>
+  <div class="md-content">{{ .Content }}</div>
+  <div class="video-container about-video">
+    <div class="fake-video" onclick="showVideo({{.Site.Params.aboutVideo}})">
+      <img class="poster" src="{{.Site.Params.aboutVideoPoster}}" />
+      <div class="mask"></div>
+      <img class="play" src="/images/common/play.svg" />
+    </div>
+    <video controls autoplay class="video" id="video" poster="{{.Site.Params.aboutVideoPoster}}">
+    </video>
+  </div>
+  <div class="history">
+    <h1>发展历程</h1>
+    <div class="history-content">
+      {{ range $index, $history := sort .Params.histories "year" "desc"}}
+      {{ if eq (mod $index 2) 0 }}
+      <div class="flex-row history-body">
+        {{ else }}
+        <div class="flex-row history-body history-right">
+          {{ end }}
+          <div class="history-card">
+            <div class="year">{{ $history.year }}</div>
+            <div class="title">{{ $history.title }}</div>
+            <p>{{ $history.description }}</p>
+          </div>
+          <div class="tail-line"></div>
+          <div class="vertical-center">
+            <div class="h-center vertical-line"></div>
+            <img class="ellipse" src="/images/common/ellipse.svg" />
+          </div>
+        </div>
+        {{ end }}
+      </div>
+    </div>
+  </div>
+  <div class="contribute h-center">
+    <div class="show-modal" onclick="showModal('.contribute-modal')"></div>
+  </div>
+  {{ end }}

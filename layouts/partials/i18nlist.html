@@ -1,0 +1,13 @@
+{{ if .IsTranslated }}
+{{- $language := resources.Get "images/language.svg" -}}
+<div class="languages">
+    <img src="{{ $language.RelPermalink }}">
+    <ul>
+        {{ range .Translations }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Language.LanguageName }}</a>
+        </li>
+        {{ end}}
+    </ul>
+</div>
+{{ end }}

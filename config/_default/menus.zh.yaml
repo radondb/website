@@ -1,0 +1,46 @@
+# 主导航菜单
+main:
+  - identifier: projects
+    name: "开源项目"
+    weight: "1"
+    url: "/projects"
+  - name: "MySQL 容器化"
+    weight: '1'
+    url: "/projects/mysql"
+    parent: projects
+  - name: "Radon 分布式数据库组件"
+    weight: '3'
+    url: "/projects/radon"
+    parent: projects
+  - name: "Xenon 高可用集群组件"
+    weight: '3'
+    url: "/projects/xenon"
+    parent: projects
+
+  - name: "博客"
+    url: "/posts"
+    weight: "2"
+  - name: "新闻"
+    url: "/news"
+    weight: "3"
+  - name: "关于我们"
+    url: "/about"
+    weight: "4"
+  - name: "企业服务"
+    url: "/about"
+    weight: "5"
+
+# 页脚导航菜单
+foot:
+  - name: "网站首页"
+    url: "/"
+    weight: "4"
+  - name: "博文集合"
+    url: "/post"
+    weight: "3"
+  - name: "新闻列表"
+    url: "/news"
+    weight: "2"
+  - name: "关于我们"
+    url: "/about"
+    weight: "1"

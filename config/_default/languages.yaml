@@ -1,0 +1,24 @@
+zh:
+  contentDir: "content/zh/"
+  languageName: "简体中文"
+  title: "RadonDB 开源社区"
+  weight: 10
+  params:
+    description: "一个面向云原生、容器化的数据库开源社区"
+    kubesphereVideoPoster: "/images/intro-poster.png"
+    kubesphereVideo: "https://kubesphere-community.pek3b.qingstor.com/videos/kubesphere-demo-cn.mp4"
+    # 关于我们页面中video的封面
+    aboutVideoPoster: "/images/intro-poster.png"
+    aboutVideo: "https://kubesphere-community.pek3b.qingstor.com/videos/kubesphere-demo-cn.mp4"
+
+en:
+  contentDir: "content/en/"
+  languageName: "EN"
+  title: "RadonDB"
+  weight: 20
+  params:
+    description: "home descriptions"
+    kubesphereVideoPoster: "/images/intro-poster.png"
+    kubesphereVideo: "https://kubesphere-community.pek3b.qingstor.com/videos/kubesphere-demo-cn.mp4"
+    aboutVideoPoster: "/images/intro-poster.png"
+    aboutVideo: "https://kubesphere-community.pek3b.qingstor.com/videos/kubesphere-demo-cn.mp4"

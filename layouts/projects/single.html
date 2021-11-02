@@ -1,0 +1,121 @@
+{{ define "header" }}
+<header class="project-header" style="background: top right / 100% no-repeat url('{{ .Params.header_image }}');">
+  {{ partial "site-navigation.html" . }}
+  <h1>RadonDB <span>{{ .Params.short }}</span> on Kubernetes</h1>
+  <h2>{{ .Params.subtitle }}</h2>
+  <h3 class="h-center">{{ .Params.description }}</h3>
+  <div class="flex-row space-center">
+    <a class="btn start flex-row fl-center" href="{{ .Params.start_url }}">
+      <span>立即开始</span>
+      <img src="/images/common/right-white.svg" />
+    </a>
+    <a class="btn github flex-row fl-center" href="{{ .Params.github_url }}">
+      <img src="/images/common/github-black.svg" />
+      <span>GitHub</span>
+    </a>
+  </div>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<div class="project-content">
+  <section class="features">
+    <h1>核心特性</h1>
+    <div class="feature-list">
+      {{ range .Params.features }}
+      <div class="feature-card">
+        <img src="{{ .picture }}" />
+        <h3>{{ .title }}</h3>
+        <p>{{ .description }}</p>
+      </div>
+      {{ end }}
+    </div>
+  </section>
+  <section class="start">
+    <h1>快速开始</h1>
+    <div class="links flex-row space-center">
+      <div>
+        <h3 class="h-center bg-title">Heml</h3>
+        <div class="flex-column">
+          {{ range .Params.fast_start.helm }}
+          <a href="{{ .url }}">{{ .text }}</a>
+          {{ end }}
+        </div>
+      </div>
+      <div style="margin-left: 260px;">
+        <h3 class="h-center bg-title">Operator</h3>
+        <div class="flex-column">
+          {{ range .Params.fast_start.operator }}
+          <a href="{{ .url }}">{{ .text }}</a>
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="flex-row architecture">
+    <img src="{{ .Params.architecture.picture }}" />
+    <div class="content">
+      <div class="flex-row">
+        <h2>RadonDB&nbsp;{{ .Params.short }}&nbsp;</h2>
+        <h1>架构</h1>
+      </div>
+      <ul>
+        {{ range .Params.architecture.intros }}
+        <li>{{ . }}</li>
+        {{ end }}
+      </ul>
+    </div>
+    <div class="decoration-top"></div>
+    <div class="decoration-left"></div>
+    <div class="decoration-right"></div>
+    <div class="decoration-bottom"></div>
+    <div class="decoration-bottom-2"></div>
+    <div class="decoration-top-2"></div>
+  </section>
+  {{ with .Params.roadmap }}
+  <section class="roadmap">
+    <h1>Roadmap</h1>
+    <div class="flex-row space-around content">
+      {{ range . }}
+      <div>
+        <h3 class="bg-title">{{ .title }}</h3>
+        <ul>
+          {{ range .content }}
+          <li>{{ . }}</li>
+          {{ end }}
+        </ul>
+      </div>
+      <div class="flex-row fl-center vector"><img src="/images/common/vector.svg" /></div>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ with $related }}
+  <section class="blog">
+    <h2 class="title-h2">
+      <span>相关文章</span>
+    </h2>
+    <div class="blog-list">
+      {{ range . }}
+      <a class="blog-card" href="{{ .RelPermalink }}">
+        <img class="picture" src="/images/intro-poster.png" />
+        <div class="content">
+          <div class="title">{{ .Title }}</div>
+          <div class="info">
+            <div class="flex-row fl-center"><img src="/images/common/person.svg" /><span>{{ .Params.Author }}</span>
+            </div>
+            <div class="flex-row fl-center"><img src="/images/common/time.svg" /><span>{{ .Date.Format "2006.01.02"
+                }}</span></div>
+          </div>
+          <div class="summary">
+            {{ .Summary }}
+          </div>
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </section>
+  {{ end }}
+</div>
+{{ end }}

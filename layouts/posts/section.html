@@ -1,0 +1,38 @@
+{{ define "header" }}
+<header class="posts-header" style="background: top right / 100% no-repeat url('{{ .Params.header_image }}');">
+  {{ partial "site-navigation.html" . }}
+  <h1>{{ .Title }}</h1>
+  <form class="search h-center flex-row fl-center space-between" action="{{ .RelPermalink }}">
+    <input name="name" placeholder="搜索技术博客" autocomplete="off" />
+    <img style="cursor: pointer;" src="/images/common/search.svg" onclick="document.querySelector('form').submit()"/>
+  </form>
+</header>
+{{ end }}
+
+{{ define "main" }}
+{{ $url := .RelPermalink }}
+{{ $tag := slice "tags" }}
+{{ $term := slice "term" }}
+<div id="content" class="posts-content">
+  <div id="tags" class="tags">
+    <a id="all" class="tag" href="{{- $url -}}?tag=all">全部</a>
+    {{ $t := where .Site.Pages "Section" "in" $tag }}
+    {{ range where $t "Kind" "in" $term }}
+    <a id="{{.Title}}" class="tag" href="{{- $url -}}?{{ (querify "tag" .Title) | safeURL }}">
+      {{ .Title }}
+      {{ with len .Data.Pages }}
+      <span class="count">{{ . }}</span>
+      {{ end }}
+    </a>
+    {{ end }}
+  </div>
+  <div id="post-list" class="post-list">
+    <!-- JavaScript render -->
+  </div>
+  <div id="pagination" class="pagination">
+    <!-- JavaScript render -->
+  </div>
+</div>
+{{ $js := resources.Get "js/search.js" | js.Build (dict "target" "es5") }}
+<script src="{{ $js.RelPermalink }}"></script>
+{{ end }}

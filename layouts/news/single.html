@@ -1,0 +1,25 @@
+{{ define "header" }}
+<header class="news-single-header" style="background: top right / 100% no-repeat url('/images/post-header-bg.svg');">
+  {{ partial "site-navigation.html" . }}
+</header>
+{{ end }}
+
+{{ define "main" }}
+<div class="news-single-container">
+  <div class="breadcrumb flex-row fl-center">
+    <a href="/news">新闻</a>
+    <span style="padding: 0 10px;">></span>
+    <span>{{ .Title }}</span>
+  </div>
+  <div class="news-single-content">
+    <div>
+      <div class="author">{{ .Params.author | default "RadonDB" }}</div>
+      <div class="date">{{ .Date.Format "2006-01-02 15:04:05" }}</div>
+    </div>
+    <div class="title">{{ .Title }}</div>
+    <div class="md-content">{{ .Content }}</div>
+  </div>
+</div>
+{{ $js := resources.Get "js/post.js" | js.Build (dict "target" "es5") }}
+<script src="{{ $js.RelPermalink }}"></script>
+{{ end }}

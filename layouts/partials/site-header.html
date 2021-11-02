@@ -1,0 +1,37 @@
+{{- $headerbg := resources.Get "images/header-bg.svg" -}}
+{{- $banner := resources.Get "images/banner.svg" -}}
+{{- $starbg := resources.Get "images/star-bg.svg" -}}
+<header class="site-header" style="background: 0 0 / 100% no-repeat url('{{ $headerbg.RelPermalink }}');background-color: #4069ed;">
+  {{ partial "site-navigation.html" .}}
+  <div class="title">
+    <h1>面向云原生、容器化的数据库开源社区</h1>
+    <div class="desc">为数据库技术爱好者分享主流开源数据库技术</div>
+    <div class="project">
+      {{ range .Site.Params.radondb_projects }}
+      <span class="item">{{ . }}</span>
+      {{ end }}
+    </div>
+    <div class="feature">提供企业级 <span class="star"
+        style="background: center / cover no-repeat url('{{ $starbg.RelPermalink }}');">RadonDB</span> 开源项目及服务</div>
+  </div>
+  <img class="banner" src="{{ $banner.RelPermalink }}" />
+  <div class="projects">
+    <h2 class="title-h2"><span>RadonDB 开源项目</span>
+      <div class="title-bg" style="z-index: -1;"></div>
+    </h2>
+    <div class="cards">
+      {{ $projects := slice "projects" }}
+      {{ $p := where .Site.RegularPages "Section" "in" $projects }}
+      {{ range sort $p "Params.weight" }}
+      <a class="card" href="{{ .RelPermalink }}">
+        <div class="name">{{ .Title }}</div>
+        <div class="desc">{{ .Summary }}</div>
+        <div class="func">
+          <div class="more flex-row fl-center"><span>了解更多</span><span class="arrow-right"></span></div>
+          <img class="picture" src="{{ .Params.logo }}" />
+        </div>
+      </a>
+      {{ end }}
+    </div>
+  </div>
+</header>

@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <article>
+    <section class="flex-row">
+      {{ range .Paginator.Pages }}
+      {{ end }}
+    </section>
+    {{- template "_internal/pagination.html" . -}}
+  </article>
+{{ end }}

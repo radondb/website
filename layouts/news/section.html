@@ -1,0 +1,24 @@
+{{ define "header" }}
+<header class="news-header" style="background: top right / 100% no-repeat url('{{ .Params.header_image }}');">
+  {{ partial "site-navigation.html" . }}
+  <h1>{{ .Title }}</h1>
+</header>
+{{ end }}
+
+{{ define "main" }}
+<div class="news-content">
+  <div class="news-list">
+    {{ range .Paginator.Pages }}
+    <a class="news-card" href="{{ .RelPermalink }}">
+      <div class="card-content">
+        <h2>{{ .Title }}</h2>
+        <div class="summary">{{ .Summary }}</div>
+        <div class="info">{{ .Params.author | default "RadonDB" }} | {{ .Date.Format "2006 年 1 月 2 日" }}</div>
+      </div>
+      <img class="picture" src="/images/intro-poster.png" />
+    </a>
+    {{ end }}
+  </div>
+  {{ template "_internal/pagination.html" . }}
+</div>
+{{ end }}

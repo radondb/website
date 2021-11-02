@@ -1,0 +1,11 @@
+# 不需要多语言的参数配置
+site_logo: "/images/radondb.svg"
+favicon: "/radondb.ico"
+# 首页第三行黑色背景的tag
+radondb_projects:
+  - MySQL
+  - PostgreSQL
+  - Redis
+  - MongoDB
+  - ClickHouse
+

@@ -1,0 +1,77 @@
+{{ define "main" }}
+<section class="intro">
+  <h2 class="title-h2">
+    <span>RadonDB MySQL 上架 KubeSphere 应用商店</span>
+    <div class="title-bg"></div>
+  </h2>
+  <div class="video-container">
+    <div class="fake-video" onclick="showVideo({{.Site.Params.kubesphereVideo}})">
+      <img class="poster" src="{{.Site.Params.kubesphereVideoPoster}}" />
+      <div class="mask"></div>
+      <img class="play" src="/images/common/play.svg" />
+    </div>
+    <video controls autoplay class="video" id="video" poster="{{.Site.Params.kubesphereVideoPoster}}">
+    </video>
+  </div>
+  <a class="btn more h-center">
+    <span>了解更多</span>
+    <span class="arrow-right"></span>
+  </a>
+  <div class="decoration-left"></div>
+  <div class="decoration-right"></div>
+</section>
+<section class="blog">
+  <h2 class="title-h2">
+    <span>技术博客</span>
+    <div class="title-bg"></div>
+  </h2>
+  <div class="blog-list">
+    {{ $posts := slice "posts" }}
+    {{ $p := where .Site.RegularPages "Section" "in" $posts }}
+    {{ range first 3 $p }}
+    <a class="blog-card" href="{{ .RelPermalink }}">
+      <img class="picture" src="{{ .Params.picture }}" />
+      <div class="content">
+        <div class="title">{{ .Title }}</div>
+        <div class="info">
+          <div class="flex-row fl-center"><img src="/images/common/person.svg" /><span>{{ .Params.Author }}</span></div>
+          <div class="flex-row fl-center"><img src="/images/common/time.svg" /><span>{{ .Date.Format "2006.01.02"
+              }}</span></div>
+        </div>
+        <div class="summary">
+          {{ .Summary }}
+        </div>
+      </div>
+    </a>
+    {{ end }}
+  </div>
+  <a class="btn more h-center" href="/posts">
+    <span>查看更多</span>
+    <span class="arrow-right"></span>
+  </a>
+</section>
+<section class="news">
+  <h2 class="title-h2">
+    <span>新闻</span>
+    <div class="title-bg"></div>
+  </h2>
+  <div class="news-list">
+    {{ $news := slice "news" }}
+    {{ $n := where .Site.RegularPages "Section" "in" $news }}
+    {{ range first 3 $n }}
+    <a class="news-card" href="{{ .RelPermalink }}">
+      <div class="content">
+        <div class="time">{{ .Date.Format "2006.01.02"}}</div>
+        <div class="title">{{ .Title }}</div>
+        <div class="summary">{{ .Summary }}</div>
+      </div>
+      <img class="picture" src="/images/intro-poster.png" />
+    </a>
+    {{ end }}
+  </div>
+  <a class="btn more h-center" href="/news">
+    <span>查看更多</span>
+    <span class="arrow-right"></span>
+  </a>
+</section>
+{{ end }}

@@ -1,0 +1,43 @@
+<nav role="navigation">
+  <div class="nav-container">
+    <a href="{{ .Site.Home.RelPermalink }}" class="logo">
+      {{ with .Site.Params.site_logo }}
+        <img src="{{ . }}" alt="{{ $.Site.Title }}" />
+      {{ else }}
+        {{ .Site.Title }}
+      {{ end }}
+    </a>
+    <div class="list">
+      {{ if .Site.Menus.main }}
+        <ul>
+          {{ range .Site.Menus.main }}
+            {{ if .HasChildren }}
+              <li class="item select">
+                <div class="flex-row fl-center">
+                  <span>{{ .Name }}</span>
+                  <img class="arrow" src="/images/common/arrow.svg">
+                </div>
+                <ul class="select-content">
+                  {{ range .Children }}
+                    <li>
+                      <a class="" href="{{ .URL }}" title="{{ .Name }} page">
+                        {{ .Name }}
+                      </a>
+                    </li>
+                  {{ end }}
+                </ul>
+              </li>
+            {{ else }}
+              <li class="item">
+                <a class="" href="{{ .URL }}" title="{{ .Name }} page">
+                  {{ .Name }}
+                </a>
+              </li>
+            {{ end }}
+          {{ end }}
+        </ul>
+      {{ end }}
+    </div>
+    {{ partial "i18nlist.html" . }}
+  </div>
+</nav>

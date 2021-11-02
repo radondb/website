@@ -1,0 +1,230 @@
+.project-header {
+  height: 500px;
+  color: #ffffff;
+  text-align: center;
+  h1 {
+    margin-top: 70px;
+    font-weight: bold;
+    font-size: 50px;
+    line-height: 60px;
+    span {
+      color: #8ee095;
+    }
+  }
+  h2 {
+    margin-top: 32px;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 24px;
+  }
+  h3 {
+    margin-top: 20px;
+    margin-bottom: 60px;
+    width: 555px;
+    font-size: 16px;
+    line-height: 30px;
+    font-weight: normal;
+    letter-spacing: 0.8px;
+  }
+  .start {
+    background-color: #242e42;
+    color: #ffffff;
+    img {
+      margin-left: 4px;
+    }
+  }
+  .github {
+    margin-left: 40px;
+    background-color: #ffffff;
+    color: #242e42;
+    img {
+      margin-right: 4px;
+    }
+  }
+}
+
+.project-content {
+  overflow: hidden;
+  h1 {
+    position: relative;
+    text-align: center;
+    font-weight: 600;
+    font-size: 36px;
+    &::after {
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      width: 24px;
+      height: 4px;
+      background-color: #326bf6;
+      border-radius: 4px;
+      content: " ";
+      transform: translateX(-50%);
+    }
+  }
+  .bg-title {
+    display: inline-block;
+    padding: 6px 19px 6px 12px;
+    margin-bottom: 16px;
+    text-align: center;
+    background: right / cover no-repeat url("/images/common/title-bg-blue.svg");
+  }
+  .features {
+    padding: 120px 160px;
+    .feature-list {
+      margin-top: 32px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      .feature-card {
+        width: 340px;
+        height: 240px;
+        margin-left: 40px;
+        margin-top: 40px;
+        padding: 30px;
+        background: #ffffff;
+        border: 1px solid #eff1f1;
+        border-radius: 4px;
+        &:first-child {
+          margin-left: 0;
+        }
+        img {
+          width: 48px;
+        }
+        h3 {
+          margin-top: 24px;
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 24px;
+        }
+        p {
+          margin-top: 16px;
+          font-size: 14px;
+          line-height: 28px;
+          color: #79879c;
+        }
+      }
+    }
+  }
+  .start {
+    width: 100%;
+    height: 400px;
+    padding: 50px;
+    background: center / cover no-repeat url("/images/projects/fast-start.png");
+    color: #ffffff;
+    .links {
+      margin-top: 40px;
+      a {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 24px;
+        color: #ffffff;
+      }
+    }
+  }
+  .architecture {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 130px;
+    & > img {
+      width: 798px;
+      box-shadow: 0px 2px 8px rgba(36, 46, 66, 0.1);
+      border-radius: 20px;
+    }
+    .content {
+      padding: 65px 0 0 65px;
+      h1 {
+        font-size: 28px;
+      }
+      h2 {
+        font-weight: 600;
+        font-size: 28px;
+      }
+      ul {
+        margin-top: 48px;
+        padding-left: 24px;
+        font-size: 14px;
+        line-height: 40px;
+      }
+      strong {
+        color: #326bf6;
+      }
+    }
+    .decoration-left {
+      position: absolute;
+      width: 480px;
+      height: 1200px;
+      left: 0;
+      bottom: -450px;
+      background: no-repeat url("/images/projects/mysql/decoration-left.svg");
+      background-position: 50% 50%;
+      z-index: -1;
+    }
+    .decoration-top {
+      position: absolute;
+      width: 400px;
+      height: 160px;
+      top: 94px;
+      left: 0;
+      background: 0 0 / cover no-repeat
+        url("/images/projects/mysql/decoration-top.png");
+      z-index: -1;
+    }
+    .decoration-right {
+      position: absolute;
+      width: 623px;
+      height: 800px;
+      top: 0;
+      right: 0;
+      background: no-repeat url("/images/projects/mysql/decoration-right.svg");
+      z-index: -1;
+      background-position-y: 25%;
+    }
+    .decoration-bottom {
+      position: absolute;
+      width: 400px;
+      height: 160px;
+      bottom: -80px;
+      right: 0;
+      background: 0 0 / cover no-repeat
+        url("/images/projects/mysql/decoration-bottom.png");
+      z-index: -1;
+    }
+    .decoration-top-2 {
+      @extend .decoration-top;
+      top: 980px;
+    }
+    .decoration-bottom-2 {
+      @extend .decoration-bottom;
+      bottom: -724px;
+    }
+  }
+  .roadmap {
+    @extend .h-center;
+    position: relative;
+    width: 1180px;
+    height: 650px;
+    margin-bottom: 120px;
+    padding: 80px;
+    background: center / cover no-repeat url("/images/projects/roadmap.png");
+    color: #ffffff;
+    border-radius: 20px;
+    .content {
+      margin-top: 76px;
+      h3 {
+        margin-left: -18px;
+      }
+      ul {
+        margin-top: 8px;
+        font-size: 14px;
+        line-height: 36px;
+      }
+      .vector {
+        &:last-child {
+          display: none;
+        }
+      }
+    }
+  }
+}
