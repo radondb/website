@@ -5,7 +5,7 @@ author: "作者"
 weight: 1
 tags:
   - DevOps
-picture: /images/posts/hugoStart/hugo.jpg
+picture: /images/intro-poster.png
 ---
 在为 Xenon[1] 适配新版 Percona XtraBackup 8.0[2]（原有代码适配于 2.4 版本）时遇到的一些问题，在定位过程中对比了 XtraBackup 2.4 和 8.0 的异同。
 

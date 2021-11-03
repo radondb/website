@@ -14,7 +14,7 @@ zh:
 en:
   contentDir: "content/en/"
   languageName: "EN"
-  title: "RadonDB"
+  title: "RadonDB OpenSource"
   weight: 20
   params:
     description: "home descriptions"
