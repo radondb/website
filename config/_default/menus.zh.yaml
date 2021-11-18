@@ -26,9 +26,6 @@ main:
   - name: "关于我们"
     url: "/about"
     weight: "4"
-  - name: "企业服务"
-    url: "/about"
-    weight: "5"
 
 # 页脚导航菜单
 foot:

@@ -325,6 +325,7 @@ section {
   }
   p > img {
     margin-top: 20px;
+    width: 100%;
   }
   h1 {
     font-weight: 600;
@@ -614,6 +615,7 @@ section {
       border-bottom: 1px solid #eff1f1;
       overflow: hidden;
       .content {
+        flex: 1;
         .time {
           width: 140px;
           text-align: center;
