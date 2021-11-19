@@ -1,15 +1,16 @@
 ---
 title: "Hugo入门文档"
-date: 2021-11-01T15:39:00+08:00
-author: "张林"
+date: 2021-01-01T15:39:00+08:00
+author: "张小林"
 # weight从小到达排序，值越小越靠前
-weight: 1
+weight: 10
 tags:
   - devops
   - Hugo
 # 相关文章会通过keywords来匹配
 keywords:
   - Hugo
+  - mysql
 picture: /images/posts/hugoStart/hugo.jpg
 ---
 从0开始开发Hugo静态网站。

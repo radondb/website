@@ -1,7 +1,7 @@
 {{ define "header" }}
 <header class="project-header" style="background: top right / 100% no-repeat url('{{ .Params.header_image }}');">
   {{ partial "site-navigation.html" . }}
-  <h1>RadonDB <span>{{ .Params.short }}</span> on Kubernetes</h1>
+  <h1><span>{{ .Params.short }}</span></h1>
   <h2>{{ .Params.subtitle }}</h2>
   <h3 class="h-center">{{ .Params.description }}</h3>
   <div class="flex-row space-center">
@@ -56,7 +56,7 @@
     <img src="{{ .Params.architecture.picture }}" />
     <div class="content">
       <div class="flex-row">
-        <h2>RadonDB&nbsp;{{ .Params.short }}&nbsp;</h2>
+        <h2>&nbsp;{{ .Params.short }}&nbsp;</h2>
         <h1>架构</h1>
       </div>
       <ul>

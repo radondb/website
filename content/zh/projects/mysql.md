@@ -6,7 +6,7 @@ keywords:
   - mysql
 # 排序，从小到大
 weight: 1
-short: MySQL
+short: RadonDB MySQL Kubernetes
 subtitle: 基于 MySQL 的开源、高可用、云原生集群解决方案
 description: 支持一主多从高可用架构，并具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
 logo: /images/projects/mysql/mysql.svg

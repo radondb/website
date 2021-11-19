@@ -70,7 +70,7 @@ function filterPosts() {
     result = result.filter((r) => r.tags && r.tags.includes(tagFilter));
   }
   if (nameFilter) {
-    result = result.filter((r) => r.title.includes(nameFilter));
+    result = result.filter((r) => r.title.toLowerCase().includes(nameFilter.toLowerCase()) || r.contents.toLowerCase().includes(nameFilter.toLowerCase()));
   }
   allPage = Math.ceil(result.length / limit);
   return result;
