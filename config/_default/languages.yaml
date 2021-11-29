@@ -5,10 +5,10 @@ zh:
   weight: 10
   params:
     description: "一个面向云原生、容器化的数据库开源社区"
-    kubesphereVideoPoster: "/images/video.png"
-    kubesphereVideo: "https://yunify.anybox.qingcloud.com/f/4051816"
+    kubesphereVideoPoster: "/images/intro-poster.png"
+    kubesphereVideo: "https://dbg-files.pek3b.qingstor.com/radondb_website/video/RadonDB%20MySQL%20%E9%83%A8%E7%BD%B2%E6%93%8D%E4%BD%9C.mp4"
     # 关于我们页面中video的封面
-    aboutVideoPoster: "/images/intro-poster.png"
+    aboutVideoPoster: "/images/video.png"
     aboutVideo: "https://dbg-files.pek3b.qingstor.com/radondb_website/video/RadonDB%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D.mp4"
 
 en:

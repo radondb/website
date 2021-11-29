@@ -28,7 +28,7 @@
   <div class="blog-list">
     {{ $posts := slice "posts" }}
     {{ $p := where .Site.RegularPages "Section" "in" $posts }}
-    {{ range first 3 $p }}
+    {{ range first 4 $p }}
     <a class="blog-card" href="{{ .RelPermalink }}">
       <img class="picture" src="{{ .Params.picture }}" />
       <div class="content">
