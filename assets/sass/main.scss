@@ -78,6 +78,9 @@ video {
 * {
   box-sizing: border-box;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   line-height: 1.15;
@@ -188,6 +191,10 @@ input {
 
 .fl-bottom {
   align-items: flex-end;
+}
+
+.fl-wrap {
+  flex-wrap: wrap;
 }
 
 .space-between {
@@ -325,15 +332,21 @@ section {
   }
   p > img {
     margin-top: 20px;
-    width: 100%;
+    max-width: 100%;
   }
   h1 {
+    /* adjust position for id anchor */
+    padding-top: 60px;
+    margin-top: -60px;
     font-weight: 600;
     font-size: 20px;
     line-height: 28px;
     border-bottom: 1px solid #e9e9e9;
   }
   h2 {
+    /* adjust position for id anchor */
+    padding-top: 60px;
+    margin-top: -60px;
     font-weight: 600;
     font-size: 16px;
     line-height: 22px;

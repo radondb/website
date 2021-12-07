@@ -3,13 +3,13 @@ getPostCard = (params) => `<a class="post-card flex-row fl-center" href="${param
       <div class="content">
         <div class="title">${params.title}</div>
         <div class="info flex-row fl-center">
-          <div class="flex-row fl-center"><img src="/images/common/person.svg" /><span>${
+          <div class="flex-row fl-center"><img src="/images/common/person.svg" /><span style="word-break: keep-all">${
             params.author
           }</span></div>
           <div class="flex-row fl-center"><img src="/images/common/time.svg" /><span>${
             params.date
           }</span></div>
-          <div class="flex-row fl-center">
+          <div class="flex-row fl-center fl-wrap">
             ${
               params.tags
                 ? params.tags.map((tag) => `<div class="post-tag">${tag}</div>`).join('')
