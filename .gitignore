@@ -1,3 +1,4 @@
 /resources
 # misc
 .DS_Store
+.vs
