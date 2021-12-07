@@ -3,7 +3,7 @@
   {{ partial "site-navigation.html" . }}
   <h1>{{ .Title }}</h1>
   <form class="search h-center flex-row fl-center space-between" action="{{ .RelPermalink }}">
-    <input name="name" placeholder="搜索技术博客" autocomplete="off" />
+    <input id="tagInput" name="name" placeholder="搜索技术博客" autocomplete="off" />
     <img style="cursor: pointer;" src="/images/common/search.svg" onclick="document.querySelector('form').submit()"/>
   </form>
 </header>
