@@ -656,9 +656,10 @@ section {
 
       .picture {
         width: 320px;
-        height: 180px;
+        height: 138px;
         margin-left: 50px;
         border-radius: 10px;
+        object-fit: cover;
       }
     }
   }
