@@ -9,7 +9,7 @@ tags:
   - 源码
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
+  - mysql
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210811_%E5%B7%A5%E5%85%B7%20%7C%20%E4%BD%BF%E7%94%A8%20CLion%20%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95%20MySQL%208.0/0.png
 ---
 想阅读 MySQL 源码可以从哪些角度着手？先准备一个编译调式的环境吧！

@@ -9,6 +9,8 @@ tags:
   - 云原生
   - CIC
   - 开源
+keywords:
+  - mysql
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/cover/210907.jpg
 ---
 本文为 RadonDB 2021 Meetup 北京站的分享议题《RadonDB：新一代云数据库的实践与展望》的整理文稿，相关视频已投稿至 B 站社区账号 RadonDB 开源社区，欢迎关注~

@@ -11,7 +11,7 @@ tags:
   - ChaosBlade
 # 相关文章会通过keywords来匹配
 keywords:
-  - 测试
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210715_%E4%BA%91%E5%8E%9F%E7%94%9F%20%7C%20%E6%B7%B7%E6%B2%8C%E5%B7%A5%E7%A8%8B%E5%B7%A5%E5%85%B7%20ChaosBlade%20Operator%20%E5%85%A5%E9%97%A8%E7%AF%87/0.png
 ---
 快速了解面向云原生的混沌工具 ChaosBlade Operator 的部署和实验环境。

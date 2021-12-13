@@ -13,7 +13,7 @@ markup:
     startLevel: 1
 # 相关文章的配置
 related:
-  includeNewer: false
+  includeNewer: true
   indices:
   - name: keywords
     weight: 100

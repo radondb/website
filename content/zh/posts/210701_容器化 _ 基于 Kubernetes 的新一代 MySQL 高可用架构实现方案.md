@@ -13,8 +13,7 @@ tags:
   - 社区活动
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
-  - Xenon
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210701_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9F%BA%E4%BA%8E%20Kubernetes%20%E7%9A%84%E6%96%B0%E4%B8%80%E4%BB%A3%20MySQL%20%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/0.png
 ---
 本文是 MySQL 容器化的第三篇。主要介绍 MySQL 容器化 Helm 版本的设计思路。

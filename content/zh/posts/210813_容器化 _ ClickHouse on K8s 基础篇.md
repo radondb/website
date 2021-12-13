@@ -10,7 +10,7 @@ tags:
   - Kubernetes
 # 相关文章会通过keywords来匹配
 keywords:
-  - ClickHouse
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210813_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20ClickHouse%20on%20K8s%20%E5%9F%BA%E7%A1%80%E7%AF%87/0.png
 ---
 本文介绍了 Kubernetes 平台上部署和管理 RadonDB ClickHouse 集群方案，以及 Operator 和 Helm 的基本概念等内容。

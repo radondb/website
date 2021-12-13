@@ -10,7 +10,7 @@ tags:
   - Kubernetes
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/cover/210623.png
 ---
 如何将 RadonDB MySQL 集群部署在 Kubernetes 平台上，一些初始化操作及注意事项。

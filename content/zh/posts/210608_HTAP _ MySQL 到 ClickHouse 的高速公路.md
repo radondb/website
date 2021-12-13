@@ -10,8 +10,7 @@ tags:
   - 社区活动
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
-  - ClickHouse
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210608_HTAP%20%7C%20MySQL%20%E5%88%B0%20ClickHouse%20%E7%9A%84%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF/0.png
 ---
 本文将介绍 MateriaLizeMySQL 引擎是如何实现 MySQL 数据同步至 ClickHouse 的。

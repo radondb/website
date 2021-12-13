@@ -18,20 +18,23 @@ github_url: https://github.com/radondb/radondb-mysql-kubernetes
 # 特性
 features:
   - picture: /images/projects/mysql/feature-1.svg
-    title: 高可用
-    description: 无中心化自动选主，主从秒级切换，集群切换的数据强一致性
+    title: 数据强一致性
+    description: 基于 Paxos 协议，采用一主两备三节点架构, 自动脑裂保护处理。
   - picture: /images/projects/mysql/feature-2.svg
-    title: 集群管理
-    description: 无中心化自动选主，主从秒级切换，集群切换的数据强一致性
+    title: 服务高可用
+    description: 支持一主多从架构，多可用区主从部署，灵活满足各类可用性需求。
   - picture: /images/projects/mysql/feature-3.svg
-    title: 监控告警
-    description: 无中心化自动选主，主从秒级切换，集群切换的数据强一致性
+    title: 数据安全
+    description: 基于实时副本技术，私有网络100% 二层隔离，严密账户确保数据安全。
   - picture: /images/projects/mysql/feature-4.svg
-    title: 日志管理
-    description: 无中心化自动选主，主从秒级切换，集群切换的数据强一致性
+    title: 跨区容灾
+    description: 高可用版及金融版可实现多可用区主从部署，具有跨可用区容灾能力。
   - picture: /images/projects/mysql/feature-5.svg
-    title: 帐户管理
-    description: 无中心化自动选主，主从秒级切换，集群切换的数据强一致性
+    title: 自动运维
+    description: 可设置自动备份策略、监控告警策略、自动扩容策略。
+  - picture: /images/projects/mysql/feature-5.svg
+    title: 灵活易用
+    description: 通过控制台即可实现对数据库的监控、告警，让系统运维管理更高效便捷。  
 # 快速开始
 fast_start:
   helm:

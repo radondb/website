@@ -9,7 +9,7 @@ tags:
   - 源码
 # 相关文章会通过keywords来匹配
 keywords:
-  - PostgreSQL
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210930_%E6%BA%90%E7%A0%81%20%7C%20%E4%B8%BA%E9%87%91%E8%9E%8D%E5%9C%BA%E6%99%AF%E8%80%8C%E7%94%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9ANumeric/0.png
 ---
 数据类型 Numberic 的磁盘结构和内存计算结构源码分析。

@@ -10,8 +10,7 @@ tags:
   - XtraBackup
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
-  - Xenon
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210611_%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%20%7C%20XtraBackup%208.0%20%E6%95%B0%E6%8D%AE%E9%87%8D%E5%BB%BA%E9%81%BF%E5%9D%91%E4%BA%8B%E4%BB%B6%E5%A7%8B%E6%9C%AB/0.png
 ---
 Xenon 在使用 XtraBackup 8.0 重建数据过程中遇到的问题及定位分析。以及 XtraBackup 2.4 与 8.0 版本在执行流程上的异同。

@@ -13,8 +13,7 @@ tags:
   - 社区活动
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
-  - Xenon
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210617_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20MySQL%20on%20K8s%20%E5%BC%80%E6%BA%90%E5%BC%80%E6%94%BE%E7%9A%84%E9%AB%98%E5%8F%AF%E7%94%A8%E5%AE%B9%E5%99%A8%E7%BC%96%E6%8E%92%E6%96%B9%E6%A1%88/0.png
 ---
 围绕 MySQL 运维遇到的挑战和主流的解决方案来展开。结合当前火热的容器化技术，来分析为什么要去做 MySQL 容器化和 MySQL 容器化需要考虑的问题。

@@ -10,8 +10,7 @@ tags:
   - 高可用
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
-  - Xenon
+  - xenon
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210604_%E9%AB%98%E5%8F%AF%E7%94%A8%20%7C%20Xenon%EF%BC%9A%E5%90%8E%20MHA%20%E6%97%B6%E4%BB%A3%E7%9A%84%E9%80%89%E6%8B%A9/0.png
 ---
 开源 MySQL 高可用组件 Xenon 的简介及架构设计原理。

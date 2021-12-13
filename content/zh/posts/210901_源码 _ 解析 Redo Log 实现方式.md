@@ -9,7 +9,7 @@ tags:
   - 源码
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210901_%E6%BA%90%E7%A0%81%20%7C%20%E8%A7%A3%E6%9E%90%20Redo%20Log%20%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F/0.png
 ---
 基于 Redis 缓存设计思想，优化缓存业务代码。

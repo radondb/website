@@ -10,7 +10,7 @@ tags:
   - 架构
 # 相关文章会通过keywords来匹配
 keywords:
-  - ClickHouse
+  - mysql
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210923_%E8%AE%BE%E8%AE%A1%20%7C%20ClickHouse%20%E5%88%86%E5%B8%83%E5%BC%8F%E8%A1%A8%E5%AE%9E%E7%8E%B0%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5/0.png
 ---
 在多副本分布式 ClickHouse 中，分区表实现副本数据同步的两种方案。

@@ -11,7 +11,7 @@ tags:
   - 源码
 # 相关文章会通过keywords来匹配
 keywords:
-  - ClickHouse
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/211014_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20ClickHouse%20Operator%20%E5%8E%9F%E7%90%86%E8%A7%A3%E6%9E%90/0.png
 ---
 本篇将基于 Operator 基本概念和源码解析，深度解析 ClickHouse Operator 运行原理。

@@ -10,7 +10,7 @@ tags:
   - Kubernetes
 # 相关文章会通过keywords来匹配
 keywords:
-  - ClickHouse
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210816_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20ClickHouse%20on%20K8s%20%E9%83%A8%E7%BD%B2%E7%AF%87%E3%80%90%E5%BB%BA%E8%AE%AE%E6%94%B6%E8%97%8F%E3%80%91/0.png
 ---
 详细说明两种部署方式的实现步骤，集群管理中添加分片和硬盘扩容的操作。
