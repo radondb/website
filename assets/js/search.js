@@ -53,7 +53,7 @@ function selectTag() {
 function renderPosts(page) {
   var container = document.getElementById("post-list");
   container.innerHTML = filterPosts()
-    .slice((page - 1) * limit, page * limit - 1)
+    .slice((page - 1) * limit, page * limit)
     .map(getPostCard)
     .join("");
   container = null;

@@ -2,7 +2,7 @@ baseURL: "/"
 languageCode: "zh-cn"
 defaultContentLanguage: "zh"
 # 分页个数
-paginate: 7
+paginate: 10
 outputs:
   home: ["HTML", "JSON"]
 # 文章目录的配置
