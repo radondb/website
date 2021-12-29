@@ -11,13 +11,16 @@ tags:
   - ChaosBlade
 # 相关文章会通过keywords来匹配
 keywords:
-  - 测试
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210819_%E4%BA%91%E5%8E%9F%E7%94%9F%20%7C%20%E6%B7%B7%E6%B2%8C%E5%B7%A5%E7%A8%8B%E5%B7%A5%E5%85%B7%20ChaosBlade%20Operator%20Pod%20%E7%AF%87/0.png
 ---
 混沌工程工具 ChaosBlade Operator 系列第三篇，介绍五类 Pod 类测试场景。
 <!--more-->
->作者：丁源 RadonDB 测试负责人
->负责 RadonDB 云数据库、容器化数据库的质量性能测试，迭代验证。对包括云数据库以及容器化数据库性能和高可用方案有深入研究。 
+作者：丁源 RadonDB 测试负责人
+
+负责 RadonDB 云数据库、容器化数据库的质量性能测试，迭代验证。对包括云数据库以及容器化数据库性能和高可用方案有深入研究。 
+
+-------------------------
 
 继《混沌工程工具 ChaosBlade Opeator 系列》的 [入门篇](/posts/210715_云原生-_-混沌工程工具-chaosblade-operator-入门篇/) 和 [Node 篇](/posts/210805_云原生-_-混沌工程工具-chaosblade-operator-node-篇/) 之后。本期将针对 Pod 类资源的应用场景进行测试，测试场景包括：
 

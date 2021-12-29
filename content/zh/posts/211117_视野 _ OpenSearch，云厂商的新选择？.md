@@ -10,7 +10,7 @@ tags:
   - AWS
 # 相关文章会通过keywords来匹配
 keywords:
-  - Elasticsearch
+  - 
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/211117_%E8%A7%86%E9%87%8E%20%7C%20OpenSearch%EF%BC%8C%E4%BA%91%E5%8E%82%E5%95%86%E7%9A%84%E6%96%B0%E9%80%89%E6%8B%A9%EF%BC%9F/0.png
 ---
 Elastic 与 AWS 事件后，OpenSearch 是否可以作为 Elasticsearch 的替代方案。

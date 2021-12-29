@@ -10,8 +10,7 @@ tags:
   - XtraBackup
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
-  - Xenon
+  - mysql
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210611_%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%20%7C%20XtraBackup%208.0%20%E6%95%B0%E6%8D%AE%E9%87%8D%E5%BB%BA%E9%81%BF%E5%9D%91%E4%BA%8B%E4%BB%B6%E5%A7%8B%E6%9C%AB/0.png
 ---
 Xenon 在使用 XtraBackup 8.0 重建数据过程中遇到的问题及定位分析。以及 XtraBackup 2.4 与 8.0 版本在执行流程上的异同。
@@ -56,9 +55,8 @@ MySQL 8.0 + Group Replication + 持续写入数据期间执行重建后，`chang
 * 8.0 备份的实例中有非 InnoDB 表时，xtrabackup_binlog_info 文件记录的 GTID 信息是准确的，备份恢复后 `show master status` 显示的 GTID 也是准确的。
 #### 两个版本执行过程如下：
 
-|2.4|8.0|
-|:----|:----|
-|1. start backup <br>2. copy ibdata1 / copy .ibd file <br>3. excuted FTWRL <br>4. backup non-InnoDB tables and files <br>5. writing xtrabackup_binlog_info <br>6. executed FLUSH NO_WRITE_TO_BINLOG ENGINE LOGS <br>7. executed UNLOCK TABLES <br>8. copying ib_buffer_pool <br>9. completed OK! <br><br><br><br>|1. start backup <br>2. copy .ibd file <br>3. backup non-InnoDB tables and files <br>4. executed FLUSH NO_WRITE_TO_BINLOG BINARY LOGS <br>5. selecting LSN and binary log position from p_s.log_status <br>6. copy last binlog file <br>7. writing /mysql/backup/backup/binlog.index <br>8. writing xtrabackup_binlog_info <br>9. executing FLUSH NO_WRITE_TO_BINLOG ENGINE LOGS <br>10. copy ib_buffer_pool <br>11. completed OK!|
+![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210611_%E9%97%AE%E9%A2%98%E5%AE%9A%E4%BD%8D%20%7C%20XtraBackup%208.0%20%E6%95%B0%E6%8D%AE%E9%87%8D%E5%BB%BA%E9%81%BF%E5%9D%91%E4%BA%8B%E4%BB%B6%E5%A7%8B%E6%9C%AB/1.jpg)
+
 
 **注意：当存在非 InnoDB 表时，8.0 会执行 FTWRL。**
 
@@ -97,7 +95,7 @@ STORAGE_ENGINES: {"InnoDB": {"LSN": 20257208, "LSN_checkpoint": 20257208}}
 ```
 # 问题定位
 
-### 问题 1：MySQL 8.0 + Semi-Sync 重建
+## 问题 1：MySQL 8.0 + Semi-Sync 重建
 
 Xenon 原有的重建逻辑适配于 MySQL 5.6/5.7（重建过程中 Xenon 进程存活），一直无问题。
 
@@ -117,7 +115,7 @@ Xenon 原有的重建逻辑适配于 MySQL 5.6/5.7（重建过程中 Xenon 进�
 
 `Duplicate entry '28646' for key 't1.PRIMARY'` 表示主键冲突，说明表中已存在相同主键的行。跟踪重建过程中的 general log，发现在第 6 和第 7 步中间，也就是设置 gtid_purged 之前凭空多出了 `change master to` 和 `start slave` 操作。
 
-grneral log（部分）
+#### grneral log（部分）
 
 通过下面示例代码信息可看出，在设置 gtid_purged 之前已经启用复制获取了一部分数据，那么 xtrabackup_binlog_info 中的内容就不再准确，之后设置的 GTID 与实际数据就不一致，实际的数据比设置的 GTID 要多，会引起主键冲突。
 
@@ -165,13 +163,14 @@ STOP SLAVE
 CHANGE MASTER TO MASTER_HOST = '192.168.0.3', MASTER_USER = 'qc_repl', MASTER_PASSWORD = <secret>, MASTER_PORT = 3306, MASTER_AUTO_POSITION = 1
 START SLAVE 
 ```
-疑问 1
+
+### 疑问 1
 
 问：为什么之前 MySQL 5.6/5.7 从没遇到过这个问题呢？
 
 答：多次测试发现在 MySQL 5.6/5.7 中 `set gtid_purged` 前执行 `change master to & start slave` 会报复制错误 `Slave failed to initialize relay log info structure from the repository`，在 `reset slave all; reset master、set gtid_purged` 后再执行 `change master to & start slave` 就可以正常复制，数据无误。
 
-疑问 2
+### 疑问 2
 
 问：Xenon 中哪块逻辑引起的额外的 `change master to` 和 `start slave`？
 
@@ -181,7 +180,7 @@ START SLAVE
 
 * 去掉 LEARNER 对 MySQL 的监听，要等 raft 状态变为 FOLLOWER 后，由 FOLLOWER 的监听线程 `change master to` 到主节点。[5]
 * 对于 MySQL 8.0，重建后无需执行 reset master & set gtid_purged 操作。[6]
-### 问题 2：MySQL 8.0 + Group-Replication 重建后无法启动 MGR
+## 问题 2：MySQL 8.0 + Group-Replication 重建后无法启动 MGR
 
 根据报错信息 `Slave failed to initialize relay log info structure from the repository` 看，应该是 XtraBackup 重建后的数据目录保留了 slave 复制信息导致的。
 
@@ -193,7 +192,9 @@ START SLAVE
 
 * 使用 Xtrabackup 8.0 重建集群节点后，无需执行 `reset master` & `set gtid_purged` 操作；
 * 使用 Xtrabackup 8.0 重建 Group-Replication 集群节点后，启动组复制前要先执行 `reset slave` 或 `reset slave all` 清除 slave 信息，否则 `start group_replication` 会失败。
-### 备注参考
+
+
+# 参考引用
 
 [1]. Xenon : [https://github.com/radondb/xenon](https://github.com/radondb/xenon)
 

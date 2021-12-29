@@ -9,11 +9,12 @@ tags:
   - 源码
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210811_%E5%B7%A5%E5%85%B7%20%7C%20%E4%BD%BF%E7%94%A8%20CLion%20%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95%20MySQL%208.0/0.png
 ---
 想阅读 MySQL 源码可以从哪些角度着手？先准备一个编译调式的环境吧！
 <!--more-->
+--------------------
 
 MySQL 源代码是基于关系模型理论的具体实现，是数据库理论与实践的结合。
 
@@ -97,6 +98,7 @@ apt-get install bison
 ```
 **5. MySQL 编译**
 方法一：使用 CLion 直接编译
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210811_%E5%B7%A5%E5%85%B7%20%7C%20%E4%BD%BF%E7%94%A8%20CLion%20%E7%BC%96%E8%AF%91%E8%B0%83%E8%AF%95%20MySQL%208.0/2.png)
 
 方法二：手动编译
@@ -105,7 +107,7 @@ apt-get install bison
 cd /home/code/mysql-server-mysql-8.0.25/build
 make -j 4
 ```
->说明：由于 CLion 导入 MySQL 源代码时，会在   `/home/code/mysql-server-mysql-8.0.25/build` 下面生成 makefile，可以直接执行 make 命令。 
+说明：由于 CLion 导入 MySQL 源代码时，会在 `/home/code/mysql-server-mysql-8.0.25/build` 下面生成 makefile，可以直接执行 make 命令。 
 
 **6. MySQL 数据库初始化**
 
@@ -154,7 +156,7 @@ chmod -R 777 /home/code/mysql-server-mysql-8.0.25/build/data
 
 至此 MySQL 源代码调试环境正常运行，可在调试环境上执行相关操作。了解 MySQL 源代码运行机制、实现原理、配置参数作用等。
 
-## 参考
+# 参考引用
 
 [1]. mysql-server：[https://github.com/mysql/mysql-server/](https://github.com/mysql/mysql-server/)
 

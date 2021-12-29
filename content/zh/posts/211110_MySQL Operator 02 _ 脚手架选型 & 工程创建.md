@@ -13,7 +13,7 @@ tags:
   - 社区活动
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/211110_MySQL%20Operator%2002%20%7C%20%E8%84%9A%E6%89%8B%E6%9E%B6%E9%80%89%E5%9E%8B%20%26%20%E5%B7%A5%E7%A8%8B%E5%88%9B%E5%BB%BA/0.png
 ---
 系列文章第二篇，介绍了 Operator 脚手架选型和工程创建过程。

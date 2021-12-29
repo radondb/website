@@ -13,7 +13,7 @@ tags:
   - 社区活动
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
+  - mysql
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/211108_MySQL%20Operator%2001%20%7C%20%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%A6%82%E8%A7%88/0.jpg
 ---
 系列文章第一篇，介绍了编写 MySQL Operator 的架构概览和设计思路。

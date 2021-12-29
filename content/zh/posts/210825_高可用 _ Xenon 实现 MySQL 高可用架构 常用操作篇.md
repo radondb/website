@@ -1,5 +1,5 @@
 ---
-title: "高可用 | Xenon 实现 MySQL 高可用架构 部署篇"
+title: "高可用 | Xenon 实现 MySQL 高可用架构 常用操作篇"
 date: 2021-08-25T15:39:00+08:00
 author: "知数堂"
 # weight从小到达排序，值越小越靠前
@@ -10,9 +10,8 @@ tags:
   - 高可用
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
-  - Xenon
-picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210825_%E9%AB%98%E5%8F%AF%E7%94%A8%20%7C%20Xenon%20%E5%AE%9E%E7%8E%B0%20MySQL%20%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%20%E9%83%A8%E7%BD%B2%E7%AF%87/0.png
+  - xenon
+picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210903_%E9%AB%98%E5%8F%AF%E7%94%A8%20%7C%20Xenon%20%E5%AE%9E%E7%8E%B0%20MySQL%20%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%20%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C%E7%AF%87/0.png
 ---
 Xenon 实现 MySQL 高可用架构的部署操作。
 <!--more-->

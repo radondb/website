@@ -10,18 +10,20 @@ tags:
   - 社区活动
 # 相关文章会通过keywords来匹配
 keywords:
-  - MySQL
-  - ClickHouse
+
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210608_HTAP%20%7C%20MySQL%20%E5%88%B0%20ClickHouse%20%E7%9A%84%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF/0.png
 ---
 本文将介绍 MateriaLizeMySQL 引擎是如何实现 MySQL 数据同步至 ClickHouse 的。
+
 <!--more-->
 
 >作者：TCeason 青云科技数据库研发工程师 
 
+---------------------
+
 2000 年至今，MySQL[1] 一直是全球最受欢迎的 OLTP（联机事务处理）数据库，ClickHouse[2] 则是近年来受到高度关注的 OLAP（联机分析处理）数据库。那么二者之间是否会碰撞出什么火花呢？
 
-本文将带领大家 打破异构数据库壁垒，将 MySQL 数据同步至 ClickHouse。
+本文将带领大家 **打破异构数据库壁垒，将 MySQL 数据同步至 ClickHouse**。
 
 # 背景
 
@@ -31,11 +33,11 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210608_HTAP%2
 
 图 1-1 详细罗列了 MySQL 复制的发展历程。
 
-2001 年的 MySQL 3.23 版本就已经支持了同构数据库 **异步复制**；由于是异步复制，根本无法在实际生产中大批量使用。
+- 2001 年的 MySQL 3.23 版本就已经支持了同构数据库 **异步复制**；由于是异步复制，根本无法在实际生产中大批量使用。
 
-2013 年 MySQL 5.7.2 版本支持 **增强半同步复制** 能力，才勉强算得上是企业级可用的数据同步方案。
+- 2013 年 MySQL 5.7.2 版本支持 **增强半同步复制** 能力，才勉强算得上是企业级可用的数据同步方案。
 
-2016 年 MySQL 5.7.17 支持了 **MGR**，并不断地发展成熟，变成了一个金融级别可用的数据同步方案。
+- 2016 年 MySQL 5.7.17 支持了 **MGR**，并不断地发展成熟，变成了一个金融级别可用的数据同步方案。
 
 而对于同构的 MySQL 数据同步，接下来要做的就是不断地优化体验，提升同步时效性，解决网络异常下的各类问题。
 
@@ -45,7 +47,7 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210608_HTAP%2
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210608_HTAP%20%7C%20MySQL%20%E5%88%B0%20ClickHouse%20%E7%9A%84%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF/2.png)
 
-图 1-2 中的 Xenon 是由类 Raft 算法来实现的高可用组件，用来管理 MySQL 选举和探活，并订正数据准确性。MySQL 数据同步则依然使用 Semi-Sync Replication 或者 MGR，从而达到数据强一致性、无中心化自动选主且主从秒级切换，以及依托于云的跨区容灾能力。
+图 1-2 中的 Xenon 是由类 Raft 算法来实现的高可用组件，用来管理 MySQL 选举和探活，并订正数据准确性。MySQL 数据同步则依然使用 Semi-Sync Replication 或者 MGR，从而达到数据强一致性、无中心化自动选主且主从秒级切换，以及依托于云的跨区容灾能力。具体请参考 [《Xenon：后 MHA 时代的选择》](/posts/210604_高可用-_-xenon后-mha-时代的选择/)
 
 # ClickHouse 同步 MySQL 数据
 
@@ -55,7 +57,7 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210608_HTAP%2
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210608_HTAP%20%7C%20MySQL%20%E5%88%B0%20ClickHouse%20%E7%9A%84%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF/3.png)
 
-ClickHouse 是一个用于联机分析 (OLAP) 的列式数据库管理系统 (DBMS)。ClickHouse 构思于 2008 年，最初是为 YandexMetrica（世界第二大Web分析平台）而开发的。多年来一直作为该系统的核心组件被该系统持续使用着，并于 2016 年宣布开源。
+ClickHouse 是一个用于联机分析 (OLAP) 的列式数据库管理系统 (DBMS)。ClickHouse 构思于 2008 年，最初是为 YandexMetrica（世界第二大 Web 分析平台）而开发的。多年来一直作为该系统的核心组件被该系统持续使用着，并于 2016 年宣布开源。
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210608_HTAP%20%7C%20MySQL%20%E5%88%B0%20ClickHouse%20%E7%9A%84%E9%AB%98%E9%80%9F%E5%85%AC%E8%B7%AF/4.png)
 
@@ -116,12 +118,16 @@ MaterializeMySQL 引擎是由 QingCloud ClickHouse 团队自主研发的库引�
 CREATE DATABASE test ENGINE = MaterializeMySQL(
   '172.17.0.3:3306', 'demo', 'root', '123'
 )
-
-# 172.17.0.3:3306 - MySQL 地址和端口
-# demo - MySQL 库的名称
-# root - MySQL 同步账户
-# 123 - MySQL 同步账户的密码
 ```
+
+172.17.0.3:3306 - MySQL 地址和端口
+
+demo - MySQL 库的名称
+
+root - MySQL 同步账户
+
+123 - MySQL 同步账户的密码
+
 2、MaterializeMySQL 的设计思路
 * Check MySQL Vars
 * Select history data
@@ -237,6 +243,8 @@ while (!isCancelled())
 在之前的架构图中，使用 MySQL 只读实例来进行商务分析、用户画像等分析业务。而现在可以直接将 ClickHouse 作为一个分析实例加入到 MySQL 复制中，替代一部分只读实例进行分析计算。同时 ClickHouse 本身支持了海量函数来支持分析能力的同时还支持标准 SQL，相信可以让使用者享受到很好的体验。
 
 目前的 ClickHouse 可以支持同步 MySQL 5.7 和 8.0 的数据，不支持同步 MySQL 5.6 的数据。不过，作为一个实验特性， MaterializeMySQL 的时间线相当于是 2001 年刚刚支持复制的 MySQL。欢迎大家一起来贡献和维护 MaterializeMySQL。 
+
+# 参考引用
 
 [1]. MySQL :  [https://www.mysql.com/](https://www.mysql.com/)
 
