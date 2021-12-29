@@ -10,6 +10,7 @@ tags:
   - 高可用
 # 相关文章会通过keywords来匹配
 keywords:
+  - xenon
 
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210825_%E9%AB%98%E5%8F%AF%E7%94%A8%20%7C%20Xenon%20%E5%AE%9E%E7%8E%B0%20MySQL%20%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%20%E9%83%A8%E7%BD%B2%E7%AF%87/0.png
 ---
