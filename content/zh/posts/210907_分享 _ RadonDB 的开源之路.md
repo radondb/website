@@ -30,15 +30,14 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/cover/210907.jpg
 4. 未来展望
 5. Q&A 环节
 
-小程序
+**B 站视频链接**
+[https://www.bilibili.com/video/BV1Vq4y1Q7EH?share_source=copy_web](https://www.bilibili.com/video/BV1Vq4y1Q7EH?share_source=copy_web)
 
-接下来是正文部分
-
-# **开场白**
+# 开场白
 
 RadonDB 团队一直以 **拥抱开源、回馈开源** 为宗旨，不断摸索市场需求和用户痛点，持续探究数据库开源技术，将沉淀的经验回馈开源项目。历经七年时间，RadonDB 数据库平台的产品已被上千家企业使用。今天将为大家分享 RadonDB 团队这几年在开源领域探索的一些成果。
 
-# **RadonDB 概述**
+# RadonDB 概述
 
 RadonDB 原本是一款分布式关系型数据库，并于 2018 年开源。
 
@@ -61,9 +60,10 @@ RadonDB 原本是一款分布式关系型数据库，并于 2018 年开源。
 * 2019 ：分析型时序数据库 ChronusDB
 * 2020 ：MaterializeMySQL
 * 2021 ：数据库容器化
-# **核心技术实现**
 
-### **MySQL 高可用组件 Xenon**
+# 核心技术实现
+
+## MySQL 高可用组件 Xenon
 
 RadonDB 开源项目最早是从 MySQL 高可用组件开始做起的。当时 MySQL 用户数量较大，收到很多高可用需求，所以亟需设计实现一种高可用集群方案。
 
@@ -115,10 +115,9 @@ Leader 节点对外提供写服务，并定期向 Follower 发送心跳；如果
 Xenon 在企业生产环境中的节点数量已达到 1W+，很好的支撑了绝大多数用户的需求。但也存在数据量或业务压力比较大的场景，同时伴随国内分布式数据库火热趋势，团队着力开始探索如何通过分布式数据库方案来解决这些用户痛点。
 
 了解更多：
+[高可用 | Xenon：后 MHA 时代的选择](/posts/210604_高可用-_-xenon后-mha-时代的选择/)
 
-[高可用 | Xenon：后 MHA 时代的选择](http://mp.weixin.qq.com/s?__biz=MzkyODI0NTE0OA==&mid=2247483669&idx=1&sn=e553c1166a8b01aedfabbe60b165b401&chksm=c21af5e6f56d7cf0c1ff3c4811855a52dfba2d043a4388fa8a2bce89ac1ecee8fb0d7e80c5a1&scene=21#wechat_redirect)
-
-### **分布式数据库 RadonDB**
+## 分布式数据库 RadonDB
 
 单机数据库在数据量和业务压力较大时，常常不能满足用户业务需求。虽然可以通过一些办法扩展存储能力，但单机的计算能力最终会达到极限。不同场景下，客户也有特殊的需求，比如指定数据的分配位置等。而业务自开发的分片方案也容易存在无法满足分布式事务的问题。
 
@@ -138,7 +137,7 @@ RadonDB 架构在一些用户的生产环境上也“跑了”两年多，用户
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/news/210907_%E5%88%86%E4%BA%AB%20%7C%20RadonDB%20%E7%9A%84%E5%BC%80%E6%BA%90%E4%B9%8B%E8%B7%AF/12.jpg)
 
-图 2-8 RadonDB 层核心架构
+图 2-8 RadonDB 层核心架构
 
 感兴趣的同学可以到 Github 仓库，查看更多关于 Radon 的信息。
 
@@ -146,7 +145,7 @@ RadonDB 架构在一些用户的生产环境上也“跑了”两年多，用户
 
 图 2-9 分布式数据库 RadonDB
 
-### **MySQL HTAP 方案**
+## MySQL HTAP 方案
 
 在团队研发高可用组件和分布式数据库的同时，有些用户在使用 OLTP 的时候提出实时OLAP 的需求，针对这些需求我们做了MySQL HTAP 相关的调研。
 
@@ -194,7 +193,7 @@ MaterializeMySQL 引擎的核心机制，简单通俗地说，就是把 ClickHou
 
 HTAP 是目前数据库领域中最热门方案之一，但未来是云计算的时代！
 
-### **数据库容器化**
+## 数据库容器化
 
 云计算平台的地位就像如今的操作系统一样，这个底座就是 Kubernetes （即 K8s）。云计算跟数据库的碰撞产生了云原生数据库，孵化出了新的理念、技术和产品。那么，在云计算时代传统数据库也将迎来更多的挑战。
 
@@ -244,7 +243,7 @@ RadonDB MySQL Kubernetes 不断迭代演进的同时，RadonDB 团队还做了 P
 
 [容器化 | ClickHouse on K8s 基础篇](http://mp.weixin.qq.com/s?__biz=MzkyODI0NTE0OA==&mid=2247484291&idx=1&sn=d0c06d0e48141f09e29ac178395e3ae8&chksm=c21af770f56d7e6643d10373cec7509865f8b0296c9b37f1278d5f3fddff2da31d4a937b4652&scene=21#wechat_redirect)
 
-# **客户价值**
+## 客户价值
 
 目前 RadonDB 开源数据库系列产品已被 光大银行、浦发硅谷银行、哈密银行、泰康保险、太平保险、安盛保险、阳光保险、百年人寿、安吉物流、安畅物流、蓝月亮、天财商龙、罗克佳华、升哲科技、无锡汇跑体育、北京电信、江苏交通控股、四川航空、昆明航空、国控生物 等上千家企业及社区用户采用。
 
@@ -252,7 +251,7 @@ RadonDB MySQL Kubernetes 不断迭代演进的同时，RadonDB 团队还做了 P
 
 图 3-1 客户价值
 
-# **开源社区**
+# 开源社区
 
 RadonDB 团队于今年发起了 RadonDB开源社区 —— 一个面向云原生、容器化的数据库开源社区。通过 Slogan 可以看出，RadonDB 更侧重于未来概念，以区别传统的数据库社区。除了提供云原生、容器化相关内容，也会发布最新数据库的相关技术分享和各类社区活动。
 
@@ -260,8 +259,13 @@ RadonDB 团队于今年发起了 RadonDB开源社区 —— 一个面向云原�
 
 图 3-1 RadonDB开源社区
 
-# **未来展望**
+# 未来展望
 
 首先，计算存储分离是一个方向，友商已经做了很多尝试，RadonDB 团队在这方面也一直在做一些探索。其次，serverless 也是一个方向。因为 RadonDB 数据库产品丰富多样，自治与智能化管理，也是团队的一个探索方向。当然，还有大数据与数据融合。
 
 
+# Q&A 环节
+
+**问题：你们是用什么技术手段实现将有状态的数据库和容器融合，来克服这些挑战的？**
+
+这也是我们之前一直考虑的，K8s 这么火，为啥没有烧到数据库领域？K8s 是一个编排系统，最初的设计理念主要是服务于无状态服务。后来才到有状态的服务，甚至于数据库。数据库本身有状态，各种机制又比较复杂。目前看 K8s 有一统天下的意图，那它就必须要解决有状态服务的问题。这个过程中我们也和 KubeSphere 团队一起攻克技术难题。我们采用 Kubernetes Operator 相关技术结合 StatefulSet 解决了有状态服务问题，欢迎感兴趣的同学来我们的 Github 看一看。

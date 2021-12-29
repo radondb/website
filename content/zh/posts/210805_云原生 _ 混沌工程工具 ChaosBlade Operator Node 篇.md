@@ -5,7 +5,6 @@ author: "丁源"
 # weight从小到达排序，值越小越靠前
 weight: 10
 tags:
-  - 云原生
   - Kubernetes
   - KubeSphere
   - ChaosBlade
@@ -16,8 +15,12 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210805_%E4%BA
 ---
 接上期《[混沌工程工具 ChaosBlade Opeator 系列的入门篇](/posts/210715_云原生-_-混沌工程工具-chaosblade-operator-入门篇/)》，本期将使用 ChaosBlade Opeator 工具，针对 Node 类资源的应用场景进行测试。
 <!--more-->
->作者：丁源 RadonDB 测试负责人
->负责 RadonDB 云数据库、容器化数据库的质量性能测试，迭代验证。对包括云数据库以及容器化数据库性能和高可用方案有深入研究。 
+作者：丁源 RadonDB 测试负责人
+
+负责 RadonDB 云数据库、容器化数据库的质量性能测试，迭代验证。对包括云数据库以及容器化数据库性能和高可用方案有深入研究。 
+
+-----------------------
+
 
 测试场景包括：
 
@@ -36,11 +39,13 @@ RadonDB MySQL 部署说明请参见 在 KubeSphere 中部署 RadonDB MySQL 集�
 
 ## 环境参数
 
-|集群名称|主机类型|CPU|Memory|
-|:----|:----|:----|:----|
-|KubeSphere|高可用类型|8C|16G|
-|RadonDB MySQL|-|4C|16G|
-|测试环境部署完成后，即可从以下五个针对节点的场景做相应验证。|    |    |    |
+|集群名称|主机类型|CPU|Memory | Total Disk|Node Counts|Replicate counts|Shard counts|
+|:---:|:----:|:----:|:----:|:---:|:----:|:----:|:----:|
+|KubeSphere|高可用类型|8C|16G| 500GB | 4| -|-|
+|RadonDB MySQL|-|4C|16G|POD:50G DataDir:10G | 3| 2| 1|
+
+
+测试环境部署完成后，即可从以下五个针对节点的场景做相应验证
 
 # 1. CPU 负载场景
 
@@ -129,7 +134,6 @@ telnet 192.168.1.129 32436  0.01s user 0.00s system 0% cpu 3.248 total
 
 ```plain
 kubectl delete -f delay_node_network_by_names.yaml
-
 kubectl delete blade delay-node-network-by-names
 ```
 

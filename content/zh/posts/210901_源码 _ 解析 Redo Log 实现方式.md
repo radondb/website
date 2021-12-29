@@ -14,8 +14,13 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210901_%E6%BA
 ---
 基于 Redis 缓存设计思想，优化缓存业务代码。
 <!--more-->
->柯煜昌 顾问软件工程师
->目前从事 RadonDB 容器化研发，华中科技大学研究生毕业，有多年的数据库内核开发经验。 
+柯煜昌 顾问软件工程师
+
+目前从事 RadonDB 容器化研发，华中科技大学研究生毕业，有多年的数据库内核开发经验。 
+
+-------------------------
+
+
 # | 前言
 
 提及 Redo Log（重做日志）与 LSN（log sequece number）时，经常被问及以下问题：
@@ -59,7 +64,7 @@ Credit
 By Jeff Dean:               http://research.google.com/people/jeff/
 Originally by Peter Norvig: http://norvig.com/21-days.html#answers
 ```
-从总结内容可知：**内存的访问速度至少是 SSD 的 4 倍、磁盘顺序访问的 80 倍！** 磁盘、SSD 顺序读写明显要快于随机读写，而且磁盘、SSD 对频繁的小写均不友好。因此主流的数据库采用一次读写一个块，并且使用 **buffer/cache** 技术尽量减少读写次数。InnoDB 称这种读写块为**页**。
+从总结内容可知：**内存的访问速度至少是 SSD 的 4 倍、磁盘顺序访问的 80 倍！** 磁盘、SSD 顺序读写明显要快于随机读写，而且磁盘、SSD 对频繁的小写均不友好。因此主流的数据库采用一次读写一个块，并且使用 **buffer/cache** 技术尽量减少读写次数。InnoDB 称这种读写块为 **页**。
 ## 写放大怎么办？
 
 对于一次事务来说，写一行数据，对应页中一个记录。但是要实现事务的持久化，不光是要往磁盘中写数据页，还要写 Undo 页。这就是出现了修改一行，需要持久化多个页到磁盘中，因此性能的损失会比较大，这也就是通常所说的写放大问题。因此人们提出了先写日志 **WAL**(write ahead log) 的方式进行优化，即将 **页** 中修改的操作，转换为重做日志（Redo Log）。
@@ -95,7 +100,7 @@ checkpoint  是崩溃恢复过程中应用日志的起点。如果 checkpoint �
 Header 日志块是描述日志总体信息的块，虽然只有第一个日志文件有内容，但是 InnoDB 每个日志文件都有 Header 日志块。
 
 |宏|偏移|长度|含义|
-|:----|:----|:----|:----|
+|:----:|:----:|:----:|:----:|
 |LOG_HEADER_FORMAT|0|4|格式|
 |LOG_HEADER_PAD1|4|4|补齐长度，预留字段|
 |LOG_HEADER_START_LSN|8|8|起始 LSN，最初为固定值 4*k. <br>  如果发现有删除 Redo 文件的动作，则可能是系统表空间第一个页 page LSN 计算。|
@@ -109,7 +114,7 @@ Header 日志块是描述日志总体信息的块，虽然只有第一个日志�
 日志文件中记录检查点信息的日志块有两个，每个 checkpoint 日志块结构如下：
 
 |宏|偏移|长度|含义|
-|:----|:----|:----|:----|
+|:----:|:----:|:----:|:----:|
 |LOG_CHECKPOINT_NO|0|8|checkpoint 序号|
 |LOG_CHECKPOINT_LSN|8|16|checkpoint LSN|
 |LOG_CHECKPOINT_OFFSET|16|8|checkpoint 的文件偏移|
@@ -121,7 +126,7 @@ Header 日志块是描述日志总体信息的块，虽然只有第一个日志�
 记录日志记录信息的日志块，头 12 个字节与最后 4 个字节记录日志的描述信息，其他空间存储日志记录。日志块结构如下：
 
 |    |偏移|长度|含义|
-|:----|:----|:----|:----|
+|:----:|:----:|:----:|:----:|
 |LOG_BLOCK_HDR_NO|0|4|日志块的序号<br>最高比特位是 flushbit|
 |LOG_BLOCK_HDR_DATA_LEN|4|2|块内日志长度<br>包含头部信息与 checksum，最高位指示是否加密|
 |LOG_BLOCK_FIRST_REC_GROUP|6|2|第一条全新日志开始位置|
@@ -180,7 +185,9 @@ Header 日志块是描述日志总体信息的块，虽然只有第一个日志�
 ```plain
 size_capacity = log.n_files * (log.file_size - LOG_FILE_HDR_SIZE);
 ```
+
 日志的容量是文件个数乘以日志文件有效空间（文件大小减去四个 logblock）。
+
 ```plain
 if (lsn >= log.current_file_lsn) {
 delta = lsn - log.current_file_lsn;
@@ -191,24 +198,30 @@ delta = lsn - log.current_file_lsn;
  delta = size_capacity - delta % size_capacity;
 }
 ```
+
 在启动时,`current_file_lsn` 通常是 checkpoint LSN， `current_file_real_offset` 通常是 checkpoint offset。LSN 比 checkpoint LSN 大，所以`delta = lsn - log.current_file_lsn`表示 LSN 与 checkpoint LSN 的距离。这个距离可能会超过 size_capacity ，因此使用了取余操作。如果 LSN 比 checkpoint LSN 小呢？这说明 LSN 在 checkpoint LSN 前面。checkpoint LSN 是起点，也是终点。checkpoint LSN + size_capacity 的位置，也是checkpoint LSN 所在的位置。所以`delta = size_capacity - delta % size_capacity;` 与`- delta % size_capacity`是等效的，为避免 offset 计算出现负数的情况，可做如下处理：
+
 ```plain
 size_offset = log_files_size_offset(log, log.current_file_real_offset);
 size_offset = (size_offset + delta) % size_capacity;
 return (log_files_real_offset(log, size_offset));
 ```
+
 这个`log_files_size_offset`是将`current_file_real_offset` 转换成日志文件有效空间的偏移位置，计算公式为：
+
 ```plain
 current_file_real_offset - LOG_FILE_HDR_SIZE*(1 + current_file_real_offset/log.file_size)
 ```
+
 将 curren_file_real_offset 减掉文件头的 4 个 logblock 大小，无跨文件就减一次，跨几个文件就多减几次。再加上偏移值，转换成 `file_real_offset` 就得到了真实的位置。
+
 # | 总结
 
 本文介绍了 Redo Log 与各个日志块的基本结构，并通过示例说明了 Redo Log 的两个checkpoint 作用以及 LSN 如何与日志位置对应。
 
 Redo Log 是一个非常重要的组成部分，LSN 通常作为数据库中数据变更的逻辑时钟，与 Redo Log 密切不可分，弄清 Redo Log 的作用与机制，就能轻松理解 LSN、数据库持久化这些概念。
 
-## 参考
+# 参考引用
 
 [1]. [https://d-k-ivanov.github.io/docs/CheatSheets/Latency_Numbers/](https://d-k-ivanov.github.io/docs/CheatSheets/Latency_Numbers/) 
 

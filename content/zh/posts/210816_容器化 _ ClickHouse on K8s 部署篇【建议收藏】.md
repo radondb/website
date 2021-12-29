@@ -15,12 +15,15 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210816_%E5%AE
 ---
 详细说明两种部署方式的实现步骤，集群管理中添加分片和硬盘扩容的操作。
 <!--more-->
->作者：苏厚镇    青云科技数据库研发工程师
->目前从事 RadonDB ClickHouse 相关工作，热衷于研究数据库内核。 
+作者：苏厚镇    青云科技数据库研发工程师
+
+目前从事 RadonDB ClickHouse 相关工作，热衷于研究数据库内核。 
+
+-----------------------
 
 延续上篇《[容器化 ClickHouse on K8s 基本概念解析篇](/posts/210813_容器化-_-clickhouse-on-k8s-基础篇/)》，可以了解到 Operator 提供简便管理 ClickHouse 集群功能，Helm 提供便捷部署集群功能。
 
-本篇将以部署 RadonDB ClickHouse[1] 作为示例。在同样选用 Operator 的条件下，比较Kubectl 和 Helm 两种方式在 K8s 上部署 ClickHouse 集群的便捷性。并简要介绍如何在 K8s 上通过 Operator 轻便快速地管理 ClickHouse 集群。
+本篇将以部署 RadonDB ClickHouse[1] 作为示例。在同样选用 Operator 的条件下，比较 Kubectl 和 Helm 两种方式在 K8s 上部署 ClickHouse 集群的便捷性。并简要介绍如何在 K8s 上通过 Operator 轻便快速地管理 ClickHouse 集群。
 
 # | 使用 Kubectl + Operator 部署
 
@@ -235,7 +238,7 @@ data-chi-clickhouse-cluster-all-nodes-1-1-0   Bound    pv6      20Gi       RWO
 
 至此，我们便了解到在 Kubernetes 平台上部署 RadonDB ClickHouse 集群的两种方法，以及 Operator 管理 ClickHouse 集群的基本操作。
 
-# 参考
+# 参考引用
 
 [1]. RadonDB ClickHouse：[https://github.com/radondb/radondb-clickhouse-kubernetes](https://github.com/radondb/radondb-clickhouse-kubernetes) 
 

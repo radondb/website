@@ -15,8 +15,11 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210813_%E5%AE
 ---
 本文介绍了 Kubernetes 平台上部署和管理 RadonDB ClickHouse 集群方案，以及 Operator 和 Helm 的基本概念等内容。
 <!--more-->
->作者：苏厚镇    青云科技数据库研发工程师
->目前从事 RadonDB ClickHouse 相关工作，热衷于研究数据库内核。 
+作者：苏厚镇    青云科技数据库研发工程师
+
+目前从事 RadonDB ClickHouse 相关工作，热衷于研究数据库内核。 
+
+--------------------
 
 **ClickHouse**[1] 是一款用于联机分析（OLAP）的列式数据库管理系统（DBMS）。由号称“俄罗斯 Google”的 Yandex 公司开发，并于 2016 年开源，近年在计算引擎技术领域受到越来越多的关注，算是数据库后起之秀。
 
@@ -72,7 +75,7 @@ RadonDB ClickHouse[5] 是由 RadonDB 研发团队研发并开源的，基于原�
 
 本文介绍了 Kubernetes 平台上搭建 ClickHouse 集群的几种方案，以及 Operator 和 Helm 的基本概念等内容。
 
-# 参考
+# 参考引用
 
 [1]. ClickHouse：[https://clickhouse.tech/](https://clickhouse.tech/)
 

@@ -18,6 +18,7 @@ Xenon 实现 MySQL 高可用架构的部署操作。
 在《[高可用 | Xenon：后 MHA 时代的选择](/posts/210604_高可用-_-xenon后-mha-时代的选择/)》一文中，我们对 Xenon 的实现原理、应用场景等做了简要介绍。文章发布后，社区小伙伴都在咨询 ***Xenon 如何与 MySQL 配合使用？***
 
 本文来自知数堂投稿，是一篇基于 Xenon 架构原理，部署 **一主两从** 架构的 MySQL 高可用集群的实操文档。
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210825_%E9%AB%98%E5%8F%AF%E7%94%A8%20%7C%20Xenon%20%E5%AE%9E%E7%8E%B0%20MySQL%20%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%20%E9%83%A8%E7%BD%B2%E7%AF%87/1.png)
 
 Xenon 架构图 

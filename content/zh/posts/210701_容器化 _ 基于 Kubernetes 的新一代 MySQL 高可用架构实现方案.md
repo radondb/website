@@ -18,10 +18,12 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210701_%E5%AE
 ---
 本文是 MySQL 容器化的第三篇。主要介绍 MySQL 容器化 Helm 版本的设计思路。
 <!--more-->
->作者：高日耀 资深 MySQL 内核研发
->本文源于作者在 KubeSphere & Friends 2021 杭州站 的演讲内容《基于 Kubernetes 的新一代 MySQL 高可用架构实现方案》。 
 
-本文是 MySQL 容器化系列的第三篇文章，主要介绍 MySQL 容器化 Helm 版本[1]  的设计思路。
+作者：高日耀 资深 MySQL 内核研发
+
+-------------------
+
+本文是 MySQL 容器化系列的第三篇文章，源于作者在 KubeSphere & Friends 2021 杭州站 的演讲内容《基于 Kubernetes 的新一代 MySQL 高可用架构实现方案》。 主要介绍 MySQL 容器化 Helm 版本[1]  的设计思路。
 
 # Dockerfile 简介
 
@@ -69,10 +71,9 @@ Xenon `Dockerfile` 命令示例如下：
 
 其中，`_helpers.tpl` 常需引用 `Chart.yaml` 和 `values.yaml` 中定义的变量，继而实现如下能力：
 
->生成 app 名字：helm install release <版本名，如 emo> <项目名，如radondb-mysql>
->生成 `serviceAccountName` 名字。
->生成 chart  名字和版本。
-> 
+- 生成 app 名字：helm install release <版本名，如 emo> <项目名，如radondb-mysql>
+- 生成 `serviceAccountName` 名字。
+- 生成 chart  名字和版本。
 
 通过命令 `helm get all demo`，可查看 demo 中所有信息。查看 service 部分 name 示例如下:
 
@@ -123,7 +124,7 @@ configmap.yaml 功能
 
 # 如何实现读写分离？
 
-RadonDB MySQL 读写分离，通过 Headless service for stable DNS [3] 来实现。
+RadonDB MySQL 读写分离，通过 Headless service for stable DNS[3] 来实现。
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210701_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9F%BA%E4%BA%8E%20Kubernetes%20%E7%9A%84%E6%96%B0%E4%B8%80%E4%BB%A3%20MySQL%20%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/11.png)
 
@@ -186,6 +187,7 @@ leader 降级为 follower，原来另外两个从节点进入候选者状态：
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210701_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9F%BA%E4%BA%8E%20Kubernetes%20%E7%9A%84%E6%96%B0%E4%B8%80%E4%BB%A3%20MySQL%20%E9%AB%98%E5%8F%AF%E7%94%A8%E6%9E%B6%E6%9E%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88/23.png)
 
+# 参考引用
 [1]. RadonDB MySQL Kubernetes：[https://github.com/radondb/radondb-mysql-kubernetes](https://github.com/radondb/radondb-mysql-kubernetes)
 
 [2]. KubeSphere：[https://kubesphere.com.cn](https://kubesphere.com.cn)
