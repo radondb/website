@@ -53,5 +53,3 @@ architecture:
 ### Title
 
 some content
-
-

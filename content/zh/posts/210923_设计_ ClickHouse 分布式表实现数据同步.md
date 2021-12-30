@@ -15,8 +15,11 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210923_%E8%AE
 ---
 在多副本分布式 ClickHouse 中，分区表实现副本数据同步的两种方案。
 <!--more-->
->作者：吴帆  青云数据库团队成员
->主要负责维护 MySQL 及 ClickHouse 产品开发，擅长故障分析，性能优化。 
+作者：吴帆  青云数据库团队成员
+
+主要负责维护 MySQL 及 ClickHouse 产品开发，擅长故障分析，性能优化。 
+
+-----------------
 
 在多副本分布式 ClickHouse 集群中，通常需要使用 Distributed 表写入或读取数据，Distributed 表引擎自身不存储任何数据，它能够作为分布式表的一层透明代理，在集群内部自动开展数据的写入、分发、查询、路由等工作。
 
@@ -24,7 +27,8 @@ Distributed 表实现副本数据同步有两种方案：
 
 1. Distributed + MergeTree
 2. Distributed + ReplicateMergeTree
-# | Distributed + MergeTree
+
+# Distributed + MergeTree
 
 在使用这种方案时 internal_replication  需要设为 false，向 Distributed 表写入数据，Distributed 表会将数据写入集群内的每个副本。Distributed 节点需要负责所有分片和副本的数据写入工作。
 
@@ -115,7 +119,7 @@ Query id: 636f7580-02e0-4279-bc9b-1f153c0473dc
 
 Distributed 需要同时负责分片和副本的数据写入工作，单点写入很有可能会成为系统性能的瓶颈，所有有接下来的第二种方案。
 
-# | Distributed + ReplicateMergeTree
+# Distributed + ReplicateMergeTree
 
 在使用这种方案时 internal_replication 需要设为 true，向 Distributed 表写入数据。Distributed 表在每个分片中选择一个合适的副本并对其写入数据。
 

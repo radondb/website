@@ -16,18 +16,21 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/211014_%E5%AE
 ---
 本篇将基于 Operator 基本概念和源码解析，深度解析 ClickHouse Operator 运行原理。
 <!--more-->
->作者：苏厚镇 青云科技数据库研究工程师
->从事 RadonDB ClickHouse 相关工作，热衷于研究数据库内核。 
+作者：苏厚镇 青云科技数据库研究工程师
 
-通过《ClickHouse on K8s 部署篇》，对比了 RadonDB ClickHouse 集群在 Kubernetes 中部署的几种方案，表明使用 Operator 进行部署和管理是最方便快捷的。
+从事 RadonDB ClickHouse 相关工作，热衷于研究数据库内核。 
+
+-------------------------------
+
+通过[《ClickHouse on K8s 部署篇》](/posts/210816_容器化-_-clickhouse-on-k8s-部署篇建议收藏/)，对比了 RadonDB ClickHouse 集群在 Kubernetes 中部署的几种方案，表明使用 Operator 进行部署和管理是最方便快捷的。
 
 那么到底什么才是 Operator，Operator 又是如何与 Kubernetes 进行协同工作的，Operator 的代码逻辑又是怎样的？本篇将基于 Operator 基本概念和源代码解析，深度解析 ClickHouse Operator 运行原理。
 
 # 什么是 Operator？
 
-在 Kubernetes 官方文档[[1]](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)中，对 Operator 的定义如下：
+在 Kubernetes 官方文档[[1]](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/) 中，对 Operator 的定义如下：
 
->Operators are software extensions to Kubernetes that make use of custom resources to manage applications and their components. Operators follow Kubernetes principles, notably the control loop. 
+*Operators are software extensions to Kubernetes that make use of custom resources to manage applications and their components. Operators follow Kubernetes principles, notably the control loop.*
 
 **简单来说：Operator = 定制资源 + 控制器。**
 
@@ -261,6 +264,7 @@ func (w *worker) reconcile(chi *chop.ClickHouseInstallation) error {
 
 至此，便揭开了 Operator 的神秘面纱。如果对 Operator 有更多兴趣，欢迎到 Github 代码库查看更多细节。
 
+# 参考引用
 [1]. Kubernetes 官方文档 :  [https://kubernetes.io/docs/concepts/extend-kubernetes/operator/](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/)
 
 [2]. RadonDB ClickHouse Kubernetes :  [https://github.com/radondb/radondb-clickhouse-operator/tree/chronus](https://github.com/radondb/radondb-clickhouse-operator/tree/chronus)

@@ -14,8 +14,12 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210930_%E6%BA
 ---
 数据类型 Numberic 的磁盘结构和内存计算结构源码分析。
 <!--more-->
->高日耀   资深数据库内核研发
->毕业于华中科技大学，喜欢研究主流数据库架构和源码，并长期从事分布式数据库内核研发。曾参与分布式 MPP 数据库 CirroData 内核开发（东方国信），现主要负责  MySQL 系列产品内核开发（青云科技）。 
+
+高日耀   资深数据库内核研发
+
+毕业于华中科技大学，喜欢研究主流数据库架构和源码，并长期从事分布式数据库内核研发。曾参与分布式 MPP 数据库 CirroData 内核开发（东方国信），现主要负责  MySQL 系列产品内核开发（青云科技）。 
+
+--------------------
 
 笔者曾做过数据库 Data Type 相关的设计和从 0 到 1 的源码实现，对 Numeric（与 Decimal 等价，都是标准 SQL 的一部分）,  Datetime, Timestamp, varchar … 等数据类型的设计、源码实现及在内存中计算原理有比较深的理解。
 
@@ -25,13 +29,13 @@ c 源码 ：[https://github.com/postgres/postgres/blob/master/src/backend/utils/
 
 头文件：[https://github.com/postgres/postgres/blob/master/src/include/utils/numeric.h](https://github.com/postgres/postgres/blob/master/src/include/utils/numeric.h)
 
-# | 精度的要求
+# 精度的要求
 
 在编程的过程中，大家可能对内置的 4 字节 float 和 8 字节 doulbe 类型比较熟悉，进行加减乘除运算。虽然浮点数是通过科学计数法来存储，但在二进制和十进制互相转换机制中，对一部分二进制数，其精度是有缺失的。
 
 对于类似金融场景，动辄存储巨大的数值，以及对数据精度的高要求，哪怕再小的精度损失都是不可接受的。市面上各式各样的数据库基本都包含 Numeric 类型，通过字符串来精确存储每一位数，做到浮点数都做不到的精确计算。
 
-# | Numeric 语法简介
+# Numeric 语法简介
 
 NUMERIC(precision, scale)
 
@@ -53,14 +57,14 @@ NUMERIC(precision, scale)
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/210930_%E6%BA%90%E7%A0%81%20%7C%20%E4%B8%BA%E9%87%91%E8%9E%8D%E5%9C%BA%E6%99%AF%E8%80%8C%E7%94%9F%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%EF%BC%9ANumeric/1.png)
 
-# | Numeric 特殊值
+# Numeric 特殊值
 
 除了正常的数值之外，numeric 还支持特殊的值：NaN（ meaning "not-a-number"）。当要将其当做常量用于 SQL 中时，需要打上引号，例如：
 
 ```plain
 UPDATE table SET x = 'NaN'
 ```
-# | SQL 中 Numeric 数据流向
+# SQL 中 Numeric 数据流向
 
 我们知道，一条 SQL 在数据库中的执行流程大致为：
 
@@ -79,7 +83,7 @@ VALUES ('Phone',500.215),
 以上述示例两条 SQL 为例，先建一张 test 表，并插入数据。这里我们关注写入的 Numeric 数字在内存中是如何表示，定义的 NUMERIC(5,2) 对应的数据结构在内存中如何表示。写入的数据在落入磁盘之后，其存储结构又是什么样的。 
 这里，数据在内存中的存储结构和落盘时的存储结构是不一样的，最终落盘时需要去掉内存中所占用的无效字节的。比如，varchar(100)，假如在内存中分配 100 个字节，而实际只写入 “abc” 三个字节，那么它所分配的内存是 100 个字节，而落盘时没有用到的 97 个字节是要去掉的，最后3个字节写入磁盘时，还要做数据压缩。大家可以设想一下，如果内存中的存储结构不做任何处理直接写入到磁盘，如果数据量非常大，那会多浪费磁盘空间！
 
-# | Numeric 磁盘存储结构解析
+# Numeric 磁盘存储结构解析
 
 结构体 NumericData 是最终落到磁盘上的结构，如下，可以看到 NumericData 包含了 NumericLong 和 NumericShort 的 union 字段：
 
@@ -178,8 +182,8 @@ struct NumericData
         union NumericChoice choice; /* choice of format */
 };
 ```
-***int32  vl_len_*** ：用来保存动态数组的长度，这个数组是 NumericLong 或者 NumericShort 结构体中定义的动态数组。
-# | Numeric 内存计算结构解析
+***int32  vl_len\_*** ：用来保存动态数组的长度，这个数组是 NumericLong 或者 NumericShort 结构体中定义的动态数组。
+# Numeric 内存计算结构解析
 
 ```plain
 typedef struct NumericVar
