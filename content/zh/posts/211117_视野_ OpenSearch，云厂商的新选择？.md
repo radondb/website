@@ -15,9 +15,13 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/211117_%E8%A7
 ---
 Elastic 与 AWS 事件后，OpenSearch 是否可以作为 Elasticsearch 的替代方案。
 <!--more-->
->王奇 顾问软件工程师
->目前从事 PaaS 中间件服务（Redis / MongoDB / ELK 等）开发工作，对 NoSQL 数据库有深入的研究以及丰富的二次开发经验，热衷对 NoSQL 数据库领域内的最新技术动态的学习，能够把握行业技术发展趋势。 
-# | 最流行的全文搜索引擎
+王奇 顾问软件工程师
+
+目前从事 PaaS 中间件服务（Redis / MongoDB / ELK 等）开发工作，对 NoSQL 数据库有深入的研究以及丰富的二次开发经验，热衷对 NoSQL 数据库领域内的最新技术动态的学习，能够把握行业技术发展趋势。 
+
+----------------------------
+
+# 最流行的全文搜索引擎
 
 Elasticsearch 是一款广泛使用的开源分布式全文搜索引擎，源于 Apache Lucene[1]，许可证为 Apache 2.0。由于出色的搜索引擎、高扩展性和丰富的统计分析能力，深受用户喜爱。
 
@@ -34,7 +38,7 @@ Elasticsearch 是一款广泛使用的开源分布式全文搜索引擎，源于
 
 Search Engine 流行趋势
 
-# | Elastic 与 AWS 事件
+# Elastic 与 AWS 事件
 
 Elastic 成立于 2012 年，是很多来自硅谷的开源软件独角兽公司之一。Elasticsearch 的成功离不开 Elastic 公司的成功运营。随着云计算技术的不断发展壮大，以 AWS 为首的云厂商 **SaaS 模式** 趋于火热，越来越多的用户愿意接受 SaaS 模式。部分云厂商将开源产品以服务的方式发布并盈利，但并未回馈开源。
 
@@ -94,7 +98,7 @@ Elastic公司决定修改开源协议，并不会对个人用户使用造成影�
 
 目前为止，与 Elastic 达成合作的云服务供应商：Microsoft、Google、阿里巴巴、腾讯、Clever Cloud 等。
 
-# | 新的选择？
+# 新的选择？
 
 OpenSearch 是一个社区驱动的开源搜索和分析套件，源自 Apache 2.0 许可的 Elasticsearch 7.10.2 和 Kibana 7.10.2。它由一个搜索引擎守护进程 OpenSearch 和一个可视化和用户界面 OpenSearch Dashboards 组成。OpenSearch 使人们能够轻松摄取、保护、搜索、聚合、查看和分析数据。
 
@@ -141,13 +145,15 @@ OpenSearch 官网
 * 什么是 OpenSearch 项目？
 * 为什么 OpenSearch 项目 fork 是从 Elasticsearch 和 Kibana 创建的？
 * Amazon OpenSearch Service 是否具有 Elasticsearch 中没有的任何功能？
-# | 展望
+# 展望
 
 在云厂商们各自的生态环境下，开发者将采用不同的模式来完成产品的迭代，从不同的产品视角来满足不同的用户需求。
 
 可预见在未来很长一段时间里， Elasticsearch 仍然会继续引领潮流，占据该领域的霸主地位。而 OpenSearch 依托于 AWS ，相信也会成为一个优秀的搜索引擎解决方案。
 
 许可协议限制了在云厂商的使用，开源则提供了更多的可能。当云厂商无法使用 Elasticsearch 后续版本的时候，或许可以考虑 OpenSearch。
+
+# 参考引用
 
 [1]. Apache Lucene：[http://lucene.apache.org](http://lucene.apache.org)
 
@@ -156,5 +162,3 @@ OpenSearch 官网
 [3]. OpenSearch：[https://opensearch.org](https://opensearch.org)
 
 [4]. What is opensearch: [https://www.elastic.co/what-is/opensearch](https://www.elastic.co/what-is/opensearch)
-
-### 
