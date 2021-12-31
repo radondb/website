@@ -12,7 +12,7 @@ keywords:
 
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/211201_%E5%B7%A5%E5%85%B7%20%7C%20PG%20%E9%9B%86%E7%BE%A4%E5%A4%8D%E5%88%B6%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7%20repmgr/0.png
 ---
-本文将带大家了解 pg_recovery 工具的实现原理、设计思路，并带来源码解读。
+repmgr 是一套开源工具，用于管理 PostgreSQL 服务器集群内的复制和故障转移。repmgr 支持并增强了 PostgreSQL 的内置流复制，它提供了一个单一的读/写主服务器和一个或多个只读备用服务器。
 <!--more-->
 作者：颜博 青云科技数据库研发工程师
 

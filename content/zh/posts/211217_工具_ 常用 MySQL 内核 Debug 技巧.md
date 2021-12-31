@@ -1,6 +1,6 @@
 ---
-title: "高可用 | repmgr 构建 PostgreSQL 高可用集群部署文档【建议收藏】"
-date: 2021-12-03T15:39:00+08:00
+title: "工具 | 常用 MySQL 内核 Debug 技巧"
+date: 2021-12-17T15:39:00+08:00
 author: "柯煜昌"
 # weight从小到达排序，值越小越靠前
 weight: 10
@@ -28,7 +28,8 @@ picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/211217_%E5%B7
 * 如何准备 MySQL 调试环境
 * GDB 调试入门及操作示例
 * Trace 文件调试及操作示例
-# | 一、准备 Debug 环境
+
+# 一、准备 Debug 环境
 
 首先用源码编译安装一个用来调试的 MySQL 环境。
 
@@ -59,9 +60,9 @@ $ mysql> select version();
 +--------------+
 1 row in set (0.00 sec)
 ```
-# | 二、使用 GDB 调试
+# 二、使用 GDB 调试
 
->GDB 全称 “GNU symbolic debugger”，是 Linux 下常用的程序调试器，通常以 gdb 命令的形式在终端（Shell）中使用。 
+GDB 全称 “GNU symbolic debugger”，是 Linux 下常用的程序调试器，通常以 gdb 命令的形式在终端（Shell）中使用。 
 ## 启动 GDB 编译器
 
 执行如下命令启动 GDB 编译器（假设 `my.cnf` 在用户根目录中）。进入 GDB  后，敲入 run 即可运行。
@@ -70,7 +71,7 @@ $ mysql> select version();
 gdb --args ./bin/mysqld --defaults-file=～/my.cnf --gdb
 ```
 其中 --gdb 参数允许你随时 Ctrl+C 的方式中断 mysqld 进程，进行调试命令。
-### GDB 常用命令
+## GDB 常用命令
 
 使用多窗口查看源码与调试的读者，可以使用 `layout` 命令，在 gdb 中执行 `help layout` 可以查看更多 gdb 命令用法。
 
@@ -92,11 +93,11 @@ Layout names are:
 (gdb)
 ```
 可以通过 **GDB cheat sheet**[1]，了解更多 GDB 使用方式。
-### Debug 示例
+## Debug 示例
 
 安装好 Debug 环境后，我们用以下两个例子，来简单演示使用思路及技巧。
 
-#### 1、取变量值
+### 1、取变量值
 
 在某种情况下发现 **mysqld** 已经 **crash**，系统只有一个 core 文件，而我们要知道某个系统变量的值。但是系统变量的值，不见得与 `my.cnf` 文件一致。
 
@@ -113,7 +114,7 @@ $1 = {flags = 68101, name = 0x55555e7ff738 "innodb_version", comment = 0x55555ca
   value = 0x55555def1c20 <innodb_version_str>, def_val = 0x55555ca89598 "8.0.18"}
 (gdb)
 ```
-#### 2、调试脚本
+### 2、调试脚本
 
 假设需获取某一个连接进入 `dispatch_command` 有哪些 `command` ，可以执行 gdb 脚本[2] 获取。
 
@@ -144,7 +145,7 @@ Thread 49 "mysqld" hit Breakpoint 3, dispatch_command (thd=0x7fff4c000f70, com_d
 1581                          enum enum_server_command command) {
 $4 = COM_QUERY
 ```
-# | 三、使用 Trace 文件调试
+# 三、使用 Trace 文件调试
 
 MySQL 的 debug 版提供了一个专门的 DBUG 包[3]。通过这个 DBUG 包，可获取正在执行操作程序的 Trace 文件。
 
@@ -187,11 +188,11 @@ net_send_ok: info: affected_rows: 0  id: 0  status: 2  warning_count: 0
 net_send_ok: info: OK sent, so no more error sending allowed
 ```
 本文使用几个简单的示例，演示了 MySQL 内核的 Debug 的几种常见方法。当然，仅仅起到抛砖引玉的作用，更多好玩的技巧，还需读者自行深度挖掘。
-#### 参考
+# 参考引用
 
 [1]:  GDB cheat sheet：[https://gist.github.com/rkubik/b96c23bd8ed58333de37f2b8cd052c30](https://gist.github.com/rkubik/b96c23bd8ed58333de37f2b8cd052c30)
 
 [2]:  GDB 脚本调试：[https://sourceware.org/gdb/current/onlinedocs/gdb/Commands.html#Commands](https://sourceware.org/gdb/current/onlinedocs/gdb/Commands.html#Commands)
 
-[3]:  DBUG Package[：[https://dev.mysql.com/doc/refman/8.0/en/dbug-package.html](https://dev.mysql.com/doc/refman/8.0/en/dbug-package.html) 
+[3]:  DBUG Package：[https://dev.mysql.com/doc/refman/8.0/en/dbug-package.html](https://dev.mysql.com/doc/refman/8.0/en/dbug-package.html) 
 
