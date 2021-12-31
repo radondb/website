@@ -1,7 +1,7 @@
 getPostCard = (params) => `<a class="post-card flex-row fl-center" href="${params.permalink}">
       <img class="picture" src="${params.img || "/images/intro-poster.png"}" />
       <div class="content">
-        <div class="title">${params.title}</div>
+        <div class="title"><span class="text-ellip">${params.title}</span></div>
         <div class="info flex-row fl-center">
           <div class="flex-row fl-center"><img src="/images/common/person.svg" /><span style="word-break: keep-all">${
             params.author
@@ -17,7 +17,7 @@ getPostCard = (params) => `<a class="post-card flex-row fl-center" href="${param
             }
           </div>
         </div>
-        <div class="text-ellip-2 summary">${params.contents}</div>
+        <div class="text-ellip-2 summary">${params.summary}</div>
       </div>
       <button class="btn"></button>
     </a>

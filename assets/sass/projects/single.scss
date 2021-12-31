@@ -2,6 +2,7 @@
   height: 500px;
   color: #ffffff;
   text-align: center;
+  background: top right / 100% no-repeat;
   h1 {
     margin-top: 70px;
     font-weight: bold;
@@ -79,15 +80,13 @@
       .feature-card {
         width: 340px;
         height: 240px;
-        margin-left: 40px;
+        margin-left: 14px;
+        margin-right: 14px;
         margin-top: 40px;
         padding: 30px;
         background: #ffffff;
         border: 1px solid #eff1f1;
         border-radius: 4px;
-        &:first-child {
-          margin-left: 0;
-        }
         img {
           width: 48px;
         }
@@ -114,6 +113,9 @@
     color: #ffffff;
     .links {
       margin-top: 40px;
+      & > div:nth-child(2) {
+        margin-left: 260px;
+      }
       a {
         margin-top: 16px;
         font-size: 14px;
@@ -133,13 +135,15 @@
       border-radius: 20px;
     }
     .content {
-      padding: 65px 0 0 65px;
+      padding: 65px 0 0 60px;
       h1 {
         font-size: 28px;
+        word-break: keep-all;
       }
       h2 {
         font-weight: 600;
         font-size: 28px;
+        text-align: center;
       }
       ul {
         margin-top: 48px;
@@ -225,6 +229,16 @@
           display: none;
         }
       }
+    }
+  }
+}
+@media screen and (min-width: 320px) and (max-width: 1425px) {
+  .project-header {
+    background-size: cover;
+  }
+  .project-content {
+    .features {
+      padding: 120px 86px;
     }
   }
 }

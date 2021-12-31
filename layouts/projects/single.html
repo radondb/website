@@ -1,5 +1,5 @@
 {{ define "header" }}
-<header class="project-header" style="background: top right / 100% no-repeat url('{{ .Params.header_image }}');">
+<header class="project-header" style="background-image: url('{{ .Params.header_image }}');">
   {{ partial "site-navigation.html" . }}
   <h1><span>{{ .Params.short }}</span></h1>
   <h2>{{ .Params.subtitle }}</h2>
@@ -31,32 +31,57 @@
       {{ end }}
     </div>
   </section>
+  {{ with .Params.fast_start }}
   <section class="start">
     <h1>快速开始</h1>
     <div class="links flex-row space-center">
+      {{ with .helm }}
       <div>
         <h3 class="h-center bg-title">Heml</h3>
         <div class="flex-column">
-          {{ range .Params.fast_start.helm }}
+          {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
           {{ end }}
         </div>
       </div>
-      <div style="margin-left: 260px;">
+      {{ end }}
+      {{ with .operator }}
+      <div>
         <h3 class="h-center bg-title">Operator</h3>
         <div class="flex-column">
-          {{ range .Params.fast_start.operator }}
+          {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
           {{ end }}
         </div>
       </div>
+      {{ end }}
+      {{ with .reading }}
+      <div>
+        <h3 class="h-center bg-title">阅读</h3>
+        <div class="flex-column">
+          {{ range . }}
+          <a href="{{ .url }}">{{ .text }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+      {{ with .installation }}
+      <div>
+        <h3 class="h-center bg-title">部署</h3>
+        <div class="flex-column">
+          {{ range . }}
+          <a href="{{ .url }}">{{ .text }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
     </div>
   </section>
+  {{ end }}
   <section class="flex-row architecture">
     <img src="{{ .Params.architecture.picture }}" />
     <div class="content">
-      <div class="flex-row">
-        <h2>&nbsp;{{ .Params.short }}&nbsp;</h2>
+      <div class="flex-row space-center">
         <h1>架构</h1>
       </div>
       <ul>

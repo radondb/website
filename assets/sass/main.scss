@@ -230,6 +230,13 @@ input {
   transform: translate(-50%, 0);
 }
 
+.text-ellip {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 .text-ellip-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;

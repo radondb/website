@@ -31,12 +31,12 @@ features:
     description: 高可用版及金融版可实现多可用区主从部署，具有跨可用区容灾能力。 
 # 快速开始
 fast_start:
-  helm:
+  reading:
     - text: Xenon：后 MHA 时代的选择
       url: /posts/210604_高可用-_-xenon后-mha-时代的选择/
     - text: 关于 Xenon 高可用的一些思考
       url: /posts/210916_高可用_关于-xenon-高可用的一些思考/
-  operator:
+  installation:
     - text: Xenon 实现 MySQL 高可用架构 部署篇
       url: /posts/210825_高可用-_-xenon-实现-mysql-高可用架构-部署篇/
     - text: Xenon 实现 MySQL 高可用架构 常用操作篇

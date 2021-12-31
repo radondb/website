@@ -1,7 +1,7 @@
 {{- $.Scratch.Add "index" slice -}}
 {{- range where .Site.Pages "Type" "eq" "posts"  -}}
   {{- if eq .IsSection false -}}
-  {{- $.Scratch.Add "index" (dict "title" .Title "img" .Params.picture "tags" .Params.tags "categories" .Params.categories "contents" .Plain "permalink" .RelPermalink "author" .Params.author "date" (.Date.Format "2006.01.02")) -}}
+  {{- $.Scratch.Add "index" (dict "title" .Title "img" .Params.picture "tags" .Params.tags "categories" .Params.categories "summary" .Summary "permalink" .RelPermalink "author" .Params.author "date" (.Date.Format "2006.01.02")) -}}
   {{- end -}}
   {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}
