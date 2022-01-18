@@ -6,19 +6,19 @@ layout: about
 histories:
   - year: 2017
     title: Xenon
-    description: 高可用组件 xenon 开源。基于 xenon 构建的，金融级强一致数据库 mySQL plus 发布。基于 raft 协议，无中心化选主；支持一主多从，弹性扩容伸缩。
+    description: 高可用组件 Xenon 开源。基于 Xenon 构建的，金融级强一致数据库 MySQL Plus 发布。基于 Raft 协议，无中心化选主；支持一主多从，弹性扩容伸缩。
   - year: 2018
     title: Radon
-    description: 分布式组件 radon 开源。兼容 mySQL 的分布式数据库 radonDB 发布。
+    description: 分布式组件 Radon 开源。兼容 MySQL 的分布式数据库 RadonDB 发布。
   - year: 2019
     title: ChronusDB
-    description: 基于 clickHouse，分析型时序数据库。
+    description: 基于 ClickHouse，分析型时序数据库。
   - year: 2020
     title: MySQL HTAP
-    description: 研发 materializeMySQL 引擎，并贡献 clickHouse 开源社区。
+    description: 研发 MaterializeMySQL 引擎，并贡献 ClickHouse 开源社区。
   - year: 2021
     title: 数据库容器化
-    description: 基于 heml、operator 数据库容器化产品发布。已将容器编排方案开源。
+    description: 基于 Helm、Operator 数据库容器化产品发布。已将容器编排方案开源。
 ---
 
 目前 RadonDB 开源数据库系列产品已被 **光大银行、浦发硅谷银行、哈密银行、泰康保险、太平保险、安盛保险、阳光保险、百年人寿、安吉物流、安畅物流、蓝月亮、天财商龙、罗克佳华、升哲科技、无锡汇跑体育、北京电信、江苏交通控股、四川航空、昆明航空、国控生物等** 上千家企业及社区用户采用。

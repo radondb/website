@@ -192,9 +192,9 @@ MySQL 镜像[2] 在容器路径 `/var/lib/mysql` 中存储 MySQL 数据和配置
 - PVC 中可以使用不同特性的持久卷（PersistentVolume，PV），其 I/O 性能会影响数据库的初始化性能。所以当使用 PVC 启用持久化存储时，可能需要调整 `livenessProbe.initialDelaySeconds` 的值。
 - 数据库初始化的默认限制是60秒 (`livenessProbe.initialDelaySeconds` + `livenessProbe.periodSeconds` * `livenessProbe.failureThreshold`)。如果初始化时间超过限制，kubelet 将重启数据库容器，数据库初始化被中断，会导致持久数据不可用。
 
-# 自定义 MySQL 配置[4]
+# 自定义 MySQL 配置
 
-在 `mysql.configFiles` 中添加/更改 MySQL 配置。
+在 `mysql.configFiles` 中添加/更改 MySQL 配置[4]。
 
 ```yaml
 configFiles:
