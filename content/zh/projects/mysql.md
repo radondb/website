@@ -38,10 +38,10 @@ features:
 # 快速开始
 fast_start:
   helm:
-    - text: 在 kubernetes 上部署 radonDB mySQL 集群
+    - text: 在 Kubernetes 上部署 RadonDB MySQL 集群
       url: /posts/210623_容器化-_-在-kubernetes-上部署-radondb-mysql-集群/
   operator:
-    - text: 在 kubernetes 上部署 radonDB mySQL 集群
+    - text: 在 Kubernetes 上部署 RadonDB MySQL 集群
       url: https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/kubernetes/deploy_radondb-mysql_operator_on_k8s.md
 # 架构
 architecture:
