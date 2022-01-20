@@ -17,21 +17,21 @@ start_url: https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/ku
 github_url: https://github.com/radondb/radon/
 # 特性
 features:
-  - picture: /images/projects/mysql/feature-1.svg
+  - picture: /images/projects/mysql/resilience.svg
     title: 弹性伸缩
-    description: 
-  - picture: /images/projects/mysql/feature-2.svg
+    description: 快速实现节点的伸缩部署。
+  - picture: /images/projects/mysql/consistency.svg
     title: 数据强一致
-    description: 
-  - picture: /images/projects/mysql/feature-3.svg
+    description: 增强半同步 Semi-Sync 实现数据一致性。
+  - picture: /images/projects/mysql/distributed-storage.svg
     title: 分布式存储
-    description: 
-  - picture: /images/projects/mysql/feature-4.svg
+    description: 存储节点随节点分布式部署。
+  - picture: /images/projects/mysql/distributed-transition.svg
     title: 分布式事务
-    description: 
-  - picture: /images/projects/mysql/feature-5.svg
+    description: 使用快照隔离技术实现分布式事务。
+  - picture: /images/projects/mysql/join.svg
     title: 分布式 Join
-    description:   
+    description: 支持分布式节点之间使用 Join 语句。
 # 快速开始
 
 # 架构
