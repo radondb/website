@@ -17,18 +17,18 @@ start_url: /posts/210825_高可用-_-xenon-实现-mysql-高可用架构-部署�
 github_url: https://github.com/radondb/xenon
 # 特性
 features:
-  - picture: /images/projects/mysql/feature-1.svg
+  - picture: /images/projects/mysql/consistency.svg
     title: 集群数据强一致
     description: 基于 Semi-Sync 机制，保障数据不丢失，实现数据强一致性。
-  - picture: /images/projects/mysql/feature-2.svg
+  - picture: /images/projects/mysql/fault-switch.svg
     title: 故障秒级切换
-    description: 基于 Raft 协议进行无中心化选主，实现主从秒级切换。
-  - picture: /images/projects/mysql/feature-3.svg
+    description: 调用脚本完成故障切换，也可以结合 Consul，ZooKeeper 自由扩展。
+  - picture: /images/projects/mysql/raft.svg
     title: 无中心化选主
-    description: 基于 Raft 协议进行无中心化选主，实现主从秒级切换。
-  - picture: /images/projects/mysql/feature-4.svg
+    description: 通过 Raft 协议实现无中心化领导者自动选举。
+  - picture: /images/projects/mysql/redundant.svg
     title: 跨区容灾
-    description: 高可用版及金融版可实现多可用区主从部署，具有跨可用区容灾能力。 
+    description: 多副本跨区部署实现容灾服务。
 # 快速开始
 fast_start:
   reading:

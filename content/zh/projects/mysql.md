@@ -17,24 +17,18 @@ start_url: https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/ku
 github_url: https://github.com/radondb/radondb-mysql-kubernetes
 # 特性
 features:
-  - picture: /images/projects/mysql/feature-1.svg
-    title: 数据强一致性
+  - picture: /images/projects/mysql/consistency.svg
+    title: 数据强一致
     description: 基于 Paxos 协议，采用一主两备三节点架构, 自动脑裂保护处理。
-  - picture: /images/projects/mysql/feature-2.svg
-    title: 服务高可用
-    description: 支持一主多从架构，多可用区主从部署，灵活满足各类可用性需求。
-  - picture: /images/projects/mysql/feature-3.svg
-    title: 数据安全
-    description: 基于实时副本技术，私有网络100% 二层隔离，严密账户确保数据安全。
-  - picture: /images/projects/mysql/feature-4.svg
-    title: 跨区容灾
-    description: 高可用版及金融版可实现多可用区主从部署，具有跨可用区容灾能力。
-  - picture: /images/projects/mysql/feature-5.svg
+  - picture: /images/projects/mysql/available.svg
+    title: 高可用
+    description: 支持一主多从架构，灵活满足各类可用性需求。
+  - picture: /images/projects/mysql/operative.svg
     title: 自动运维
     description: 可设置自动备份策略、监控告警策略、自动扩容策略。
-  - picture: /images/projects/mysql/feature-5.svg
-    title: 灵活易用
-    description: 通过控制台即可实现对数据库的监控、告警，让系统运维管理更高效便捷。  
+  - picture: /images/projects/mysql/resilience.svg
+    title: 弹性扩缩容
+    description: 根据业务需要实时扩展数据库的 CPU、内存、存储容量。  
 # 快速开始
 fast_start:
   helm:
