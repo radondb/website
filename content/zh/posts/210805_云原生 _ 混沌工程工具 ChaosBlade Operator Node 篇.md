@@ -5,15 +5,18 @@ author: "丁源"
 # weight从小到达排序，值越小越靠前
 weight: 10
 tags:
+  - 云原生
   - Kubernetes
   - KubeSphere
   - ChaosBlade
 # 相关文章会通过keywords来匹配
 keywords:
 
-picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/210805_%E4%BA%91%E5%8E%9F%E7%94%9F%20%7C%20%E6%B7%B7%E6%B2%8C%E5%B7%A5%E7%A8%8B%E5%B7%A5%E5%85%B7%20ChaosBlade%20Operator%20Node%20%E7%AF%87/0.png
+picture:  https://dbg-files.pek3b.qingstor.com/radondb_website/post/210805_%E4%BA%91%E5%8E%9F%E7%94%9F%20%7C%20%E6%B7%B7%E6%B2%8C%E5%B7%A5%E7%A8%8B%E5%B7%A5%E5%85%B7%20ChaosBlade%20Operator%20Node%20%E7%AF%87/0.png
+
 ---
-接上期《[混沌工程工具 ChaosBlade Opeator 系列的入门篇](/posts/210715_云原生-_-混沌工程工具-chaosblade-operator-入门篇/)》，本期将使用 ChaosBlade Opeator 工具，针对 Node 类资源的应用场景进行测试。
+本期将使用 ChaosBlade Opeator 工具，针对 Node 类资源的应用场景进行测试。
+
 <!--more-->
 作者：丁源 RadonDB 测试负责人
 
