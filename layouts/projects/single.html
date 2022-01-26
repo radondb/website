@@ -1,5 +1,5 @@
 {{ define "header" }}
-<header class="project-header" style="background-image: url('{{ .Params.header_image }}');">
+<header class="project-header">
   {{ partial "site-navigation.html" . }}
   <h1><span>{{ .Params.short }}</span></h1>
   <h2>{{ .Params.subtitle }}</h2>
@@ -25,8 +25,10 @@
       {{ range .Params.features }}
       <div class="feature-card">
         <img src="{{ .picture }}" />
-        <h3>{{ .title }}</h3>
-        <p>{{ .description }}</p>
+        <div class="content">
+          <h3>{{ .title }}</h3>
+          <p>{{ .description }}</p>
+        </div>
       </div>
       {{ end }}
     </div>

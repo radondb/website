@@ -1,75 +1,147 @@
-.footer {
-  padding: 77px 130px 24px 130px;
-  background: #242e42;
-  color: #ffffff;
-  .content {
-    @extend .h-center;
-    width: 1180px;
-    padding-bottom: 60px;
-    font-size: 14px;
-    line-height: 24px;
-    & > div {
-      height: 100%;
-    }
-    .column-head {
-      margin-bottom: 4px;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 22px;
-    }
-    a,
-    p {
-      display: block;
-      margin-top: 16px;
-      color: rgba(255, 255, 255, 0.7);
-    }
-    .logo {
-      height: 34px;
-    }
-    .github {
-      display: flex;
-      align-items: center;
-      img {
-        margin-right: 4px;
+@media screen and (min-width: 768px) {
+  .footer {
+    padding: 77px 130px 24px 130px;
+    background: #242e42;
+    color: #ffffff;
+    .content {
+      margin-left: 50%;
+      transform: translate(-50%, 0);
+      width: 1180px;
+      padding-bottom: 60px;
+      font-size: 14px;
+      line-height: 24px;
+      & > div {
+        height: 100%;
       }
-    }
-    .wechat {
-      margin-top: 40px;
-      img {
-        margin-top: 10px;
-      }
-    }
-    .other {
-      width: 420px;
-      padding-left: 60px;
-      border-left: 1px solid rgba(255, 255, 255, 0.15);
       .column-head {
-        margin-top: 50px;
+        margin-bottom: 4px;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 22px;
       }
-      .input {
-        width: 360px;
-        height: 48px;
-        margin-top: 24px;
-        padding: 4px 5px 4px 20px;
-        background: #f5f8f9;
-        border: 1px solid #ccd3db;
-        box-sizing: border-box;
-        border-radius: 24px;
-        .btn {
-          padding: 9px 27px;
-          color: #ffffff;
-          background-color: #326bf6;
-          box-shadow: 0px 8px 16px rgba(33, 43, 61, 0.2),
-            0px 10px 50px rgba(34, 43, 62, 0.1);
-          border-radius: 20px;
+      a,
+      p {
+        display: block;
+        margin-top: 16px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .logo {
+        height: 34px;
+      }
+      .github {
+        display: flex;
+        align-items: center;
+        img {
+          margin-right: 4px;
+        }
+      }
+      .wechat {
+        margin-top: 40px;
+        img {
+          width: 100px;
+          margin-top: 10px;
+        }
+      }
+      .other {
+        width: 420px;
+        padding-left: 60px;
+        border-left: 1px solid rgba(255, 255, 255, 0.15);
+        .column-head {
+          margin-top: 50px;
+        }
+        .input {
+          width: 360px;
+          height: 48px;
+          margin-top: 24px;
+          padding: 4px 5px 4px 20px;
+          background: #f5f8f9;
+          border: 1px solid #ccd3db;
+          box-sizing: border-box;
+          border-radius: 24px;
+          .btn {
+            padding: 9px 27px;
+            color: #ffffff;
+            background-color: #326bf6;
+            box-shadow: 0px 8px 16px rgba(33, 43, 61, 0.2),
+              0px 10px 50px rgba(34, 43, 62, 0.1);
+            border-radius: 20px;
+          }
         }
       }
     }
+    .copyright {
+      text-align: center;
+      font-size: 14px;
+      line-height: 24px;
+      color: rgba(255, 255, 255, 0.5);
+    }
   }
-  .copyright {
-    text-align: center;
-    font-size: 14px;
-    line-height: 24px;
-    color: rgba(255, 255, 255, 0.5);
+}
+@media screen and (max-width: 768px) {
+  .footer {
+    padding: 4rem 1.67rem;
+    background: #242e42;
+    color: #ffffff;
+    .content {
+      flex-direction: column;
+      a,
+      p {
+        font-size: 1.17rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      .column-head {
+        height: 4.83rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #1d2535;
+        margin: 0 -1.67rem;
+        padding: 0 1.67rem;
+        .folder {
+          display: none;
+          width: 2rem;
+          height: 2rem;
+          background-image: url("/images/common/chevron_down.svg");
+        }
+      }
+      .column-content {
+        // display: none;
+        display: flex;
+        flex-direction: column;
+        margin: 0 -1.67rem;
+        padding: 1rem 2.67rem 2rem;
+        background-color: #1d2535;
+        a {
+          margin-top: 1rem;
+          font-size: 1.17rem;
+          line-height: 2rem;
+        }
+        .github {
+          display: flex;
+          align-items: center;
+          img {
+            margin-right: 0.33rem;
+          }
+        }
+      }
+    }
+    .btn {
+      color: #ffffff;
+    }
+    .wechat {
+      text-align: center;
+      font-size: 1.17rem;
+      img {
+        width: 12.5rem;
+        margin-top: 4rem;
+        margin-bottom: 1.67rem;
+      }
+    }
+    .copyright {
+      margin-top: 4rem;
+      font-size: 1rem;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.5);
+    }
   }
 }
