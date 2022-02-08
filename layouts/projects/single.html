@@ -40,7 +40,7 @@
       {{ with .helm }}
       <div>
         <h3 class="h-center bg-title">Helm</h3>
-        <div class="flex-column">
+        <div class="flex-column text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
           {{ end }}
@@ -50,7 +50,7 @@
       {{ with .operator }}
       <div>
         <h3 class="h-center bg-title">Operator</h3>
-        <div class="flex-column">
+        <div class="flex-column text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
           {{ end }}
@@ -60,7 +60,7 @@
       {{ with .reading }}
       <div>
         <h3 class="h-center bg-title">阅读</h3>
-        <div class="flex-column">
+        <div class="flex-column  text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
           {{ end }}
@@ -70,7 +70,7 @@
       {{ with .installation }}
       <div>
         <h3 class="h-center bg-title">部署</h3>
-        <div class="flex-column">
+        <div class="flex-column  text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
           {{ end }}
