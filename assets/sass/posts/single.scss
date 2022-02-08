@@ -5,7 +5,7 @@
     height: 50px;
     z-index: 3;
     border-bottom: 1px solid rgba(#ffffff, 0.5);
-    box-shadow: 0px 8px 30px rgba(#326BF6, 0.2);
+    box-shadow: 0px 8px 30px rgba(#326bf6, 0.2);
     .nav-container {
       padding-top: 4px;
     }
@@ -17,6 +17,7 @@
 .post-header {
   width: 100%;
   height: 98px;
+  background: top right / 100% no-repeat url("/images/post-header-bg.svg");
 }
 .post-container {
   padding: 40px 130px 120px;
@@ -28,6 +29,7 @@
     }
   }
   .post-page {
+    width: 75%;
     margin-top: 40px;
     padding: 60px;
     background: #ffffff;
@@ -106,11 +108,66 @@
     display: block;
     width: 28px;
     height: 28px;
-    background: 0/100% no-repeat url('/images/common/back-top.svg');
+    background: 0/100% no-repeat url("/images/common/back-top.svg");
   }
   &:hover {
     .image {
-      background: 0/100% no-repeat url('/images/common/back-top-blue.svg');
+      background: 0/100% no-repeat url("/images/common/back-top-blue.svg");
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .fixed .post-header .nav-container {
+    padding-top: 0.83rem;
+  }
+  .post-header {
+    height: auto;
+    background-image: url("images/common/header-bg-mb.svg");
+  }
+  .post-container {
+    padding: 1.33rem 1.67rem;
+    font-size: 1rem;
+    .breadcrumb {
+      flex-wrap: wrap;
+    }
+    .catalog-container {
+      display: none;
+    }
+    .post-page {
+      width: 100%;
+      background-color: transparent;
+      margin-top: 1.33rem;
+      padding: 0;
+      .author {
+        font-size: 1.17rem;
+        line-height: 1.63rem;
+      }
+      .date {
+        font-size: 1rem;
+        line-height: 1.4rem;
+      }
+      .title {
+        font-size: 1.67rem;
+        line-height: 2.33rem;
+      }
+      .post-tag {
+        display: none;
+      }
+    }
+  }
+  .back-top {
+    padding: 0.83rem;
+    margin-right: 0;
+    float: none;
+    left: 100rem;
+    .image {
+      width: 28px;
+      height: 28px;
+    }
+    &:hover {
+      .image {
+        background: 0/100% no-repeat url("/images/common/back-top.svg");
+      }
     }
   }
 }

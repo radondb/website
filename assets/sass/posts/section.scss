@@ -2,6 +2,7 @@
   height: 300px;
   width: 100%;
   background-size: cover;
+  background-image: url("/images/posts-header.png");
   h1 {
     margin-top: 60px;
     color: #ffffff;
@@ -39,7 +40,7 @@
     .tag {
       padding: 8px 16px;
       margin: 8px 12px 8px 0;
-      color: #242E42;
+      color: #242e42;
       &:hover {
         color: #326bf6;
       }
@@ -68,7 +69,7 @@
       border-radius: 10px;
       overflow: hidden;
       background-color: #ffffff;
-      color: #242E42;
+      color: #242e42;
       &:hover {
         box-shadow: 0px 10px 30px rgba(36, 46, 66, 0.07);
         .btn {
@@ -116,6 +117,98 @@
         flex-shrink: 0;
         background-image: url("/images/common/circle-btn-inactive.svg");
       }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .posts-header {
+    height: auto;
+    background-image: url("images/common/header-bg-mb.svg");
+    h1 {
+      margin-top: 2rem;
+      font-size: 1.83rem;
+      line-height: 2rem;
+    }
+    .search {
+      width: 28rem;
+      height: 3rem;
+      padding: 0.67rem 1.33rem;
+      margin-left: 50%;
+      margin-top: 1rem;
+      margin-bottom: 1.83rem;
+      transform: translate(-50%, 0);
+      input {
+        font-size: 1.17rem;
+        line-height: 1.67rem;
+      }
+    }
+  }
+  .posts-content {
+    padding: 1.67rem 0 0 0;
+    .tags {
+      margin: 0 1.67rem;
+      padding: 1rem 1.67rem;
+      border-radius: 0.83rem;
+      box-shadow: 0px 1px 3px rgba(26, 30, 34, 0.08);
+      .tag {
+        padding: 0.67rem 0.33rem;
+        margin: 0 1rem 0 0;
+        font-size: 1.08rem;
+        &.actived {
+          background-color: transparent;
+          color: #326bf6;
+          box-shadow: none;
+          border: none;
+          font-weight: 500;
+        }
+        .count {
+          display: inline-block;
+          font-size: 0.83rem;
+          font-weight: normal;
+          transform: translate(-0.17rem, -0.67rem);
+        }
+      }
+    }
+    .post-list {
+      margin-top: 1.83rem;
+      padding-bottom: 0;
+      padding: 1.67rem 1.67rem 4.17rem;
+      background-color: #ffffff;
+      .post-card {
+        height: auto;
+        margin-top: 0;
+        padding: 1.33rem 0;
+        border-bottom: 1px solid #eff1f1;
+        .picture {
+          width: 9.33rem;
+          border-radius: 0.33rem;
+        }
+        .content {
+          padding: 0 0 0 1rem;
+          .title {
+            font-size: 1.17rem;
+            line-height: 1.63rem;
+            .text-ellip {
+              display: inline-block;
+            }
+          }
+        }
+        .info {
+          display: none;
+        }
+        .summary {
+          display: none;
+        }
+        .btn {
+          display: none;
+        }
+      }
+    }
+    .pagination {
+      background-color: #ffffff;
+      margin-bottom: 0;
+      padding-bottom: 4rem;
     }
   }
 }

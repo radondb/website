@@ -205,16 +205,24 @@
           margin-top: 6px;
           padding: 2px 4px;
           font-size: 0.92rem;
+          &:first-child {
+            margin-left: 0;
+          }
+          &:not(:first-child) {
+            margin-left: 0;
+          }
         }
       }
       .feature {
         margin-top: 1.67rem;
         font-size: 1.25rem;
+        letter-spacing: 0;
         .star {
           width: 7.33rem;
           height: 2.33rem;
           font-size: inherit;
           line-height: 2;
+          text-align: center;
         }
       }
     }
