@@ -15,9 +15,16 @@ window.hideModal = () => {
 };
 
 window.showVideo = (src) => {
-  var video = document.getElementById('video');
-  document.querySelector('.fake-video').style.display = 'none'
-  video.style.display = 'block';
-  video.setAttribute('src', src);
+  var video = document.getElementById("video");
+  document.querySelector(".fake-video").style.display = "none";
+  video.style.display = "block";
+  video.setAttribute("src", src);
   video = null;
-}
+};
+
+window.toggleSiblingClass = (that, classname) => {
+  var target = that.parentNode;
+  if (target) {
+    target.classList.toggle(classname)
+  }
+};

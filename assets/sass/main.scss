@@ -812,6 +812,7 @@ section {
           padding: 1.67rem;
         }
         .title {
+          height: 3.72rem;
           font-size: 1.33rem;
           line-height: 1.86rem;
           min-height: 0;
@@ -886,6 +887,12 @@ section {
     a {
       word-break: break-all;
     }
+  }
+
+  .pagination {
+    background-color: #ffffff;
+    margin-bottom: 0;
+    padding-bottom: 4rem;
   }
 
   section {

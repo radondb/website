@@ -98,10 +98,17 @@
         margin: 0 -1.67rem;
         padding: 0 1.67rem;
         .folder {
-          display: none;
           width: 2rem;
           height: 2rem;
+          background-image: url("/images/common/chevron_up.svg");
+        }
+      }
+      .hide {
+        .folder {
           background-image: url("/images/common/chevron_down.svg");
+        }
+        .column-content {
+          display: none;
         }
       }
       .column-content {

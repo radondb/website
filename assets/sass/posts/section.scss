@@ -180,8 +180,9 @@
         margin-top: 0;
         padding: 1.33rem 0;
         border-bottom: 1px solid #eff1f1;
+        border-radius: 0;
         .picture {
-          width: 9.33rem;
+          width: 14rem;
           border-radius: 0.33rem;
         }
         .content {
@@ -204,11 +205,6 @@
           display: none;
         }
       }
-    }
-    .pagination {
-      background-color: #ffffff;
-      margin-bottom: 0;
-      padding-bottom: 4rem;
     }
   }
 }

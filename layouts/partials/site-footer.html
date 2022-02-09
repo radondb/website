@@ -1,7 +1,7 @@
 <footer class="footer" role="contentinfo">
   <div class="content flex-row space-between">
-    <div>
-      <div class="column-head"><span>开源项目</span><span class="mb folder"></span></div>
+    <div class="hide">
+      <div class="column-head" onclick="toggleSiblingClass(this,'hide')"><span>开源项目</span><span class="mb folder"></span></div>
       <div class="column-content">
         {{ $projects := slice "projects" }}
         {{ $p := where .Site.RegularPages "Section" "in" $projects }}
@@ -10,8 +10,8 @@
         {{ end }}
       </div>
     </div>
-    <div>
-      <div class="column-head"><span>社区资源</span><span class="mb folder"></span></div>
+    <div class="hide">
+      <div class="column-head" onclick="toggleSiblingClass(this,'hide')"><span>社区资源</span><span class="mb folder"></span></div>
       <div class="column-content">
         <a href="/posts">博客</a>
         <a href="/news">新闻</a>
@@ -22,8 +22,8 @@
         </a>
       </div>
     </div>
-    <div>
-      <div class="column-head"><span>服务</span><span class="mb folder"></span></div>
+    <div class="hide">
+      <div class="column-head" onclick="toggleSiblingClass(this,'hide')"><span>服务</span><span class="mb folder"></span></div>
       <div class="column-content">
         <a href="https://www.qingcloud.com/">业务合作与咨询</a>
       </div>

@@ -117,8 +117,16 @@
   }
 }
 @media screen and (max-width: 768px) {
-  .fixed .post-header .nav-container {
-    padding-top: 0.83rem;
+  .fixed {
+    .post-header {
+      height: 4.17rem;
+      .nav-container {
+        padding-top: 0.83rem;
+      }
+    }
+    .post-container {
+      margin-top: 4rem;
+    }
   }
   .post-header {
     height: auto;
