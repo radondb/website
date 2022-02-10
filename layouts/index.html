@@ -40,7 +40,7 @@
               }}</span></div>
         </div>
         <div class="summary">
-          {{ .Summary }}
+          {{ .Summary | default (replace .RawContent "<!--more-->" "") }}
         </div>
       </div>
     </a>
