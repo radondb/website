@@ -1,4 +1,4 @@
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .nav-container {
     display: flex;
     justify-content: space-between;
@@ -85,7 +85,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: #F9FBFF;
+      background-color: #f9fbff;
       z-index: 99;
       overflow: hidden;
       text-align: left;
@@ -103,12 +103,13 @@
         padding: 2rem 1.67rem 0;
         .list {
           .item {
-            margin-top: 2rem;
+            margin-top: 0;
             font-size: 1.33rem;
             line-height: 1.67rem;
             color: #242e42;
             font-weight: 500;
             a {
+              padding-top: 2rem;
               display: inline-block;
               color: #242e42;
               width: 100%;
@@ -116,9 +117,11 @@
             .select-content {
               margin-top: 1.17rem;
               a {
-                margin-top: 1rem;
-                margin-left: 1rem;
+                margin-top: 0;
+                padding-top: 1rem;
+                padding-left: 1rem;
                 font-weight: normal;
+                line-height: 2rem;
               }
             }
           }

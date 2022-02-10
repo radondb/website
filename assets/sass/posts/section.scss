@@ -181,15 +181,16 @@
         padding: 1.33rem 0;
         border-bottom: 1px solid #eff1f1;
         border-radius: 0;
+        align-items: flex-start !important;
         .picture {
-          width: 14rem;
+          width: 12rem;
           border-radius: 0.33rem;
         }
         .content {
           padding: 0 0 0 1rem;
           .title {
-            font-size: 1.17rem;
-            line-height: 1.63rem;
+            font-size: 1.33rem;
+            line-height: 2rem;
             .text-ellip {
               display: inline-block;
             }

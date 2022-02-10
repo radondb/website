@@ -580,7 +580,7 @@ section {
   }
 }
 // pc
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .mb {
     display: none !important;
   }
@@ -835,13 +835,14 @@ section {
   .news {
     .news-list {
       width: 100%;
+      margin-top: 3.17rem;
       .news-card {
         padding: 1.67rem 0;
         .content {
           .title {
             margin-top: 0;
-            font-size: 1.17rem;
-            line-height: 1.63rem;
+            font-size: 1.33rem;
+            line-height: 2rem;
           }
           .time,
           .summary {
