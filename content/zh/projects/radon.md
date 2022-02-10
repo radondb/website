@@ -10,8 +10,6 @@ short: Radon
 subtitle: 新一代 MySQL 分布式数据库组件
 description: 支持无限水平扩展、分布式事务，具备金融级数据强一致性，满足企业级核心数据库对大容量、高并发、高可靠及高可用的极致要求。
 logo: /images/projects/radon.svg
-# 背景图片
-header_image: /images/projects/mysql/mysql_header.png
 # 立即开始
 start_url: https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/kubernetes/deploy_radondb-mysql_operator_on_k8s.md
 github_url: https://github.com/radondb/radon/

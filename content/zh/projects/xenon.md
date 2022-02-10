@@ -10,8 +10,6 @@ short: Xenon
 subtitle: 新一代 MySQL 集群高可用组件
 description: 基于 Raft 协议进行无中心化选主，实现主从秒级切换；基于 Semi-Sync 机制，保障数据不丢失，实现数据强一致性，并结合 MySQL (5.7 及以上版本) 并行复制特性，实现 Binlog 并行回放，大大降低从库延迟。
 logo: /images/projects/xenon.svg
-# 背景图片
-header_image: /images/projects/mysql/mysql_header.png
 # 立即开始
 start_url: /posts/210825_高可用-_-xenon-实现-mysql-高可用架构-部署篇/
 github_url: https://github.com/radondb/xenon

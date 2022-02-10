@@ -1,66 +1,127 @@
-.nav-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 32px 130px 0 130px;
-  .logo {
+@media screen and (min-width: 768px) {
+  .nav-container {
     display: flex;
-  }
-  .list {
-    display: flex;
-    color: #ffffff;
-    flex: 2;
-    justify-content: flex-end;
-    a {
-      color: #ffffff;
-    }
-    & > ul {
+    justify-content: space-between;
+    align-items: center;
+    padding: 32px 130px 0 130px;
+    .logo {
       display: flex;
-      & > li {
-        display: block;
-        margin-left: 40px;
-        padding: 12px 0;
-      }
     }
-    .select {
-      position: relative;
-      & > div {
-        cursor: pointer;
+    .list {
+      display: flex;
+      color: #ffffff;
+      flex: 2;
+      justify-content: flex-end;
+      a {
+        color: #ffffff;
       }
-      .arrow {
-        margin: 2px 2px 0;
-        transform: rotate(0.5turn);
-      }
-      .select-content {
-        display: none;
-        position: absolute;
-        width: 200px;
-        top: 38px;
-        right: 0;
-        background-color: #ffffff;
-        box-shadow: 0px 4px 8px rgba(15, 23, 42, 0.1);
-        border-radius: 6px;
-        z-index: 1;
-        a {
+      & > ul {
+        display: flex;
+        & > li {
           display: block;
-          width: 100%;
-          padding: 10px 20px;
-          color: #242e42;
-          font-size: 14px;
-          line-height: 20px;
-          text-align: left;
-          &:hover {
-            color: #326bf6;
-            background-color: rgba(50, 107, 246, 0.08);
+          margin-left: 40px;
+          padding: 12px 0;
+        }
+      }
+      .select {
+        position: relative;
+        & > div {
+          cursor: pointer;
+        }
+        .arrow {
+          margin: 2px 2px 0;
+          transform: rotate(0.5turn);
+        }
+        .select-content {
+          display: none;
+          position: absolute;
+          width: 200px;
+          top: 38px;
+          right: 0;
+          background-color: #ffffff;
+          box-shadow: 0px 4px 8px rgba(15, 23, 42, 0.1);
+          border-radius: 6px;
+          z-index: 1;
+          a {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            color: #242e42;
+            font-size: 14px;
+            line-height: 20px;
+            text-align: left;
+            &:hover {
+              color: #326bf6;
+              background-color: rgba(50, 107, 246, 0.08);
+            }
+          }
+        }
+        &:hover {
+          .arrow {
+            transform: rotate(0);
+          }
+          .select-content {
+            display: block;
           }
         }
       }
-      &:hover {
-        .arrow {
-          transform: rotate(0);
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .nav-container {
+    padding: 2rem 1.67rem 1.25rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    .logo {
+      width: 9.58rem;
+      height: 2.67rem;
+      background-image: url("/images/radondb-mb.svg");
+    }
+    .nav-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #F9FBFF;
+      z-index: 99;
+      overflow: hidden;
+      text-align: left;
+      .modal-header {
+        padding: 1.67rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .close {
+          width: 2rem;
         }
-        .select-content {
-          display: block;
+      }
+      .modal-content {
+        padding: 2rem 1.67rem 0;
+        .list {
+          .item {
+            margin-top: 2rem;
+            font-size: 1.33rem;
+            line-height: 1.67rem;
+            color: #242e42;
+            font-weight: 500;
+            a {
+              display: inline-block;
+              color: #242e42;
+              width: 100%;
+            }
+            .select-content {
+              margin-top: 1.17rem;
+              a {
+                margin-top: 1rem;
+                margin-left: 1rem;
+                font-weight: normal;
+              }
+            }
+          }
         }
       }
     }

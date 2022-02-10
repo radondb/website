@@ -1,7 +1,6 @@
 ---
 title: "关于我们"
 date: 2021-08-31T16:52:11+08:00
-header_image: "/images/about-header.png"
 layout: about
 histories:
   - year: 2017
