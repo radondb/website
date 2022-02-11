@@ -168,6 +168,7 @@ input {
   font-size: 16px;
   line-height: 22px;
   width: 240px;
+  -webkit-appearance: none;
   &:focus-visible {
     border: 0;
     outline: transparent;
@@ -580,7 +581,7 @@ section {
   }
 }
 // pc
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .mb {
     display: none !important;
   }
@@ -780,11 +781,6 @@ section {
     }
   }
 
-  /* modal */
-  .modal {
-    display: none;
-  }
-
   .intro,
   .blog,
   .news {
@@ -835,13 +831,14 @@ section {
   .news {
     .news-list {
       width: 100%;
+      margin-top: 3.17rem;
       .news-card {
         padding: 1.67rem 0;
         .content {
           .title {
             margin-top: 0;
-            font-size: 1.17rem;
-            line-height: 1.63rem;
+            font-size: 1.33rem;
+            line-height: 2rem;
           }
           .time,
           .summary {
@@ -886,6 +883,67 @@ section {
     }
     a {
       word-break: break-all;
+    }
+  }
+
+  /* modal */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    .mask {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background-color: #242e42;
+      opacity: 0.7;
+    }
+    .modal-body {
+      position: relative;
+      top: 50%;
+      left: 50%;
+      width: calc(100vw - 3.33rem);
+      max-height: calc(100vh - 9.5rem);
+      transform: translate(-50%, -50%);
+      background-color: #ffffff;
+      border-radius: 4px;
+      font-size: 1.17rem;
+      line-height: 2rem;
+      .modal-content {
+        width: 100%;
+        max-height: calc(100vh - 9.5rem);
+        overflow-y: scroll;
+        padding: 4rem 1.67rem;
+      }
+      .close {
+        position: fixed;
+        top: 1.67rem;
+        right: 1.67rem;
+        width: 1.67rem;
+        height: 1.67rem;
+        cursor: pointer;
+        text-align: center;
+        background: url("/images/common/close.svg");
+      }
+      h1 {
+        font-weight: 600;
+        font-size: 1.5rem;
+        line-height: 2rem;
+      }
+      h2 {
+        margin-top: 2rem;
+        font-weight: 600;
+        font-size: 1.17rem;
+        line-height: 1.67rem;
+      }
+      p,
+      pre {
+        margin-top: 0.87rem;
+      }
     }
   }
 

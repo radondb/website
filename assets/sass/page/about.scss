@@ -57,7 +57,7 @@
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 769px) {
   .about-content {
     .about-video {
       margin-top: 40px;
@@ -258,6 +258,18 @@
     }
   }
   .contribute {
-    display: none;
+    width: 27.92rem;
+    height: 10rem;
+    margin-bottom: 3.33rem;
+    background: center / cover no-repeat url("/images/contribute-mb.png");
+    .show-modal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 27.92rem;
+      height: 10rem;
+      z-index: 1;
+      cursor: pointer;
+    }
   }
 }
