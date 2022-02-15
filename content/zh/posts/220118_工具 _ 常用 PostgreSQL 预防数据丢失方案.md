@@ -12,7 +12,7 @@ keywords:
 
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/220118_%E5%B7%A5%E5%85%B7%20%7C%20%E5%B8%B8%E7%94%A8%20PostgreSQL%20%E9%A2%84%E9%98%B2%E6%95%B0%E6%8D%AE%E4%B8%A2%E5%A4%B1%E6%96%B9%E6%A1%88/0.png
 ---
-
+本篇延续前文话题，介绍常见 预防数据丢失方案的实现原理及使用示例。
 <!--more-->
 
 作者：张连壮 PostgreSQL 研发负责人
