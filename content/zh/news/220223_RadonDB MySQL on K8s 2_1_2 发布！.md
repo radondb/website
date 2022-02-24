@@ -1,7 +1,7 @@
 ---
 title: "RadonDB MySQL on K8s 2.1.2 发布！"
 date: 2022-02-23T16:52:11+08:00
-picture: https://dbg-files.pek3b.qingstor.com/radondb_website/news/220121_RadonDB%20PostgreSQL%20on%20K8s%202_1_0%20%E5%8F%91%E5%B8%83%EF%BC%81/RadonDB%20PostgreSQL%20on%20K8s%202.1.0%20%E5%8F%91%E5%B8%83%EF%BC%81.png
+picture: https://dbg-files.pek3b.qingstor.com/radondb_website/news/220223_RadonDB%20MySQL%20on%20K8s%202.1.2%20%E5%8F%91%E5%B8%83%EF%BC%81/0.png
 ---
 RadonDB 数据库容器化系列 MySQL 容器化项目新版发布！
 <!--more-->
