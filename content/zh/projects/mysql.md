@@ -11,7 +11,7 @@ subtitle: 基于 MySQL 的开源、高可用、云原生集群解决方案
 description: 支持一主多从高可用架构，并具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
 logo: /images/projects/mysql/mysql.svg
 # 立即开始
-start_url: https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/kubernetes/deploy_radondb-mysql_operator_on_k8s.md
+start_url: /posts/220224_容器化-_-在-kubesphere-中部署-mysql-集群/
 github_url: https://github.com/radondb/radondb-mysql-kubernetes
 # 特性
 features:
