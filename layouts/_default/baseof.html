@@ -46,4 +46,13 @@
   </body>
   {{ $js := resources.Get "js/common.js" | js.Build (dict "target" "es5") }}
   <script src="{{ $js.RelPermalink }}"></script>
-</html>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?0067f99e7764c0095028eb456420e4d1";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+  </html>
