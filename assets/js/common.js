@@ -22,9 +22,21 @@ window.showVideo = (src) => {
   video = null;
 };
 
-window.toggleSiblingClass = (that, classname) => {
+window.toggleParentClass = (that, classname) => {
   var target = that.parentNode;
   if (target) {
-    target.classList.toggle(classname)
+    target.classList.toggle(classname);
   }
+};
+
+/** 文档相关 */
+window.versionOnchange = (event) => {
+  Array.from(document.getElementsByClassName("docs-menu")).forEach((node) => {
+    node.classList.add("hide");
+    if (node.getAttribute("id") === event.target.value) {
+      node.classList.remove("hide");
+    } else {
+      node.classList.add("hide");
+    }
+  });
 };
