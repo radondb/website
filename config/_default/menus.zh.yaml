@@ -17,15 +17,6 @@ main:
     url: "/projects/xenon"
     parent: projects
 
-  - identifier: docs
-    name: "文档"
-    weight: "1"
-    url: "/docs"
-  - name: "MySQL 容器化"
-    weight: '1'
-    url: "/docs/mysql"
-    parent: docs
-
   - name: "博客"
     url: "/posts"
     weight: "2"

@@ -34,7 +34,7 @@ window.onload = () => {
   request.onload = function () {
     if (request.status == 200) {
       var json = JSON.parse(request.responseText);
-      window.posts = json[0] || [];
+      window.posts = json;
       selectTag();
       renderPosts(currentPage);
       renderPagination(currentPage);
