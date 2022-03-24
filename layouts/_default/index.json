@@ -1,13 +1,7 @@
-{{- $.Scratch.Add "post" slice -}}
+{{- $.Scratch.Add "index" slice -}}
 {{- range where .Site.Pages "Type" "eq" "posts"  -}}
   {{- if eq .IsSection false -}}
-  {{- $.Scratch.Add "post" (dict "title" .Title "img" .Params.picture "tags" .Params.tags "categories" .Params.categories "summary" .Summary "permalink" .RelPermalink "author" .Params.author "date" (.Date.Format "2006.01.02")) -}}
+  {{- $.Scratch.Add "index" (dict "title" .Title "img" .Params.picture "tags" .Params.tags "categories" .Params.categories "summary" .Summary "permalink" .RelPermalink "author" .Params.author "date" (.Date.Format "2006.01.02")) -}}
   {{- end -}}
-{{- end -}}
-{{- $.Scratch.Add "docs" slice -}}
-{{- range where .Site.Pages "Type" "eq" "docs"  -}}
-  {{- if eq .IsSection false -}}
-  {{- $.Scratch.Add "docs" (dict "title" .Title "img" .Params.picture "tags" .Params.tags "categories" .Params.categories "summary" .Summary "permalink" .RelPermalink "author" .Params.author "date" (.Date.Format "2006.01.02")) -}}
   {{- end -}}
-{{- end -}}
-{{- slice ($.Scratch.Get "post") ($.Scratch.Get "docs") | jsonify -}}
+{{- $.Scratch.Get "index" | jsonify -}}

@@ -1,6 +1,4 @@
 /resources
-/public*
 # misc
 .DS_Store
 .vs
-.hugo_build.lock
