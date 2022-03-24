@@ -76,11 +76,13 @@
         font-size: 16px;
         line-height: 22px;
         font-weight: 500;
+        margin-top: 12px;
         & > ul > li {
           font-size: 14px;
           line-height: 22px;
           font-weight: 400;
           text-indent: 16px;
+          margin-top: 6px;
           & > ul > li {
             font-size: 12px;
             line-height: 20px;

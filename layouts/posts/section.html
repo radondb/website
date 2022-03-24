@@ -33,6 +33,6 @@
     <!-- JavaScript render -->
   </div>
 </div>
-{{ $js := resources.Get "js/search.js" | js.Build (dict "target" "es5") }}
+{{ $js := resources.Get "js/post-search.js" | js.Build (dict "target" "es5") }}
 <script src="{{ $js.RelPermalink }}"></script>
 {{ end }}
