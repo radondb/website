@@ -15,8 +15,9 @@ keywords:
   - mysql
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/220324_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20K8s%20%E4%B8%8A%E9%83%A8%E7%BD%B2%20RadonDB%20MySQL%20Operator%20%E5%92%8C%E9%9B%86%E7%BE%A4/0.png
 ---
-
+本文将演示如何在 Kubernetes 上部署 RadonDB MySQL Kubernetes 2.1.2
 <!--more-->
+
 作者：程润科 数据库研发工程师
 编辑：张莉梅 高级文档工程师
 视频：钱芬 高级测试工程师 
