@@ -45,7 +45,7 @@ architecture:
 roadmap:
   - title: 1.0 Helm
     content:
-      - mySQL 高可用
+      - MySQL 高可用
       - 无中心化领导自动选举
       - 主从秒级切换
       - 数据强一致性

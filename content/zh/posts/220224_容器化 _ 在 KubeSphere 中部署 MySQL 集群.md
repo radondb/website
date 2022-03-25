@@ -12,7 +12,7 @@ tags:
   - KubeSphere
 
 # 相关文章会通过keywords来匹配
-keywords:
+keywords: mysql
 
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/0.png
 ---
