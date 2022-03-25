@@ -117,14 +117,14 @@
     </div>
   </section>
   {{ end }}
-  {{ $related := .Site.RegularPages.Related . | first 3 }}
+  {{ $related := .Site.RegularPages.Related .  }}
   {{ with $related }}
   <section class="blog">
     <h2 class="title-h2">
       <span>相关文章</span>
     </h2>
     <div class="blog-list">
-      {{ range . }}
+      {{ range .ByDate.Reverse | first 3 }}
       <a class="blog-card" href="{{ .RelPermalink }}">
         <img class="picture" src="{{ .Params.picture }}" />
         <div class="content">
@@ -136,7 +136,7 @@
                 }}</span></div>
           </div>
           <div class="summary">
-            {{ .Summary }}
+            {{ .Summary | default (replace .RawContent "<!--more-->" "") }}
           </div>
         </div>
       </a>
