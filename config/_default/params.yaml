@@ -9,3 +9,10 @@ radondb_projects:
   - MongoDB
   - ClickHouse
   - ElesticSearch
+
+# 全局弹窗
+show_popup: false
+popup_title: "RadonDB MySQL Kubernetes 2.1.4 新版发布！"
+popup_description: "参与试用 RadonDB MySQL Kubernetes 新版本，就有机会赢取社区周边大礼包"
+popup_link: "/blog"
+popup_link_title: "点击参与"

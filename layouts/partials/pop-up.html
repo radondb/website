@@ -1,0 +1,10 @@
+{{ if .Site.Params.show_popup }}
+<div class="pop-up-container fadein">
+  <div class="close" onclick="hidePopup()"></div>
+  <div class="content">
+    <div class="title">{{ .Site.Params.popup_title }}</div>
+    <div class="desc text-ellip-2">{{ .Site.Params.popup_description }}</div>
+  </div>
+  <a class="btn" href="{{ .Site.Params.popup_link }}">{{ .Site.Params.popup_link_title }}</a>
+</div>
+{{ end }}
