@@ -11,7 +11,7 @@ subtitle: 基于 MySQL 的开源、高可用、云原生集群解决方案
 description: 支持一主多从高可用架构，并具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
 logo: /images/projects/mysql/mysql.svg
 # 立即开始
-start_url: https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/kubernetes/deploy_radondb-mysql_operator_on_k8s.md
+start_url: https://radondb.com/posts/220324_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-k8s-%E4%B8%8A%E9%83%A8%E7%BD%B2-radondb-mysql-operator-%E5%92%8C%E9%9B%86%E7%BE%A4/
 github_url: https://github.com/radondb/radondb-mysql-kubernetes
 # 特性
 features:
@@ -34,7 +34,9 @@ fast_start:
       url: /posts/210623_容器化-_-在-kubernetes-上部署-radondb-mysql-集群/
   operator:
     - text: 在 Kubernetes 上部署 RadonDB MySQL 集群
-      url: https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_radondb-mysql_operator_on_k8s.md
+      url: https://radondb.com/posts/220324_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-k8s-%E4%B8%8A%E9%83%A8%E7%BD%B2-radondb-mysql-operator-%E5%92%8C%E9%9B%86%E7%BE%A4/
+    - text: 在 KubeSphere 上部署 RadonDB MySQL 集群
+      url: https://radondb.com/posts/220224_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-kubesphere-%E4%B8%AD%E9%83%A8%E7%BD%B2-mysql-%E9%9B%86%E7%BE%A4/
 # 架构
 architecture:
   picture: /images/projects/mysql/mysql-architecture.png
