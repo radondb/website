@@ -19,5 +19,5 @@ related:
     weight: 100
   - name: date
     weight: 10
-  threshold: 80
+  threshold: 100
   toLower: false
