@@ -12,6 +12,7 @@ description: 支持一主多从高可用架构，并具备安全、自动备份�
 logo: /images/projects/mysql/mysql.svg
 # 立即开始
 start_url: https://radondb.com/posts/220324_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-k8s-%E4%B8%8A%E9%83%A8%E7%BD%B2-radondb-mysql-operator-%E5%92%8C%E9%9B%86%E7%BE%A4/
+
 github_url: https://github.com/radondb/radondb-mysql-kubernetes
 # 特性
 features:

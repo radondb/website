@@ -13,7 +13,7 @@ keywords:
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/220113_%E5%B7%A5%E5%85%B7%20%7C%20%E5%A6%82%E4%BD%95%E5%AF%B9%20MySQL%20%E8%BF%9B%E8%A1%8C%20TPC-C%20%E6%B5%8B%E8%AF%95%EF%BC%9F/0.png
 
 ---
-
+根据 DWorks 2020 年发布的《中国自研数据库登顶 TPC-C 的意义》[1] 报告显示，大于 67.9% 的受访者表示在数据库选型时会参考 TPC-C 的测试结果。对用户来说，性能是数据库选型时最重要的指标之一。而 TPC-C 作为权威的测试基准，是一个能够直观反映软硬件性能的方式。
 <!--more-->
 
 作者：丁源 RadonDB 测试负责人
