@@ -33,7 +33,8 @@ window.toggleParentClass = (that, classname) => {
 window.versionOnchange = (event) => {
   Array.from(document.getElementsByClassName("docs-menu")).forEach((node) => {
     node.classList.add("hide");
-    if (node.getAttribute("id") === event.target.value) {
+    console.log(node)
+    if (node.getAttribute("data-version") === event.target.value) {
       node.classList.remove("hide");
     } else {
       node.classList.add("hide");
