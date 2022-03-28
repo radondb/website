@@ -597,10 +597,13 @@ section {
   position: fixed;
   right: 0px;
   bottom: 0;
-  padding: 175px 28px 24px 28px;
+  padding: 175px 28px 34px 28px;
   background: url("/images/common/pop-up-bg.png") no-repeat;
   background-size: cover;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   .close {
     top: 16px;
     right: 24px;
@@ -623,7 +626,7 @@ section {
   }
   .btn {
     width: 120px;
-    margin: 28px auto;
+    margin: 0 auto;
     padding: 9px;
     text-align: center;
     background-color: #326bf6;

@@ -5,6 +5,6 @@
     <div class="title">{{ .Site.Params.popup_title }}</div>
     <div class="desc text-ellip-2">{{ .Site.Params.popup_description }}</div>
   </div>
-  <a class="btn" href="{{ .Site.Params.popup_link }}">立即查看</a>
+  <a class="btn" href="{{ .Site.Params.popup_link }}">{{ .Site.Params.popup_link_title }}</a>
 </div>
 {{ end }}
