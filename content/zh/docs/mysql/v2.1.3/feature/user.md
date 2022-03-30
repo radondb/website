@@ -4,14 +4,15 @@ title: "使用 MysqlUser CRD 管理 MySQL 用户"
 weight: 3
 ---
 
-# 准备工作
+支持版本：2.1.0 +
 
-- 已准备可用 [Kubernetes](../../install/kubernetes) 或 [KubeSphere](../../install/kubesphere) 集群
-- RadonDB MySQL Kubernetes 版本 2.1.0 及以上
+## 准备工作
 
-# 创建用户帐号
+- 已准备可用 RadonDB MySQL 集群
 
-## 步骤 1：校验 CRD
+## 创建用户帐号
+
+### 步骤 1：校验 CRD
 
 使用如下指令，将查看到名称为 `mysqlusers.mysql.radondb.com` 的 CRD。
 
@@ -20,7 +21,7 @@ $ kubectl get crd | grep mysqluser
 mysqlusers.mysql.radondb.com                          2021-09-21T09:15:08Z
 ```
 
-## 步骤 2：创建 Secret
+### 步骤 2：创建 Secret
 
 RadonDB MySQL 使用 K8S 中的 [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) 对象保存用户的密码。
 
@@ -30,7 +31,7 @@ RadonDB MySQL 使用 K8S 中的 [Secret](https://kubernetes.io/docs/concepts/con
 $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysqluser_secret.yaml
 ```
 
-## 步骤 3：创建用户
+### 步骤 3：创建用户
 
 使用如下指令，将使用 [示例配置](#示例配置) 创建一个名为 `sample_user` 的用户。
 
@@ -40,14 +41,14 @@ $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kuber
 
 > 注意：直接修改 spec.user （用户名）等同于以新用户名创建一个用户。如需创建多个用户，请确保 metadata.name （CR 实例名） 与 spec.user（用户名）一一对应。
 
-# 修改用户帐号
+## 修改用户帐号
 
 用户帐号信息由 spec 字段中参数定义，目前支持：
 
 * 修改 `hosts` 参数。
 * 新增 `permissions` 参数。
 
-## 授权 IP
+### 授权 IP
 
 允许使用用户帐号的 IP，通过 `hosts` 字段参数定义。
 
@@ -59,7 +60,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kuber
     - "%"
 ```
 
-## 用户权限
+### 用户权限
 
 用户帐号数据库访问权限，通过 MysqlUser 中 permissions 字段参数定义。可通过新增 permissions 字段参数值，实现用户帐号权限的新增。
 
@@ -76,7 +77,7 @@ permissions:
 * `tables`  参数表示该用户帐号允许访问的数据库表。 * 代表允许访问数据库中所有表。
 * `privileges`  参数表示该用户帐号被授权的数据库权限。更多权限说明，请参见 [Privileges Supported by MySQL](https://dev.mysql.com/doc/refman/5.7/en/grant.html)。
 
-# 删除用户帐号
+## 删除用户帐号
 
 使用如下指令将删除使用 [示例配置](#示例配置) 创建的 MysqlUser CR。
 
@@ -86,9 +87,9 @@ $ kubectl delete mysqluser sample-user-cr
 
 >说明：删除 MysqlUser CR 会自动删除 CR 对应的 MySQL 用户。
 
-# 示例配置
+## 示例配置
 
-## Secret
+### Secret
 
 ```shell
 apiVersion: v1
@@ -101,7 +102,7 @@ data:
   # pwdForSample3:
 ```
 
-## MysqlUser
+### MysqlUser
 
 ```plain
 apiVersion: mysql.radondb.com/v1alpha1
@@ -128,4 +129,3 @@ spec:
     secretName: sample-user-password  # 密钥名称。   
     secretKey: pwdForSample  # 密钥键，一个密钥可以保存多个用户的密码，以键区分。
 ```
-

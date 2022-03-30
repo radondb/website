@@ -10,14 +10,14 @@ pdf: ""
 
 本文档演示 RadonDB MySQL Kubernetes 在 Kubernetes 上的部署、校验、访问和卸载操作。
 
-# 部署准备
+## 部署准备
 
 - Kubernetes 集群
 - MySQL 客户端工具
 
-# 部署步骤
+## 部署步骤
 
-## 步骤 1: 添加 Helm 仓库
+### 步骤 1: 添加 Helm 仓库
 添加 Helm 仓库 `radondb`。
 ```shell
 $ helm repo add radondb https://radondb.github.io/radondb-mysql-kubernetes/
@@ -31,7 +31,7 @@ NAME                            CHART VERSION   APP VERSION                     
 radondb/mysql-operator          0.1.0           v2.1.x                          Open Source，High Availability Cluster，based on MySQL                     
 ```
 
-## 步骤 2: 部署 Operator
+### 步骤 2: 部署 Operator
 
 设置 release 名为 `demo` , 创建名为 `demo-mysql-operator` 的 [Deployment](https://kubernetes.io/zh/docs/concepts/workloads/controllers/deployment/)。
 
@@ -41,7 +41,7 @@ $ helm install demo radondb/mysql-operator
  
 > 在这一步中，默认将同时创建集群所需的 [CRD](https://kubernetes.io/zh/docs/concepts/extend-kubernetes/api-extension/custom-resources/)。
 
-## 步骤 3: 部署 RadonDB MySQL 集群
+### 步骤 3: 部署 RadonDB MySQL 集群
 
 执行以下指令，以默认参数为 CRD `mysqlclusters.mysql.radondb.com` 创建一个实例，即创建 RadonDB MySQL 集群。
 
@@ -50,11 +50,10 @@ $ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/
 ```
 > 自定义集群部署参数，可参考 [配置参数](./config_para.md) 。
 
-<iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=297526678&bvid=BV1kF411x7e6&cid=557538205&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-# 部署校验
+## 部署校验
 
-## 校验 RadonDB MySQL Operator
+### 校验 RadonDB MySQL Operator
 
 查看 `demo` 的 Deployment 和对应监控服务，回显如下信息则部署成功。
 
@@ -67,7 +66,7 @@ NAME                             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(
 service/mysql-operator-metrics   ClusterIP   10.96.142.22    <none>        8443/TCP   8h
 ```
 
-## 校验 RadonDB MySQL 集群
+### 校验 RadonDB MySQL 集群
 
 执行如下命令，将查看到如下 CRD。
 
@@ -91,7 +90,7 @@ service/sample-leader            ClusterIP   10.96.111.214   <none>        3306/
 service/sample-mysql             ClusterIP   None            <none>        3306/TCP   7h37m
 ```
 
-# 访问集群
+### 访问集群
 
 在 Kubernetes 集群内，支持使用 `service_name` 或者 `clusterIP` 方式，访问 RadonDB MySQL。
 
@@ -103,7 +102,7 @@ service/sample-mysql             ClusterIP   None            <none>        3306/
 > 当客户端的与数据库部署在不同 Kubernetes 集群，请参考 [Kubernetes 访问集群中的应用程序](https://kubernetes.io/zh/docs/tasks/access-application-cluster/)，配置端口转发、负载均衡等连接方式。
 
 
-## ClusterIP 方式
+#### ClusterIP 方式
 
 RadonDB MySQL 的高可用读写 IP 指向 Leader 服务的 `clusterIP`，高可用只读 IP 指向 Follower 服务的 `clusterIP`。
 
@@ -117,7 +116,7 @@ $ mysql -h <clusterIP> -P <mysql_Port> -u <user_name> -p
 $ mysql -h 10.10.128.136 -P 3306 -u radondb_usr -p
 ```
 
-## service_name 方式
+#### service_name 方式
 
 Kubernetes 集群的 Pod 之间支持通过 `service_name` 方式访问 RadonDB MySQL。
 
@@ -147,11 +146,10 @@ $ mysql -h <follower_service_name>.<namespace> -u <user_name> -p
 $ mysql -h sample-follower.default -u radondb_usr -p  
 ```
 
-<iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=255033019&bvid=BV1ZY411n7dq&cid=557541844&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
-# 卸载
+## 卸载
 
-## 卸载 Operator
+### 卸载 Operator
 
 卸载当前命名空间下 release 名为 `demo` 的 RadonDB MySQL Operator。
 
@@ -159,7 +157,7 @@ $ mysql -h sample-follower.default -u radondb_usr -p
 $ helm delete demo
 ```
 
-## 卸载集群
+### 卸载集群
 
 卸载 release 名为 `sample` RadonDB MySQL 集群。
 
@@ -167,12 +165,10 @@ $ helm delete demo
 $ kubectl delete mysqlclusters.mysql.radondb.com sample
 ```
 
-## 卸载自定义资源
+### 卸载自定义资源
 
 ```shell
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlclusters.mysql.radondb.com
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlusers.mysql.radondb.com
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io backups.mysql.radondb.com
 ```
-
-<iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=767534794&bvid=BV1ir4y1q736&cid=557537782&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

@@ -5,16 +5,16 @@ weight: 2
 
 支持版本：2.1.0 +
 
-# 快速开始备份
+## 快速开始备份
 
-## 步骤 1：安装 Operator
+### 步骤 1：安装 Operator
 安装名为 `test` 的 Operator。
 
 ```shell
 $ helm install test charts/mysql-operator
 ```
 
-## 步骤 2：配置备份
+### 步骤 2：配置备份
 
 添加保密文件。
 
@@ -72,21 +72,21 @@ spec:
 |hostname|pod name in cluser|
 |clustname|cluster name|
 
-## 步骤 3：开启集群
+### 步骤 3：开启集群
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_mysqlcluster.yaml     
 ```
-## 步骤4：开始备份
+### 步骤4：开始备份
 在集群运行成功后开始备份。
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_backup.yaml
 ```
 
-# 卸载
+## 卸载
 
-## 卸载 Operator
+### 卸载 Operator
 卸载名为 `test` 的 Operator。
 ```shell
 $helm uninstall test
@@ -94,20 +94,20 @@ $helm uninstall test
 $kubectl delete -f config/samples/mysql_v1alpha1_backup.yaml
 ```
 
-## 卸载集群
+### 卸载集群
 卸载名为 `sample` 的集群。
 
 ```shell
 $ kubectl delete mysqlclusters.mysql.radondb.com sample
 ```
 
-## 卸载资源
+### 卸载资源
 
 ```shell
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlclusters.mysql.radondb.com
 ```
 
-# 从备份中恢复集群
+## 从备份中恢复集群
 检测你的 S3 bucket，获取你备份的目录，比如：`backup_2021720827`，并且将设置为 yaml 文件的 `restoreFrom` 属性中。
 
 ```yaml
@@ -129,7 +129,7 @@ could restore a cluster from the `backup_2021720827 ` copy in the S3 bucket.
 
 完成，已经从名为 `backup_2021720827` 的 S3 备份中恢复一个集群。
 
-## 创建镜像
+### 创建镜像
 如下：
 ```shell
 $ docker build -f Dockerfile.sidecar -t  acekingke/sidecar:0.1 . && docker push acekingke/sidecar:0.1
@@ -138,7 +138,7 @@ $ docker build -t acekingke/controller:0.1 . && docker push acekingke/controller
 
 可以将 acekingke/sidecar:0.1 改为你自己的标签。
 
-## deploy your own manager
+### deploy your own manager
 ```shell
 $ make manifests
 $ make install 
