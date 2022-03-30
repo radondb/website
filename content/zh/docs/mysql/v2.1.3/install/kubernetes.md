@@ -50,6 +50,7 @@ $ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/
 ```
 > 自定义集群部署参数，可参考 [配置参数](./config_para.md) 。
 
+<iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=297526678&bvid=BV1kF411x7e6&cid=557538205&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 # 部署校验
 
@@ -146,6 +147,8 @@ $ mysql -h <follower_service_name>.<namespace> -u <user_name> -p
 $ mysql -h sample-follower.default -u radondb_usr -p  
 ```
 
+<iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=255033019&bvid=BV1ZY411n7dq&cid=557541844&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
 # 卸载
 
 ## 卸载 Operator
@@ -172,3 +175,4 @@ $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlusers.mysql
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io backups.mysql.radondb.com
 ```
 
+<iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=767534794&bvid=BV1ir4y1q736&cid=557537782&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>

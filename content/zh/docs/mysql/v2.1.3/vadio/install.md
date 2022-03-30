@@ -8,4 +8,12 @@ weight: 1
 
 # 在 Kubernetes 上部署 RadonDB MySQL Operator 和 MySQL 集群
 <!-- 宽固定760px 一般选择16:9或4:3 -->
+
+## 部署 RadonDB MySQL 集群
 <iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=297526678&bvid=BV1kF411x7e6&cid=557538205&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+## 校验和访问 RadonDB MySQL 集群
+<iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=297526678&bvid=BV1kF411x7e6&cid=557538205&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+## 卸载 RadonDB MySQL 集群
+<iframe width="760" height="427" src="//player.bilibili.com/player.html?aid=767534794&bvid=BV1ir4y1q736&cid=557537782&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
