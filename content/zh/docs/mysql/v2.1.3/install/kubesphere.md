@@ -54,8 +54,8 @@ pdf: ""
 
 2. 参考如上步骤，安装最新版本 Operator 。
 3. 执行如下命令更新 CRD 版本。如下示例为更新 CRD 到 2.1.2 版。
-```plain
-kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/v2.1.2/charts/mysql-operator/crds/mysql.radondb.com_mysqlclusters.yaml
+```shell
+$ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/v2.1.2/charts/mysql-operator/crds/mysql.radondb.com_mysqlclusters.yaml
 ```
 ## 3、部署 RadonDB MySQL 集群
 
@@ -65,8 +65,8 @@ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kuberne
 
 1. 在右下角 工具箱中选择 Kubectl 工具，打开终端窗口。
 2. 执行以下命令，安装 RadonDB MySQL 集群。
-```plain
-kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml --namespace=<project_name>
+```shell
+$ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml --namespace=<project_name>
 ```
 **注意**
 
@@ -74,16 +74,16 @@ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/la
 
 **预期结果**
 
-```plain
+```shell
 $ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml --namespace=demo-project
 mysqlcluster.mysql.radondb.com/sample created
 ```
 3. 集群创建成果后，执行如下命令，可查看 RadonDB MySQL 集群节点服务。
-```plain
-kubectl get statefulset,svc
+```shell
+$ kubectl get statefulset,svc
 ```
 **预期结果**
-```plain
+```shell
 $ kubectl get statefulset,svc
 NAME                            READY   AGE
 statefulset.apps/sample-mysql   3/3     10m

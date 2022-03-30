@@ -39,11 +39,12 @@ $ echo -n "hello"|base64
 ```
 
 然后在 K8s 中创建加密配置。
-```
+
+```shell
 $ kubectl create -f config/samples/backup_secret.yaml
 ```
 
-请在 `mysql_v1apha1_mysqlcluster.yaml` 文件中添加 backupSecretName 属性。
+请在 `mysql_v1a1pha1_mysqlcluster.yaml` 文件中添加 backupSecretName 属性。
 
 ```yaml
 spec:
@@ -53,7 +54,7 @@ spec:
   ...
 ```
 
-现在，如下创建备份文件 `mysql_v1apha1_backup.yaml` 如下。
+现在，如下创建备份文件 `mysql_v1a1pha1_backup.yaml` 如下。
 
 ```yaml
 apiVersion: mysql.radondb.com/v1alpha1
@@ -130,7 +131,7 @@ could restore a cluster from the `backup_2021720827 ` copy in the S3 bucket.
 
 ## 创建镜像
 如下：
-```
+```shell
 $ docker build -f Dockerfile.sidecar -t  acekingke/sidecar:0.1 . && docker push acekingke/sidecar:0.1
 $ docker build -t acekingke/controller:0.1 . && docker push acekingke/controller:0.1
 ```
