@@ -3,7 +3,9 @@ title: "备份与恢复"
 weight: 2
 ---
 
-支持版本：2.1.0 +
+[查看 Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_backup_restore_s3.md)
+
+> RadonDB MySQL Kubernetes 2.1.0+ 支持。
 
 ## 快速开始备份
 

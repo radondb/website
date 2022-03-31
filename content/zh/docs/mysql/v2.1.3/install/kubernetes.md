@@ -8,6 +8,10 @@ weight: 2
 pdf: ""
 ---
 
+[查看 Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_radondb-mysql_operator_on_k8s.md)
+
+> RadonDB MySQL Kubernetes 2.0 版本通用。
+
 本文档演示 RadonDB MySQL Kubernetes 在 Kubernetes 上的部署、校验、访问和卸载操作。
 
 ## 部署准备
@@ -172,3 +176,4 @@ $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlclusters.my
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlusers.mysql.radondb.com
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io backups.mysql.radondb.com
 ```
+

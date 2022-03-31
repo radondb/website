@@ -3,7 +3,9 @@ title: "监控与告警"
 weight: 1
 ---
 
-支持版本：2.1.0 +
+[查看 Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_monitoring.md)
+
+> RadonDB MySQL Kubernetes 2.1.0+ 支持。
 
 ## 背景
 [Prometheus](https://prometheus.io/) 基于文本的暴露格式，已经成为云原生监控领域事实上的标准格式。

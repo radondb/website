@@ -3,7 +3,7 @@ title: "配置参数"
 weight: 4
 ---
 
-# 配置参数
+[查看 Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/config_para.md)
 
 ## 容器配置
 
@@ -51,3 +51,6 @@ weight: 4
 | Persistence.AccessModes  | 存储卷访问模式 | ReadWriteOnce |
 | Persistence.StorageClass | 存储卷类型     | -             |
 | Persistence.Size         | 存储卷容量     | 10Gi          |
+
+## 配置示例
+

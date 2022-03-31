@@ -8,6 +8,10 @@ weight: 3
 pdf: ""
 ---
 
+[查看 Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_radondb-mysql_operator_on_kubesphere.md)
+
+> RadonDB MySQL Kubernetes 2.0 版本通用。
+
 本文档演示在 [KubeSphere](https://kubesphere.com.cn) 上部署 RadonDB MySQL Kubernetes 的 Operator 和 MySQL 高可用集群。
 
 ## 部署准备

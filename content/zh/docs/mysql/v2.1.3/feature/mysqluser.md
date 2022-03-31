@@ -4,7 +4,9 @@ title: "使用 MysqlUser CRD 管理 MySQL 用户"
 weight: 3
 ---
 
-支持版本：2.1.0 +
+[查看 Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/mgt_mysqluser.md)
+
+> RadonDB MySQL Kubernetes 2.1.0+ 支持。
 
 ## 准备工作
 

@@ -3,6 +3,12 @@ title: "版本发布汇总"
 weight: 1
 ---
 
+## 版本须知【重要】
+
+- 1.x 版本由 Helm 包管理工具部署，目前已停止维护！
+- 2.x 版本由 Operator 的方式实现并兼容 1.x 所有功能。
+- 强烈建议使用 2.x 最新版本！
+
 ## 近期 Roadmap
 
 1. 支持更多方式的数据库备份恢复
@@ -11,15 +17,8 @@ weight: 1
 4. 抽象完善外部调用 API
 5. 进一步提升服务质量，减少特殊场景下启停时间
 6. 完善周期调度 job 功能更高效支持重复工作
-7. StatefulSet 完善为 Multi StatefulSet
 8. 支持在线迁移
 9. 完善 e2e 测试框架，覆盖更多场景
-
-## 版本须知
-
-- 1.x 版本由 Helm 包管理工具部署
-- 2.x 版本由 Operator 的方式实现并兼容 1.x 所有功能
-- 强烈建议使用 2.x 最新版本
 
 ## RadonDB MySQL Kubernetes 版本
 
@@ -34,3 +33,4 @@ weight: 1
 | [1.1.0](../1.0/#110-release-notes) |	2021-05-07 |
 | [1.0.0](../1.0/#100-release-notes) |	2021-04-27 |
 
+了解最新版本发布信息：[https://github.com/radondb/radondb-mysql-kubernetes/releases](https://github.com/radondb/radondb-mysql-kubernetes/releases) 
