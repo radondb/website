@@ -1,0 +1,109 @@
+{{ define "header" }}
+  {{ partial "docs-header" . }}
+{{ end }}
+
+{{ define "main" }}
+<div class="docs-content">
+  <div class="container">
+    <!-- left menu -->
+    <div class="left-panel">
+    <select onchange="versionOnchange(event)">
+      {{ range .Sections }}
+      <option value="{{ .Title }}">{{ .Title }}</option>
+      {{ end }}
+    </select>
+    <!-- 第一层版本号 -->
+    {{ range $index, $section := .Sections }}
+    {{ if eq $index 0 }}
+    <div class="docs-menu" id="{{ $section.Title }}">
+    {{ else }}
+    <div class="docs-menu hide" id="{{ $section.Title }}">
+    {{ end }}
+      {{ range $section.Pages }}
+      {{ if .IsNode }}
+      <div class="toggle hide-content">
+        <div class="first-class space-between" onclick="toggleParentClass(this,'hide-content')">
+          <span>{{ .Params.shortTitle | default .Title }}</span>
+          <span class="folder"></span>
+        </div>
+        <div class="content">
+          {{ range .Pages }}
+          {{ if .IsNode }}
+          <div class="toggle hide-content">
+            <div class="second-class space-between" onclick="toggleParentClass(this,'hide-content')"><span>{{ .Params.shortTitle | default .Title }}</span><span class="folder"></span></div>
+            <div class="content">
+              {{ range .Pages }}
+              {{ if .IsNode }}
+              <div class="toggle hide-content">
+                <div class="third-class space-between" onclick="toggleParentClass(this,'hide-content')"><span>{{ .Params.shortTitle | default .Title }}</span><span class="folder"></span></div>
+              </div>
+              {{ else }}
+              <a class="third-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+              {{ end }}
+              {{ end }}
+            </div>
+          </div>
+          {{ else }}
+          <a class="second-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+          {{ end }}
+          {{ end }}
+        </div>
+      </div>
+      {{ else }}
+      <a class="first-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+      {{ end }}
+      {{ end}}
+    </div>
+    {{ end }}
+    <!-- 第一层结束 -->
+    </div>
+    <!-- center content-->
+    <div class="center-content">
+      <div class="title">{{ .Params.contentTitle }}</div>
+      <div class="md-content">{{ .Content }}</div>
+      <div class="flattened-menu">
+        <div class="menu-group">
+          <!-- 第一层版本号 -->
+          {{ range $index, $section := .Sections }}
+          {{ if eq $index 0 }}
+          <div class="docs-menu" id="{{ $section.Title }}">
+          {{ else }}
+          <div class="docs-menu hide" id="{{ $section.Title }}">
+          {{ end }}
+            {{ range $section.Pages }}
+            {{ if .IsNode }}
+            <div class="toggle">
+              <div class="first-class space-between">
+                {{ .Title }}
+              </div>
+              <div class="content">
+                {{ range .Pages }}
+                {{ if .IsNode }}
+                <div class="toggle">
+                  <div class="second-class space-between">{{ .Title }}</div>
+                  <ul class="content">
+                    {{ range .Pages }}
+                    <li><a class="third-class" href="{{.RelPermalink}}">{{.Title}}</a></li>
+                    {{ end }}
+                  </ul>
+                </div>
+                {{ else }}
+                <a class="second-class" href="{{.RelPermalink}}">{{.Title}}</a>
+                {{ end }}
+                {{ end }}
+              </div>
+            </div>
+            {{ else }}
+            <a class="first-class" href="{{.RelPermalink}}">{{.Title}}</a>
+            {{ end }}
+            {{ end}}
+          </div>
+          {{ end }}
+          <!-- 第一层结束 -->
+        </div>
+      </div>
+    </div>
+    {{ partial "docs-right-panel" . }}
+  </div>
+</div>
+{{ end }}

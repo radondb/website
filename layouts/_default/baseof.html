@@ -41,6 +41,8 @@
     <main id="main" role="main">
       {{ block "main" . }}{{ end }}
     </main>
+    {{ $js := resources.Get "js/common.js" | js.Build (dict "target" "es5") }}
+    <script src="{{ $js.RelPermalink }}"></script>
     {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
     {{ block "modal" . }}{{ partialCached "modal.html" . }}{{ end }}
   </body>
