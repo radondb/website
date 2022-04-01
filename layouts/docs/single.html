@@ -1,0 +1,141 @@
+{{ define "header" }}
+{{ $docsRoot := .Parent }}
+  {{/* hardcode looping */}}
+  {{ with .Parent }}
+    {{ if .Params.docsRoot }}
+    {{ else }}
+      {{ with .Parent }}
+        {{ if .Params.docsRoot }}
+        {{ $docsRoot = . }}
+        {{ else }}
+        {{ with .Parent }}
+          {{ if .Params.docsRoot }}
+          {{ $docsRoot = . }}
+          {{ else }}
+            {{ with .Parent }}
+              {{ if .Params.docsRoot }}
+              {{ $docsRoot = . }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+  {{ partial "docs-header" $docsRoot }}
+{{ end }}
+
+{{ define "main" }}
+{{ $current := . }}
+<!-- pointerPrev is the version page -->
+{{ $pointerPrev := . }}
+{{ $curParent := .Parent }}
+<!-- docsRoot is one of the sections under docs, like mysql -->
+{{ $docsRoot := .Parent }}
+  {{/* hardcode looping */}}
+  {{ with .Parent }}
+    {{ if .Params.docsRoot }}
+    {{ else }}
+      {{ $pointerPrev = . }}
+      {{ with .Parent }}
+        {{ if .Params.docsRoot }}
+        {{ $docsRoot = . }}
+        {{ else }}
+        {{ $pointerPrev = . }}
+        {{ with .Parent }}
+          {{ if .Params.docsRoot }}
+          {{ $docsRoot = . }}
+          {{ else }}
+            {{ $pointerPrev = . }}
+            {{ with .Parent }}
+              {{ if .Params.docsRoot }}
+              {{ $docsRoot = . }}
+              {{ end }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+
+  <div class="docs-content">
+    <div class="container">
+      <div class="left-panel">
+        <select onchange="versionOnchange(event)">
+          {{ range $docsRoot.Sections }}
+            {{ if eq .Title $pointerPrev.Title }}
+            <option value="{{ .Title }}" selected>{{ .Title }}</option>
+            {{ else }}
+            <option value="{{ .Title }}">{{ .Title }}</option>
+            {{ end }}
+          {{ end }}
+        </select>
+        {{/* 第一层版本号 */}}
+        {{ range $index, $section := $docsRoot.Sections }}
+        {{/* 一级分类 */}}
+        {{ if eq $pointerPrev.RelPermalink $section.RelPermalink }}
+        <div class="docs-menu" id="{{ $section.Title }}">
+        {{ else }}
+        <div class="docs-menu hide" id="{{ $section.Title }}">
+        {{ end }}
+          {{ range $section.Pages }}
+          {{ if .IsNode }}
+          {{ if (or (eq .RelPermalink $current.Parent.RelPermalink) (eq .RelPermalink $curParent.Parent.RelPermalink)) }}
+          <div class="toggle">
+          {{ else }}
+          <div class="toggle hide-content">
+          {{ end }}
+            <div class="first-class space-between" onclick="toggleParentClass(this,'hide-content')">
+              <span>{{ .Params.shortTitle | default .Title }}</span>
+              <span class="folder"></span>
+            </div>
+            <div class="content">
+              {{ range .Pages }}
+              {{ if .IsNode }}
+              {{ if (eq .RelPermalink $current.Parent.RelPermalink) }}
+              <div class="toggle">
+              {{ else }}
+              <div class="toggle hide-content">
+              {{ end }}
+                <div class="second-class space-between" onclick="toggleParentClass(this,'hide-content')"><span>{{ .Params.shortTitle | default .Title }}</span><span class="folder"></span></div>
+                <div class="content">
+                  {{ range .Pages }}
+                    {{ if eq .RelPermalink $current.RelPermalink }}
+                    <a class="third-class selected" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+                    {{ else }}
+                    <a class="third-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+                    {{ end }}
+                  {{ end }}
+                </div>
+              </div>
+              {{ else }}
+                {{ if eq .RelPermalink $current.RelPermalink }}
+                <a class="second-class selected" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+                {{ else }}
+                <a class="second-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+                {{ end }}
+              {{ end }}
+              {{ end }}
+            </div>
+          </div>
+          {{ else }}
+          {{ if eq .RelPermalink $current.RelPermalink }}
+          <a class="first-class selected" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+          {{ else }}
+          <a class="first-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+          {{ end }}
+          {{ end }}
+          {{ end}}
+        </div>
+        {{ end }}
+      </div>
+      <div class="center-content">
+        <div class="title">{{ .Title }}</div>
+        <div class="md-content">{{ .Content }}</div>
+      </div>
+      {{ partial "docs-right-panel" . }}
+    </div>
+  </div>
+  {{ end }}
