@@ -15,9 +15,9 @@
     <!-- 第一层版本号 -->
     {{ range $index, $section := .Sections }}
     {{ if eq $index 0 }}
-    <div class="docs-menu" id="{{ $section.Title }}">
+    <div class="docs-menu" data-version="{{ $section.Title }}">
     {{ else }}
-    <div class="docs-menu hide" id="{{ $section.Title }}">
+    <div class="docs-menu hide" data-version="{{ $section.Title }}">
     {{ end }}
       {{ range $section.Pages }}
       {{ if .IsNode }}
@@ -66,9 +66,9 @@
           <!-- 第一层版本号 -->
           {{ range $index, $section := .Sections }}
           {{ if eq $index 0 }}
-          <div class="docs-menu" id="{{ $section.Title }}">
+          <div class="docs-menu" data-version="{{ $section.Title }}">
           {{ else }}
-          <div class="docs-menu hide" id="{{ $section.Title }}">
+          <div class="docs-menu hide" data-version="{{ $section.Title }}">
           {{ end }}
             {{ range $section.Pages }}
             {{ if .IsNode }}
@@ -103,7 +103,29 @@
         </div>
       </div>
     </div>
-    {{ partial "docs-right-panel" . }}
+    <div class="right-panel">
+      <!-- 下载对应版本的pdf -->
+      {{ range $index, $section := .Sections }}
+      {{ if eq $index 0 }}
+        {{ if .Params.pdf }}
+        <a class="docs-menu href flex-row fl-center" data-version="{{ .Title }}" href="{{.Params.pdf}}" download="{{.Title}}.pdf"><img src="/images/common/pdf.svg" /><span>下载PDF</span></a>
+        {{ else }}
+        <div class="docs-menu href flex-row fl-center grey" data-version="{{ .Title }}"><img src="/images/common/pdf.svg" /><span>下载PDF</span></div>
+        {{ end }}
+      {{ else }}
+        {{ if .Params.pdf }}
+        <a class="docs-menu href flex-row fl-center hide" data-version="{{ .Title }}" href="{{.Params.pdf}}" download="{{.Title}}.pdf"><img src="/images/common/pdf.svg" /><span>下载PDF</span></a>
+        {{ else }}
+        <div class="docs-menu href flex-row fl-center grey hide" data-version="{{ .Title }}"><img src="/images/common/pdf.svg" /><span>下载PDF</span></div>
+        {{ end }}
+      {{ end }}
+      {{ end }}
+      <a class="href flex-row fl-center" target="_blank" href="https://github.com/radondb/website/issues/new?body=File: [{{.RelPermalink}}](https://github.com/radondb/website/content/{{.Language}}{{.RelPermalink}})"><img src="/images/common/feedback.svg" /><span>反馈文档问题</span></a>
+      <div class="catalog">
+        <div class="title">本页目录</div>
+        <div>{{ .TableOfContents }}</div>
+      </div>
+    </div>
   </div>
 </div>
 {{ end }}

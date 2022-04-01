@@ -394,9 +394,20 @@ section {
   .hightlight {
     width: 100%;
   }
+  code {
+    padding: 2px 4px;
+    background-color: rgba(175, 184, 193, 0.2);
+    border-radius: 6px;
+  }
   pre {
     width: 100%;
     overflow: auto;
+    padding: 16px;
+    border-radius: 6px;
+    code {
+      background-color: transparent;
+      border-radius: 0;
+    }
   }
   tr {
     border: 1px solid #d5dee7;
@@ -411,6 +422,10 @@ section {
     tr:nth-of-type(2n) {
       background-color: #f9f9f9;
     }
+  }
+  blockquote {
+    padding: 0 16px;
+    border-left: 4px solid #d0d7de;
   }
 }
 

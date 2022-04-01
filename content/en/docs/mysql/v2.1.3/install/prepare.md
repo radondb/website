@@ -1,4 +1,4 @@
 ---
 title: "环境准备"
-weight: 9
+weight: 1
 ---

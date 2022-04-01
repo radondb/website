@@ -21,7 +21,8 @@ main:
     name: "文档"
     weight: "1"
     url: "/docs"
-  - name: "MySQL 容器化"
+  - identifier: /docs/mysql
+    name: "MySQL 容器化"
     weight: '1'
     url: "/docs/mysql"
     parent: docs
