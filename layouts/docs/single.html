@@ -60,7 +60,7 @@
     {{ end }}
   {{ end }}
 
-  <div class="docs-content">
+  <div id="content" class="docs-content">
     <div class="container">
       <div class="left-panel">
         <select onchange="versionOnchange(event)">
@@ -103,18 +103,18 @@
                 <div class="content">
                   {{ range .Pages }}
                     {{ if eq .RelPermalink $current.RelPermalink }}
-                    <a class="third-class selected" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+                    <a class="third-class selected" href="{{.RelPermalink}}#content">{{ .Params.shortTitle | default .Title }}</a>
                     {{ else }}
-                    <a class="third-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+                    <a class="third-class" href="{{.RelPermalink}}#content">{{ .Params.shortTitle | default .Title }}</a>
                     {{ end }}
                   {{ end }}
                 </div>
               </div>
               {{ else }}
                 {{ if eq .RelPermalink $current.RelPermalink }}
-                <a class="second-class selected" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+                <a class="second-class selected" href="{{.RelPermalink}}#content">{{ .Params.shortTitle | default .Title }}</a>
                 {{ else }}
-                <a class="second-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+                <a class="second-class" href="{{.RelPermalink}}#content">{{ .Params.shortTitle | default .Title }}</a>
                 {{ end }}
               {{ end }}
               {{ end }}
@@ -122,9 +122,9 @@
           </div>
           {{ else }}
           {{ if eq .RelPermalink $current.RelPermalink }}
-          <a class="first-class selected" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+          <a class="first-class selected" href="{{.RelPermalink}}#content">{{ .Params.shortTitle | default .Title }}</a>
           {{ else }}
-          <a class="first-class" href="{{.RelPermalink}}">{{ .Params.shortTitle | default .Title }}</a>
+          <a class="first-class" href="{{.RelPermalink}}#content">{{ .Params.shortTitle | default .Title }}</a>
           {{ end }}
           {{ end }}
           {{ end}}

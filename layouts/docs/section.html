@@ -83,18 +83,18 @@
                   <div class="second-class space-between">{{ .Title }}</div>
                   <ul class="content">
                     {{ range .Pages }}
-                    <li><a class="third-class" href="{{.RelPermalink}}">{{.Title}}</a></li>
+                    <li><a class="third-class" href="{{.RelPermalink}}#content">{{.Title}}</a></li>
                     {{ end }}
                   </ul>
                 </div>
                 {{ else }}
-                <a class="second-class" href="{{.RelPermalink}}">{{.Title}}</a>
+                <a class="second-class" href="{{.RelPermalink}}#content">{{.Title}}</a>
                 {{ end }}
                 {{ end }}
               </div>
             </div>
             {{ else }}
-            <a class="first-class" href="{{.RelPermalink}}">{{.Title}}</a>
+            <a class="first-class" href="{{.RelPermalink}}#content">{{.Title}}</a>
             {{ end }}
             {{ end}}
           </div>
