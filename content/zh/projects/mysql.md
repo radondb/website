@@ -18,10 +18,10 @@ github_url: https://github.com/radondb/radondb-mysql-kubernetes
 features:
   - picture: /images/projects/mysql/consistency.svg
     title: 数据强一致
-    description: 基于 Paxos 协议，采用一主两备三节点架构, 自动脑裂保护处理。
+    description: 采用一主多备高可用架构，自动脑裂保护处理。
   - picture: /images/projects/mysql/available.svg
     title: 高可用
-    description: 支持一主多从架构，灵活满足各类可用性需求。
+    description: 支持一主多备架构，灵活满足各类可用性需求。
   - picture: /images/projects/mysql/operative.svg
     title: 自动运维
     description: 可设置自动备份策略、监控告警策略、自动扩容策略。
