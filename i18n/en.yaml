@@ -1,2 +1,6 @@
-translations_id:
-  other: "translations"
+blog:
+  other: "blog"
+news:
+  other: "news"
+forum:
+  other: "forum"
