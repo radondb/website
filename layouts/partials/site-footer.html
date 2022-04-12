@@ -17,9 +17,9 @@
       <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>社区资源</span><span
           class="mb folder"></span></div>
       <div class="column-content">
-        <a href="/posts">博客</a>
-        <a href="/news">新闻</a>
-        <a href="https://kubesphere.com.cn/forum/t/RadonDB">论坛</a>
+        <a href="{{ .LanguagePrefix }}/posts">{{ i18n "blog" }}</a>
+        <a href="{{ .LanguagePrefix }}/news">{{ i18n "news" }}</a>
+        <a href="https://kubesphere.com.cn/forum/t/RadonDB">{{ i18n "forum" }}</a>
         <a class="github" href="https://github.com/radondb">
           <img src="/images/common/github.svg" />
           <span>GitHub</span>

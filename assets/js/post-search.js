@@ -27,7 +27,8 @@ var currentPage = 1;
 var allPage = 1;
 
 window.onload = () => {
-  var url = "/index.json";
+  var language = location.pathname.substring(0, location.pathname.indexOf('/posts'))
+  var url = language + "/index.json";
   var request = new XMLHttpRequest();
   request.open("get", url);
   request.send(null);

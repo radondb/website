@@ -1,2 +1,6 @@
-translations_id:
-  other: "翻译"
+blog:
+  other: "博客"
+news:
+  other: "新闻"
+forum:
+  other: "论坛"
