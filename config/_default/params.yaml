@@ -10,7 +10,7 @@ radondb_projects:
   - ClickHouse
   - ElesticSearch
 
-# 全局弹窗
+# 全局弹窗，如需要翻译，请移动下面的参数到 languages.yaml 中的params下面，其他的不需要改
 show_popup: true
 popup_title: "欢迎报名开源之夏 RadonDB 社区项目！"
 popup_description: "开源之夏旨在鼓励在校学生积极参与开源软件的开发维护，促进优秀开源软件社区的蓬勃发展。"

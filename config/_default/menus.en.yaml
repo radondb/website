@@ -1,7 +1,7 @@
 # 主导航菜单
 main:
   - identifier: projects
-    name: "开源项目"
+    name: "en开源项目"
     weight: "1"
     url: "/projects"
   - name: "MySQL 容器化"
@@ -18,7 +18,7 @@ main:
     parent: projects
 
   - identifier: docs
-    name: "文档"
+    name: "en文档"
     weight: "1"
     url: "/docs"
   - identifier: /docs/mysql
