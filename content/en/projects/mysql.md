@@ -1,5 +1,5 @@
 ---
-title: "MySQL 容器化"
+title: "RadonDB MySQL Kubernetes"
 date: 2021-09-11T16:52:11+08:00
 # 相关文章，通过keywords匹配
 keywords:
@@ -7,8 +7,8 @@ keywords:
 # 排序，从小到大
 weight: 1
 short: RadonDB MySQL Kubernetes
-subtitle: 基于 MySQL 的开源、高可用、云原生集群解决方案
-description: 支持一主多从高可用架构，并具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
+subtitle: MySQL based open source, high- Availability, cloud-native Cluster Solution
+description: It supports one master multi slave high availability architecture, and has a full set of management functions such as security, automatic backup, monitoring alarm and automatic capacity expansion. Support installation, deployment and management on kubernetes and kubesphere.
 logo: /images/projects/mysql/mysql.svg
 # 立即开始
 start_url: /posts/220224_容器化-_-在-kubesphere-中部署-mysql-集群/
@@ -73,7 +73,7 @@ roadmap:
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-基于 MySQL 的开源、高可用、云原生集群解决方案。支持一主多从高可用架构，具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
+MySQL based Open Source, High-Availability, Cloud-Native Cluster Solution. It supports one master multi slave high availability architecture, and has a full set of management functions such as security, automatic backup, monitoring alarm and automatic capacity expansion. Support installation, deployment and management on kubernetes and kubesphere.
 
 <!--more-->
 

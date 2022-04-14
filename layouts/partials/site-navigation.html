@@ -20,7 +20,7 @@
           <ul class="select-content">
             {{ range .Children }}
             <li>
-              <a class="" href="{{ .URL }}" title="{{ .Name }} page">
+              <a class="" href="{{ .URL | absLangURL }}" title="{{ .Name }} page">
                 {{ .Name }}
               </a>
             </li>
@@ -29,7 +29,7 @@
         </li>
         {{ else }}
         <li class="item">
-          <a class="" href="{{ .URL }}" title="{{ .Name }} page">
+          <a class="" href="{{ .URL | absLangURL }}" title="{{ .Name }} page">
             {{ .Name }}
           </a>
         </li>
