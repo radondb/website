@@ -1,14 +1,14 @@
 ---
-title: "Radon 分布式数据库组件"
+title: "Radon"
 date: 2021-09-11T16:52:11+08:00
 # 相关文章，通过keywords匹配
 keywords:
   - radon
 # 排序，从小到大
-weight: 1
+weight: 2
 short: Radon
-subtitle: 新一代 MySQL 分布式数据库组件
-description: 支持无限水平扩展、分布式事务，具备金融级数据强一致性，满足企业级核心数据库对大容量、高并发、高可靠及高可用的极致要求。
+subtitle: New generation MySQL distributed database components
+description: It supports unlimited horizontal expansion and distributed transactions, has strong consistency of financial level data, and meets the extreme requirements of enterprise level core database for large capacity, high concurrency, high reliability and high availability.
 logo: /images/projects/radon.svg
 # 立即开始
 start_url: https://github.com/radondb/radon/blob/master/docs/how_to_build_and_run_radon.md
@@ -44,7 +44,7 @@ architecture:
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-新一代基于 MySQL 分布式数据库组件。支持无限水平扩展、分布式事务，具备金融级数据强一致性，满足企业级核心数据库对大容量、高并发、高可靠及高可用的极致要求。
+New generation MySQL distributed database components. It supports unlimited horizontal expansion and distributed transactions, has strong consistency of financial level data, and meets the extreme requirements of enterprise level core database for large capacity, high concurrency, high reliability and high availability.
 
 <!--more-->
 

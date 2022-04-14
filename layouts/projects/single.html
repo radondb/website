@@ -6,7 +6,7 @@
   <h3 class="h-center">{{ .Params.description }}</h3>
   <div class="flex-row space-center">
     <a class="btn start flex-row fl-center" href="{{ .Params.start_url }}">
-      <span>立即开始</span>
+      <span>{{ i18n "start"}}</span>
       <img src="/images/common/right-white.svg" />
     </a>
     <a class="btn github flex-row fl-center" href="{{ .Params.github_url }}">
@@ -121,7 +121,7 @@
   {{ with $related }}
   <section class="blog">
     <h2 class="title-h2">
-      <span>相关文章</span>
+      <span>{{ i18n "docs"}}</span>
     </h2>
     <div class="blog-list">
       {{ range .ByDate.Reverse | first 3 }}
