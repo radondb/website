@@ -3,20 +3,20 @@
 <header class="site-header">
   {{ partial "site-navigation.html" .}}
   <div class="title">
-    <h1 class="pc">面向云原生、容器化的数据库开源社区</h1>
-    <h1 class="mb">面向云原生<br/>容器化的数据库开源社区</h1>
-    <div class="desc">为数据库技术爱好者分享主流开源数据库技术</div>
+    <h1 class="pc">{{ i18n "header-pc" }}</h1>
+    <h1 class="mb">{{ i18n "header-mb1" }}<br>{{ i18n "header-mb2" }}</h1>
+    <div class="desc">{{ i18n "header-desc" }}</div>
     <div class="project">
       {{ range .Site.Params.radondb_projects }}
       <span class="item">{{ . }}</span>
       {{ end }}
     </div>
-    <div class="feature">提供企业级 <span class="star"
-        style="background: center / cover no-repeat url('{{ $starbg.RelPermalink }}');">RadonDB</span> 开源项目及服务</div>
+    <div class="feature">{{ i18n "header-pe" }} <span class="star" 
+      style="background: center / cover no-repeat url('{{ $starbg.RelPermalink }}');">RadonDB</span> {{ i18n "header-se"}}</div>
   </div>
   <img class="banner" src="{{ $banner.RelPermalink }}" />
   <div class="projects">
-    <h2 class="title-h2"><span>社区开源项目</span>
+    <h2 class="title-h2"><span>{{ i18n "projects"}}</span>
       <div class="title-bg" style="z-index: -1;"></div>
     </h2>
     <div class="cards">
@@ -27,7 +27,7 @@
         <div class="name">{{ .Title }}</div>
         <div class="desc">{{ .Summary }}</div>
         <div class="func">
-          <div class="more flex-row fl-center"><span>了解更多</span><span class="arrow-right"></span></div>
+          <div class="more flex-row fl-center"><span>{{ i18n "more" }}</span><span class="arrow-right"></span></div>
           <img class="picture" src="{{ .Params.logo }}" />
         </div>
       </a>
