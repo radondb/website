@@ -34,11 +34,12 @@ RadonDB MySQL Kubernetes 于 3 月 24 日正式发布新版本 2.1.3 [1]。该�
 
 * [https://github.com/radondb/radondb-mysql-kubernetes](https://github.com/radondb/radondb-mysql-kubernetes)
 * [https://github.com/radondb/xenon](https://github.com/radondb/xenon)
+
 ## 部署文档
 
-《容器化 | K8s 部署 RadonDB MySQL Operator 和集群》
+《[容器化 | K8s 部署 RadonDB MySQL Operator 和集群](https://radondb.com/posts/220324_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-k8s-%E4%B8%8A%E9%83%A8%E7%BD%B2-radondb-mysql-operator-%E5%92%8C%E9%9B%86%E7%BE%A4/)》
 
-《容器化 | 在 KubeSphere 中部署 MySQL 集群》
+《[容器化 | 在 KubeSphere 中部署 MySQL 集群](https://radondb.com/posts/220224_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-kubesphere-%E4%B8%AD%E9%83%A8%E7%BD%B2-mysql-%E9%9B%86%E7%BE%A4/)》
 
 # 新版本功能一览
 
