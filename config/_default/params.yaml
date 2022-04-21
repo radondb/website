@@ -11,7 +11,7 @@ radondb_projects:
   - ElesticSearch
 
 # 全局弹窗
-show_popup: true
+show_popup: false
 popup_title: "开源之夏 2022 与您相约！"
 popup_description: "开源之夏旨在鼓励在校学生积极参与开源软件的开发维护，促进优秀开源软件社区的蓬勃发展。"
 popup_link: "https://jinshuju.net/f/O4yQHn"
