@@ -56,3 +56,9 @@ history:
   other: "History"
 aboutTitle:
   other: "About Us"
+docMenu: 
+  other: "Navigation"
+issue:
+  other: "New Docs Issue"
+pdf:
+  other: "Download PDF"
