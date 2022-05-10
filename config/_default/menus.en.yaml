@@ -1,7 +1,7 @@
 # 主导航菜单
 main:
   - identifier: projects
-    name: "Open Source Projects"
+    name: "Projects"
     weight: "1"
     url: "/projects"
   - name: "RadonDB MySQL Kubernetes"
@@ -18,7 +18,7 @@ main:
     parent: projects
 
   - identifier: docs
-    name: "Documentation"
+    name: "Docs"
     weight: "2"
     url: "/docs"
   - identifier: /docs/mysql

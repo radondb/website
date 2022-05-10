@@ -1,3 +1,3 @@
 ---
-title: 新闻
+title: News
 ---

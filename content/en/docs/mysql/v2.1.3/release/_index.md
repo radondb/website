@@ -1,4 +1,4 @@
 ---
-title: "最新版本动态"
+title: "Release Notes"
 weight: 1
 ---

@@ -1,88 +1,102 @@
 ---
 # menu 优先显示shortTitle，没有shortTitle显示Title
-shortTitle: "KubeSphere 部署"
-title: "在 KubeSphere 上部署 RadonDB MySQL Operator 和 集群"
+shortTitle: "Deploy on KubeSphere"
+title: "RadonDB MySQL Operator and MySQL Cluster Deploy on KubeSphere"
 # weight按照从小到大排列
 weight: 3
 # pdf的url，如：/pdf/test.pdf
 pdf: ""
 ---
 
-本文档演示在 [KubeSphere](https://kubesphere.com.cn) 上部署 RadonDB MySQL Kubernetes 的 Operator 和 MySQL 高可用集群。
+This document demonstrates the deployment of RadonDB MySQL kubernetes operator and MySQL high availability cluster on [KubeSphere](https://kubesphere.com.cn).
 
-# 部署准备
-- 确保已启用 [OpenPitrix 系统](https://kubesphere.io/zh/docs/pluggable-components/app-store)
-- 创建一个企业空间、一个项目和一个用户供本 [操作使用](https://kubesphere.io/zh/docs/quick-start/create-workspace-and-project)
-    - 安装过程中，请以 admin 身份登录控制台，在企业空间 demo 中的 demo-project 项目中进行操作
-- 确保 KubeSphere [项目网关](https://kubesphere.io/zh/docs/project-administration/project-gateway) 已开启外网访问
+## Prerequisites
+- You need to enable the [OpenPitrix System](https://kubesphere.io/zh/docs/pluggable-components/app-store)
+- Create an enterprise space, a project and a user for this [operation](https://kubesphere.io/zh/docs/quick-start/create-workspace-and-project)
+    - During the installation process, please log in to the console as admin and operate in the `demo-project` project in the enterprise space `demo`
+- You need to enable the gateway in your project to provide external access. If they are not ready, refer to [Project Gateway](https://kubesphere.io/zh/docs/project-administration/project-gateway).
 
-# 部署步骤
-## 1、添加应用仓库
-1. 登录 KubeSphere 的 Web 控制台。
-2. 在 demo 企业空间中，进入应用管理下的应用仓库页面，点击添加，弹出仓库配置对话框。
-3. 输入仓库名称和仓库 URL。
-    - 输入 `radondb-mysql-operator` 作为应用仓库名称。
-    - 输入 `https://radondb.github.io/radondb-mysql-kubernetes/` 作为仓库的 URL，并点击验证以验证 URL，在 URL 旁边呈现一个绿色的对号，验证通过后，点击确定继续。
+## Deployment
+### Step 1: Add an app repository
+1. Log in to the KubeSphere Web console.
+2. In `demo` workspace, go to **App Repositories** under **App Management**, and then click **Create**.
+3. In the dialog that appears, enter an app repository name and URL.
+    - Enter `radondb-mysql-operator` for the app repository name.
+    - Enter `https://radondb.github.io/radondb-mysql-kubernetes/` for the MeterSphere repository URL. Click Validate to verify the URL.
 
-4. 将仓库成功导入到 KubeSphere 之后，在列表中即可查看 RadonDB MySQL 仓库。
+4. You will see a green check mark next to the URL if it is available. Click **OK** to continue.
+
+Your repository displays in the list after it is successfully imported to KubeSphere.
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image.png)
 
-## 2、部署 RadonDB MySQL Operator
+### Step 2: Deploy RadonDB MySQL Operator
 
-1. 在 demo-project 项目中，进入应用负载下的应用页面，点击部署新应用。
-2. 在对话框中，选择来自应用模板，进入应用模版页面。
-3. 从下拉菜单中选择 radondb-mysql-operator 应用仓库。
-4. 点击 mysql-operator 应用图标，查看和配置应用信息。
+1. In the `demo-project` project, enter the application page under the application load and click deploy new application.
+2. In the dialog that appears, select **From App Template**.
+3. On the new page that appears, select `radondb-mysql-operator` from the drop-down list.
+4. Click `MySQL operator` , check and config RadonDB MySQL Operator.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(1).png)
 
-5. 在配置文件选项卡，可查看和编辑 values.yaml 配置文件；在版本列框区域，可查看和选择版本号。
+5. In the profile tab, you can view and edit values Yaml configuration file; The version number can be viewed in the selection box.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(2).png)
 
-6. 点击部署，进入 mysql-operator 应用基本信息配置页面，确认应用名称、应用版本以及配置部署位置。
-7. 点击下一步，进入 mysql-operator 应用配置页面，确认 values.yaml 配置信息，可编辑文件修改配置。
+6. Click deploy to enter the MySQL-operator application basic information configuration page, and confirm the application name, application version and configuration deployment location.
+
+7. Click next to enter the MySQL operator application configuration page and confirm values Yaml configuration information. You can edit the file and modify the configuration.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(3).png)
 
-8. 点击部署，返回应用模版页面。待应用状态切换为运行中，则应用部署成功。
+8. Click deploy to return to the application template page. When the application status is switched to running, the application deployment is successful.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(4).png)
 
-### 更新 Operator
+#### Update Operator
 
-若已在 KubeSphere 部署过历史版本 Operator，可以选择如下方式更新到最新版本。
+If the historical version of operator has been deployed in kubesphere, you can choose the following method to update to the latest version.
 
-1. 在 KubeSphere 平台删除历史版本 Operator 应用。
+1. Delete the historical version of the operator application on the kubesphere platform.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(5).png)
 
-2. 参考如上步骤，安装最新版本 Operator 。
-3. 执行如下命令更新 CRD 版本。如下示例为更新 CRD 到 2.1.2 版。
+2. Refer to the above steps to install the latest version of operator.
+
+3. Execute the following command to update the CRD version. The following example is to update CRD to version 2.1.2.
+
 ```plain
 kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/v2.1.2/charts/mysql-operator/crds/mysql.radondb.com_mysqlclusters.yaml
 ```
-## 3、部署 RadonDB MySQL 集群
 
-可任选一个 RadonDB MySQL [配置示例](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/config/samples) 部署，或自定义配置部署。
+### Step 3: Deploy a RadonDB MySQL cluster
 
-以 `mysql_v1alpha1_mysqlcluster.yaml` 模版为例，创建一个 RadonDB MySQL 集群。
+You can refer to RadonDB MySQL template to deploy a cluster, or you can customize the yaml file to deploy a cluster.
 
-1. 在右下角 工具箱中选择 Kubectl 工具，打开终端窗口。
-2. 执行以下命令，安装 RadonDB MySQL 集群。
+Take `mysql_v1alpha1_mysqlcluster.yaml` template as an example to create a RadonDB MySQL cluster.
+
+1. Hover your cursor over the hammer icon in the lower-right corner, and then select **Kubectl**.
+2. Run the following command to install RadonDB MySQL cluster.
 ```plain
 kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml --namespace=<project_name>
 ```
-**注意**
+**Notice**
 
-未指定项目时，集群将被默认安装在 `kubesphere-controls-system` 项目中。若需指定项目，安装命令需添加 `--namespace=<project_name>`。
+When no project is specified, the cluster will be installed in the kubesphere-controls-system project by default. To specify a project, the install command needs to add the `--namespace=<project_name>` field.
 
-**预期结果**
+**Expected results**
 
 ```plain
 $ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml --namespace=demo-project
 mysqlcluster.mysql.radondb.com/sample created
 ```
-3. 集群创建成果后，执行如下命令，可查看 RadonDB MySQL 集群节点服务。
+
+3. You can run the following command to view all services of RadonDB MySQL cluster.
 ```plain
 kubectl get statefulset,svc
 ```
-**预期结果**
+
+**Expected results**
+
 ```plain
 $ kubectl get statefulset,svc
 NAME                            READY   AGE
@@ -94,20 +108,28 @@ service/sample-follower        ClusterIP   10.96.9.162     <none>        3306/TC
 service/sample-leader          ClusterIP   10.96.255.188   <none>        3306/TCP   10m
 service/sample-mysql           ClusterIP   None            <none>        3306/TCP   10m
 ```
-### 部署校验
+## Deployment Validation
 
-在 `demo-project` 项目中，查看 RadonDB MySQL 集群状态。
+In the `demo-project` project, view the status of RadonDB MySQL Cluster.
 
-1. 进入 **应用负载** 下的 **服务** 页面，可查看集群服务信息。
+1. Enter the **service** page under **application load** to view the cluster service information.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(6).png)
 
-2. 进入 **应用负载** 下的 **工作负载** 页面，点击 **有状态副本集**，可查看集群状态。进入一个 **有状态副本集** 详情页面，点击 **监控** 标签页，可查看一定时间范围内的集群指标。
+2. In Workloads under Application Workloads, click the StatefulSets tab, and you can see the StatefulSets are up and running.
+
+Click a single StatefulSet to go to its detail page. You can see the metrics in line charts over a period of time under the Monitoring tab.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(7).png)
 
-3. 进入 应用负载 下的 容器组 页面，可查看集群节点运行状态。
+3. In **Pods** under **Application** Workloads, you can see all the Pods are up and running.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(8).png)
 
-4. 进入 存储 下的 存储卷 页面，可查看存储卷。查看某个存储卷用量信息，以其中一个数据节点为例，可以看到当前存储的存储容量和剩余容量等监控数据。
+4. In **Volumes** under **Storage**, you can see the ClickHouse Cluster components are using persistent volumes.
+
+Volume usage is also monitored. Click a volume item to go to its detail page.
+
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(9).png)
 
-至此，完成在 KubeSphere 中部署 RadonDB MySQL 集群。
+So far, the deployment of RadonDB MySQL Cluster in kubesphere has been completed.
