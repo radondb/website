@@ -56,3 +56,9 @@ history:
   other: "发展历程"
 aboutTitle:
   other: "关于我们"
+docMenu: 
+  other: "本页导航"
+issue:
+  other: "反馈文档问题"
+pdf:
+  other: "下载 PDF"
