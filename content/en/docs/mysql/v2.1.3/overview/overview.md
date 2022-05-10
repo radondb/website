@@ -13,11 +13,11 @@ With the vigorous development of cloud native technology at home and abroad and 
 
 Radondb MySQL Kubernetes supports installation, deployment and management on **Kubernetes, KubeSphere, Rancher** and other platforms, and automatically performs tasks related to running radondb MySQL clusters.
 
-## Github
+### Github
 
 * [https://github.com/radondb/radondb-mysql-kubernetes](https://github.com/radondb/radondb-mysql-kubernetes)
 
-# Main Features
+## Main Features
 - MySQL high availability
     - Non centralized automatic master selection
     - Master slave second switching
@@ -29,15 +29,15 @@ Radondb MySQL Kubernetes supports installation, deployment and management on **K
 - Account management
 
 
-# Architecture Diagram
+## Architecture Diagram
 - Automatic election of decentralized leaders through raft protocol
 - Synchronize data based on gtid mode through semi sync
 - High AvailabilityVia via [Xenon](https://github.com/radondb/xenon)
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/211108_MySQL%20Operator%2001%20%7C%20%E6%9E%B6%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%A6%82%E8%A7%88/3.jpg)
 
-# Roadmap
+## Roadmap
 
-## 1.0 Helm Chart
+### 1.0 Helm Chart
 
 - MySQL high availability
 - Automatic election without centralized leadership
@@ -48,7 +48,7 @@ Radondb MySQL Kubernetes supports installation, deployment and management on **K
 - Cluster log management
 - Account management
 
-## 2.0 Operator
+### 2.0 Operator
 
 - Add / Delete node
 - Automatic expansion and contraction capacity
@@ -60,17 +60,17 @@ Radondb MySQL Kubernetes supports installation, deployment and management on **K
 - Account management (API interface provided)
 - Online migration
 
-## 3.0 Operator
+### 3.0 Operator
 
 - Automatic operation and maintenance
 - Multi node role
 - Disaster recovery cluster
 - SSL transport encryption
 
-# License
+## License
 Radondb MySQL is based on Apache 2.0 protocol. See [License](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/LICENSE)。
 
-# Community
+## Community
 
-## Forum
+### Forum
 [https://kubesphere.com.cn/forum/t/radondb](https://kubesphere.com.cn/forum/t/radondb)
