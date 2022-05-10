@@ -52,7 +52,7 @@ $ helm install demo radondb/mysql-operator
 ```shell
 $ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml
 ```
-> 自定义集群部署参数，可参考 [配置参数](./config_para.md) 。
+> 自定义集群部署参数，可参考 [配置参数](../config_para/) 。
 
 
 ## 部署校验

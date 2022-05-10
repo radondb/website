@@ -145,4 +145,3 @@ service/sample-mysql           ClusterIP   None            <none>        3306/TC
  [4]：项目网关：[https://kubesphere.io/zh/docs/project-administration/project-gateway](https://kubesphere.io/zh/docs/project-administration/project-gateway)
 
  [5]：配置示例：[https://github.com/radondb/radondb-mysql-kubernetes/blob/main/config/samples](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/config/samples)
-

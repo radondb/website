@@ -1,3 +1,3 @@
 ---
-title: "技术博客"
+title: "Blogs"
 ---

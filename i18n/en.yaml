@@ -52,3 +52,7 @@ start:
   other: "Start"
 docs:
   other: "Related Articles"
+history:
+  other: "History"
+aboutTitle:
+  other: "About Us"

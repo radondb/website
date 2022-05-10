@@ -126,7 +126,7 @@ en:
   title: "RadonDB OpenSource"
   weight: 20
   params:
-    description: "home descriptions"
+    description: "An Open Source Community for Cloud-Native and Databases on Kubernetes"
 ```
 
 ### 全局导航翻译
@@ -165,3 +165,4 @@ translations_id:
 # webhooks自动部署
 
 # 欢迎提交PR
+
