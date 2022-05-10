@@ -23,7 +23,7 @@ RadonDB MySQL 监控引擎基于 [Prometheus MySQLd Exporter](https://github.com
 
 ### 步骤 1: 配置 serviceMonitor
 
-`serviceMonitor` 是定义 RadonDB MySQL Operator 自动监控引擎的参数，开启后将自动绑定 `mysqld_exporter` 与 Prometheus。
+`serviceMonitor` 开启后将自动绑定 `mysqld_exporter` 与 Prometheus。
 
 `serviceMonitor` 参数包含如下字段：
 

@@ -1,4 +1,4 @@
 ---
-title: "部署"
+title: "Deploy"
 weight: 3
 ---
