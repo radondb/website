@@ -5,12 +5,6 @@ defaultContentLanguage: "zh"
 paginate: 10
 outputs:
   home: ["HTML", "JSON"]
-# 文章目录的配置
-markup:
-  tableOfContents:
-    endLevel: 2
-    ordered: false
-    startLevel: 1
 # 相关文章的配置
 related:
   includeNewer: true
@@ -43,3 +37,7 @@ markup:
       hardWraps: false
       unsafe: true
       xhtml: false
+  tableOfContents:
+    endLevel: 2
+    ordered: false
+    startLevel: 1
