@@ -98,7 +98,7 @@ service/sample-follower        ClusterIP   10.96.9.162     <none>        3306/TC
 service/sample-leader          ClusterIP   10.96.255.188   <none>        3306/TCP   10m
 service/sample-mysql           ClusterIP   None            <none>        3306/TCP   10m
 ```
-#### 部署校验
+## 部署校验
 
 在 `demo-project` 项目中，查看 RadonDB MySQL 集群状态。
 

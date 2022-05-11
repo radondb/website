@@ -1,2 +1,64 @@
-translations_id:
-  other: "翻译"
+header-pc:
+  other: "面向云原生、容器化的数据库开源社区"
+header-mb1:
+  other: "数据库开源社区"
+header-mb2:
+  other: "面向云原生容器化"
+vadio-pc:
+  other: "RadonDB MySQL 上架 KubeSphere 应用商店"
+vadio-mb1:
+  other: "RadonDB MySQL Kubernetes"
+vadio-mb2:
+  other: "在 KubeSphere 上部署"
+header-desc:
+  other: "为数据库技术爱好者分享主流开源数据库技术"
+header-pe:
+  other: "提供企业级"
+header-se:
+  other: "开源项目及服务"
+more:
+  other: "了解更多"
+projects:
+  other: "开源项目"
+mysql:
+  other: "MySQ容器化"
+radon:
+  other: "Radon 分布式数据库组件"
+xenon:
+  other: "xenon 高可用集群组件"
+resources:
+  other: "社区资源"
+blogs:
+  other: "博客"
+news:
+  other: "新闻"
+forum:
+  other: "论坛"
+services:
+  other: "服务"
+qr:
+  other: "微信公众号"
+business:
+  other: "业务合作与咨询"
+email:
+  other: "邮件订阅"
+emaildec:
+  other: "通过邮件接收 RadonDB 开源社区新闻与产品更新的通知"
+enterinfo:
+  other: "请输入您的邮箱"
+subscribe:
+  other: "订阅"
+start:
+  other: "立即开始"
+docs:
+  other: "相关文章"
+history:
+  other: "发展历程"
+aboutTitle:
+  other: "关于我们"
+docMenu: 
+  other: "本页导航"
+issue:
+  other: "反馈文档问题"
+pdf:
+  other: "下载 PDF"

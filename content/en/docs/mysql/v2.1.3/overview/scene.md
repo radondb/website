@@ -1,17 +1,16 @@
 ---
-shortTitle: "应用场景"
-title: "应用场景"
+shortTitle: "Application scenario"
+title: "Application scenario"
 weight: 3
 ---
+# Financial scenarios with high data consistency
+Strong data consistency guarantee, meeting the financial level reliability requirements.
 
-# 数据一致性较高的金融场景
-数据强一致性保证，满足金融级可靠性要求。
+# Website operation and maintenance
+Including a full set of backup, recovery, monitoring and other operation and maintenance schemes to meet the business needs of websites.
 
-# 网站运维
-包含全套备份、恢复、监控等运维方案，满足网站类的业务需求。
+# High performance concurrent scenarios
+Businesses that meet the requirements of high performance and high concurrency, such as e-commerce spike and other sudden peak scenarios.
 
-# 高性能高并发场景
-满足高性能、高并发要求的业务，如电商秒杀等突发高峰场景。
-
-# 弹性扩缩容分钟级部署
-对计算资源的弹性伸缩能力，分钟级部署游戏分区数据库。
+# Flexible capacity expansion and capacity minute deployment
+For the elastic scalability of computing resources, the game partition database is deployed at the minute level.

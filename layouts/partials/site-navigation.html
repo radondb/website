@@ -20,7 +20,7 @@
           <ul class="select-content">
             {{ range .Children }}
             <li>
-              <a class="" href="{{ .URL }}" title="{{ .Name }} page">
+              <a class="" href="{{ .URL | absLangURL }}" title="{{ .Name }} page">
                 {{ .Name }}
               </a>
             </li>
@@ -29,7 +29,7 @@
         </li>
         {{ else }}
         <li class="item">
-          <a class="" href="{{ .URL }}" title="{{ .Name }} page">
+          <a class="" href="{{ .URL | absLangURL }}" title="{{ .Name }} page">
             {{ .Name }}
           </a>
         </li>
@@ -38,20 +38,20 @@
       </ul>
       {{ end }}
     </div>
-    {{/* {{ partial "i18nlist.html" . }} */}}
+    {{ partial "i18nlist.html" . }}
   </div>
   <div class="mb nav-container">
     <div class="flex-row space-between">
       <a class="logo" href="/"></a>
+      {{ partial "i18nlist.html" . }}
       <div>
-        {{/* {{ partial "i18nlist.html" . }} */}}
         <img onclick="showModal('.nav-modal')" src="/images/menu-mb.svg" />
       </div>
     </div>
     <div class="modal nav-modal">
       <div class="modal-header">
         <img src="/images/radondb-mb-black.svg" />
-        <img onclick="hideModal()" class="close" src="/images/common/close.svg" />
+        <div onclick="hideModal()" class="close" ></div>
       </div>
       <div class="modal-content">
         <div class="list">

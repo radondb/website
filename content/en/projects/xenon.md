@@ -1,14 +1,14 @@
 ---
-title: "Xenon 高可用集群组件"
+title: "Xenon"
 date: 2021-09-11T16:52:11+08:00
 # 相关文章，通过keywords匹配
 keywords:
   - xenon
 # 排序，从小到大
-weight: 1
+weight: 3
 short: Xenon
-subtitle: 新一代 MySQL 集群高可用组件
-description: 基于 Raft 协议进行无中心化选主，实现主从秒级切换；基于 Semi-Sync 机制，保障数据不丢失，实现数据强一致性，并结合 MySQL (5.7 及以上版本) 并行复制特性，实现 Binlog 并行回放，大大降低从库延迟。
+subtitle: New generation MySQL Cluster High Availability components
+description: Non centralized master selection based on raft protocol to realize master-slave second level switching; Based on the semi sync mechanism, it ensures no data loss and strong data consistency. Combined with the parallel replication characteristics of MySQL (version 5.7 and above), it realizes binlog parallel playback and greatly reduces the slave library delay.
 logo: /images/projects/xenon.svg
 # 立即开始
 start_url: /posts/210825_高可用-_-xenon-实现-mysql-高可用架构-部署篇/
@@ -49,7 +49,7 @@ architecture:
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-基于 MySQL 的开源、高可用、云原生集群解决方案。支持一主多从高可用架构，具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
+New generation MySQL Cluster High Availability components. Non centralized master selection based on raft protocol to realize master-slave second level switching; Based on the semi sync mechanism, it ensures no data loss and strong data consistency. Combined with the parallel replication characteristics of MySQL (version 5.7 and above), it realizes binlog parallel playback and greatly reduces the slave library delay.
 
 <!--more-->
 

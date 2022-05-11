@@ -1,28 +1,29 @@
 ---
-title: "监控与告警"
+title: "Monitor"
 weight: 1
 ---
 
-# 简介
+> RadonDB MySQL Kubernetes 2.1.0+
 
-[Prometheus](https://prometheus.io/) 基于文本的暴露格式，已经成为云原生监控领域事实上的标准格式。
+## Background
+[Prometheus](https://prometheus.io/) is a text-based exposure format has become the de facto standard format in the field of cloud native monitoring.
 
-RadonDB MySQL 监控引擎基于 [Prometheus MySQLd Exporter](https://github.com/prometheus/mysqld_exporter) 定义。通过 `mysqld-exporter` 抓取 RadonDB MySQL 服务指标，再通过接入第三方应用平台实现监控指标可视化。
+RadonDB MySQL monitoring engine is defined based on [Prometheus MySQLd Exporter](https://github.com/prometheus/mysqld_exporter). Grab RadonDB MySQL service indicators through `mysqld-exporter`, and then realize the visualization of monitoring indicators by accessing the third-party application platform.
 
-本教程演示如何开启 RadonDB MySQL 监控指标。
+This article demonstrates how to enable RadonDB MySQL monitoring indicators.
 
-# 准备工作
+## Prerequisites
 
-- 已准备可用 Kubernetes 或 KubeSphere 集群。
-- 已获取RadonDB MySQL Operator 2.1.0 及以上版本。
+- [Kubernetes](../install/kubernetes.md) Cluster or [KubeSphere](../install/kubesphere.md) Cluster
+- RadonDB MySQL Kubernetes 2.1.0+
 
-# 部署步骤
+## Procedure
 
-## 步骤 1: 配置 serviceMonitor
+### Setp 1:  Configure servicemonitor
 
-`serviceMonitor` 是定义 RadonDB MySQL Operator 自动监控引擎的参数，开启后将自动绑定 `mysqld_exporter` 与 Prometheus。
+`Servicemonitor ` will be bound automatically after being enabled ` mysqld_ Exporter ` and Prometheus.
 
-`serviceMonitor` 参数包含如下字段：
+`servicemonitor` parameter contains the following fields:
 
 ```shell
 serviceMonitor:
@@ -43,16 +44,16 @@ serviceMonitor:
       app.kubernetes.io/name: mysql
 ```
 
-您可以在 `charts/mysql-operator/values.yaml` 文件中配置 `serviceMonitor`。
+You can click Configure 'servicemonitor' in yaml file `charts/mysql-operator/values.yaml`.
 
-- 新部署 Operator 时， `serviceMonitor.enabled` 默认为 **true**，表示默认开启。
-- 已部署 Operator 2.1.0 以下版本的集群，需重新部署 Operator。
+- When the Operator is newly deployed, `servicemonitor.enabled` is **true** by default, which means it is enabled by default.
+- The cluster with Operator version less than 2.1.0 has been deployed, and the operator needs to be redeployed.
 
-## 步骤 2: 配置 metricsOpts
+### Step 2: Configure metricsOpts
 
-`metricsOpts` 是 CRD  `mysqlclusters.mysql.radondb.com` 中定义 RadonDB MySQL 集群监控的参数，可通过配置`mysql_v1alpha1_mysqlcluster.yaml` 文件中参数值开启监控服务。
+`Metricsopts` is the parameter of RadonDB MySQL Cluster Monitoring defined in CRD `mysqlclusters.mysql.radondb.com`. The monitoring service can be started by configuring the parameter value in the `mysql_v1alpha1_mysqlcluster.yaml` file.
 
-`metricsOpts` 参数包含如下字段：
+`metricsOpts` parameter contains the following fields:
 
 ```shell
 metricsOpts:
@@ -68,23 +69,23 @@ metricsOpts:
         memory: 128Mi
 ```
 
-`metricsOpts.enabled` 默认为 **false**，需手动设置为 **true**。
+`metricsOpts.enabled ` is **false** by default and needs to be manually set to **true**.
 
-- 选择设置 `metricsOpts.enabled` 状态为 **true**，开启集群监控功能。
-- 设置资源参数值，定义监控容器资源配额大小。
+- Select settings `metricsopts.enabled` the status is **true**, and the cluster monitoring function is enabled.
+- Set the resource parameter value and define the resource quota size of the monitoring container.
 
-文件参数修改完成后，使用如下指令应用配置，部署/更新集群回显信息如下：
+After modifying the file parameters, use the following instructions to apply the configuration and deploy / update the cluster echo information as follows:
 
 ```bash
 $ kubectl apply -f config/sample/mysql_v1alpha1_mysqlcluster.yaml
 cluster.mysql.radondb.com/sample created/configured
 ```
 
-# 查看监控服务
+## View monitoring services
 
-## 通过客户端查看
+### View on Client
 
-您可以通过如下指令查看集群监控服务和 serviceMonitor 信息。
+You can view the cluster monitoring service and `serviceMonitor` information through the following instructions.
 
 ```shell
 $ kubectl get service,servicemonitor
@@ -92,7 +93,7 @@ $ kubectl get service,servicemonitor
 $ kubectl describe servicemonitor <serviceName>
 ```
 
-**预期效果**
+**Anticipate Result**
 
 ```shell
 $ kubectl get service,servicemonitor
@@ -129,52 +130,49 @@ Spec:
 ......
 ```
 
-## 在 KubeSphere 平台查看
+### View on KubeSphere
 
-在 KubeSphere 企业空间部署的 RadonDB MySQL Operator 和集群，开启监控后，可在如下页面查看监控服务状态。
+For RadonDB MySQL Operators and clusters deployed in Kubesphere Enterprise space, after monitoring is enabled, you can view the monitoring service status on the following page.
 
-- 在项目空间**应用负载**下的**服务**页面，点击 `<集群名称>-metrics `，可查看监控服务信息。
+- On the **service** page under **Application Load** in the project space, click `< clusterName>-metrics` to view the monitoring service information.
 
-![查看监控服务](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/monitor_service.png)
+![View monitoring services](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/monitor_service.png)
 
-- 在项目空间**应用负载**下的**容器组**页面，点击一个容器的名称，可查看该容器中 `metrics` 资源状态。
+- On the **Container Group** page under **Application Load** in the project space, click the name of a container to view the status of `metrics` resources in the container.
 
-![查看监控资源状态](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/pod_metrics.png)
+![View monitoring resource status](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/pod_metrics.png)
 
-# 查看监控
+## View monitoring
 
-## 通过 KubeSphere 自定义监控
+### Custom monitoring on kubesphere
 
-> **说明**
-> 
-> RadonDB MySQL Operator 和集群需部署在 KubeSphere。
+Kubesphere's monitoring engine is based on Prometheus and Prometheus operator. Use kubesphere's custom monitoring function to support the monitoring of radondb MySQL indicators in a visual form.
 
-KubeSphere 的监控引擎基于 Prometheus 和 Prometheus Operator。使用 KubeSphere 的自定义监控功能支持以可视化的形式监控 RadonDB MySQL 指标。
+1. In the same cluster project, select **user defined monitoring** under **monitoring alarm** and click **create**.
+2. In the dialog box, select **MySQL** template and continue to configure the monitoring template.
 
-1. 在集群同一项目中，选择**监控告警**下的**自定义监控**，点击**创建**。
-2. 在对话框中，选择 **MySQL** 模版，并继续配置监控模版。
+![Select Template](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/mysql_exporter.png)
 
-![选择模版](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/mysql_exporter.png)
+3. Click **save template** to create a new monitoring template.
 
-3. 点击**保存模版**，即新创建监控面板。
+![Save Monitoring Template](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/config_dashboard.png)
 
-![保存监控模版](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/config_dashboard.png)
+4. Wait about ten minutes for the new monitoring panel to view the monitoring data.
 
-4. 新建监控面板需等待约十分钟，即可查看监控数据。
+![View Monitoring](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/monitor_overview.png)
 
-![查看监控](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/monitor_overview.png)
+For more details, please check kubesphere [Custom Monitoring Introduction](https://kubesphere.io/zh/docs/project-user-guide/custom-application-monitoring/introduction/) and [Visual Monitoring](https://kubesphere.io/zh/docs/project-user-guide/custom-application-monitoring/visualization/overview/).
 
-更多详情，请查看 KubeSphere [自定义监控介绍](https://kubesphere.io/zh/docs/project-user-guide/custom-application-monitoring/introduction/)和[可视化监控](https://kubesphere.io/zh/docs/project-user-guide/custom-application-monitoring/visualization/overview/)。
+### Using Prometheus + grafana platform
 
-## 通过 Prometheus + Grafana 平台
+[Grafana](https://github.com/grafana/grafana) is a cross platform, open source data visualization network application platform. The basic principle of monitoring through Prometheus + grafana platform is as follows:
 
-[Grafana](https://github.com/grafana/grafana) 是一个跨平台、开源的数据可视化网络应用程序平台。通过 Prometheus + Grafana 平台查看监控基本原理如下：
+- Through [mysql_exporter](https://github.com/prometheus/mysqld_exporter) Get radondb MySQL service monitoring data
+- Through [node_exporter](https://github.com/prometheus/node_exporter) Obtain the monitoring data of radondb MySQL server.
+- Transfer monitoring data to [Prometheus](https://prometheus.io/download/) After that, by configuring the data source, rich monitoring data charts and warnings are finally presented in grafana.
 
-- 通过 [mysql_exporter](https://github.com/prometheus/mysqld_exporter) 获取 RadonDB MySQL 服务监控数据.
-- 通过 [node_exporter](https://github.com/prometheus/node_exporter) 获得 RadonDB MySQL 服务器的监控数据。
-- 将监控数据传到 [Prometheus](https://prometheus.io/download/) 后，通过配置数据源，最终在 Grafana 呈现丰富的监控数据图表和警告。
 
-![基本原理](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/prometheus_grafana.png)
+![Basic principles](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/prometheus_grafana.png)
 
-更多 Grafana 可视化监控使用说明，请参见 [Grafana Dashboards](https://grafana.com/docs/grafana/latest/dashboards/)。
+For more instructions on grafana visual monitoring, see [Grafana Dashboards](https://grafana.com/docs/grafana/latest/dashboards/)。
 

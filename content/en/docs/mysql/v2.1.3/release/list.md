@@ -1,11 +1,11 @@
 ---
-title: "版本发布汇总"
+title: "Releases Lists"
 weight: 1
 ---
 
-本文列出了所有已发布的 RadonDB MySQL Kubernetes 版本，按发布时间倒序呈现。
+This article lists all released versions of Radondb MySQL Kubernetes, presented in reverse order of release time.
 
-| 版本 | 发布时间 |
+| Version | Release Time |
 | --- | ---- |
 | [2.1.3](../2.1.3)	| 2022-03-24 |
 | [2.1.2](../2.1.2) |	2022-02-10 |
@@ -16,20 +16,19 @@ weight: 1
 | [1.1.0](../1.1.0) |	2021-05-07 |
 | [1.0.0](../1.0.0) |	2021-04-27 |
 
-## 近期 Roadmap
+## Roadmap
 
-1. 支持更多方式的数据库备份恢复
-2. 支持更细粒度的配置更新
-3. 支持 MySQL 8.0
-4. 抽象完善外部调用 API
-5. 进一步提升服务质量，减少特殊场景下启停时间
-6. 完善周期调度 job 功能更高效支持重复工作
-7. StatefulSet 完善为 Multi StatefulSet
-8. 支持在线迁移
-9. 完善 e2e 测试框架，覆盖更多场景
+1. Support more ways of database backup and recovery
+2. Support finer grained configuration updates
+3. Support MySQL 8.0
+4. Abstract and improve the external call API
+5. Further improve the service quality and reduce the start-up and stop time under special scenarios
+6. Improve the periodic scheduling job function and support repeated work more efficiently
+7. Statefulset is improved to multi statefulset
+8. Support online migration
+9. Improve E2E testing framework to cover more scenarios
 
-## 注意事项
-
-- 1.x 版本由 Helm 包管理工具部署
-- 2.x 版本由 Operator 的方式实现并兼容 1.x 所有功能
-- 强烈建议使用 2.x 最新版本
+## Precautions
+- 1.x Version is deployed by the helm package management tool
+- 2.x version is implemented by the operator and is compatible with 1.x all features
+- It is strongly recommended to use 2.x latest version
