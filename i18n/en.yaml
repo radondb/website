@@ -11,7 +11,7 @@ header-pe:
 header-se:
   other: "Services"
 vadio-pc:
-  other: "Deploy RadonDB MySQL Kubernetes on KubeSphere"
+  other: "Deploy RadonDB MySQL On Kubernetes"
 vadio-mb1:
   other: "Deploy RadonDB MySQL"
 vadio-mb2:

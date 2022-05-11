@@ -5,7 +5,7 @@ header-mb1:
 header-mb2:
   other: "面向云原生容器化"
 vadio-pc:
-  other: "RadonDB MySQL 上架 KubeSphere 应用商店"
+  other: "在 Kubernetes 上部署 RadonDB MySQL"
 vadio-mb1:
   other: "RadonDB MySQL Kubernetes"
 vadio-mb2:
