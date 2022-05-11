@@ -6,17 +6,17 @@
       <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>{{ i18n "projects" }}</span><span
           class="mb folder"></span></div>
       <div class="column-content">
-        <a href="{{ .LanguagePrefix }}/projects/mysql/">{{i18n "mysql"}}</a>
-        <a href="{{ .LanguagePrefix }}/projects/radon/">{{i18n "radon"}}</a>
-        <a href="{{ .LanguagePrefix }}/projects/xenon/">{{i18n "xenon"}}</a>
+        <a href="{{ "/projects/mysql/" | relLangURL }}">{{i18n "mysql"}}</a>
+        <a href="{{ "/projects/radon/" | relLangURL }}">{{i18n "radon"}}</a>
+        <a href="{{ "/projects/xenon/" | relLangURL }}">{{i18n "xenon"}}</a>
       </div>
     </div>
     <div class="hide-content">
       <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>{{ i18n "resources" }}</span><span
           class="mb folder"></span></div>
       <div class="column-content">
-        <a href="{{ .LanguagePrefix }}/posts">{{ i18n "blogs" }}</a>
-        <a href="{{ .LanguagePrefix }}/news">{{ i18n "news" }}</a>
+        <a href="{{ "/posts" | relLangURL }}">{{ i18n "blogs" }}</a>
+        <a href="{{ "/news" | relLangURL }}">{{ i18n "news" }}</a>
         <a href="https://kubesphere.com.cn/forum/t/RadonDB">{{ i18n "forum" }}</a>
         <a class="github" href="https://github.com/radondb">
           <img src="/images/common/github.svg" />
