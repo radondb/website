@@ -154,7 +154,7 @@ translations_id:
 2. 在`layouts/`目录下的模板文件中使用代码`{{ i18n "translations_id" }}`引入词条
 
 ### 内部固定连接
-固定连接增加`{{ .LanguagePrefix }}`前缀，如：`<a href="{{ .LanguagePrefix }}/posts">博客</a>`
+固定连接使用`| relLangURL`管道，如：`<a href="{{ "/posts" | relLangURL }}">博客</a>`
 
 ### md文件翻译
 在`content/en/`新增对应语言的翻译文档，文件名和目录结构与`content/zh/`保持一致
