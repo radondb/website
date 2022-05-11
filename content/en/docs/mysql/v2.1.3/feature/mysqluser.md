@@ -1,54 +1,50 @@
 ---
 shortTitle: "User CRD"
-title: "使用 MysqlUser CRD 管理 MySQL 用户"
+title: "Manage MySQL Users"
 weight: 3
 ---
+> RadonDB MySQL Kubernetes 2.1.0+
 
-[查看 Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/mgt_mysqluser.md)
+## Prerequisites
 
-> RadonDB MySQL Kubernetes 2.1.0+ 支持。
+- RadonDB MySQL Cluster
 
-## 准备工作
+## Create User Account
 
-- 已准备可用 RadonDB MySQL 集群
+### Setp 1: Check CRD
 
-## 创建用户帐号
-
-### 步骤 1：校验 CRD
-
-使用如下指令，将查看到名称为 `mysqlusers.mysql.radondb.com` 的 CRD。
+Use the following command to view the CRD named `mysqlusers.mysql.radondb.com`.
 
 ```shell
 $ kubectl get crd | grep mysqluser
 mysqlusers.mysql.radondb.com                          2021-09-21T09:15:08Z
 ```
 
-### 步骤 2：创建 Secret
+### Step 2: Create Secret
 
-RadonDB MySQL 使用 K8S 中的 [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) 对象保存用户的密码。
+Radondb MySQL uses the [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) object in k8s to save the user's password.
 
-使用如下指令，将使用[示例配置](#示例配置)创建一个名为 `sample-user-password` 的 Secret。
+Use the following instructions to create a Secret named `sample-user-password` using the sample configuration.
 
 ```shell
 $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysqluser_secret.yaml
 ```
 
-### 步骤 3：创建用户
+### Step 3: Create User
 
-使用如下指令，将使用 [示例配置](#示例配置) 创建一个名为 `sample_user` 的用户。
+Use the following instructions to create a user named `sample_user` using the sample configuration.
 
 ```shell
 $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysql_v1alpha1_mysqluser.yaml 
 ```
 
-> 注意：直接修改 spec.user （用户名）等同于以新用户名创建一个用户。如需创建多个用户，请确保 metadata.name （CR 实例名） 与 spec.user（用户名）一一对应。
+> Note: directly modifying spec.user (user name) is equivalent to creating a user with a new user name. To create multiple users, make sure that metadata.name (CR instance name) corresponds to spec.user (user name) one by one.
 
-## 修改用户帐号
+## Modify User Account
 
-用户帐号信息由 spec 字段中参数定义，目前支持：
-
-* 修改 `hosts` 参数。
-* 新增 `permissions` 参数。
+The user account information is defined by the parameters in the spec field. Currently, it supports:
+* Modify the `hosts` parameter.
+* Add the `permissions` parameter.
 
 ### 授权 IP
 
@@ -57,14 +53,18 @@ $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kuber
 * % 表示所有 IP 均可访问。
 * 可修改一个或多个 IP。
 
+### Authorized IP
+The IP of the user account is allowed to be used, which is defined by the `hosts` field parameter.
+* % means all IP addresses are accessible.
+* One or more IPs can be modified.
+
 ```shell
   hosts: 
     - "%"
 ```
 
-### 用户权限
-
-用户帐号数据库访问权限，通过 MysqlUser 中 permissions 字段参数定义。可通过新增 permissions 字段参数值，实现用户帐号权限的新增。
+### User Rights
+User account database access rights are defined through the permissions field parameter in mysqlUser. You can add the user account permission by adding the parameter value of permissions field.
 
 ```plain
 permissions:
@@ -74,22 +74,22 @@ permissions:
       privileges:
         - SELECT
 ```
+* The `database` parameter indicates the database that the user account is allowed to access. 
+* Delegates are allowed to access all databases in the cluster.
+* The `tables` parameter indicates the database tables that the user account is allowed to access. 
+* Delegate allows access to all tables in the database.
+* The `privileges` parameter indicates the authorized database permissions of the user account. For more permission descriptions, see[Privileges Supported by MySQL](https://dev.mysql.com/doc/refman/5.7/en/grant.html)。
 
-* `database`  参数表示该用户帐号允许访问的数据库。* 代表允许访问集群所有数据库。
-* `tables`  参数表示该用户帐号允许访问的数据库表。 * 代表允许访问数据库中所有表。
-* `privileges`  参数表示该用户帐号被授权的数据库权限。更多权限说明，请参见 [Privileges Supported by MySQL](https://dev.mysql.com/doc/refman/5.7/en/grant.html)。
-
-## 删除用户帐号
-
-使用如下指令将删除使用 [示例配置](#示例配置) 创建的 MysqlUser CR。
+## Delete User Account
+The mysqluser CR created with sample configuration will be deleted using the following instructions.
 
 ```shell
 $ kubectl delete mysqluser sample-user-cr
 ```
 
->说明：删除 MysqlUser CR 会自动删除 CR 对应的 MySQL 用户。
+> Note: deleting mysqluser CR will automatically delete the MySQL user corresponding to cr.
 
-## 示例配置
+## Sample configuration
 
 ### Secret
 
@@ -97,9 +97,9 @@ $ kubectl delete mysqluser sample-user-cr
 apiVersion: v1
 kind: Secret
 metadata:
-  name: sample-user-password   # 密钥名称。应用于 MysqlUser 中的 secretSelector.secretName。  
+  name: sample-user-password   # password name. Applied to the secretselector. In mysqluser secretName。  
 data:
-  pwdForSample: UmFkb25EQkAxMjMKIA==  #密钥键，应用于 MysqlUser 中的 secretSelector.secretKey。示例密码为 base64 加密的 RadonDB@123
+  pwdForSample: UmFkb25EQkAxMjMKIA==  # pws, applied to the secretselector in mysqluser secretKey。 The example password is Base64 encrypted RadonDB@123
   # pwdForSample2:
   # pwdForSample3:
 ```
@@ -111,23 +111,23 @@ apiVersion: mysql.radondb.com/v1alpha1
 kind: MysqlUser
 metadata:
  
-  name: sample-user-cr  # 用户 CR 名称，建议使用一个用户 CR 管理一个用户。
+  name: sample-user-cr  # User CR name. It is recommended to use one user CR to manage one user.
 spec:
-  user: sample_user  # 需要创建/更新的用户的名称。
-  hosts:            # 支持访问的主机，可以填多个，% 代表所有主机。 
+  user: sample_user  # The name of the user who needs to be created / updated.
+  hosts:             # Multiple hosts that support access can be filled in, % represents all hosts.
        - "%"
   permissions:
-    - database: "*"  # 数据库名称，* 代表所有数据库。 
-      tables:        # 表名称，* 代表所有表。
+    - database: "*"  # Database name, * for all databases
+      tables:        # Table name, * for all tables
          - "*"
-      privileges:     # 权限，参考 https://dev.mysql.com/doc/refman/5.7/en/grant.html。
+      privileges:    # Permissions, reference https://dev.mysql.com/doc/refman/5.7/en/grant.html。
          - SELECT
   
-  userOwner:  # 指定被操作用户所在的集群。不支持修改。  
+  userOwner:  # Specify the cluster where the operated user is located. Modification is not supported.
     clusterName: sample
-    nameSpace: default # radondb mysql 集群所在的命名空间。
+    nameSpace: default # The namespace of the RadonDB MySQL Cluster. 
   
-  secretSelector:  # 指定用户的密钥和保存当前用户密码的键。
-    secretName: sample-user-password  # 密钥名称。   
-    secretKey: pwdForSample  # 密钥键，一个密钥可以保存多个用户的密码，以键区分。
+  secretSelector:  # Specify the user's key and the key to save the current user's password.
+    secretName: sample-user-password  #password name. 
+    secretKey: pwdForSample  # Key: a key can save the passwords of multiple users, which can be distinguished by key.
 ```

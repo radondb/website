@@ -85,8 +85,6 @@ cluster.mysql.radondb.com/sample created/configured
 
 ### View on Client
 
-您可以通过如下指令查看集群监控服务和 serviceMonitor 信息。
-
 You can view the cluster monitoring service and `serviceMonitor` information through the following instructions.
 
 ```shell
@@ -148,8 +146,6 @@ For RadonDB MySQL Operators and clusters deployed in Kubesphere Enterprise space
 
 ### Custom monitoring on kubesphere
 
-KubeSphere 的监控引擎基于 Prometheus 和 Prometheus Operator。使用 KubeSphere 的自定义监控功能支持以可视化的形式监控 RadonDB MySQL 指标。
-
 Kubesphere's monitoring engine is based on Prometheus and Prometheus operator. Use kubesphere's custom monitoring function to support the monitoring of radondb MySQL indicators in a visual form.
 
 1. In the same cluster project, select **user defined monitoring** under **monitoring alarm** and click **create**.
@@ -170,10 +166,6 @@ For more details, please check kubesphere [Custom Monitoring Introduction](https
 ### Using Prometheus + grafana platform
 
 [Grafana](https://github.com/grafana/grafana) is a cross platform, open source data visualization network application platform. The basic principle of monitoring through Prometheus + grafana platform is as follows:
-
-- 通过 [mysql_exporter](https://github.com/prometheus/mysqld_exporter) 获取 RadonDB MySQL 服务监控数据.
-- 通过 [node_exporter](https://github.com/prometheus/node_exporter) 获得 RadonDB MySQL 服务器的监控数据。
-- 将监控数据传到 [Prometheus](https://prometheus.io/download/) 后，通过配置数据源，最终在 Grafana 呈现丰富的监控数据图表和警告。
 
 - Through [mysql_exporter](https://github.com/prometheus/mysqld_exporter) Get radondb MySQL service monitoring data
 - Through [node_exporter](https://github.com/prometheus/node_exporter) Obtain the monitoring data of radondb MySQL server.
