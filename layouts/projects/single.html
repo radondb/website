@@ -20,7 +20,7 @@
 {{ define "main" }}
 <div class="project-content">
   <section class="features">
-    <h1>核心特性</h1>
+    <h1>{{ i18n "mainFeature" }}</h1>
     <div class="feature-list">
       {{ range .Params.features }}
       <div class="feature-card">
@@ -35,7 +35,7 @@
   </section>
   {{ with .Params.fast_start }}
   <section class="start">
-    <h1>快速开始</h1>
+    <h1>{{ i18n "quickStart" }}</h1>
     <div class="links flex-row space-center">
       {{ with .helm }}
       <div>
@@ -59,7 +59,7 @@
       {{ end }}
       {{ with .reading }}
       <div>
-        <h3 class="h-center bg-title">阅读</h3>
+        <h3 class="h-center bg-title">{{ i18n "read" }}</h3>
         <div class="flex-column  text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
@@ -69,7 +69,7 @@
       {{ end }}
       {{ with .installation }}
       <div>
-        <h3 class="h-center bg-title">部署</h3>
+        <h3 class="h-center bg-title">{{ i18n "deploy" }}</h3>
         <div class="flex-column  text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
@@ -84,7 +84,7 @@
     <img src="{{ .Params.architecture.picture }}" />
     <div class="content">
       <div class="flex-row space-center">
-        <h1>架构</h1>
+        <h1>{{ i18n "architecture" }}</h1>
       </div>
       <ul>
         {{ range .Params.architecture.intros }}

@@ -62,3 +62,11 @@ issue:
   other: "New Docs Issue"
 pdf:
   other: "Download PDF"
+mainFeature:
+  other: "Main Features"
+quickStart:
+  other: "Quick Start"
+read:
+  other: "Reading"
+architecture:
+  other: "Architecture"

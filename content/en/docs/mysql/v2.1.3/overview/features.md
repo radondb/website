@@ -5,7 +5,7 @@ weight: 2
 ---
 
 # Strong data consistency
-Based on Paxos protocol, it adopts the architecture of one main, two standby and three nodes to automatically protect the brain crack.
+It adopts the architecture of one main, two standby and three nodes to automatically protect the brain crack.
 
 # High availability
 It supports a master-slave architecture to flexibly meet various availability requirements.

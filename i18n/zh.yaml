@@ -62,3 +62,11 @@ issue:
   other: "反馈文档问题"
 pdf:
   other: "下载 PDF"
+mainFeature:
+  other: "核心特性"
+quickStart:
+  other: "快速开始"
+read:
+  other: "阅读"
+architecture:
+  other: "架构"
