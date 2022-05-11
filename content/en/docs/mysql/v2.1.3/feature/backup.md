@@ -5,18 +5,18 @@ weight: 2
 
 > RadonDB MySQL Kubernetes 2.1.0+
 
-## 快速开始备份
+## Quick Start
 
-### 步骤 1：安装 Operator
-安装名为 `test` 的 Operator。
+### Step 1: Install Operator
+Install the operator named `test`:
 
 ```shell
 $ helm install test charts/mysql-operator
 ```
 
-### 步骤 2：配置备份
+### Step 2: Configure backup for S3
 
-添加保密文件。
+Add the secret file.
 
 ```yaml
 kind: Secret
@@ -32,19 +32,19 @@ data:
 type: Opaque
 ```
 
-s3-xxxx 的值是试用 base64 算法加密的，你可以这样获得。
+s3-xxxx value is encode by base64, you can get like that.
 
 ```shell
 $ echo -n "hello"|base64
 ```
 
-然后在 K8s 中创建加密配置。
+then, create the secret in k8s.
 
 ```shell
 $ kubectl create -f config/samples/backup_secret.yaml
 ```
 
-请在 `mysql_v1a1pha1_mysqlcluster.yaml` 文件中添加 backupSecretName 属性。
+Please add the backupSecretName in `mysql_v1alpha1_mysqlcluster.yaml` , name as secret file:
 
 ```yaml
 spec:
@@ -54,7 +54,7 @@ spec:
   ...
 ```
 
-现在，如下创建备份文件 `mysql_v1a1pha1_backup.yaml` 如下。
+now create backup yaml file `mysql_v1alpha1_backup.yaml` like this:
 
 ```yaml
 apiVersion: mysql.radondb.com/v1alpha1
@@ -72,43 +72,46 @@ spec:
 |hostname|pod name in cluser|
 |clustname|cluster name|
 
-### 步骤 3：开启集群
+### Step 3: Start Cluster
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_mysqlcluster.yaml     
 ```
-### 步骤4：开始备份
-在集群运行成功后开始备份。
+
+### Step 4: Start Backup
+
+After run cluster Success.
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_backup.yaml
 ```
 
-## 卸载
+## Uninstall
+### Uninstall Operator
 
-### 卸载 Operator
-卸载名为 `test` 的 Operator。
+Uninstall the cluster named `test`:
+
 ```shell
-$helm uninstall test
+$ helm uninstall test
 
 $kubectl delete -f config/samples/mysql_v1alpha1_backup.yaml
 ```
 
-### 卸载集群
-卸载名为 `sample` 的集群。
+### Uninstall Cluster
 
+Uninstall the cluster named sample:
 ```shell
 $ kubectl delete mysqlclusters.mysql.radondb.com sample
 ```
 
-### 卸载资源
+### Unistall CRD
 
 ```shell
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlclusters.mysql.radondb.com
 ```
 
-## 从备份中恢复集群
-检测你的 S3 bucket，获取你备份的目录，比如：`backup_2021720827`，并且将设置为 yaml 文件的 `restoreFrom` 属性中。
+## Restore Cluster from backup copy
+check your S3 bucket, get the directory where your backup to， such as `backup_2021720827`. add it to `RestoreFrom` in yaml file.
 
 ```yaml
 ...
@@ -119,26 +122,26 @@ spec:
   restoreFrom: "backup_2021720827"
 ...
 ```
-此时执行：
+Then you use:
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_mysqlcluster.yaml     
 ```
 
-could restore a cluster from the `backup_2021720827 ` copy in the S3 bucket. 
+could restore a cluster from the `backup_2021720827` copy in the S3 bucket.
 
-完成，已经从名为 `backup_2021720827` 的 S3 备份中恢复一个集群。
+if you want backup to NFS server or restore from NFS server, do it as follow:
 
-### 创建镜像
-如下：
+### Create Image
+
 ```shell
 $ docker build -f Dockerfile.sidecar -t  acekingke/sidecar:0.1 . && docker push acekingke/sidecar:0.1
 $ docker build -t acekingke/controller:0.1 . && docker push acekingke/controller:0.1
 ```
 
-可以将 acekingke/sidecar:0.1 改为你自己的标签。
+You can change `acekingke/sidecar:0.1` to your own label.
 
-### deploy your own manager
+### Deploy Your Own Manager
 ```shell
 $ make manifests
 $ make install 

@@ -145,7 +145,7 @@ For example, run the following command to access the follower service, where the
 $ mysql -h sample-follower.default -u radondb_usr -p  
 ```
 
-## Uninstallation
+## Uninstall
 
 ### Uninstall Operator
 
