@@ -7,21 +7,21 @@ weight: 1
 
 > RadonDB MySQL Kubernetes 2.1.0+ 支持。
 
-## 背景
+# 背景
 [Prometheus](https://prometheus.io/) 基于文本的暴露格式，已经成为云原生监控领域事实上的标准格式。
 
 RadonDB MySQL 监控引擎基于 [Prometheus MySQLd Exporter](https://github.com/prometheus/mysqld_exporter) 定义。通过 `mysqld-exporter` 抓取 RadonDB MySQL 服务指标，再通过接入第三方应用平台实现监控指标可视化。
 
 本教程演示如何开启 RadonDB MySQL 监控指标。
 
-## 准备工作
+# 准备工作
 
 - 已准备可用 [Kubernetes](../install/kubernetes.md) 或 [KubeSphere](../install/kubesphere.md) 集群
 - RadonDB MySQL Kubernetes 版本 2.1.0 及以上
 
-## 部署步骤
+# 部署步骤
 
-### 步骤 1: 配置 serviceMonitor
+## 步骤 1: 配置 serviceMonitor
 
 `serviceMonitor` 开启后将自动绑定 `mysqld_exporter` 与 Prometheus。
 
@@ -51,7 +51,7 @@ serviceMonitor:
 - 新部署 Operator 时， `serviceMonitor.enabled` 默认为 **true**，表示默认开启。
 - 已部署 Operator 2.1.0 以下版本的集群，需重新部署 Operator。
 
-### 步骤 2: 配置 metricsOpts
+## 步骤 2: 配置 metricsOpts
 
 `metricsOpts` 是 CRD  `mysqlclusters.mysql.radondb.com` 中定义 RadonDB MySQL 集群监控的参数，可通过配置`mysql_v1alpha1_mysqlcluster.yaml` 文件中参数值开启监控服务。
 
@@ -83,9 +83,9 @@ $ kubectl apply -f config/sample/mysql_v1alpha1_mysqlcluster.yaml
 cluster.mysql.radondb.com/sample created/configured
 ```
 
-## 查看监控服务
+# 查看监控服务
 
-### 通过客户端查看
+## 通过客户端查看
 
 您可以通过如下指令查看集群监控服务和 serviceMonitor 信息。
 
@@ -132,7 +132,7 @@ Spec:
 ......
 ```
 
-### 在 KubeSphere 平台查看
+## 在 KubeSphere 平台查看
 
 在 KubeSphere 企业空间部署的 RadonDB MySQL Operator 和集群，开启监控后，可在如下页面查看监控服务状态。
 
@@ -144,9 +144,9 @@ Spec:
 
 ![查看监控资源状态](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/pod_metrics.png)
 
-## 查看监控
+# 查看监控
 
-### 通过 KubeSphere 自定义监控
+## 通过 KubeSphere 自定义监控
 
 > **说明**
 > 
@@ -169,7 +169,7 @@ KubeSphere 的监控引擎基于 Prometheus 和 Prometheus Operator。使用 Kub
 
 更多详情，请查看 KubeSphere [自定义监控介绍](https://kubesphere.io/zh/docs/project-user-guide/custom-application-monitoring/introduction/)和[可视化监控](https://kubesphere.io/zh/docs/project-user-guide/custom-application-monitoring/visualization/overview/)。
 
-### 通过 Prometheus + Grafana 平台
+## 通过 Prometheus + Grafana 平台
 
 [Grafana](https://github.com/grafana/grafana) 是一个跨平台、开源的数据可视化网络应用程序平台。通过 Prometheus + Grafana 平台查看监控基本原理如下：
 

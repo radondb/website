@@ -5,7 +5,7 @@ date: 2021-09-11T16:52:11+08:00
 keywords:
   - radon
 # 排序，从小到大
-weight: 1
+weight: 3
 short: Radon
 subtitle: 新一代 MySQL 分布式数据库组件
 description: 支持无限水平扩展、分布式事务，具备金融级数据强一致性，满足企业级核心数据库对大容量、高并发、高可靠及高可用的极致要求。

@@ -36,10 +36,10 @@
   {{ with .Params.fast_start }}
   <section class="start">
     <h1>{{ i18n "quickStart" }}</h1>
-    <div class="links flex-row space-center">
-      {{ with .helm }}
+    <div class="links flex-row space-center">     
+      {{ with .operator }}
       <div>
-        <h3 class="h-center bg-title">Helm</h3>
+        <h3 class="h-center bg-title">Operator</h3>
         <div class="flex-column text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
@@ -47,9 +47,9 @@
         </div>
       </div>
       {{ end }}
-      {{ with .operator }}
+      {{ with .helm }}
       <div>
-        <h3 class="h-center bg-title">Operator</h3>
+        <h3 class="h-center bg-title">Helm</h3>
         <div class="flex-column text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>

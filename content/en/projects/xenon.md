@@ -5,7 +5,7 @@ date: 2021-09-11T16:52:11+08:00
 keywords:
   - xenon
 # 排序，从小到大
-weight: 3
+weight: 2
 short: Xenon
 subtitle: New generation MySQL Cluster High Availability components
 description: Based on raft protocol to realize master-slave second level switching; Based on the semi sync mechanism, it ensures no data loss and strong data consistency. 
@@ -28,7 +28,17 @@ features:
     title: Cross regional disaster recovery
     description: Multi replica cross region deployment to realize disaster recovery service.
 # 快速开始
-
+fast_start:
+  reading:
+    - text: Xenon:Choice after MHA
+      url: /posts/210604_高可用-_-xenon后-mha-时代的选择/
+    - text: Some thoughts on Xenon HA
+      url: /posts/210916_高可用_关于-xenon-高可用的一些思考/
+  installation:
+    - text: HA Architecture through Xenon + MySQL
+      url: /posts/210825_高可用-_-xenon-实现-mysql-高可用架构-部署篇/
+    - text: Xenon + MySQL Common Operations
+      url: /posts/210903_高可用-_-xenon-实现-mysql-高可用架构-常用操作篇/
 # 架构
 architecture:
   picture: /images/projects/xenon/xenon-architecture.png

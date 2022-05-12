@@ -5,13 +5,13 @@ weight: 3
 ---
 > RadonDB MySQL Kubernetes 2.1.0+
 
-## Prerequisites
+# Prerequisites
 
 - RadonDB MySQL Cluster
 
-## Create User Account
+# Create User Account
 
-### Setp 1: Check CRD
+## Setp 1: Check CRD
 
 Use the following command to view the CRD named `mysqlusers.mysql.radondb.com`.
 
@@ -20,7 +20,7 @@ $ kubectl get crd | grep mysqluser
 mysqlusers.mysql.radondb.com                          2021-09-21T09:15:08Z
 ```
 
-### Step 2: Create Secret
+## Step 2: Create Secret
 
 Radondb MySQL uses the [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) object in k8s to save the user's password.
 
@@ -30,7 +30,7 @@ Use the following instructions to create a Secret named `sample-user-password` u
 $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysqluser_secret.yaml
 ```
 
-### Step 3: Create User
+## Step 3: Create User
 
 Use the following instructions to create a user named `sample_user` using the sample configuration.
 
@@ -40,20 +40,13 @@ $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kuber
 
 > Note: directly modifying spec.user (user name) is equivalent to creating a user with a new user name. To create multiple users, make sure that metadata.name (CR instance name) corresponds to spec.user (user name) one by one.
 
-## Modify User Account
+# Modify User Account
 
 The user account information is defined by the parameters in the spec field. Currently, it supports:
 * Modify the `hosts` parameter.
 * Add the `permissions` parameter.
 
-### 授权 IP
-
-允许使用用户帐号的 IP，通过 `hosts` 字段参数定义。
-
-* % 表示所有 IP 均可访问。
-* 可修改一个或多个 IP。
-
-### Authorized IP
+## Authorized IP
 The IP of the user account is allowed to be used, which is defined by the `hosts` field parameter.
 * % means all IP addresses are accessible.
 * One or more IPs can be modified.
@@ -63,7 +56,7 @@ The IP of the user account is allowed to be used, which is defined by the `hosts
     - "%"
 ```
 
-### User Rights
+## User Rights
 User account database access rights are defined through the permissions field parameter in mysqlUser. You can add the user account permission by adding the parameter value of permissions field.
 
 ```plain
@@ -80,7 +73,7 @@ permissions:
 * Delegate allows access to all tables in the database.
 * The `privileges` parameter indicates the authorized database permissions of the user account. For more permission descriptions, see[Privileges Supported by MySQL](https://dev.mysql.com/doc/refman/5.7/en/grant.html)。
 
-## Delete User Account
+# Delete User Account
 The mysqluser CR created with sample configuration will be deleted using the following instructions.
 
 ```shell
@@ -89,9 +82,9 @@ $ kubectl delete mysqluser sample-user-cr
 
 > Note: deleting mysqluser CR will automatically delete the MySQL user corresponding to cr.
 
-## Sample configuration
+# Sample configuration
 
-### Secret
+## Secret
 
 ```shell
 apiVersion: v1
@@ -104,7 +97,7 @@ data:
   # pwdForSample3:
 ```
 
-### MysqlUser
+## MysqlUser
 
 ```plain
 apiVersion: mysql.radondb.com/v1alpha1

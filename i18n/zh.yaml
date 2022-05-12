@@ -5,11 +5,11 @@ header-mb1:
 header-mb2:
   other: "面向云原生容器化"
 vadio-pc:
-  other: "在 Kubernetes 上部署 RadonDB MySQL"
+  other: "在 Kubernetes 上部署 RadonDB MySQL 集群"
 vadio-mb1:
-  other: "RadonDB MySQL Kubernetes"
+  other: "在 Kubernetes 上部署"
 vadio-mb2:
-  other: "在 KubeSphere 上部署"
+  other: "RadonDB MySQL 集群"
 header-desc:
   other: "为数据库技术爱好者分享主流开源数据库技术"
 header-pe:
@@ -21,11 +21,11 @@ more:
 projects:
   other: "开源项目"
 mysql:
-  other: "MySQ容器化"
+  other: "MySQL 容器化"
 radon:
   other: "Radon 分布式数据库组件"
 xenon:
-  other: "xenon 高可用集群组件"
+  other: "Xenon 高可用集群组件"
 resources:
   other: "社区资源"
 blogs:
@@ -70,3 +70,5 @@ read:
   other: "阅读"
 architecture:
   other: "架构"
+deploy:
+  other: "部署"

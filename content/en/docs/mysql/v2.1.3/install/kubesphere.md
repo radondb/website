@@ -10,14 +10,14 @@ pdf: ""
 
 This document demonstrates the deployment of RadonDB MySQL kubernetes operator and MySQL high availability cluster on [KubeSphere](https://kubesphere.com.cn).
 
-## Prerequisites
+# Prerequisites
 - You need to enable the [OpenPitrix System](https://kubesphere.io/zh/docs/pluggable-components/app-store)
 - Create an enterprise space, a project and a user for this [operation](https://kubesphere.io/zh/docs/quick-start/create-workspace-and-project)
     - During the installation process, please log in to the console as admin and operate in the `demo-project` project in the enterprise space `demo`
 - You need to enable the gateway in your project to provide external access. If they are not ready, refer to [Project Gateway](https://kubesphere.io/zh/docs/project-administration/project-gateway).
 
-## Deployment
-### Step 1: Add an app repository
+# Deployment
+## Step 1: Add an app repository
 1. Log in to the KubeSphere Web console.
 2. In `demo` workspace, go to **App Repositories** under **App Management**, and then click **Create**.
 3. In the dialog that appears, enter an app repository name and URL.
@@ -29,7 +29,7 @@ This document demonstrates the deployment of RadonDB MySQL kubernetes operator a
 Your repository displays in the list after it is successfully imported to KubeSphere.
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image.png)
 
-### Step 2: Deploy RadonDB MySQL Operator
+## Step 2: Deploy RadonDB MySQL Operator
 
 1. In the `demo-project` project, enter the application page under the application load and click deploy new application.
 2. In the dialog that appears, select **From App Template**.
@@ -52,7 +52,7 @@ Your repository displays in the list after it is successfully imported to KubeSp
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(4).png)
 
-#### Update Operator
+### Update Operator
 
 If the historical version of operator has been deployed in kubesphere, you can choose the following method to update to the latest version.
 
@@ -68,7 +68,7 @@ If the historical version of operator has been deployed in kubesphere, you can c
 kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/v2.1.2/charts/mysql-operator/crds/mysql.radondb.com_mysqlclusters.yaml
 ```
 
-### Step 3: Deploy a RadonDB MySQL cluster
+## Step 3: Deploy a RadonDB MySQL cluster
 
 You can refer to RadonDB MySQL template to deploy a cluster, or you can customize the yaml file to deploy a cluster.
 
@@ -108,7 +108,7 @@ service/sample-follower        ClusterIP   10.96.9.162     <none>        3306/TC
 service/sample-leader          ClusterIP   10.96.255.188   <none>        3306/TCP   10m
 service/sample-mysql           ClusterIP   None            <none>        3306/TCP   10m
 ```
-## Deployment Validation
+# Deployment Validation
 
 In the `demo-project` project, view the status of RadonDB MySQL Cluster.
 

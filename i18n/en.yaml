@@ -15,7 +15,7 @@ vadio-pc:
 vadio-mb1:
   other: "Deploy RadonDB MySQL"
 vadio-mb2:
-  other: "Kubernetes on KubeSphere"
+  other: "on Kubernetes"
 more:
   other: "Learn More"
 projects:
@@ -70,3 +70,5 @@ read:
   other: "Reading"
 architecture:
   other: "Architecture"
+deploy:
+  other: "Deploy"

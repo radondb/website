@@ -5,16 +5,16 @@ weight: 2
 
 > RadonDB MySQL Kubernetes 2.1.0+
 
-## Quick Start
+# Quick Start
 
-### Step 1: Install Operator
+## Step 1: Install Operator
 Install the operator named `test`:
 
 ```shell
 $ helm install test charts/mysql-operator
 ```
 
-### Step 2: Configure backup for S3
+## Step 2: Configure backup for S3
 
 Add the secret file.
 
@@ -72,13 +72,13 @@ spec:
 |hostname|pod name in cluser|
 |clustname|cluster name|
 
-### Step 3: Start Cluster
+## Step 3: Start Cluster
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_mysqlcluster.yaml     
 ```
 
-### Step 4: Start Backup
+## Step 4: Start Backup
 
 After run cluster Success.
 
@@ -86,8 +86,8 @@ After run cluster Success.
 $ kubectl apply -f config/samples/mysql_v1alpha1_backup.yaml
 ```
 
-## Uninstall
-### Uninstall Operator
+# Uninstall
+## Uninstall Operator
 
 Uninstall the cluster named `test`:
 
@@ -97,14 +97,14 @@ $ helm uninstall test
 $kubectl delete -f config/samples/mysql_v1alpha1_backup.yaml
 ```
 
-### Uninstall Cluster
+## Uninstall Cluster
 
 Uninstall the cluster named sample:
 ```shell
 $ kubectl delete mysqlclusters.mysql.radondb.com sample
 ```
 
-### Unistall CRD
+## Unistall CRD
 
 ```shell
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlclusters.mysql.radondb.com
@@ -132,7 +132,7 @@ could restore a cluster from the `backup_2021720827` copy in the S3 bucket.
 
 if you want backup to NFS server or restore from NFS server, do it as follow:
 
-### Create Image
+## Create Image
 
 ```shell
 $ docker build -f Dockerfile.sidecar -t  acekingke/sidecar:0.1 . && docker push acekingke/sidecar:0.1
@@ -141,7 +141,7 @@ $ docker build -t acekingke/controller:0.1 . && docker push acekingke/controller
 
 You can change `acekingke/sidecar:0.1` to your own label.
 
-### Deploy Your Own Manager
+## Deploy Your Own Image
 ```shell
 $ make manifests
 $ make install 

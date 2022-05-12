@@ -1,6 +1,6 @@
 ---
 title: "MySQL 容器化"
-date: 2021-09-11T16:52:11+08:00
+date: 2021-09-09T16:52:11+08:00
 # 相关文章，通过keywords匹配
 keywords:
   - mysql
@@ -42,8 +42,8 @@ fast_start:
 architecture:
   picture: /images/projects/mysql/mysql-architecture.png
   intros:
-    - 通过 raft 协议实现无中心化领导者自动选举
-    - 通过 semi-sync 基于 GTID 模式同步数据
+    - 通过 Raft 协议实现无中心化领导者自动选举
+    - 通过 Semi-Sync 基于 GTID 模式同步数据
     - 通过 Xenon 提供高可用能力
 roadmap:
   - title: 1.0 Helm
@@ -65,7 +65,7 @@ roadmap:
       - 故障自动转移
       - 自动重建节点
       - 自动重启服务
-      - 账户管理（提供 API 接口）
+      - 账户管理（API 接口）
       - 在线迁移
   - title: 3.0 Operator
     content:
@@ -76,7 +76,7 @@ roadmap:
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-基于 MySQL 的开源、高可用、云原生集群解决方案。支持一主多从高可用架构，具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
+基于 MySQL 的开源、高可用、云原生集群解决方案。支持一主多从高可用架构，具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 安装部署和管理。
 
 <!--more-->
 

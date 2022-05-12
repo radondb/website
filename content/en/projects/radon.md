@@ -5,7 +5,7 @@ date: 2021-09-11T16:52:11+08:00
 keywords:
   - radon
 # 排序，从小到大
-weight: 2
+weight: 3
 short: Radon
 subtitle: New generation MySQL distributed database components
 description: It supports unlimited horizontal expansion and distributed transactions, has strong consistency of financial level data.

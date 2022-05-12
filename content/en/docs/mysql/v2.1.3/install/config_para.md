@@ -3,9 +3,7 @@ title: "configuration parameter"
 weight: 4
 ---
 
-# Configuration Parameter
-
-## Container
+# Container
 
 | Parameter                               | Desc                        | Default                                                      |
 | :--------------------------------- | :-------------------------- | :---------------------------------------------------------- |
@@ -25,7 +23,7 @@ weight: 4
 | MetricsOpts.Image                  | Metrics Container image        | prom/mysqld-exporter:v0.12.1                                |
 | MetricsOpts.Resources              | Metrics  Container quota             | reserve: cpu 10m, mem 32Mi; </br> limit: cpu 100m, mem 128Mi  |
 
-## Pod
+# Pod
 
 | Parameter                        | Desc                                             | Default                    |
 | :-------------------------- | :----------------------------------------------- | :------------------------ |
@@ -43,7 +41,7 @@ weight: 4
 | PodPolicy.SlowLogTail       | Enable SlowLogTail                               | false                     |
 | PodPolicy.AuditLogTail      | Enable AuditLogTail                             | false                     |
 
-## Persitence
+# Persitence
 
 | Parameter                   | Desc          | Default        |
 | :----------------------- | :------------- | :------------ |
