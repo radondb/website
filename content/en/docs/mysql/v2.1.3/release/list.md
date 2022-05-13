@@ -30,6 +30,6 @@ This article lists all released versions of Radondb MySQL Kubernetes, presented 
 9. Improve E2E testing framework to cover more scenarios
 
 # Precautions
-- 1.x Version is deployed by the helm package management tool
+- 1.x version is deployed by the helm package management tool
 - 2.x version is implemented by the operator and is compatible with 1.x all features
 - It is strongly recommended to use 2.x latest version
