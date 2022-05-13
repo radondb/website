@@ -132,4 +132,4 @@ Volume usage is also monitored. Click a volume item to go to its detail page.
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(9).png)
 
-So far, the deployment of RadonDB MySQL Cluster in kubesphere has been completed.
+So far, the deployment of RadonDB MySQL Cluster in KubeSphere has been completed.

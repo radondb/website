@@ -1,5 +1,5 @@
 ---
-title: "configuration parameter"
+title: "Configuration Parameter"
 weight: 4
 ---
 

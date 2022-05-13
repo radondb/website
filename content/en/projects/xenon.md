@@ -49,7 +49,7 @@ architecture:
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-New generation MySQL Cluster High Availability components. Non centralized master selection based on raft protocol to realize master-slave second level switching; Based on the semi sync mechanism, it ensures no data loss and strong data consistency. Combined with the parallel replication characteristics of MySQL (version 5.7 and above), it realizes binlog parallel playback and greatly reduces the slave library delay.
+MySQL Cluster High Availability components. Non centralized master selection based on raft protocol to realize master-slave second level switching; Based on the semi sync mechanism, it ensures no data loss and strong data consistency. Combined with the parallel replication characteristics of MySQL (version 5.7 and above), it realizes binlog parallel playback and greatly reduces the slave library delay.
 
 <!--more-->
 

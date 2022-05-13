@@ -44,7 +44,7 @@ architecture:
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-New generation MySQL distributed database components. It supports unlimited horizontal expansion and distributed transactions, has strong consistency of financial level data, and meets the extreme requirements of enterprise level core database for large capacity, high concurrency, high reliability and high availability.
+MySQL distributed database components. It supports unlimited horizontal expansion and distributed transactions, has strong consistency of financial level data, and meets the extreme requirements of enterprise level core database for large capacity, high concurrency, high reliability and high availability.
 
 <!--more-->
 
