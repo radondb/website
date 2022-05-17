@@ -6,7 +6,7 @@
   <h3 class="h-center">{{ .Params.description }}</h3>
   <div class="flex-row space-center">
     <a class="btn start flex-row fl-center" href="{{ .Params.start_url }}">
-      <span>立即开始</span>
+      <span>{{ i18n "start"}}</span>
       <img src="/images/common/right-white.svg" />
     </a>
     <a class="btn github flex-row fl-center" href="{{ .Params.github_url }}">
@@ -20,7 +20,7 @@
 {{ define "main" }}
 <div class="project-content">
   <section class="features">
-    <h1>核心特性</h1>
+    <h1>{{ i18n "mainFeature" }}</h1>
     <div class="feature-list">
       {{ range .Params.features }}
       <div class="feature-card">
@@ -35,18 +35,8 @@
   </section>
   {{ with .Params.fast_start }}
   <section class="start">
-    <h1>快速开始</h1>
-    <div class="links flex-row space-center">
-      {{ with .helm }}
-      <div>
-        <h3 class="h-center bg-title">Helm</h3>
-        <div class="flex-column text-center">
-          {{ range . }}
-          <a href="{{ .url }}">{{ .text }}</a>
-          {{ end }}
-        </div>
-      </div>
-      {{ end }}
+    <h1>{{ i18n "quickStart" }}</h1>
+    <div class="links flex-row space-center">     
       {{ with .operator }}
       <div>
         <h3 class="h-center bg-title">Operator</h3>
@@ -57,9 +47,19 @@
         </div>
       </div>
       {{ end }}
+      {{ with .helm }}
+      <div>
+        <h3 class="h-center bg-title">Helm</h3>
+        <div class="flex-column text-center">
+          {{ range . }}
+          <a href="{{ .url }}">{{ .text }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
       {{ with .reading }}
       <div>
-        <h3 class="h-center bg-title">阅读</h3>
+        <h3 class="h-center bg-title">{{ i18n "read" }}</h3>
         <div class="flex-column  text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
@@ -69,7 +69,7 @@
       {{ end }}
       {{ with .installation }}
       <div>
-        <h3 class="h-center bg-title">部署</h3>
+        <h3 class="h-center bg-title">{{ i18n "deploy" }}</h3>
         <div class="flex-column  text-center">
           {{ range . }}
           <a href="{{ .url }}">{{ .text }}</a>
@@ -84,7 +84,7 @@
     <img src="{{ .Params.architecture.picture }}" />
     <div class="content">
       <div class="flex-row space-center">
-        <h1>架构</h1>
+        <h1>{{ i18n "architecture" }}</h1>
       </div>
       <ul>
         {{ range .Params.architecture.intros }}
@@ -121,7 +121,7 @@
   {{ with $related }}
   <section class="blog">
     <h2 class="title-h2">
-      <span>相关文章</span>
+      <span>{{ i18n "docs"}}</span>
     </h2>
     <div class="blog-list">
       {{ range .ByDate.Reverse | first 3 }}

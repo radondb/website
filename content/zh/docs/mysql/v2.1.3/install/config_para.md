@@ -5,7 +5,7 @@ weight: 4
 
 [查看 Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/config_para.md)
 
-## 容器配置
+# 容器配置
 
 | 参数                               | 描述                        | 默认值                                                      |
 | :--------------------------------- | :-------------------------- | :---------------------------------------------------------- |
@@ -25,7 +25,7 @@ weight: 4
 | MetricsOpts.Image                  | Metrics 容器镜像        | prom/mysqld-exporter:v0.12.1                                |
 | MetricsOpts.Resources              | Metrics 容器配额            | 预留: cpu 10m, 内存 32Mi; </br> 限制: cpu 100m, 内存 128Mi  |
 
-## 节点配置
+# 节点配置
 
 | 参数                        | 描述                                             | 默认值                    |
 | :-------------------------- | :----------------------------------------------- | :------------------------ |
@@ -43,7 +43,7 @@ weight: 4
 | PodPolicy.SlowLogTail       | 是否开启慢日志跟踪                               | false                     |
 | PodPolicy.AuditLogTail      | 是否开启审计日志跟踪                             | false                     |
 
-## 持久化配置
+# 持久化配置
 
 | 参数                     | 描述           | 默认值        |
 | :----------------------- | :------------- | :------------ |
@@ -52,5 +52,95 @@ weight: 4
 | Persistence.StorageClass | 存储卷类型     | -             |
 | Persistence.Size         | 存储卷容量     | 10Gi          |
 
-## 配置示例
+# 配置示例
 
+```yaml
+apiVersion: mysql.radondb.com/v1alpha1
+kind: MysqlCluster
+metadata:
+  name: sample
+spec:
+  replicas: 3
+  mysqlVersion: "5.7"
+  
+  # the backupSecretName specify the secret file name which store S3 information,
+  # if you want S3 backup or restore, please create backup_secret.yaml, uncomment below and fill secret name:
+  # backupSecretName: 
+  
+  # if you want create mysqlcluster from S3, uncomment and fill the directory in S3 bucket below:
+  # restoreFrom: 
+  
+  mysqlOpts:
+    rootPassword: "RadonDB@123"
+    rootHost: localhost
+    user: radondb_usr
+    password: RadonDB@123
+    database: radondb
+    initTokuDB: true
+
+    # A simple map between string and string.
+    # Such as:
+    #    mysqlConf:
+    #      expire_logs_days: "7"
+    mysqlConf: {}
+
+    resources:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        cpu: 500m
+        memory: 1Gi
+
+  xenonOpts:
+    image: radondb/xenon:1.1.5-alpha
+    admitDefeatHearbeatCount: 5
+    electionTimeout: 10000
+
+    resources:
+      requests:
+        cpu: 50m
+        memory: 128Mi
+      limits:
+        cpu: 100m
+        memory: 256Mi
+
+  metricsOpts:
+    enabled: false
+    image: prom/mysqld-exporter:v0.12.1
+
+    resources:
+      requests:
+        cpu: 10m
+        memory: 32Mi
+      limits:
+        cpu: 100m
+        memory: 128Mi
+
+  podPolicy:
+    imagePullPolicy: IfNotPresent
+    sidecarImage: radondb/mysql-sidecar:latest
+    busyboxImage: busybox:1.32
+
+    slowLogTail: false
+    auditLogTail: false
+
+    labels: {}
+    annotations: {}
+    affinity: {}
+    priorityClassName: ""
+    tolerations: []
+    schedulerName: ""
+    # extraResources defines quotas for containers other than mysql or xenon.
+    extraResources:
+      requests:
+        cpu: 10m
+        memory: 32Mi
+
+  persistence:
+    enabled: true
+    accessModes:
+    - ReadWriteOnce
+    #storageClass: ""
+    size: 20Gi
+```

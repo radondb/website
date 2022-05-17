@@ -43,7 +43,7 @@
   padding: 52px 0 48px;
   font-size: 12px;
   line-height: 20px;
-  overflow-x: auto;
+  display: block;
   .container {
     height: 100%;
     min-width: 1280px;
@@ -65,10 +65,14 @@
     color: #326bf6 !important;
   }
   .left-panel {
+    position: sticky;
+    top: 12px;
     width: 214px;
     display: block;
     height: 100%;
     overflow-y: auto;
+    max-height: 100vh;
+    padding-bottom: 24px;
     select {
       display: block;
       width: 100%;
@@ -147,10 +151,13 @@
     }
   }
   .right-panel {
+    position: sticky;
+    top: 12px;
     width: 192px;
     margin-left: 24px;
     height: 100%;
     overflow-y: auto;
+    max-height: 100vh;
     img {
       width: 16px;
       margin-right: 8px;
@@ -163,6 +170,7 @@
     }
     .catalog {
       margin-top: 10px;
+      padding-bottom: 24px;
       .title {
         margin-bottom: 10px;
         font-weight: 500;
@@ -183,7 +191,6 @@
 }
 @media screen and (min-width: 769px) {
   .docs-content {
-    height: 100vh;
     .center-content {
       height: 100%;
       overflow-y: auto;
@@ -212,6 +219,34 @@
       input {
         font-size: 1.17rem;
         line-height: 1.67rem;
+      }
+    }
+  }
+  .docs-content {
+    padding: 1.67rem;
+    .container {
+      flex-direction: column;
+      width: 100%;
+      min-width: 100%;
+      .left-panel {
+        position: relative;
+        width: 100%;
+        top: 0;
+        padding-bottom: 2rem;
+      }
+      .center-content {
+        width: 100%;
+        padding: 0 0 2rem 0;
+        margin: 0;
+        .docs-menu > * {
+          &:nth-child(2n) {
+            flex: 48%;
+          }
+          &:nth-child(2n + 1) {
+            flex: 48%;
+            margin-right: 4%;
+          }
+        }
       }
     }
   }

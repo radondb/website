@@ -14,14 +14,14 @@ pdf: ""
 
 本文档演示在 [KubeSphere](https://kubesphere.com.cn) 上部署 RadonDB MySQL Kubernetes 的 Operator 和 MySQL 高可用集群。
 
-## 部署准备
+# 部署准备
 - 确保已启用 [OpenPitrix 系统](https://kubesphere.io/zh/docs/pluggable-components/app-store)
 - 创建一个企业空间、一个项目和一个用户供本 [操作使用](https://kubesphere.io/zh/docs/quick-start/create-workspace-and-project)
     - 安装过程中，请以 admin 身份登录控制台，在企业空间 demo 中的 demo-project 项目中进行操作
 - 确保 KubeSphere [项目网关](https://kubesphere.io/zh/docs/project-administration/project-gateway) 已开启外网访问
 
-## 部署步骤
-### 1、添加应用仓库
+# 部署步骤
+## 1、添加应用仓库
 1. 登录 KubeSphere 的 Web 控制台。
 2. 在 demo 企业空间中，进入应用管理下的应用仓库页面，点击添加，弹出仓库配置对话框。
 3. 输入仓库名称和仓库 URL。
@@ -31,7 +31,7 @@ pdf: ""
 4. 将仓库成功导入到 KubeSphere 之后，在列表中即可查看 RadonDB MySQL 仓库。
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image.png)
 
-### 2、部署 RadonDB MySQL Operator
+## 2、部署 RadonDB MySQL Operator
 
 1. 在 demo-project 项目中，进入应用负载下的应用页面，点击部署新应用。
 2. 在对话框中，选择来自应用模板，进入应用模版页面。
@@ -49,7 +49,7 @@ pdf: ""
 8. 点击部署，返回应用模版页面。待应用状态切换为运行中，则应用部署成功。
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image%20(4).png)
 
-#### 更新 Operator
+### 更新 Operator
 
 若已在 KubeSphere 部署过历史版本 Operator，可以选择如下方式更新到最新版本。
 
@@ -61,7 +61,7 @@ pdf: ""
 ```shell
 $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/v2.1.2/charts/mysql-operator/crds/mysql.radondb.com_mysqlclusters.yaml
 ```
-### 3、部署 RadonDB MySQL 集群
+## 3、部署 RadonDB MySQL 集群
 
 可任选一个 RadonDB MySQL [配置示例](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/config/samples) 部署，或自定义配置部署。
 
@@ -98,7 +98,7 @@ service/sample-follower        ClusterIP   10.96.9.162     <none>        3306/TC
 service/sample-leader          ClusterIP   10.96.255.188   <none>        3306/TCP   10m
 service/sample-mysql           ClusterIP   None            <none>        3306/TCP   10m
 ```
-#### 部署校验
+# 部署校验
 
 在 `demo-project` 项目中，查看 RadonDB MySQL 集群状态。
 

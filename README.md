@@ -107,9 +107,57 @@ md的内容（main content）
 在md文件中引入[图片](/images/posts/xtraBackup/post-img.png)
 ```
 
-## 3、翻译
-1. 在`i18n/`目录下分别增加各个语言翻译词条
-2. 在`layouts/`目录下的模板文件中使用代码`{{ i18n "translation_id" }}`引入词条
+## 3、多语言
+
+### 全局参数翻译
+在`config/_default/languages.yml`文件中增加或者修改对应的参数的翻译，如：
+```yaml
+zh:
+  contentDir: "content/zh/"
+  languageName: "简体中文"
+  title: "RadonDB 开源社区"
+  weight: 10
+  params:
+    description: "一个面向云原生、容器化的数据库开源社区"
+    kubesphereVideoPoster: "/images/intro-poster.png"
+en:
+  contentDir: "content/en/"
+  languageName: "EN"
+  title: "RadonDB OpenSource"
+  weight: 20
+  params:
+    description: "An Open Source Community for Cloud-Native and Databases on Kubernetes"
+```
+
+### 全局导航翻译
+在`config/_default/`目录下增加或者修改对应的导航的翻译，如：
+menus.en.yaml
+```yaml
+# 主导航菜单
+main:
+  - identifier: projects
+    name: "open source projections"
+    weight: "1"
+    url: "/projects"
+  - name: "MySQL containerization"
+    weight: '1'
+    url: "/projects/mysql"
+    parent: projects
+```
+### 其他文本翻译
+1. 在`i18n/`目录下分别增加各个语言翻译词条，如：
+i18n/en.yaml
+```yaml
+translations_id:
+  other: "translations"
+```
+2. 在`layouts/`目录下的模板文件中使用代码`{{ i18n "translations_id" }}`引入词条
+
+### 内部固定连接
+固定连接使用`| relLangURL`管道，如：`<a href="{{ "/posts" | relLangURL }}">博客</a>`
+
+### md文件翻译
+在`content/en/`新增对应语言的翻译文档，文件名和目录结构与`content/zh/`保持一致
 
 ## 4、其他
 1. 如果不知道某些参数是做什么的，建议在页面上通过`参数值`搜索，进行反向查找用途
@@ -117,3 +165,4 @@ md的内容（main content）
 # webhooks自动部署
 
 # 欢迎提交PR
+

@@ -3,23 +3,21 @@
 
   <div class="content flex-row space-between">
     <div class="hide-content">
-      <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>开源项目</span><span
+      <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>{{ i18n "projects" }}</span><span
           class="mb folder"></span></div>
       <div class="column-content">
-        {{ $projects := slice "projects" }}
-        {{ $p := where .Site.RegularPages "Section" "in" $projects }}
-        {{ range sort $p "Params.weight" }}
-        <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-        {{ end }}
+        <a href="{{ "/projects/mysql/" | relLangURL }}">{{i18n "mysql"}}</a>
+        <a href="{{ "/projects/radon/" | relLangURL }}">{{i18n "radon"}}</a>
+        <a href="{{ "/projects/xenon/" | relLangURL }}">{{i18n "xenon"}}</a>
       </div>
     </div>
     <div class="hide-content">
-      <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>社区资源</span><span
+      <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>{{ i18n "resources" }}</span><span
           class="mb folder"></span></div>
       <div class="column-content">
-        <a href="/posts">博客</a>
-        <a href="/news">新闻</a>
-        <a href="https://kubesphere.com.cn/forum/t/RadonDB">论坛</a>
+        <a href="{{ "/posts" | relLangURL }}">{{ i18n "blogs" }}</a>
+        <a href="{{ "/news" | relLangURL }}">{{ i18n "news" }}</a>
+        <a href="https://kubesphere.com.cn/forum/t/RadonDB">{{ i18n "forum" }}</a>
         <a class="github" href="https://github.com/radondb">
           <img src="/images/common/github.svg" />
           <span>GitHub</span>
@@ -27,26 +25,26 @@
       </div>
     </div>
     <div class="hide-content">
-      <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>服务</span><span class="mb folder"></span>
+      <div class="column-head" onclick="toggleParentClass(this,'hide-content')"><span>{{ i18n "services" }}</span><span class="mb folder"></span>
       </div>
       <div class="column-content">
-        <a href="https://www.qingcloud.com/">业务合作与咨询</a>
+        <a href="https://www.qingcloud.com/">{{ i18n "business"}}</a>
       </div>
       <div class="wechat">
-        <div class="pc column-head">微信公众号</div>
+        <div class="pc column-head">{{ i18n "qr" }}</div>
         <img class="pc" src="/images/wechat.png" />
       </div>
     </div>
     <div class="other class" id="mc_embed_signup">
       <img class="logo pc" src="/images/radondb.svg" />
-      <div class="column-head">邮件订阅</div>
-      <p>通过邮件接收 RadonDB 开源社区最新的技术博客与产品更新的通知</p>
+      <div class="column-head">{{ i18n "email" }}</div>
+      <p>{{ i18n "emaildec" }}</p>
       <form action="https://yunify.us14.list-manage.com/subscribe/post?u=41abdf34dd4875c3cde859dc0&amp;id=7f94076da5"
         method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank"
         novalidate>
         <div id="mc_embed_signup_scroll">
           <div class="mc-field-group">
-            <input type="email" value="" name="EMAIL" class="required email" placeholder="请输入您的邮箱" id="mce-EMAIL">
+            <input type="email" value="" name="EMAIL" class="required email" placeholder="{{ i18n "enterinfo" }}" id="mce-EMAIL">
           </div>
           <div id="mce-responses" class="clear foot">
             <div class="response" id="mce-error-response" style="display:none"></div>
@@ -57,7 +55,7 @@
               name="b_41abdf34dd4875c3cde859dc0_7f94076da5" tabindex="-1" value=""></div>
           <div class="optionalParent">
             <div class="clear foot">
-              <input type="submit" value="订阅" name="subscribe" id="mc-embedded-subscribe" class="button">
+              <input type="submit" value="{{ i18n "subscribe" }}" name="subscribe" id="mc-embedded-subscribe" class="button">
             </div>
           </div>
         </div>
@@ -65,7 +63,7 @@
     </div>
     <div class="wechat mb">
       <img src="/images/wechat.png" />
-      <div>微信扫一扫，关注RandonDB官方公众号</div>
+      <div>请关注 RadonDB 开源社区微信公众号</div>
     </div>
     <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
     <script

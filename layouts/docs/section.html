@@ -103,26 +103,26 @@
         </div>
       </div>
     </div>
-    <div class="right-panel">
+    <div class="right-panel pc">
       <!-- 下载对应版本的pdf -->
       {{ range $index, $section := .Sections }}
       {{ if eq $index 0 }}
         {{ if .Params.pdf }}
-        <a class="docs-menu href flex-row fl-center" data-version="{{ .Title }}" href="{{.Params.pdf}}" download="{{.Title}}.pdf"><img src="/images/common/pdf.svg" /><span>下载PDF</span></a>
+        <a class="docs-menu href flex-row fl-center" data-version="{{ .Title }}" href="{{.Params.pdf}}" download="{{.Title}}.pdf"><img src="/images/common/pdf.svg" /><span>{{ i18n "pdf" }}</span></a>
         {{ else }}
-        <div class="docs-menu href flex-row fl-center grey" data-version="{{ .Title }}"><img src="/images/common/pdf.svg" /><span>下载PDF</span></div>
+        <div class="docs-menu href flex-row fl-center grey" data-version="{{ .Title }}"><img src="/images/common/pdf.svg" /><span>{{ i18n "pdf" }}</span></div>
         {{ end }}
       {{ else }}
         {{ if .Params.pdf }}
-        <a class="docs-menu href flex-row fl-center hide" data-version="{{ .Title }}" href="{{.Params.pdf}}" download="{{.Title}}.pdf"><img src="/images/common/pdf.svg" /><span>下载PDF</span></a>
+        <a class="docs-menu href flex-row fl-center hide" data-version="{{ .Title }}" href="{{.Params.pdf}}" download="{{.Title}}.pdf"><img src="/images/common/pdf.svg" /><span>{{ i18n "pdf" }}</span></a>
         {{ else }}
-        <div class="docs-menu href flex-row fl-center grey hide" data-version="{{ .Title }}"><img src="/images/common/pdf.svg" /><span>下载PDF</span></div>
+        <div class="docs-menu href flex-row fl-center grey hide" data-version="{{ .Title }}"><img src="/images/common/pdf.svg" /><span>{{ i18n "pdf" }}</span></div>
         {{ end }}
       {{ end }}
       {{ end }}
-      <a class="href flex-row fl-center" target="_blank" href="https://github.com/radondb/website/issues/new?body=File: [{{.RelPermalink}}](https://github.com/radondb/website/content/{{.Language}}{{.RelPermalink}})"><img src="/images/common/feedback.svg" /><span>反馈文档问题</span></a>
+      <a class="href flex-row fl-center" target="_blank" href="https://github.com/radondb/website/issues/new?body=File: [{{.RelPermalink}}](https://github.com/radondb/website/content/{{.Language}}{{.RelPermalink}})"><img src="/images/common/feedback.svg" /><span>{{ i18n "issue"}}</span></a>
       <div class="catalog">
-        <div class="title">本页目录</div>
+        <div class="title">{{ i18n "docMenu" }}</div>
         <div>{{ .TableOfContents }}</div>
       </div>
     </div>

@@ -20,7 +20,7 @@
     </video>
   </div>
   <div class="history">
-    <h1>发展历程</h1>
+    <h1>{{ i18n "history" }}</h1>
     <div class="history-content">
       {{ range $index, $history := sort .Params.histories "year" "desc"}}
       {{ if eq (mod $index 2) 0 }}

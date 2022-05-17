@@ -1,29 +1,30 @@
 ---
 # menu 优先显示shortTitle，没有shortTitle显示Title
-shortTitle: "Kubernetes 部署"
-title: "在 Kubernetes 上部署 RadonDB MySQL Operator 和 MySQL 集群"
+shortTitle: "Deploy on Kubernetes"
+title: "RadonDB MySQL Operator and MySQL Cluster Deploy on Kubernetes"
 # weight按照从小到大排列
 weight: 2
 # pdf的url，如：/pdf/test.pdf
 pdf: ""
 ---
 
-本文档演示 RadonDB MySQL Kubernetes 在 Kubernetes 上的部署、校验、访问和卸载操作。
+This document demonstrates the deployment, verification, access and uninstall of RadonDB MySQL Operator and Cluster on Kubernetes.
 
-# 部署准备
+# Prerequisites
 
-- Kubernetes 集群
-- MySQL 客户端工具
+- Kubernetes cluster
+- MySQL Client Tools
 
-# 部署步骤
+# Procedure
 
-## 步骤 1: 添加 Helm 仓库
-添加 Helm 仓库 `radondb`。
+## Step 1: Add a Helm Repository
+Add a Helm Repository named `radondb`.
+
 ```shell
 $ helm repo add radondb https://radondb.github.io/radondb-mysql-kubernetes/
 ```
 
-校验仓库信息，可查看到名为 `radondb/mysql-operator` 的 chart。
+Check that a chart named `radondb/mysql-operator` exists in the repository.
 
 ```shell
 $ helm search repo
@@ -31,31 +32,30 @@ NAME                            CHART VERSION   APP VERSION                     
 radondb/mysql-operator          0.1.0           v2.1.x                          Open Source，High Availability Cluster，based on MySQL                     
 ```
 
-## 步骤 2: 部署 Operator
+## Step 2: Install Operator
 
-设置 release 名为 `demo` , 创建名为 `demo-mysql-operator` 的 [Deployment](https://kubernetes.io/zh/docs/concepts/workloads/controllers/deployment/)。
+The following sets the release name to demo and creates a [Deployment](https://kubernetes.io/zh/docs/concepts/workloads/controllers/deployment/) named `demo-mysql-operator`.
 
 ```shell
 $ helm install demo radondb/mysql-operator
 ```
  
-> 在这一步中，默认将同时创建集群所需的 [CRD](https://kubernetes.io/zh/docs/concepts/extend-kubernetes/api-extension/custom-resources/)。
+> This step also creates the  [CRD](https://kubernetes.io/zh/docs/concepts/extend-kubernetes/api-extension/custom-resources/) required by the cluster.
 
-## 步骤 3: 部署 RadonDB MySQL 集群
+## Step 3: Install a RadonDB MySQL Cluster
 
-执行以下指令，以默认参数为 CRD `mysqlclusters.mysql.radondb.com` 创建一个实例，即创建 RadonDB MySQL 集群。
+Run the following command to create an instance of the `mysqlclusters.mysql.radondb.com` CRD and thereby create a RadonDB MySQL cluster by using the default parameters. You can customize the cluster parameters by referring to [Configuration Parameters](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/config_para.md).
 
 ```shell
 $ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml
 ```
-> 自定义集群部署参数，可参考 [配置参数](./config_para.md) 。
+> For customized cluster deployment parameters, refer to [configuration parameters](../config_para/).
 
+# Verification
 
-# 部署校验
+## Verify RadonDB MySQL Operator
 
-## 校验 RadonDB MySQL Operator
-
-查看 `demo` 的 Deployment 和对应监控服务，回显如下信息则部署成功。
+Run the following command to check the `demo` deployment and its monitoring service. If the following information is displayed, the installation is successful.
 
 ```shell
 $ kubectl get deployment,svc
@@ -66,9 +66,9 @@ NAME                             TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(
 service/mysql-operator-metrics   ClusterIP   10.96.142.22    <none>        8443/TCP   8h
 ```
 
-## 校验 RadonDB MySQL 集群
+## Verify the RadonDB MySQL Cluster
 
-执行如下命令，将查看到如下 CRD。
+Run the following command to check the CRDs.
 
 ```shell
 $ kubectl get crd | grep mysql.radondb.com
@@ -77,7 +77,7 @@ mysqlclusters.mysql.radondb.com                       2021-11-02T07:00:01Z
 mysqlusers.mysql.radondb.com                          2021-11-02T07:00:01Z
 ```
 
-以默认部署为例，执行如下命令将查看到名为 `sample-mysql` 的三节点 RadonDB MySQL 集群及用于访问节点的服务。
+Run the following command to check the cluster. If a statefulset of three replicas (RadonDB MySQL nodes) and services used to access the nodes are displayed, the installation is successful.
 
 ```shell
 $ kubectl get statefulset,svc
@@ -90,81 +90,80 @@ service/sample-leader            ClusterIP   10.96.111.214   <none>        3306/
 service/sample-mysql             ClusterIP   None            <none>        3306/TCP   7h37m
 ```
 
-# 访问集群
+# Access RadonDB MySQL
 
-在 Kubernetes 集群内，支持使用 `service_name` 或者 `clusterIP` 方式，访问 RadonDB MySQL。
+In the kubernetes cluster, it supports `service_name` or `clusterIP` mode to access RadonDB MySQL.
 
-> RadonDB MySQL 提供 Leader 和 Follower 两种服务，分别用于客户端访问主从节点。Leader 服务始终指向主节点（可读写），Follower 服务始终指向从节点（只读）。
+> RadonDB MySQL provides a leader service and a follower service, which are used to access the leader node and follower nodes respectively. The leader service always points to the leader node that supports read and write, and the follower service always points to the follower nodes that are read-only.
 ![](https://radondb.com/images/projects/mysql/mysql-architecture.png)
 
-以下为客户端与数据库在同一 Kubernetes 集群内，访问 RadonDB MySQL 的方式。
+The following is how the client and database access RadonDB MySQL in the same kubernetes cluster.
 
-> 当客户端的与数据库部署在不同 Kubernetes 集群，请参考 [Kubernetes 访问集群中的应用程序](https://kubernetes.io/zh/docs/tasks/access-application-cluster/)，配置端口转发、负载均衡等连接方式。
+> If the client is installed in a different Kubernetes cluster from the database, you need to configure port forwarding rules and load balancing by referring to [Access Applications in a Cluster](https://kubernetes.io/zh/docs/tasks/access-application-cluster/). 
 
+## Use a Cluster IP Address
 
-## ClusterIP 方式
-
-RadonDB MySQL 的高可用读写 IP 指向 Leader 服务的 `clusterIP`，高可用只读 IP 指向 Follower 服务的 `clusterIP`。
+The HA read-and-write IP address of RadonDB MySQL points to the `cluster IP` address of the leader service, and the HA read-only IP address points to the IP address of the follower service.
 
 ```shell
 $ mysql -h <clusterIP> -P <mysql_Port> -u <user_name> -p
 ```
 
-以下示例用户名为 `radondb_usr`， Leader 服务的 clusterIP 为 `10.10.128.136` ，连接示例如下：
+For example, run the following command to access the leader service, where the username is `radondb_usr` and the cluster IP address of the leader service is `10.10.128.136`:
 
 ```shell
 $ mysql -h 10.10.128.136 -P 3306 -u radondb_usr -p
 ```
 
-## service_name 方式
+## Use a service_name 
 
-Kubernetes 集群的 Pod 之间支持通过 `service_name` 方式访问 RadonDB MySQL。
+Pods in the Kubernetes cluster can access RadonDB MySQL by using a service name.
 
-> `service_name` 方式不适用于从 Kubernetes 集群的物理机访问数据库 Pod。
+> `service name` cannot be used to access RadonDB MySQL from the host machines of the Kubernetes cluster.
 
-连接 Leader 服务（RadonDB MySQL 主节点）
+* Access the leader service (RadonDB MySQL leader node)
 
 ```shell
 $ mysql -h <leader_service_name>.<namespace> -u <user_name> -p
 ```
 
-用户名为 `radondb_usr`，release 名为 `sample`，RadonDB MySQL 命名空间为 `default` ，连接示例如下：
+For example, run the following command to access the leader service, where the username is `radondb_usr`, the release name is `sample`, and the namespace of RadonDB MySQL is `default`:
 
 ```shell
 $ mysql -h sample-leader.default -u radondb_usr -p
 ```
 
-* 连接 Follower 服务（RadonDB MySQL 从节点）
+* Access the follower service (RadonDB MySQL follower nodes)
 
 ```shell
 $ mysql -h <follower_service_name>.<namespace> -u <user_name> -p
 ```
 
-用户名为 `radondb_usr`，release 名为 `sample`，RadonDB MySQL 命名空间为 `default` ，连接示例如下：
+For example, run the following command to access the follower service, where the username is `radondb_usr`, the release name is `sample`, and the namespace of RadonDB MySQL is `default`:
 
 ```shell
 $ mysql -h sample-follower.default -u radondb_usr -p  
 ```
 
-# 卸载
+# Uninstall
 
-## 卸载 Operator
+## Uninstall Operator
 
-卸载当前命名空间下 release 名为 `demo` 的 RadonDB MySQL Operator。
+Uninstall RadonDB MySQL Operator with the release name `demo` in the current namespace.
 
 ```shell
 $ helm delete demo
 ```
 
-## 卸载集群
+## Uninstall RadonDB MySQL
 
-卸载 release 名为 `sample` RadonDB MySQL 集群。
+Uninstall the RadonDB MySQL cluster with the release name `sample`.
 
 ```shell
 $ kubectl delete mysqlclusters.mysql.radondb.com sample
 ```
 
-## 卸载自定义资源
+## Uninstall the Custom Resources
 
 ```shell
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlclusters.mysql.radondb.com

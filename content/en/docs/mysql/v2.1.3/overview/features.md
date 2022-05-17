@@ -1,17 +1,17 @@
 ---
-shortTitle: "功能优势"
-title: "功能优势"
+shortTitle: "Fuatures advantages"
+title: "Fuatures advantages"
 weight: 2
 ---
 
-# 数据强一致
-基于 Paxos 协议，采用一主两备三节点架构, 自动脑裂保护处理。
+# Strong data consistency
+It adopts the architecture of one main, two standby and three nodes to automatically protect the brain crack.
 
-# 高可用
-支持一主多从架构，灵活满足各类可用性需求。
+# High availability
+It supports a master-slave architecture to flexibly meet various availability requirements.
 
-# 自动运维
-可设置自动备份策略、监控告警策略、自动扩容策略。
+# Automatic operation and maintenance
+Automatic backup strategy, monitoring alarm strategy and automatic capacity expansion strategy can be set.
 
-# 弹性扩缩容
-根据业务需要实时扩展数据库的 CPU、内存、存储容量。
+# Elastic expansion capacity
+Expand the CPU, memory and storage capacity of the database in real time according to business needs.

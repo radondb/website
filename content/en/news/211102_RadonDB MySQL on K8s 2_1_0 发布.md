@@ -82,7 +82,7 @@ RadonDB MySQL Kubernetes 于 10 月 22 日发布了第四个版本 2.1.0 [1]。�
 
 # 2.1.0 Release Notes
 
-### Features
+## Features
 
 * Add serviceMonitor for operator #169 #174
 * Backup to S3 and restore from S3 #116 #144 #197
@@ -90,7 +90,7 @@ RadonDB MySQL Kubernetes 于 10 月 22 日发布了第四个版本 2.1.0 [1]。�
 * Support user management through crd. #175 #198 #228
 * Support extranet access service. #251 #252
 * Make the cluster state cover more scenarios. #253 #264
-### Improvements
+## Improvements
 
 * Change the related name of qingcloud to the name related to radondb. #190
 * Format the code with gofumpt #212 #213
@@ -100,7 +100,8 @@ RadonDB MySQL Kubernetes 于 10 月 22 日发布了第四个版本 2.1.0 [1]。�
 * Remove the helm version deployment document link and fix operator deployment document. #241
 * Add user management tutorial. #245 #260
 * Change kind type cluster to mysqlcluster #249 #261
-### Bug fixes
+
+## Bug fixes
 
 * Fix the bug for preUpdate #184 #185
 * Fix the bug for status reset leader #178 #180
@@ -112,9 +113,10 @@ RadonDB MySQL Kubernetes 于 10 月 22 日发布了第四个版本 2.1.0 [1]。�
 * Fix make test fail by init sidercar test #256 #259
 * Fix typo randondb to radondb #266 #267
 * Fix the problem of password conflict between backup and user management of root user. #257 #268
+
 # 2.0.0 Release Notes
 
-### Improvements
+## Improvements
 
 * Add post-start and pre-stop script #155
 * Add PreStop for xenon container #145
@@ -133,7 +135,8 @@ RadonDB MySQL Kubernetes 于 10 月 22 日发布了第四个版本 2.1.0 [1]。�
 * Add operator init #123 #109
 * Add rolling update feature code annotation #165
 * Add ignore dir `vendor` and `testbin` #153 #154
-### Bug Fixes
+
+## Bug Fixes
 
 * Fix the auditLog container #181 #179
 * Fix the incorrect description about MetricsOpts #177
@@ -147,7 +150,7 @@ RadonDB MySQL Kubernetes 于 10 月 22 日发布了第四个版本 2.1.0 [1]。�
 
 欢迎大家下载体验！
 
-### 参考及下载链接
+# 参考及下载链接
 
 [1]. Release Notes: [https://github.com/radondb/radondb-mysql-kubernetes/releases](https://github.com/radondb/radondb-mysql-kubernetes/releases)
 

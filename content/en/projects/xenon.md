@@ -1,55 +1,55 @@
 ---
-title: "Xenon 高可用集群组件"
+title: "Xenon"
 date: 2021-09-11T16:52:11+08:00
 # 相关文章，通过keywords匹配
 keywords:
   - xenon
 # 排序，从小到大
-weight: 1
+weight: 2
 short: Xenon
-subtitle: 新一代 MySQL 集群高可用组件
-description: 基于 Raft 协议进行无中心化选主，实现主从秒级切换；基于 Semi-Sync 机制，保障数据不丢失，实现数据强一致性，并结合 MySQL (5.7 及以上版本) 并行复制特性，实现 Binlog 并行回放，大大降低从库延迟。
+subtitle: New generation MySQL Cluster High Availability components
+description: Based on raft protocol to realize master-slave second level switching; Based on the semi sync mechanism, it ensures no data loss and strong data consistency. 
 logo: /images/projects/xenon.svg
 # 立即开始
-start_url: /posts/210825_高可用-_-xenon-实现-mysql-高可用架构-部署篇/
+start_url: https://github.com/radondb/xenon/blob/master/docs/how_to_build_and_run_xenon.md
 github_url: https://github.com/radondb/xenon
 # 特性
 features:
   - picture: /images/projects/mysql/consistency.svg
-    title: 集群数据强一致
-    description: 基于 Semi-Sync 机制，保障数据不丢失，实现数据强一致性。
+    title: Strong data consistency
+    description: Based on semi-sync mechanism, ensure no data loss and realize strong data consistency.
   - picture: /images/projects/mysql/fault-switch.svg
-    title: 故障秒级切换
-    description: 调用脚本完成故障切换，也可以结合 Consul，ZooKeeper 自由扩展。
+    title: Failover in seconds
+    description: Call scripts to complete failover, or expand freely in combination with consul and zookeeper.
   - picture: /images/projects/mysql/raft.svg
-    title: 无中心化选主
-    description: 通过 Raft 协议实现无中心化领导者自动选举。
+    title: Non centralized master selection
+    description: Implement decentralized automatic leader election through raft protocol.
   - picture: /images/projects/mysql/redundant.svg
-    title: 跨区容灾
-    description: 多副本跨区部署实现容灾服务。
+    title: Cross regional disaster recovery
+    description: Multi replica cross region deployment to realize disaster recovery service.
 # 快速开始
 fast_start:
   reading:
-    - text: Xenon：后 MHA 时代的选择
+    - text: Xenon:Choice after MHA
       url: /posts/210604_高可用-_-xenon后-mha-时代的选择/
-    - text: 关于 Xenon 高可用的一些思考
+    - text: Some thoughts on Xenon HA
       url: /posts/210916_高可用_关于-xenon-高可用的一些思考/
   installation:
-    - text: Xenon 实现 MySQL 高可用架构 部署篇
+    - text: HA Architecture through Xenon + MySQL
       url: /posts/210825_高可用-_-xenon-实现-mysql-高可用架构-部署篇/
-    - text: Xenon 实现 MySQL 高可用架构 常用操作篇
+    - text: Xenon + MySQL Common Operations
       url: /posts/210903_高可用-_-xenon-实现-mysql-高可用架构-常用操作篇/
 # 架构
 architecture:
   picture: /images/projects/xenon/xenon-architecture.png
   intros:
-    - 通过 raft 协议实现无中心化领导者自动选举
-    - 通过 semi-sync 基于 GTID 模式同步数据
+    - Automatic election of decentralized leaders through raft protocol
+    - Synchronize data based on gtid mode through semi-sync
 
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-基于 MySQL 的开源、高可用、云原生集群解决方案。支持一主多从高可用架构，具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
+MySQL Cluster High Availability components. Non centralized master selection based on raft protocol to realize master-slave second level switching; Based on the semi sync mechanism, it ensures no data loss and strong data consistency. Combined with the parallel replication characteristics of MySQL (version 5.7 and above), it realizes binlog parallel playback and greatly reduces the slave library delay.
 
 <!--more-->
 
