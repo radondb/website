@@ -59,14 +59,11 @@ roadmap:
   - title: 2.0 Operator
     content:
       - 增删节点
-      - 自动扩缩容
       - 升级集群
       - 备份与恢复
       - 故障自动转移
-      - 自动重建节点
-      - 自动重启服务
-      - 账户管理（提供 API 接口）
-      - 在线迁移
+      - 重建节点
+      - 账户管理
   - title: 3.0 Operator
     content:
       - 自动化运维
