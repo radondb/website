@@ -1,9 +1,9 @@
 ---
-title: "Releases Lists"
+title: "Release list"
 weight: 1
 ---
 
-This article lists all released versions of Radondb MySQL Kubernetes, presented in reverse order of release time.
+All released versions of RadonDB MySQL Kubernetes, presented in reverse order of release time.
 
 | Version | Release Time |
 | --- | ---- |
@@ -17,19 +17,20 @@ This article lists all released versions of Radondb MySQL Kubernetes, presented 
 | [1.1.0](../1.1.0) |	2021-05-07 |
 | [1.0](../1.0) |	2021-04-27 |
 
+For the latest release, see https://github.com/radondb/radondb-mysql-kubernetes/releases.
+
 # Roadmap
 
-1. Support more ways of database backup and recovery
-2. Support finer grained configuration updates
-3. Support MySQL 8.0
-4. Abstract and improve the external call API
-5. Further improve the service quality and reduce the start-up and stop time under special scenarios
-6. Improve the periodic scheduling job function and support repeated work more efficiently
-7. Statefulset is improved to multi statefulset
-8. Support online migration
-9. Improve E2E testing framework to cover more scenarios
+1. Support more ways of database backup and recovery.
+2. Support more fine-grained configuration updates.
+3. Support MySQL 8.0.
+4. Abstract and improve external APIs.
+5. Reduce the MTTR under special scenarios for better service.
+6. Improve the periodic job scheduling to support repetitive jobs more efficiently.
+7. Support online migration.
+8. Improve the E2E testing framework to cover more scenarios.
 
-# Precautions
-- 1.x version is deployed by the helm package management tool
-- 2.x version is implemented by the operator and is compatible with 1.x all features
-- It is strongly recommended to use 2.x latest version
+# Notes
+- Version 1.x is deployed by the helm package management tool, and is not being maintained.
+- Version 2.x is implemented by Operator and is compatible with all features of vwesion 1.x.
+- It is strongly recommended that you use the latest 2.x versions.

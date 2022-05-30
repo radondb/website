@@ -37,7 +37,7 @@ architecture:
   picture: /images/projects/radon/radon-architecture.png
   intros:
       - 由 SQL 节点和存储节点两大部分组成
-      - SQL 节点生产分布式执行计划
+      - SQL 节点生成分布式执行计划
       - SQL 节点生成分布式执行器且并行式执行
       - SQL 节点协调分布式事务
 

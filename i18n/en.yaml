@@ -1,25 +1,25 @@
 header-pc:
-  other: "Cloud-Native and Databases on Kubernetes"
+  other: "Cloud-native database on Kubernetes"
 header-mb1:
   other: "Cloud-Native"
 header-mb2:
   other: "Databases on Kubernetes"
 header-desc:
-  other: "Share Mainstream Open Source Database Technology"
+  other: "Share mainstream open-source database technology"
 header-pe:
-  other: "Provide Enterprise"
+  other: "Provide enterprise"
 header-se:
-  other: "Services"
+  other: "services"
 vadio-pc:
-  other: "Deploy RadonDB MySQL On Kubernetes"
+  other: "Deploy RadonDB MySQL on Kubernetes"
 vadio-mb1:
   other: "Deploy RadonDB MySQL"
 vadio-mb2:
   other: "on Kubernetes"
 more:
-  other: "Learn More"
+  other: "Learn more"
 projects:
-  other: "Open Source Projects"
+  other: "Open-source projects"
 mysql:
   other: "RadonDB MySQL Kubernetes"
 radon:
@@ -37,7 +37,7 @@ forum:
 services:
   other: "Services"
 qr:
-  other: "Scan the QR Code"
+  other: "WeChat official account"
 business:
   other: "Business consultation"
 email:
@@ -51,7 +51,7 @@ subscribe:
 start:
   other: "Start"
 docs:
-  other: "Related Articles"
+  other: "Articles"
 history:
   other: "History"
 aboutTitle:
@@ -63,12 +63,12 @@ issue:
 pdf:
   other: "Download PDF"
 mainFeature:
-  other: "Main Features"
+  other: "Main features"
 quickStart:
-  other: "Quick Start"
+  other: "Quick start"
 read:
   other: "Reading"
 architecture:
   other: "Architecture"
 deploy:
-  other: "Deploy"
+  other: "Deployment"

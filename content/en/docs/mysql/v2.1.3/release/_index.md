@@ -1,4 +1,4 @@
 ---
-title: "Release Notes"
+title: "Releases"
 weight: 1
 ---
