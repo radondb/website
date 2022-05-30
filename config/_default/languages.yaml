@@ -4,6 +4,7 @@ zh:
   title: "RadonDB 开源社区"
   weight: 10
   params:
+    site_logo: "/images/radondb.svg"
     description: "一个面向云原生、容器化的数据库开源社区"
     kubesphereVideoPoster: "/images/intro-poster.png"
     kubesphereVideo: "https://dbg-files.pek3b.qingstor.com/radondb_website/video/%E5%A6%82%E4%BD%95%E5%9C%A8%20Kubernetes%20%E4%B8%8A%E9%83%A8%E7%BD%B2%20RadonDB%20MySQL/%E5%B8%A6BGM/%E9%83%A8%E7%BD%B2%20RadonDB%20MySQL%20%E9%9B%86%E7%BE%A4.mp4"
@@ -22,6 +23,7 @@ en:
   title: "RadonDB OpenSource"
   weight: 20
   params:
+    site_logo: "/images/radondb-en.png"
     description: "An Open Source Community for Cloud-Native and Databases on Kubernetes"
     kubesphereVideoPoster: "/images/intro-poster.png"
     kubesphereVideo: "https://dbg-files.pek3b.qingstor.com/radondb_website/video/%E5%A6%82%E4%BD%95%E5%9C%A8%20Kubernetes%20%E4%B8%8A%E9%83%A8%E7%BD%B2%20RadonDB%20MySQL/%E5%B8%A6BGM/%E9%83%A8%E7%BD%B2%20RadonDB%20MySQL%20%E9%9B%86%E7%BE%A4.mp4"
