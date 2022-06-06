@@ -19,7 +19,7 @@ RadonDB MySQL Kubernetes 于 10 月 22 日发布了第四个版本 2.1.0 [1]。�
 
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/news/211102_RadonDB%20MySQL%20on%20K8s%202.1.0%20%E5%8F%91%E5%B8%83%EF%BC%81/2.jpg)
 
-**RadonDB MySQL** 是一款基于 MySQL 的开源、高可用、云原生集群解决方案。支持一主多从高可用架构，并具备安全、自动备份、监控告警、自动扩容等全套管理功能。目前已经在生产环境中大规模的使用，用户包含 银行、保险、传统大企业等。服务高可用由已经开源的 MySQL 集群高可用工具 **Xenon** 来实现。
+**RadonDB MySQL** 是一款基于 MySQL 的开源、高可用、云原生集群解决方案。支持一主多从高可用架构，并具备安全、自动备份、监控告警、自动扩容等全套管理功能。目前已经在生产环境中大规模的使用，用户包含银行、保险、传统大企业等。服务高可用由已经开源的 MySQL 集群高可用工具 **Xenon** 来实现。
 
 随着近几年国内外云原生技术蓬勃发展，数据库容器化实现技术也趋于成熟。各大 K8s 社区用户对 MySQL on K8s 高可用版本的需求呼声不断。**社区决定将 RadonDB MySQL 完整的移植到 K8s 平台（RadonDB MySQL Kubernetes）**，并于今年将其正式开源。
 
