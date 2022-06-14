@@ -1,5 +1,5 @@
 header-pc:
-  other: "Cloud-native database on Kubernetes"
+  other: "Cloud native and database on Kubernetes"
 header-mb1:
   other: "Cloud-Native"
 header-mb2:
@@ -63,7 +63,7 @@ issue:
 pdf:
   other: "Download PDF"
 mainFeature:
-  other: "Main features"
+  other: "Key features"
 quickStart:
   other: "Quick start"
 read:

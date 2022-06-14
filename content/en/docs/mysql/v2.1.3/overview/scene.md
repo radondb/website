@@ -1,16 +1,10 @@
 ---
-shortTitle: "Application scenario"
-title: "Application scenario"
+shortTitle: "Use cases"
+title: "Use cases"
 weight: 3
 ---
-# Financial scenarios with high data consistency
-Strong data consistency guarantee, meeting the financial level reliability requirements.
+# Financial scenario
+Strong data consistency meets the reliability requirements in financial scenarios.
 
-# Website operation and maintenance
-Including a full set of backup, recovery, monitoring and other operation and maintenance schemes to meet the business needs of websites.
-
-# High performance concurrent scenarios
-Businesses that meet the requirements of high performance and high concurrency, such as e-commerce spike and other sudden peak scenarios.
-
-# Flexible capacity expansion and capacity minute deployment
-For the elastic scalability of computing resources, the game partition database is deployed at the minute level.
+# Website O&M
+A full set of backup, recovery, monitoring and other O&M schemes are provided for website service requirements.

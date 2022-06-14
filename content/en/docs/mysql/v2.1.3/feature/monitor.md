@@ -1,34 +1,34 @@
 ---
-title: "Monitor"
+title: "Monitoring and alerting"
 weight: 1
 ---
 
-> RadonDB MySQL Kubernetes 2.1.0+
+> The feature is supported in RadonDB MySQL Kubernetes 2.1.0 and later versions.
 
 # Background
-[Prometheus](https://prometheus.io/) is a text-based exposure format has become the de facto standard format in the field of cloud native monitoring.
+The text-based format for exposing metrics required by [Prometheus](https://prometheus.io/) has been a standard in cloud-native monitoring.
 
-RadonDB MySQL monitoring engine is defined based on [Prometheus MySQLd Exporter](https://github.com/prometheus/mysqld_exporter). Grab RadonDB MySQL service indicators through `mysqld-exporter`, and then realize the visualization of monitoring indicators by accessing the third-party application platform.
+The RadonDB MySQL monitoring engine is based on [Prometheus MySQLd Exporter](https://github.com/prometheus/mysqld_exporter). It scrapes RadonDB MySQL metrics with `mysqld-exporter` and visualizes the metrics by third-party platforms.
 
-This article demonstrates how to enable RadonDB MySQL monitoring indicators.
+This section displays how to enable RadonDB MySQL monitoring metrics.
 
 # Prerequisites
 
-- [Kubernetes](../install/kubernetes.md) Cluster or [KubeSphere](../install/kubesphere.md) Cluster
-- RadonDB MySQL Kubernetes 2.1.0+
+- A Kubernetes or KubeSphere cluster
+- RadonDB MySQL Kubernetes 2.1.0 or a later version
 
 # Procedure
 
-## Setp 1:  Configure servicemonitor
+## Step 1: Configure serviceMonitor.
 
-`Servicemonitor ` will be bound automatically after being enabled ` mysqld_ Exporter ` and Prometheus.
+`serviceMonitor` is a parameter defining the automatic monitoring engine of RadonDB MySQL Operator. It is automatically bound to `mysqld_exporter` and Prometheus automatically after being enabled.
 
-`servicemonitor` parameter contains the following fields:
+The serviceMonitor parameter contains:
 
 ```shell
 serviceMonitor:
   enabled: true
-  ## Additional labels for the serviceMonitor. Useful if you have multiple prometheus operators running to select only specific ServiceMonitors
+  ## Additional labels for the serviceMonitor. It is useful when you have multiple Prometheus operators running to select specific ServiceMonitors.
   # additionalLabels:
   #   prometheus: prom-internal
   interval: 10s
@@ -44,16 +44,16 @@ serviceMonitor:
       app.kubernetes.io/name: mysql
 ```
 
-You can click Configure 'servicemonitor' in yaml file `charts/mysql-operator/values.yaml`.
+You can configure serviceMonitor in the `charts/mysql-operator/values.yaml` file.
 
-- When the Operator is newly deployed, `servicemonitor.enabled` is **true** by default, which means it is enabled by default.
-- The cluster with Operator version less than 2.1.0 has been deployed, and the operator needs to be redeployed.
+- When a new Operator is deployed, `serviceMonitor.enabled` is set to `true` by default. The serviceMonitor is enabled.
+-	If the Operator deployed for the cluster is earlier than version 2.1.0, you need to redeploy a later version of  Operator.
 
-## Step 2: Configure metricsOpts
+## Step 2: Configure metricsOpts.
 
-`Metricsopts` is the parameter of RadonDB MySQL Cluster Monitoring defined in CRD `mysqlclusters.mysql.radondb.com`. The monitoring service can be started by configuring the parameter value in the `mysql_v1alpha1_mysqlcluster.yaml` file.
+`metricsOpts` is a parameter defining the RadonDB MySQL cluster monitoring. You can enable the monitoring service by configuring the parameter in the `mysql_v1alpha1_mysqlcluster.yaml` file.
 
-`metricsOpts` parameter contains the following fields:
+metricsOpts parameter contains:
 
 ```shell
 metricsOpts:
@@ -69,23 +69,22 @@ metricsOpts:
         memory: 128Mi
 ```
 
-`metricsOpts.enabled ` is **false** by default and needs to be manually set to **true**.
+`metricsOpts.enabled` is set to `false` by default. You can set it to `true` manually.
+- To enable cluster monitoring function, set `metricsOpts.enabled` to `true`.
+- To define the resource quota for monitoring containers, set the `resources` parameter.
 
-- Select settings `metricsopts.enabled` the status is **true**, and the cluster monitoring function is enabled.
-- Set the resource parameter value and define the resource quota size of the monitoring container.
-
-After modifying the file parameters, use the following instructions to apply the configuration and deploy / update the cluster echo information as follows:
+Apply the configuration as follows and the following information is displayed.
 
 ```bash
 $ kubectl apply -f config/sample/mysql_v1alpha1_mysqlcluster.yaml
 cluster.mysql.radondb.com/sample created/configured
 ```
 
-# View monitoring services
+# Viewing monitoring services
 
-## View on Client
+## Viewing on Client
 
-You can view the cluster monitoring service and `serviceMonitor` information through the following instructions.
+You can view the cluster monitoring service and information of `serviceMonitor` as follows.
 
 ```shell
 $ kubectl get service,servicemonitor
@@ -93,7 +92,7 @@ $ kubectl get service,servicemonitor
 $ kubectl describe servicemonitor <serviceName>
 ```
 
-**Anticipate Result**
+**Expected output**
 
 ```shell
 $ kubectl get service,servicemonitor
@@ -130,49 +129,50 @@ Spec:
 ......
 ```
 
-## View on KubeSphere
+## Viewing on KubeSphere
 
-For RadonDB MySQL Operators and clusters deployed in Kubesphere Enterprise space, after monitoring is enabled, you can view the monitoring service status on the following page.
+After the monitoring is enabled, you can view the status of the monitoring service for RadonDB MySQL Operators and clusters deployed in Kubesphere workspace.
 
-- On the **service** page under **Application Load** in the project space, click `< clusterName>-metrics` to view the monitoring service information.
+- On the **service** page under **Application Load** in the project space, click `< clusterName>-metrics` to view the monitoring service details.
 
 ![View monitoring services](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/monitor_service.png)
 
-- On the **Container Group** page under **Application Load** in the project space, click the name of a container to view the status of `metrics` resources in the container.
+- On the **Container Group** page under **Application Load** in the project space, click a container name to view the status of `metrics` resources in the container.
 
 ![View monitoring resource status](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/pod_metrics.png)
 
-# View monitoring
+# Viewing monitoring data
 
-## Custom monitoring on kubesphere
+## Custom monitoring on Kubesphere
 
-Kubesphere's monitoring engine is based on Prometheus and Prometheus operator. Use kubesphere's custom monitoring function to support the monitoring of radondb MySQL indicators in a visual form.
+The Kubesphere monitoring engine is based on Prometheus and Prometheus Operator. Kubesphere’s custom monitoring allows you to monitor and visualize RadonDB MySQL metrics.
 
-1. In the same cluster project, select **user defined monitoring** under **monitoring alarm** and click **create**.
-2. In the dialog box, select **MySQL** template and continue to configure the monitoring template.
+1. In the same project, go to **Custom Monitoring** under **Monitoring & Alerting** in the sidebar and click **Create**.
+2. Step 2	In the displayed dialog box, set a name for the dashboard (for example, `mysql-overview`) and select the MySQL template. Click **Next** to continue.
 
 ![Select Template](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/mysql_exporter.png)
 
-3. Click **save template** to create a new monitoring template.
+3. Click **Save Template** in the upper-right corner. A newly-created dashboard is displayed on the **Custom Monitoring Dashboards** page.
 
 ![Save Monitoring Template](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/config_dashboard.png)
 
-4. Wait about ten minutes for the new monitoring panel to view the monitoring data.
+4. Wait about ten minutes to view the monitoring data.
 
 ![View Monitoring](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/monitor_overview.png)
 
-For more details, please check kubesphere [Custom Monitoring Introduction](https://kubesphere.io/zh/docs/project-user-guide/custom-application-monitoring/introduction/) and [Visual Monitoring](https://kubesphere.io/zh/docs/project-user-guide/custom-application-monitoring/visualization/overview/).
+For more details, see Kubesphere [custom application monitoring](https://kubesphere.io/docs/project-user-guide/custom-application-monitoring/introduction/) and [Visualization](https://kubesphere.io/docs/project-user-guide/custom-application-monitoring/visualization/overview/).
 
-## Using Prometheus + grafana platform
+## Using Prometheus and Grafana platforms
 
-[Grafana](https://github.com/grafana/grafana) is a cross platform, open source data visualization network application platform. The basic principle of monitoring through Prometheus + grafana platform is as follows:
+[Grafana](https://github.com/grafana/grafana) is an open-source interactive data-visualization platform. You can use Prometheus and Grafana platforms to view the monitoring information:
 
-- Through [mysql_exporter](https://github.com/prometheus/mysqld_exporter) Get radondb MySQL service monitoring data
-- Through [node_exporter](https://github.com/prometheus/node_exporter) Obtain the monitoring data of radondb MySQL server.
-- Transfer monitoring data to [Prometheus](https://prometheus.io/download/) After that, by configuring the data source, rich monitoring data charts and warnings are finally presented in grafana.
+- Obtain the monitoring data of RadonDB MySQL services by [mysql_exporter](https://github.com/prometheus/mysqld_exporter).
+- Obtain the monitoring data of RadonDB MySQL servers by [node_exporter](https://github.com/prometheus/node_exporter).
+- Transfer monitoring data to [Prometheus](https://prometheus.io/download/) and configure the data source to display monitoring charts and warnings on Grafana.
+
 
 
 ![Basic principles](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/prometheus_grafana.png)
 
-For more instructions on grafana visual monitoring, see [Grafana Dashboards](https://grafana.com/docs/grafana/latest/dashboards/)。
+For more instructions on Grafana monitoring visualization, see [Grafana Dashboards](https://grafana.com/docs/grafana/latest/dashboards/).
 

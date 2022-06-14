@@ -8,7 +8,7 @@ keywords:
 weight: 1
 short: RadonDB MySQL Kubernetes
 subtitle: Open-source, high-availability, and cloud-native cluster solution based on MySQL
-description: Install, deploy and manage RadonDB MySQL clusters on kubernetes and kubesphere.
+description: Support installing, deploying and managing RadonDB MySQL clusters on kubernetes and kubesphere.
 logo: /images/projects/mysql/mysql.svg
 # 立即开始
 start_url: https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/deploy_radondb-mysql_operator_on_k8s.md
@@ -68,7 +68,7 @@ roadmap:
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-RadonDB MySQL is an open-source, high-availability, and cloud-native cluster solution based on MySQL. It supports the architecture of a primary database and multiple secondary databases, with a full set of management functions for security, automatic backup, monitoring and alerting, and automatic storage expansion, and so on. It supports installation, deployment and management of RadonDB MySQL clusters on Kubernetes and KubeSphere.
+RadonDB MySQL is an open-source, high-availability, and cloud-native cluster solution based on MySQL. It adopts the architecture of a primary database and multiple secondary databases, with a full set of management functions for security, automatic backup, monitoring and alerting, and automatic storage expansion, and so on. It supports installation, deployment and management of RadonDB MySQL clusters on Kubernetes and KubeSphere.
 
 <!--more-->
 

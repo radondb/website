@@ -1,17 +1,17 @@
 ---
-shortTitle: "Fuatures advantages"
-title: "Fuatures advantages"
+shortTitle: "Strengths"
+title: "Strengths"
 weight: 2
 ---
 
 # Strong data consistency
-It adopts the architecture of one main, two standby and three nodes to automatically protect the brain crack.
+It adopts the high-availability architecture of one master node and multiple secondary nodes, and enables automatic split-brain protection.
 
 # High availability
-It supports a master-slave architecture to flexibly meet various availability requirements.
+It meets different availability requirements with the architecture of one master node and multiple secondary nodes.
 
 # Automatic O&M
-You can set strategies for automatic backup, monitoring alerting, and automatic scaling up.
+You can set strategies for automatic backup, monitoring and alerting, and automatic scaling.
 
-# Elastic expansion capacity
-Expand the CPU, memory and storage capacity of the database in real time according to business needs.
+# Elastic scaling
+CPU, memory, and storage capacity of the database are expanded according to business needs.
