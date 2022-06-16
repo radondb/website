@@ -1,4 +1,4 @@
 ---
-title: "Deploy"
+title: "Deployment"
 weight: 3
 ---

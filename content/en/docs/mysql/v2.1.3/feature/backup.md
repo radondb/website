@@ -1,20 +1,20 @@
 ---
-title: "Backup for S3"
+title: "Backup and recovery"
 weight: 2
 ---
 
-> RadonDB MySQL Kubernetes 2.1.0+
+> This feature is supported in RadonDB MySQL Kubernetes 2.1.0 and later versions.
 
 # Quick Start
 
-## Step 1: Install Operator
+## Step 1: Install Operator.
 Install the operator named `test`:
 
 ```shell
 $ helm install test charts/mysql-operator
 ```
 
-## Step 2: Configure backup for S3
+## Step 2: Configure backup for S3.
 
 Add the secret file.
 
@@ -32,19 +32,19 @@ data:
 type: Opaque
 ```
 
-s3-xxxx value is encode by base64, you can get like that.
+The value `s3-xxxx` is base64-encoded. You can obtain the encoded value as follows.
 
 ```shell
 $ echo -n "hello"|base64
 ```
 
-then, create the secret in k8s.
+Create the Secret in Kubernetes.
 
 ```shell
 $ kubectl create -f config/samples/backup_secret.yaml
 ```
 
-Please add the backupSecretName in `mysql_v1alpha1_mysqlcluster.yaml` , name as secret file:
+Add the backupSecretName property in `mysql_v1alpha1_mysqlcluster.yaml`.
 
 ```yaml
 spec:
@@ -54,7 +54,7 @@ spec:
   ...
 ```
 
-now create backup yaml file `mysql_v1alpha1_backup.yaml` like this:
+Create the backup file `mysql_v1alpha1_backup.yaml`.
 
 ```yaml
 apiVersion: mysql.radondb.com/v1alpha1
@@ -67,27 +67,27 @@ spec:
   clustname: sample
 
 ```
-| name | function  | 
+| Parameter | Description  | 
 |------|--------|
-|hostname|pod name in cluser|
-|clustname|cluster name|
+|hostname| The pod name in the cluster|
+|clustname| The cluster name|
 
-## Step 3: Start Cluster
+## Step 3: Start cluster.
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_mysqlcluster.yaml     
 ```
 
-## Step 4: Start Backup
+## Step 4: Start backup.
 
-After run cluster Success.
+Start the backup after the cluster is successfully started.
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_backup.yaml
 ```
 
-# Uninstall
-## Uninstall Operator
+# Uninstallation
+## Uninstalling operator
 
 Uninstall the cluster named `test`:
 
@@ -97,21 +97,21 @@ $ helm uninstall test
 $kubectl delete -f config/samples/mysql_v1alpha1_backup.yaml
 ```
 
-## Uninstall Cluster
+## Uninstalling cluster
 
-Uninstall the cluster named sample:
+Uninstall the cluster named `sample`:
 ```shell
 $ kubectl delete mysqlclusters.mysql.radondb.com sample
 ```
 
-## Unistall CRD
+## Uninstalling CRD
 
 ```shell
 $ kubectl delete customresourcedefinitions.apiextensions.k8s.io mysqlclusters.mysql.radondb.com
 ```
 
-## Restore Cluster from backup copy
-check your S3 bucket, get the directory where your backup to， such as `backup_2021720827`. add it to `RestoreFrom` in yaml file.
+## Restore of cluster from backup
+Check the S3 bucket and set the `RestoreFrom` property in the **YAML** file to the backup directory, for example, `backup_2021720827`.
 
 ```yaml
 ...
@@ -122,26 +122,24 @@ spec:
   restoreFrom: "backup_2021720827"
 ...
 ```
-Then you use:
+Then run the following command to restore a cluster from the backup_2021720827 copy in the S3 bucket.
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_mysqlcluster.yaml     
 ```
 
-could restore a cluster from the `backup_2021720827` copy in the S3 bucket.
+- To recover a cluster from an NFS server, operate as follows.
 
-if you want backup to NFS server or restore from NFS server, do it as follow:
-
-## Create Image
+## Creating image
 
 ```shell
 $ docker build -f Dockerfile.sidecar -t  acekingke/sidecar:0.1 . && docker push acekingke/sidecar:0.1
 $ docker build -t acekingke/controller:0.1 . && docker push acekingke/controller:0.1
 ```
 
-You can change `acekingke/sidecar:0.1` to your own label.
+You can replace acekingke/sidecar:0.1 with your own label.
 
-## Deploy Your Own Image
+## Deploying your own image
 ```shell
 $ make manifests
 $ make install 

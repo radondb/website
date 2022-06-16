@@ -8,7 +8,7 @@ keywords:
 weight: 3
 short: Radon
 subtitle: Components for MySQL distributed database
-description: Unlimited horizontal scaling, distributed transactions, and strong data consistency in financial scenario
+description: Unlimited horizontal scaling, distributed transaction, and strong data consistency in financial scenario
 logo: /images/projects/radon.svg
 # 立即开始
 start_url: https://github.com/radondb/radon/blob/master/docs/how_to_build_and_run_radon.md
@@ -17,7 +17,7 @@ github_url: https://github.com/radondb/radon/
 features:
   - picture: /images/projects/mysql/resilience.svg
     title: Elastic scaling
-    description: Quick deployment of nodes for scaling
+    description: Quick deployment of nodes in scaling
   - picture: /images/projects/mysql/consistency.svg
     title: Strong data consistency
     description: Strong data consistency without data loss under Semi-Sync mechanism
@@ -26,7 +26,7 @@ features:
     description: Storage nodes distributed with nodes
   - picture: /images/projects/mysql/distributed-transition.svg
     title: Distributed transaction
-    description: Distributed transactions implemented with snapshot isolation technology
+    description: Distributed transaction implemented with snapshot isolation technology
   - picture: /images/projects/mysql/join.svg
     title: Distributed Join
     description: Join statements supported for distributed nodes

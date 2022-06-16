@@ -1,4 +1,4 @@
 ---
-title: "Feature"
+title: "Features"
 weight: 4
 ---
