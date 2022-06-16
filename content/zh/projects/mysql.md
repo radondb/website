@@ -10,6 +10,8 @@ short: RadonDB MySQL Kubernetes
 subtitle: 基于 MySQL 的开源、高可用、云原生集群解决方案
 description: 支持一主多从高可用架构，并具备安全、自动备份、监控告警、自动扩容等全套管理功能。支持在 Kubernetes 和 KubeSphere 上安装部署和管理。
 logo: /images/projects/mysql/mysql.svg
+intro_video_poster: /images/intro-poster.png
+intro_video_url: https://dbg-files.pek3b.qingstor.com/radondb_website/video/%E5%A6%82%E4%BD%95%E5%9C%A8%20Kubernetes%20%E4%B8%8A%E9%83%A8%E7%BD%B2%20RadonDB%20MySQL/%E5%B8%A6BGM/%E9%83%A8%E7%BD%B2%20RadonDB%20MySQL%20%E9%9B%86%E7%BE%A4.mp4
 # 立即开始
 start_url: https://radondb.com/posts/220324_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-k8s-%E4%B8%8A%E9%83%A8%E7%BD%B2-radondb-mysql-operator-%E5%92%8C%E9%9B%86%E7%BE%A4/
 

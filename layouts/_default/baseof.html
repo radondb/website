@@ -41,6 +41,9 @@
     <script src="{{ $js.RelPermalink }}"></script>
     {{ block "footer" . }}{{ partialCached "site-footer.html" . }}{{ end }}
     {{ block "modal" . }}{{ partialCached "modal.html" . }}{{ end }}
+    <button id="backTop" class="btn back-top" onclick="backTop()">
+      <span class="image"></span>
+    </button>
   </body>
   {{ $js := resources.Get "js/common.js" | js.Build (dict "target" "es5") }}
   <script src="{{ $js.RelPermalink }}"></script>

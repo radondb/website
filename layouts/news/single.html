@@ -20,6 +20,4 @@
     <div class="md-content">{{ .Content }}</div>
   </div>
 </div>
-{{ $js := resources.Get "js/post.js" | js.Build (dict "target" "es5") }}
-<script src="{{ $js.RelPermalink }}"></script>
 {{ end }}

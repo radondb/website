@@ -36,10 +36,5 @@
       </div>
     </div>
   </div>
-  <button id="backTop" class="btn back-top" onclick="backTop()">
-    <span class="image"></span>
-  </button>
 </div>
-{{ $js := resources.Get "js/post.js" | js.Build (dict "target" "es5") }}
-<script src="{{ $js.RelPermalink }}"></script>
 {{ end }}

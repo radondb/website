@@ -1,19 +1,39 @@
 {{ define "header" }}
 <header class="project-header">
   {{ partial "site-navigation.html" . }}
-  <h1><span>{{ .Params.short }}</span></h1>
-  <h2>{{ .Params.subtitle }}</h2>
-  <h3 class="h-center">{{ .Params.description }}</h3>
-  <div class="flex-row space-center">
-    <a class="btn start flex-row fl-center" href="{{ .Params.start_url }}">
-      <span>{{ i18n "start"}}</span>
-      <img src="/images/common/right-white.svg" />
-    </a>
-    <a class="btn github flex-row fl-center" href="{{ .Params.github_url }}">
-      <img src="/images/common/github-black.svg" />
-      <span>GitHub</span>
-    </a>
+  <div>
+    <h1><span>{{ .Params.short }}</span></h1>
+    <h2>{{ .Params.subtitle }}</h2>
+    <h3 class="h-center">{{ .Params.description }}</h3>
+    <div class="flex-row space-center">
+      <a class="btn start flex-row fl-center" href="{{ .Params.start_url }}">
+        <span>{{ i18n "start"}}</span>
+        <img src="/images/common/right-white.svg" />
+      </a>
+      <a class="btn github flex-row fl-center" href="{{ .Params.github_url }}">
+        <img src="/images/common/github-black.svg" />
+        <span>GitHub</span>
+      </a>
+    </div>
   </div>
+  {{ if .Params.intro_video_url }}
+  <div class="video-container pc">
+    <div onclick="showModal('.video-modal', { videoSrc: {{.Params.intro_video_url}}})">
+      <img class="poster" src="{{.Params.intro_video_poster}}" />
+      <div class="mask"></div>
+      <img class="play" src="/images/common/play.svg" />
+    </div>
+  </div>
+  <div class="video-container mb">
+    <div class="fake-video" onclick="showVideo({{.Params.intro_video_url}})">
+      <img class="poster" src="{{.Params.intro_video_poster}}" />
+      <div class="mask"></div>
+      <img class="play" src="/images/common/play.svg" />
+    </div>
+    <video controls autoplay class="video" id="video" poster="{{.Params.intro_video_poster}}">
+    </video>
+  </div>
+  {{ end }}
 </header>
 {{ end }}
 
@@ -36,7 +56,7 @@
   {{ with .Params.fast_start }}
   <section class="start">
     <h1>{{ i18n "quickStart" }}</h1>
-    <div class="links flex-row space-center">     
+    <div class="links flex-row space-center">
       {{ with .operator }}
       <div>
         <h3 class="h-center bg-title">Operator</h3>
