@@ -244,6 +244,19 @@
   }
 }
 
+@media screen and (min-width: 768px) {
+  .project-header {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    .video-container {
+      margin-left: 0;
+      transform: none;
+      width: 460px;
+      height: 266px;
+    }
+  }
+}
 @media screen and (max-width: 768px) {
   .project-header {
     height: auto;

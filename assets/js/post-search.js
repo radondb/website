@@ -26,7 +26,7 @@ var limit = 10;
 var currentPage = 1;
 var allPage = 1;
 
-window.onload = () => {
+window.addEventListener('load', (event) => {
   var language = location.pathname.substring(0, location.pathname.indexOf('/posts'))
   var url = language + "/index.json";
   var request = new XMLHttpRequest();
@@ -41,7 +41,7 @@ window.onload = () => {
       renderPagination(currentPage);
     }
   };
-};
+});
 
 function selectTag() {
   var tag = param("tag");

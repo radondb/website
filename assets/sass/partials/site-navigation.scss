@@ -1,9 +1,20 @@
 @media screen and (min-width: 769px) {
+  header > nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 100;
+  }
+  .fixed > header > nav {
+    background-color: rgba(51, 108, 247, 0.9);
+  }
   .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 32px 130px 0 130px;
+    padding: 32px 130px 24px 130px;
     .logo {
       display: flex;
     }
@@ -70,7 +81,18 @@
 }
 
 @media screen and (max-width: 768px) {
+  .fixed {
+    & > header > nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background-color: #326bf6;
+    }
+  }
   .nav-container {
+    width: 100%;
     padding: 2rem 1.67rem 1.25rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     .logo {
