@@ -76,9 +76,9 @@
         {{ range $index, $section := $docsRoot.Sections }}
         {{/* 一级分类 */}}
         {{ if eq $pointerPrev.RelPermalink $section.RelPermalink }}
-        <div class="docs-menu" id="{{ $section.Title }}">
+        <div class="docs-menu" data-version="{{ $section.Title }}">
         {{ else }}
-        <div class="docs-menu hide" id="{{ $section.Title }}">
+        <div class="docs-menu hide" data-version="{{ $section.Title }}">
         {{ end }}
           {{ range $section.Pages }}
           {{ if .IsNode }}
