@@ -12,10 +12,10 @@ zh:
     aboutVideoPoster: "/images/video.png"
     aboutVideo: "https://dbg-files.pek3b.qingstor.com/radondb_website/video/RadonDB%E4%BA%A7%E5%93%81%E4%BB%8B%E7%BB%8D.mp4"
     show_popup: true
-    popup_title: "关于 Kubernetes 与数据库的一个小问卷"
-    popup_description: "你觉得数据库可以上 Kubernetes 了吗？点击按钮填写调查问卷，就有机会领取社区周边！"
-    popup_link: "https://jinshuju.net/f/R4a0fY"
-    popup_link_title: "打开问卷"
+    popup_title: "新版试用赢周边！"
+    popup_description: "RadonDB MySQL Kubernetes 2.2.0 发布，抢先试用新版本，领取精美社区周边"
+    popup_link: "https://kubesphere.com.cn/forum/d/7623-radondb-mysql-kubernetes-220"
+    popup_link_title: "抢先体验"
 
 en:
   contentDir: "content/en/"
