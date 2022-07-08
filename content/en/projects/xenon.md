@@ -49,8 +49,7 @@ architecture:
 # <!--more-->是分割线，它前面的文字为摘要（.Summary属性访问），它后面的都是Markdown格式内容（.Content），会自动匹配格式转成HTML
 ---
 
-Xenon provides high-availability components for MySQL clusters. It supports automatic decentralized leader election by Raft protocol, failover within seconds, and strong data consistency in cluster switching by synchronizing data with Semi-Sync replication. It inherits parallel replication from MySQL (5.7 and later versions) and implements Binlog parallel replay, greatly reducing data latency for secondary databases.
-
+Xenon achieves decentralized primary/secondary failover within seconds based on the Raft protocol, strong data consistency based on semisynchronous replication, and Binlog parallel replay based on parallel replication, ensuring fast data synchronization for the secondary.
 <!--more-->
 
 ### Title

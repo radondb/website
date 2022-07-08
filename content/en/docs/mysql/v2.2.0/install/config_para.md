@@ -7,7 +7,7 @@ weight: 4
 
 | Parameter                               | Desc                        | Default                                                      |
 | :--------------------------------- | :-------------------------- | :---------------------------------------------------------- |
-| MysqlVersion                       | MySQL version                | 5.7                                                         |
+| MysqlVersion                       | MySQL version                | 5.7 (optional: 8.0)                            |
 | MysqlOpts.RootPassword             | MySQL root user password         | ""                                                          |
 | MysqlOpts.User                     | default MySQL username   | radondb_usr                                                 |
 | MysqlOpts.Password                 | default MySQL user password   | RadonDB@123                                                 |
