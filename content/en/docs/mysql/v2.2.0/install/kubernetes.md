@@ -1,6 +1,6 @@
 ---
 # menu 优先显示shortTitle，没有shortTitle显示Title
-shortTitle: "Deployment on Kubernetes"
+shortTitle: "On Kubernetes"
 title: "Deployment on Kubernetes"
 # weight按照从小到大排列
 weight: 2

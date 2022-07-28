@@ -22,16 +22,30 @@ For the latest release, see https://github.com/radondb/radondb-mysql-kubernetes/
 
 # Roadmap
 
-1. Support more ways of database backup and recovery.
-2. Support more fine-grained configuration updates.
-3. Support MySQL 8.0.
-4. Abstract and improve external APIs.
-5. Reduce the MTTR under special scenarios for better service.
-6. Improve the periodic job scheduling to support repetitive jobs more efficiently.
-7. Support online migration.
-8. Improve the E2E testing framework to cover more scenarios.
+## Availability
+- Support single-node and multi-node scaling.
+- Support automatic correction of cluster replication status.
+- Support read/write separation proxy and service exposure.
+- Support read-only instances that do not participate in elections.
+- Support online data migration.
+- Support creating clusters for disaster recovery on remote sites.
+- Improve SSL encryption.
+
+## Observability
+- Provides built-in optional components such as `Prometheus`, `Grafana` and `Alertmanager`.
+- Support exporting and accessing the `Grafana` monitoring dashboard as a service.
+- Support customizing alerting by `Alertmanager`.
+- Display cluster topology by `orchestrator`.
+- Support the display and delivery of low logs and error logs.
+
+## Maintainability
+- Support minor-version update, for example, from version 5.7.22 to 5.7.33.
+- Support cross-version update, for example, from version 5.7 to 8.0.
+- Support incremental physical backup and the display of backup information.
+- Support point-in-time recovery (PITR).
+- Integrate management tools for database visualization and provide web interfaces.
 
 # Notes
-- Version 1.x is deployed by the helm package management tool, and is not being maintained.
-- Version 2.x is implemented by Operator and is compatible with all features of vwesion 1.x.
+- Version 1.x is deployed by the Helm package manager, and has been stopped from maintenance.
+- Version 2.x is implemented in the form of `Operator` and is compatible with version 1.x.
 - It is strongly recommended that you use the latest 2.x versions.

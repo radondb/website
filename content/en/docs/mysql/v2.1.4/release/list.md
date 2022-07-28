@@ -30,7 +30,7 @@ For the latest release, see https://github.com/radondb/radondb-mysql-kubernetes/
 7. Support online migration.
 8. Improve the E2E testing framework to cover more scenarios.
 
-# Notes
-- Version 1.x is deployed by the helm package management tool, and is not being maintained.
-- Version 2.x is implemented by Operator and is compatible with all features of vwesion 1.x.
+- # Notes
+- Version 1.x is deployed by the Helm package manager, and has been stopped from maintenance.
+- Version 2.x is implemented in the form of `Operator` and is compatible with version 1.x.
 - It is strongly recommended that you use the latest 2.x versions.

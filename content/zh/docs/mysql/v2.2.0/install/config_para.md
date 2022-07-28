@@ -9,7 +9,7 @@ weight: 4
 
 | 参数                               | 描述                        | 默认值                                                      |
 | :--------------------------------- | :-------------------------- | :---------------------------------------------------------- |
-| MysqlVersion                       | MySQL 版本号                | 5.7                                                         |
+| MysqlVersion                       | MySQL 版本号                | 5.7（可选 8.0）                                                         |
 | MysqlOpts.RootPassword             | MySQL Root 用户密码         | ""                                                          |
 | MysqlOpts.User                     | 默认新建的 MySQL 用户名称   | radondb_usr                                                 |
 | MysqlOpts.Password                 | 默认新建的 MySQL 用户密码   | RadonDB@123                                                 |

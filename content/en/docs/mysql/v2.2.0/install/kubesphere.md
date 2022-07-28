@@ -1,6 +1,6 @@
 ---
 # menu 优先显示shortTitle，没有shortTitle显示Title
-shortTitle: "Deployment on Kubesphere"
+shortTitle: "On Kubesphere"
 title: "Deployment on Kubesphere"
 # weight按照从小到大排列
 weight: 3
