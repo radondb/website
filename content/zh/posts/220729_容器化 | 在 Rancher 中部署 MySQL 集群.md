@@ -13,6 +13,8 @@ keywords:
   - MySQL
 picture: https://dbg-files.pek3b.qingstor.com/radondb_website/post/220729_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20Rancher%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/0.png
 ---
+本文将演示如何在 Rancher 上部署 RadonDB MySQL Kubernetes 2.2.0,快速获得一套 MySQL 容器化集群。
+
 <!--more-->
 我们已经介绍了如何在 [Kubernetes](https://radondb.com/posts/220324_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-k8s-%E4%B8%8A%E9%83%A8%E7%BD%B2-radondb-mysql-operator-%E5%92%8C%E9%9B%86%E7%BE%A4/) 和 [KubeSphere](https://radondb.com/posts/220224_%E5%AE%B9%E5%99%A8%E5%8C%96-_-%E5%9C%A8-kubesphere-%E4%B8%AD%E9%83%A8%E7%BD%B2-mysql-%E9%9B%86%E7%BE%A4/) 上部署 RadonDB MySQL 集群。本文将演示如何在 [Rancher](https://rancher.com) 上部署 [RadonDB MySQL Kubernetes 2.2.0](https://github.com/radondb/radondb-mysql-kubernetes)，快速获得一套 MySQL 容器化集群。
 
