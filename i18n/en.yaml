@@ -72,3 +72,7 @@ architecture:
   other: "Architecture"
 deploy:
   other: "Deployment"
+note: "Note"
+tip: "Tip"
+info: "Info"
+warning: "Warning"
