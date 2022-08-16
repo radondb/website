@@ -64,53 +64,53 @@ kubectl patch mysqlclusters.mysql.radondb.com sample  --type=merge -p '{"spec":{
 
 #### 不使用 SSL 连接
 
-    ```plain
-    kubectl exec -it sample-mysql-0 -c mysql -- mysql -uradondb_usr -p"RadonDB@123"  -e "\s"
-    mysql  Ver 14.14 Distrib 5.7.34-37, for Linux (x86_64) using  7.0
-    Connection id:          7940
-    Current database:
-    Current user:           radondb_usr@localhost
-    SSL:                    Not in use
-    Current pager:          stdout
-    Using outfile:          ''
-    Using delimiter:        ;
-    Server version:         5.7.34-37-log Percona Server (GPL), Release 37, Revision 7c516e9
-    Protocol version:       10
-    Connection:             Localhost via UNIX socket
-    Server characterset:    utf8mb4
-    Db     characterset:    utf8mb4
-    Client characterset:    latin1
-    Conn.  characterset:    latin1
-    UNIX socket:            /var/lib/mysql/mysql.sock
-    Uptime:                 21 hours 49 min 36 sec
+```plain
+kubectl exec -it sample-mysql-0 -c mysql -- mysql -uradondb_usr -p"RadonDB@123"  -e "\s"
+mysql  Ver 14.14 Distrib 5.7.34-37, for Linux (x86_64) using  7.0
+Connection id:          7940
+Current database:
+Current user:           radondb_usr@localhost
+SSL:                    Not in use
+Current pager:          stdout
+Using outfile:          ''
+Using delimiter:        ;
+Server version:         5.7.34-37-log Percona Server (GPL), Release 37, Revision 7c516e9
+Protocol version:       10
+Connection:             Localhost via UNIX socket
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    latin1
+Conn.  characterset:    latin1
+UNIX socket:            /var/lib/mysql/mysql.sock
+Uptime:                 21 hours 49 min 36 sec
 
-    Threads: 5  Questions: 181006  Slow queries: 0  Opens: 127  Flush tables: 1  Open tables: 120  Queries per second avg: 2.303
-    ```
+Threads: 5  Questions: 181006  Slow queries: 0  Opens: 127  Flush tables: 1  Open tables: 120  Queries per second avg: 2.303
+```
 
 #### 使用 SSL 连接
 
-    ```plain
-    kubectl exec -it sample-mysql-0 -c mysql -- mysql -uradondb_usr -p"RadonDB@123" --ssl-mode=REQUIRED -e "\s"
-    mysql: [Warning] Using a password on the command line interface can be insecure.
-    --------------
-    mysql  Ver 14.14 Distrib 5.7.34-37, for Linux (x86_64) using  7.0
+```plain
+kubectl exec -it sample-mysql-0 -c mysql -- mysql -uradondb_usr -p"RadonDB@123" --ssl-mode=REQUIRED -e "\s"
+mysql: [Warning] Using a password on the command line interface can be insecure.
+--------------
+mysql  Ver 14.14 Distrib 5.7.34-37, for Linux (x86_64) using  7.0
 
-    Connection id:          7938
-    Current database:
-    Current user:           radondb_usr@localhost
-    SSL:                    Cipher in use is ECDHE-RSA-AES128-GCM-SHA256
-    Current pager:          stdout
-    Using outfile:          ''
-    Using delimiter:        ;
-    Server version:         5.7.34-37-log Percona Server (GPL), Release 37, Revision 7c516e9
-    Protocol version:       10
-    Connection:             Localhost via UNIX socket
-    Server characterset:    utf8mb4
-    Db     characterset:    utf8mb4
-    Client characterset:    latin1
-    Conn.  characterset:    latin1
-    UNIX socket:            /var/lib/mysql/mysql.sock
-    Uptime:                 21 hours 49 min 26 sec
+Connection id:          7938
+Current database:
+Current user:           radondb_usr@localhost
+SSL:                    Cipher in use is ECDHE-RSA-AES128-GCM-SHA256
+Current pager:          stdout
+Using outfile:          ''
+Using delimiter:        ;
+Server version:         5.7.34-37-log Percona Server (GPL), Release 37, Revision 7c516e9
+Protocol version:       10
+Connection:             Localhost via UNIX socket
+Server characterset:    utf8mb4
+Db     characterset:    utf8mb4
+Client characterset:    latin1
+Conn.  characterset:    latin1
+UNIX socket:            /var/lib/mysql/mysql.sock
+Uptime:                 21 hours 49 min 26 sec
 
-    Threads: 5  Questions: 180985  Slow queries: 0  Opens: 127  Flush tables: 1  Open tables: 120  Queries per second avg: 2.303
-    ```
+Threads: 5  Questions: 180985  Slow queries: 0  Opens: 127  Flush tables: 1  Open tables: 120  Queries per second avg: 2.303
+```
