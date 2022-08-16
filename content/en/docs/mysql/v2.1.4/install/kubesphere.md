@@ -16,7 +16,7 @@ This section displays how to deploy RadonDB MySQL operator and high-availability
     - During the installation process, log in to the Web console as `admin` and operate in the **demo-project** of the **demo** workspace.
 - You need to enable a [gateway](https://kubesphere.io/docs/project-administration/project-gateway/) for external access.
 # Procedure
-## Step 1: Add an app repository.
+## Step 1 Add an app repository.
 1. Log in to the KubeSphere Web console.
 2. In **demo** workspace, go to **App Repositories** under **App Management**, and then click **Add**.
 3. In the dialog displayed, specify an app repository name and add your repository URL.
@@ -28,7 +28,7 @@ This section displays how to deploy RadonDB MySQL operator and high-availability
 Your repository is displayed in the list after being imported.
 ![](https://dbg-files.pek3b.qingstor.com/radondb_website/post/220224_%E5%AE%B9%E5%99%A8%E5%8C%96%20%7C%20%E5%9C%A8%20KubeSphere%20%E4%B8%AD%E9%83%A8%E7%BD%B2%20MySQL%20%E9%9B%86%E7%BE%A4/image.png)
 
-## Step 2: Deploy RadonDB MySQL Operator.
+## Step 2 Deploy RadonDB MySQL Operator.
 
 1. In **demo-project**, go to **Apps** under **Application Workloads** and click **Deploy New App**.
 2. In the dialog displayed, select **From App Template**.
@@ -70,7 +70,7 @@ If a historical version of Operator has been deployed on Kubesphere, you can upd
 kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/v2.1.2/charts/mysql-operator/crds/mysql.radondb.com_mysqlclusters.yaml
 ```
 
-## Step 3: Deploy a RadonDB MySQL cluster.
+## Step 3 Deploy a RadonDB MySQL cluster.
 
 You can deploy a cluster by referring to the [RadonDB MySQL sample](https://github.com/radondb/radondb-mysql-kubernetes/tree/main/config/samples), or customizing the **YAML** file.
 
@@ -81,7 +81,7 @@ Take `mysql_v1alpha1_mysqlcluster.yaml` template as an example to create a Radon
 ```plain
 kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml --namespace=<project_name>
 ```
-**Notice**
+**Note**
 
 When no project is specified, the cluster will be installed in the **kubesphere-controls-system** project by default. To specify a project, the install command needs to add the `--namespace=<project_name>` field.
 

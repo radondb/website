@@ -32,7 +32,7 @@ For the latest release, see https://github.com/radondb/radondb-mysql-kubernetes/
 - Improve SSL encryption.
 
 ## Observability
-- Provides built-in optional components such as `Prometheus`, `Grafana` and `Alertmanager`.
+- Provide built-in optional components such as `Prometheus`, `Grafana` and `Alertmanager`.
 - Support exporting and accessing the `Grafana` monitoring dashboard as a service.
 - Support customizing alerting by `Alertmanager`.
 - Display cluster topology by `orchestrator`.
@@ -47,5 +47,5 @@ For the latest release, see https://github.com/radondb/radondb-mysql-kubernetes/
 
 # Notes
 - Version 1.x is deployed by the Helm package manager, and has been stopped from maintenance.
-- Version 2.x is implemented in the form of `Operator` and is compatible with version 1.x.
+- Version 2.x is implemented in the form of an `operator` and is compatible with version 1.x.
 - It is strongly recommended that you use the latest 2.x versions.

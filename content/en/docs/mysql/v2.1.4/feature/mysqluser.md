@@ -11,7 +11,7 @@ weight: 3
 
 # Creating user account
 
-## Step 1: Check CRD.
+## Step 1 Check CRD.
 
 Run the following command, and the CRD named `mysqlusers.mysql.radondb.com` will be displayed.
 
@@ -20,7 +20,7 @@ $ kubectl get crd | grep mysqluser
 mysqlusers.mysql.radondb.com                          2021-09-21T09:15:08Z
 ```
 
-## Step 2: Create Secret.
+## Step 2 Create Secret.
 
 RadonDB MySQL uses the [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) object in Kubernetes to save user passwords.
 Run the following command to create a Secret named sample-user-password using the sample configuration in this section.
@@ -29,7 +29,7 @@ Run the following command to create a Secret named sample-user-password using th
 $ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysqluser_secret.yaml
 ```
 
-## Step 3: Create user.
+## Step 3 Create user.
 
 Run the following command to create a user named `sample_user` using the sample configuration.
 

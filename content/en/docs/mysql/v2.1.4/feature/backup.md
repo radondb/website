@@ -7,14 +7,14 @@ weight: 2
 
 # Quick Start
 
-## Step 1: Install Operator.
+## Step 1 Install Operator.
 Install the operator named `test`:
 
 ```shell
 $ helm install test charts/mysql-operator
 ```
 
-## Step 2: Configure backup for S3.
+## Step 2 Configure backup for S3.
 
 Add the secret file.
 
@@ -72,13 +72,13 @@ spec:
 |hostname| The pod name in the cluster|
 |clustname| The cluster name|
 
-## Step 3: Start cluster.
+## Step 3 Start cluster.
 
 ```shell
 $ kubectl apply -f config/samples/mysql_v1alpha1_mysqlcluster.yaml     
 ```
 
-## Step 4: Start backup.
+## Step 4 Start backup.
 
 Start the backup after the cluster is successfully started.
 

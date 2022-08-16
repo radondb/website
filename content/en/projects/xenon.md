@@ -7,8 +7,8 @@ keywords:
 # 排序，从小到大
 weight: 2
 short: Xenon
-subtitle: High-availability components for MySQL cluster
-description: Decentralized leader election, failover within seconds, strong data consistency, and fast data synchronization
+subtitle: High-availability components for MySQL clusters
+description: Support decentralized leader election, failover within seconds, strong data consistency, and fast data synchronization
 logo: /images/projects/xenon.svg
 # 立即开始
 start_url: https://github.com/radondb/xenon/blob/master/docs/how_to_build_and_run_xenon.md
