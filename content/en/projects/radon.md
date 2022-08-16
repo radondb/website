@@ -7,8 +7,8 @@ keywords:
 # 排序，从小到大
 weight: 3
 short: Radon
-subtitle: Components for MySQL distributed database
-description: Unlimited horizontal scaling, distributed transaction, and strong data consistency in financial scenario
+subtitle: Next-generation distributed database components for MySQL
+description: Meet requirements for unlimited horizontal scaling, distributed transaction, and financial-grade strong data consistency, and ultra high concurrency and performance
 logo: /images/projects/radon.svg
 # 立即开始
 start_url: https://github.com/radondb/radon/blob/master/docs/how_to_build_and_run_radon.md

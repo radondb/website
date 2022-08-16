@@ -13,7 +13,7 @@ main:
     url: "/projects/radon"
     parent: projects
   - name: "Xenon 高可用集群组件"
-    weight: '3'
+    weight: '2'
     url: "/projects/xenon"
     parent: projects
 

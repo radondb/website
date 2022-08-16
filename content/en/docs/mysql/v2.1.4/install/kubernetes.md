@@ -17,7 +17,7 @@ This section describes how to deploy, verify, access, and uninstall RadonDB MySQ
 
 # Procedure
 
-## Step 1: Add a Helm Repository.
+## Step 1 Add a Helm Repository.
 Add a Helm Repository named `radondb`.
 
 ```shell
@@ -32,7 +32,7 @@ NAME                            CHART VERSION   APP VERSION                     
 radondb/mysql-operator          0.1.0           v2.1.x                          Open Source，High Availability Cluster，based on MySQL                     
 ```
 
-## Step 2: Deploy Operator.
+## Step 2 Deploy Operator.
 
 Set the release name to `demo` and creates a [Deployment](https://kubernetes.io/zh/docs/concepts/workloads/controllers/deployment/) named `demo-mysql-operator`.
 
@@ -42,7 +42,7 @@ $ helm install demo radondb/mysql-operator
  
 > This step also creates the  [CRD](https://kubernetes.io/zh/docs/concepts/extend-kubernetes/api-extension/custom-resources/) required by the cluster.
 
-## Step 3: Deploy a RadonDB MySQL Cluster.
+## Step 3 Deploy a RadonDB MySQL Cluster.
 
 Create an instance of the `mysqlclusters.mysql.radondb.com` CRD and thereby create a RadonDB MySQL 	cluster with default parameters as follows.
 

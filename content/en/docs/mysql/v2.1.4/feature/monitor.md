@@ -19,7 +19,7 @@ This section displays how to enable RadonDB MySQL monitoring metrics.
 
 # Procedure
 
-## Step 1: Configure serviceMonitor.
+## Step 1 Configure serviceMonitor.
 
 `serviceMonitor` is a parameter defining the automatic monitoring engine of RadonDB MySQL Operator. It is automatically bound to `mysqld_exporter` and Prometheus automatically after being enabled.
 
@@ -49,7 +49,7 @@ You can configure serviceMonitor in the `charts/mysql-operator/values.yaml` file
 - When a new Operator is deployed, `serviceMonitor.enabled` is set to `true` by default. The serviceMonitor is enabled.
 -	If the Operator deployed for the cluster is earlier than version 2.1.0, you need to redeploy a later version of  Operator.
 
-## Step 2: Configure metricsOpts.
+## Step 2 Configure metricsOpts.
 
 `metricsOpts` is a parameter defining the RadonDB MySQL cluster monitoring. You can enable the monitoring service by configuring the parameter in the `mysql_v1alpha1_mysqlcluster.yaml` file.
 
@@ -148,7 +148,7 @@ After the monitoring is enabled, you can view the status of the monitoring servi
 The Kubesphere monitoring engine is based on Prometheus and Prometheus Operator. Kubesphere’s custom monitoring allows you to monitor and visualize RadonDB MySQL metrics.
 
 1. In the same project, go to **Custom Monitoring** under **Monitoring & Alerting** in the sidebar and click **Create**.
-2. Step 2	In the displayed dialog box, set a name for the dashboard (for example, `mysql-overview`) and select the MySQL template. Click **Next** to continue.
+2. In the displayed dialog box, set a name for the dashboard (for example, `mysql-overview`) and select the MySQL template. Click **Next** to continue.
 
 ![Select Template](https://dbg-files.pek3b.qingstor.com/radondb_website/docs/features/monitoring/mysql_exporter.png)
 

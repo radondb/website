@@ -5,13 +5,13 @@ weight: 2
 ---
 
 # Strong data consistency
-It adopts the high-availability architecture of one master node and multiple secondary nodes, and enables automatic split-brain protection.
+RadonDB MySQL Kubernetes adopts the high-availability architecture of one primary node and multiple secondary nodes, and enables automatic split-brain protection.
 
 # High availability
-It meets different availability requirements with the architecture of one master node and multiple secondary nodes.
+It meets different availability requirements with the architecture of one primary node and multiple secondary nodes.
 
 # Automatic O&M
-You can set strategies for automatic backup, monitoring and alerting, and automatic scaling.
+It supports setting strategies for automatic backup, monitoring and alerting, and automatic scaling.
 
 # Elastic scaling
-CPU, memory, and storage capacity of the database are expanded according to business needs.
+The CPU, memory, and storage capacity of the database are scaled in real time to meet business needs.

@@ -1,7 +1,8 @@
 ---
-title: "Parameter Configuration"
-weight: 4
+title: "Parameter configuration"
+weight: 6
 ---
+View [documentation on GitHub](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/config_para.md).
 
 # Container
 
@@ -41,7 +42,7 @@ weight: 4
 | PodPolicy.SlowLogTail       | SlowLogTail enabled                               | false                     |
 | PodPolicy.AuditLogTail      | AuditLogTail enabled                             | false                     |
 
-# Persitence
+# Persistence
 
 | Parameter                   | Desc          | Default        |
 | :----------------------- | :------------- | :------------ |
