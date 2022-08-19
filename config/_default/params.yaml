@@ -8,5 +8,6 @@ radondb_projects:
   - MongoDB
   - ClickHouse
   - ElesticSearch
+  - OpenSearch
 
 # 全局弹窗，如需要翻译，请移动下面的参数到 languages.yaml 中的params下面，其他的不需要改
