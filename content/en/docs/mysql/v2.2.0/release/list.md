@@ -7,6 +7,7 @@ All released versions of RadonDB MySQL Kubernetes, presented in reverse order of
 
 | Version | Release Time |
 | --- | ---- |
+| [2.2.1](../2.2.1)	| 2022-08-19 |
 | [2.2.0](../2.2.0)	| 2022-07-05 |
 | [2.1.4](../2.1.4)	| 2022-04-07 |
 | [2.1.3](../2.1.3)	| 2022-03-24 |
