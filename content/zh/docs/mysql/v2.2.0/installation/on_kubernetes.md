@@ -99,7 +99,7 @@ service/sample-mysql             ClusterIP   None            <none>        3306/
 > 准备可用于连接 MySQL 的客户端。
 
 RadonDB MySQL 提供 leader 服务和 follower 服务用于分别访问主从节点。leader 服务始终指向主节点（读写），follower 服务始终指向从节点（只读）。
-![MySQL architecture](static/images/projects/mysql/mysql-architecture.png)
+![MySQL architecture](/images/projects/mysql/mysql-architecture.png)
 
 在 Kubernetes 集群内部，支持使用 `service_name` 或者 `clusterIP` 方式，访问 RadonDB MySQL。
 
