@@ -5,9 +5,9 @@ weight: 6
 
 查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/config_para.md)。
 
-## 配置参数
+# 配置参数
 
-### 容器配置
+## 容器配置
 
 | 参数                               | 描述                         | 默认值                                                      |
 | :--------------------------------- | :--------------------------- | :---------------------------------------------------------- |
@@ -27,7 +27,7 @@ weight: 6
 | MetricsOpts.Image                  | Metrics 容器镜像             | prom/mysqld-exporter:v0.12.1                                |
 | MetricsOpts.Resources              | Metrics 容器配额             | 预留：CPU 10M，内存 32Mi；</br> 限制：CPU 100M，内存 128Mi  |
 
-### 节点配置
+## 节点配置
 
 | 参数                        | 描述                                                                                                                                                                    | 默认值                       |
 | :-------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
@@ -45,7 +45,7 @@ weight: 6
 | PodPolicy.SlowLogTail       | 是否开启慢日志跟踪                                                                                                                                                      | false                        |
 | PodPolicy.AuditLogTail      | 是否开启审计日志跟踪                                                                                                                                                    | false                        |
 
-### 持久化配置
+## 持久化配置
 
 | 参数                     | 描述           | 默认值        |
 | :----------------------- | :------------- | :------------ |
@@ -54,7 +54,7 @@ weight: 6
 | Persistence.StorageClass | 存储卷类型     | -             |
 | Persistence.Size         | 存储卷容量     | 10Gi          |
 
-## 配置示例
+# 配置示例
 
 ```yaml
 apiVersion: mysql.radondb.com/v1alpha1

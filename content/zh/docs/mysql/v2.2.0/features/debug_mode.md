@@ -5,7 +5,7 @@ title: "Debug 模式"
 weight: 7
 ---
 
-本文档介绍#
+本文档介绍
 
 查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/DebugMode.md)。
 
