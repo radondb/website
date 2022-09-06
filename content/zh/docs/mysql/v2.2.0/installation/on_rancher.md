@@ -1,15 +1,13 @@
 ---
 # menu 优先显示shortTitle，没有shortTitle显示Title
 shortTitle: "Rancher 部署"
-title: "在 Rancher 上部署 RadonDB MySQL Operator 和 RadonDB MySQL 集群"
+title: "在 Rancher 上部署 RadonDB MySQL 集群"
 # weight按照从小到大排列
 weight: 5
 # pdf的url，如：/pdf/test.pdf
 pdf: ""
 ---
-本教程展示如何在 Rancher 上部署 RadonDB MySQL Operator 和集群。
-
-查看 [Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_radondb-mysql_operator_on_rancher.md)。
+本教程展示如何在 Rancher 上部署 RadonDB MySQL 集群。
 
 ## 部署准备
 
@@ -182,4 +180,4 @@ Rancher 集群的 Pod 之间支持通过 `service_name` 方式访问 RadonDB MyS
     ```
 
 > 当客户端与数据库部署在不同 Rancher 集群，请[在 Rancher 中设置 Load Balancer 和 Ingress Controller](https://rancher.com/docs/rancher/v2.6/en/k8s-in-rancher/load-balancers-and-ingress/)。
-> 更多访问不同集群中数据库方式说明，请参见 [Kubernetes 访问集群中的应用程序](https://kubernetes.io/zh/docs/tasks/access-application-cluster/)。
+> 更多访问不同集群中数据库方式说明，请参见[访问集群中的应用程序](https://kubernetes.io/zh/docs/tasks/access-application-cluster/)。

@@ -1,16 +1,14 @@
 ---
 # menu 优先显示shortTitle，没有shortTitle显示Title
 shortTitle: "KubeSphere 部署"
-title: "在 KubeSphere 上部署 RadonDB MySQL Operator 和集群"
+title: "在 KubeSphere 上部署 RadonDB MySQL 和集群"
 # weight按照从小到大排列
 weight: 4
 # pdf的url，如：/pdf/test.pdf
 pdf: ""
 ---
 
-本教程展示如何在 [KubeSphere](https://kubesphere.com.cn) 上部署 RadonDB MySQL Operator 和 RadonDB MySQL集群。
-
-查看 [Github 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_radondb-mysql_operator_on_kubesphere.md)。
+本教程展示如何在 [KubeSphere](https://kubesphere.com.cn) 上部署 RadonDB MySQL 集群。
 
 > RadonDB MySQL Kubernetes 2.x 版本通用。
 

@@ -5,8 +5,6 @@ weight: 3
 
 This tutorial demonstrates how to back up and recover the RadonDB MySQL cluster with the NFS server.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/backup_and_restoration_nfs.md).
-
 ## Install NFS server and resources
 
 ### 1. Install by Helm

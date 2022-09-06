@@ -6,8 +6,6 @@ weight: 4
 
 This tutorial displays how to deploy the RadonDB MySQL Operator and cluster on [KubeSphere](https://kubesphere.com.cn/en/).
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/deploy_radondb-mysql_operator_on_kubesphere.md).
-
 ## Prerequisites
 - You need to enable the [OpenPitrix System](https://kubesphere.io/docs/pluggable-components/app-store/).
 - You need to create a workspace, project and user. For more information, see [Create Workspaces, Projects, Users, and Roles](https://kubesphere.io/docs/quick-start/create-workspace-and-project/). During the installation process, log in to the Web console as `admin` and operate in the **demo-project** of the **demo** workspace.

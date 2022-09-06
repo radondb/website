@@ -1,16 +1,14 @@
 ---
 # menu 优先显示shortTitle，没有shortTitle显示Title
 shortTitle: "Kubernetes 部署"
-title: "在 Kubernetes 上部署 RadonDB MySQL Operator 和集群"
+title: "在 Kubernetes 上部署 RadonDB MySQL 集群"
 # weight按照从小到大排列
 weight: 2
 # pdf的url，如：/pdf/test.pdf
 pdf: ""
 ---
 
-本教程展示如何在 Kubernetes 上部署 RadonDB MySQL Operator 和 RadonDB MySQL集群。
-
-查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_radondb-mysql_operator_on_k8s.md)。
+本教程展示如何在 Kubernetes 上部署 RadonDB MySQL 集群。
 
 > RadonDB MySQL Kubernetes 2.x 版本通用。
 
@@ -52,7 +50,7 @@ helm install demo radondb/mysql-operator
 ```shell
 kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml
 ```
-> 自定义部署集群的参数，请参见[配置参数](../config_para)。
+> 自定义部署集群的参数，请参见[配置参数](../configure_parameters)。
 
 ## 部署校验
 
@@ -99,7 +97,7 @@ service/sample-mysql             ClusterIP   None            <none>        3306/
 > 准备可用于连接 MySQL 的客户端。
 
 RadonDB MySQL 提供 leader 服务和 follower 服务用于分别访问主从节点。leader 服务始终指向主节点（读写），follower 服务始终指向从节点（只读）。
-![MySQL architecture](static/images/projects/mysql/mysql-architecture.png)
+![MySQL architecture](/images/projects/mysql/mysql-architecture.png)
 
 在 Kubernetes 集群内部，支持使用 `service_name` 或者 `clusterIP` 方式，访问 RadonDB MySQL。
 
@@ -149,7 +147,7 @@ Kubernetes 集群的 Pod 之间支持通过 `service_name` 方式访问 RadonDB 
     mysql -h sample-follower.default -u radondb_usr -p  
     ```
 
-> 当客户端与数据库部署在不同 Kubernetes 集群，请参考 [Kubernetes 访问集群中的应用程序](https://kubernetes.io/zh/docs/tasks/access-application-cluster/)，配置端口转发、负载均衡等连接方式。
+> 当客户端与数据库部署在不同 Kubernetes 集群，请参考[访问集群中的应用程序](https://kubernetes.io/zh/docs/tasks/access-application-cluster/)，配置端口转发、负载均衡等连接方式。
 
 ## 卸载
 

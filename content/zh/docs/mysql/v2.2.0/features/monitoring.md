@@ -3,8 +3,6 @@ title: "监控与告警"
 weight: 2
 ---
 
-[查看 GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_monitoring.md)。
-
 > RadonDB MySQL Kubernetes 2.1.0+ 支持。
 
 本教程展示如何开启 RadonDB MySQL 监控指标。
@@ -15,7 +13,7 @@ RadonDB MySQL 监控引擎基于 [Prometheus MySQLd Exporter](https://github.com
 
 ## 前提条件
 
-- 可用的 [Kubernetes](../../install/kubernetes) 或 [KubeSphere](../../install/kubesphere) 集群
+- 可用的 [Kubernetes](../../installation/on_kubernetes) 或 [KubeSphere](../../installation/on_kubesphere) 集群
 - RadonDB MySQL Kubernetes 2.1.0 及以上版本
 
 ## 部署步骤
