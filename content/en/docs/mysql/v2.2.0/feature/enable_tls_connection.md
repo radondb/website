@@ -6,8 +6,6 @@ weight: 9
 
 This tutorial demonstrates how to enable TLS (Transport Layer Security) connections for RadonDB MySQL Operator.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/how_to_use_tls.md).
-
 ## Overview
 
 RadonDB MySQL Operator adopts non-encrypted connections by default. However, information leakage may happen in case third-party tools able to sniff and monitor the network intercept data transferred between the server and client. Therefore, you are advised to enable the encrypted connection for security.

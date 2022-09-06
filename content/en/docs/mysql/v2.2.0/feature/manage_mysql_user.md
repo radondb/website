@@ -1,20 +1,18 @@
 ---
 shortTitle: "User Management"
-title: "User Management by MysqlUser CRD"
+title: "User management with MysqlUser CRDs"
 weight: 8
 ---
 
-This tutorial demonstrates how to manage users with MysqlUser CRD.
-
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/mgt_mysqlusser.md).
+This tutorial demonstrates how to manage users with MysqlUser CRDs.
 
 ##  Prerequisites
 
-* The [RadonDB MySQL cluster](deploy_radondb-mysql_operator_on_k8s.md) has been deployed.
+* The [RadonDB MySQL cluster](../../installation/on_kubernetes) has been deployed.
 
 ## Create the user account
 
-### Validate CRD
+### Validate the CRD
 
 Run the following command, and the `mysqlusers.mysql.radondb.com` CRD is displayed.
 
@@ -27,7 +25,7 @@ mysqlusers.mysql.radondb.com                          2021-09-21T09:15:08Z
 
 RadonDB MySQL uses the [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) object in Kubernetes to save the user password.
 
-Run the following command to create the `sample-user-password` Secret using the [sample configuration](#5.1-Secret).
+Run the following command to create the `sample-user-password` Secret using the [sample configuration](#secret).
 
 ```plain
 kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysqluser_secret.yaml
@@ -35,7 +33,7 @@ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kuberne
 
 ### Create the user
 
-Run the following command to create a user named `sample_user` using the [sample configuration](#52-mysqluser).
+Run the following command to create a user named `sample_user` using the [sample configuration](#mysqluser).
 
 ```plain
 kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysql_v1alpha1_mysqluser.yaml 
@@ -81,7 +79,7 @@ permissions:
 
 ## Delete user account
 
-Delete the `mysqluser` custom resource created with the [sample configuration](#52-mysqluser) as follows.
+Delete the `mysqluser` custom resource created with the [sample configuration](#mysqluser) as follows.
 
 ```plain
 kubectl delete mysqluser sample-user-cr

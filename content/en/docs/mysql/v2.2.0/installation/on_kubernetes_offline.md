@@ -10,8 +10,6 @@ pdf: ""
 
 This tutorial demonstrates how to deploy the RadonDB MySQL Operator and cluster offline on Kubernetes.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/deploy_radondb-mysql_operator_on_k8s_offline.md).
-
 ## Prerequisite
 
 -  You need to prepare an available Kubernetes cluster.
@@ -42,7 +40,7 @@ helm install demo radondb-mysql-resources/operator-chart .
 
 > **Note**
 > 
-> By default, this step will also create the custom resource required by the cluster. You can find the corresponding [releases](https://github.com/radondb/radondb-mysql-kubernetes/releases).
+> By default, this step will also create the custom resource required by the cluster. You can find the corresponding [release](https://github.com/radondb/radondb-mysql-kubernetes/releases).
 
 ### Step 3 Deploy the RadonDB MySQL cluster.
 

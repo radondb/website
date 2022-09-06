@@ -6,8 +6,6 @@ weight: 6
 
 This tutorial demonstrates how to build and apply custom operator and sidecar images.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/build_and_use_images.md).
-
 ## Custom operator image
 
 **Step 1 Build an operator image and push it to Docker Hub.**

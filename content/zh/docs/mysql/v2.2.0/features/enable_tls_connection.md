@@ -3,7 +3,6 @@ shorttitle: "启用加密连接"
 title: "为 MySQL 客户端启用加密连接"
 weight: 9
 ---
-查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/how_to_use_tls.m)。
 
 ## 背景
 

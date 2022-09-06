@@ -5,8 +5,6 @@ weight: 5
 
 This tutorial demonstrates how to schedule S3 backups with cron expressions.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/backup_cron.md).
-
 ## Overview
 Currently, you are allowed to schedule S3 backups with cron expressions. You need to configure the `backupSchedule` property under the `spec` field in the YAML configuration file of the cluster, for example:
 

@@ -6,7 +6,6 @@ weight: 5
 ---
 本文档介绍如何进行 S3 定时备份。
 
-查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/backup_cron.md)。
 ## 简介
 目前，支持 S3 定时备份，您可以使用 Cron 表达式来指定备份的时间策略。您只需直接在集群的 YAML 文件的 `spec` 下设置 `backupSchedule` 字段。例如：
 

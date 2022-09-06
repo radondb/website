@@ -5,8 +5,6 @@ weight: 2
 
 This tutorial demonstrates how to enable monitoring metrics for RadonDB MySQL clusters.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/deploy_monitoring.md).
-
 ## Overview
 
 The text-based format for exposing metrics adopted by [Prometheus](https://prometheus.io/) has been a de facto standard in cloud-native monitoring.
@@ -158,14 +156,14 @@ The KubeSphere monitoring engine is based on Prometheus and Prometheus Operator.
 
 **Step 4** Wait about ten minutes to view the monitoring metrics.
 
-For more information, see KubeSphere [Custom application monitoring](https://kubesphere.io/docs/project-user-guide/custom-application-monitoring/introduction/) and [Visualization](https://kubesphere.io/docs/project-user-guide/custom-application-monitoring/visualization/overview/).
+For more information, see KubeSphere [Custom Application Monitoring](https://kubesphere.io/docs/project-user-guide/custom-application-monitoring/introduction/) and [Visualization](https://kubesphere.io/docs/project-user-guide/custom-application-monitoring/visualization/overview/).
 
 ### By Prometheus and Grafana platforms
 
 [Grafana](https://github.com/grafana/grafana) is an open-source interactive data-visualization platform. You can view the monitoring information by using Prometheus and Grafana platforms. The following is the process of displaying monitoring metrics by Prometheus and Grafana.
 
-- Obtain the monitoring metric data of RadonDB MySQL services by [mysql_exporter](https://github.com/prometheus/mysqld_exporter).
-- Obtain the monitoring metric data of RadonDB MySQL servers by [node_exporter](https://github.com/prometheus/node_exporter).
-- Transfer monitoring metric data to [Prometheus](https://prometheus.io/download/) and configure the data source to display monitoring charts and warnings on Grafana.
+- Obtain the monitoring metric data of RadonDB MySQL services by [MySQL server exporter](https://github.com/prometheus/mysqld_exporter).
+- Obtain the monitoring metric data of RadonDB MySQL servers by [node exporter](https://github.com/prometheus/node_exporter).
+- Transfer monitoring metric data to [Prometheus](https://prometheus.io/) and configure the data source to display monitoring charts and warnings on Grafana.
 
 For more instructions on Grafana monitoring visualization, see [Grafana dashboards](https://grafana.com/docs/grafana/latest/dashboards/).

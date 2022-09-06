@@ -7,8 +7,6 @@ weight: 3
 
 本文档介绍如何对部署的 RadonDB MySQL 集群进行备份和恢复。
 
-查看 [ GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/backup_and_restoration_nfs.md)。
-
 ##  安装 NFS server 与资源
 
 ### 方法一：使用 Helm 安装
