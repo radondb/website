@@ -4,13 +4,11 @@ title: "使用 MysqlUser CRD 管理用户"
 weight: 8
 ---
 
-查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/mgt_mysqluser.md)。
-
 > RadonDB MySQL Kubernetes 2.1.0+ 支持。
 
 ## 前提条件
 
-* 已部署 [RadonDB MySQL 集群](kubernetes/deploy_radondb-mysql_operator_on_k8s.md)。
+* 已部署 [RadonDB MySQL 集群](../../installation/on_kubernetes)。
 
 ## 创建用户帐号
 
@@ -27,7 +25,7 @@ mysqlusers.mysql.radondb.com                          2021-09-21T09:15:08Z
 
 RadonDB MySQL 使用 K8s 中的 [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) 对象保存用户的密码。
 
-运行如下指令，将使用[示例配置](#Secret)创建一个名为 `sample-user-password` 的 Secret。
+运行如下指令，将使用[示例配置](#secret)创建一个名为 `sample-user-password` 的 Secret。
 
 ```plain
 kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysqluser_secret.yaml
@@ -35,7 +33,7 @@ kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kuberne
 
 ### 创建用户
 
-运行如下指令，将使用[示例配置](#MysqlUser)创建一个名为 `sample_user` 的用户。
+运行如下指令，将使用[示例配置](#mysqluser)创建一个名为 `sample_user` 的用户。
 
 ```plain
 kubectl apply -f https://raw.githubusercontent.com/radondb/radondb-mysql-kubernetes/main/config/samples/mysql_v1alpha1_mysqluser.yaml 
@@ -81,7 +79,7 @@ permissions:
 
 ## 删除用户帐号
 
-运行如下指令将删除使用[示例配置](#MysqlUser)创建的 MysqlUser 自定义资源。
+运行如下指令将删除使用[示例配置](#mysqluser)创建的 MysqlUser 自定义资源。
 
 ```plain
 kubectl delete mysqluser sample-user-cr

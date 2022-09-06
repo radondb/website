@@ -12,8 +12,6 @@ pdf: ""
 
 This tutorial demonstrates how to deploy the RadonDB MySQL Operator and cluster on Rancher.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/deploy_radondb-mysql_operator_on_rancher.md).
-
 ## Prerequisites
 
 - You need to [install a Rancher cluster](https://rancher.com/docs/rancher/v2.6/en/quick-start-guide/deployment/quickstart-manual-setup/).
@@ -99,7 +97,7 @@ The RadonDB MySQL Operator only needs to be installed once for a Rancher cluster
 
 1. Download the [RadonDB MySQL Cluster Configuration Sample](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/config/samples/mysql_v1alpha1_mysqlcluster.yaml) and modify the parameter values in the YAML file.
    
-   For details about the parameters, see [Configure Parameters](../configure_parameters.md).
+   For details about the parameters, see [Configure Parameters](../configure_parameters).
 
 2. On the cluster management page of Rancher, click the YAML file import icon in the upper-right corner. In the displayed dialog box, import the modified YAML file.
 

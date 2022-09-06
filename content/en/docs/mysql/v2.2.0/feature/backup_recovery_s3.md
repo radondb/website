@@ -5,8 +5,6 @@ weight: 4
 
 This tutorial demonstrates how to back up and recover the RadonDB MySQL cluster with S3.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/backup_and_restoration_s3.md).
-
 ## Prerequisites
 * You need to deploy the [RadonDB MySQL cluster](../../installation/on_kubernetes).
 

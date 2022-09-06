@@ -6,8 +6,6 @@ weight: 6
 ---
 本文档介绍如何创建和应用自定义 Docker 镜像。
 
-查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/build_and_use_images.md)。
-
 ## 自定义 operator 镜像
 
 **步骤 1：创建自定义的 Docker 镜像并推送到 Docker Hub 上。**

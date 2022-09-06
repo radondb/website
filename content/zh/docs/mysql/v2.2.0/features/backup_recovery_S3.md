@@ -7,11 +7,9 @@ weight: 4
 
 本文档介绍如何对部署的 RadonDB MySQL 集群进行备份和恢复。
 
-查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/backup_and_restoration_s3.md)。
-
 ## 前提条件
 
-* 已部署 [RadonDB MySQL 集群](./deploy_radondb-mysql_operator_on_k8s.md)。
+* 已部署 [RadonDB MySQL 集群](../../installation/on_kubernetes)。
 
 ## 配置备份
 

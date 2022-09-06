@@ -1,16 +1,14 @@
 ---
 # menu 优先显示shortTitle，没有shortTitle显示Title
 shortTitle: "Kubernetes 离线部署"
-title: "在 Kubernetes 上离线部署 RadonDB MySQL Operator 和集群"
+title: "在 Kubernetes 上离线部署 RadonDB MySQL 集群"
 # weight按照从小到大排列
 weight: 3
 # pdf的url，如：/pdf/test.pdf
 pdf: ""
 ---
 
-本教程展示如何在 Kubernetes 上离线部署 RadonDB MySQL Operator 和 RadonDB MySQL 集群。
-
-查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/deploy_radondb-mysql_operator_on_k8s_offline.md)。
+本教程展示如何在 Kubernetes 上离线部署 RadonDB MySQL 集群。
 
 ## 部署准备
 
@@ -23,7 +21,6 @@ pdf: ""
 * 下载离线部署资源
 
   从 Docker Hub 下载镜像`radondb/mysql-operator, radondb/mysql57-sidecar, radondb/mysql80-sidercar,percona/percona-server:5.7.34, percona/percona-server:8.0.25`，并加载到各个工作节点。
-
 
 * 导入镜像（需要在每个运行数据库的 worker 上执行）
 
@@ -46,7 +43,7 @@ helm install demo radondb-mysql-resources/operator-chart .
 
 ### 步骤 3：部署 RadonDB MySQL 集群
 
-执行以下指令，以默认参数为自定义资源 `mysqlclusters.mysql.radondb.com` 创建一个实例，即创建 RadonDB MySQL 集群。您可以参见[配置参数](../configure_parameters.md)，自定义部署集群的参数。
+执行以下指令，以默认参数为自定义资源 `mysqlclusters.mysql.radondb.com` 创建一个实例，即创建 RadonDB MySQL 集群。您可以参见[配置参数](../configure_parameters)，自定义部署集群的参数。
 
 ```shell
 kubectl apply -f radondb-mysql-resources/cluster-sample/mysql_v1alpha1_mysqlcluster.yaml
@@ -96,7 +93,7 @@ service/sample-mysql             ClusterIP   None            <none>        3306/
 
 > 准备可用于连接 MySQL 的客户端。
 
-- 当客户端的与数据库部署在不同 Kubernetes 集群时，请参考 [Kubernetes 访问集群中的应用程序](https://kubernetes.io/zh/docs/tasks/access-application-cluster/)，配置端口转发、负载均衡等连接方式。
+- 当客户端的与数据库部署在不同 Kubernetes 集群时，请参考[访问集群中的应用程序](https://kubernetes.io/zh/docs/tasks/access-application-cluster/)，配置端口转发、负载均衡等连接方式。
   
 - 在同一个 Kubernetes 集群内，支持使用 `service_name` 或者 `clusterIP` 方式，访问 RadonDB MySQL。
   

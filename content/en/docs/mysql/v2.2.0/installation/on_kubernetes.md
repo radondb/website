@@ -10,8 +10,6 @@ pdf: ""
 
 This tutorial demonstrates how to deploy, verify, access, and uninstall the RadonDB MySQL Operator and cluster.
 
-View [GitHub documentation](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/en-us/deploy_radondb-mysql_operator_on_k8s.md).
-
 ## Prerequisites
 
 - Prepare an available Kubernetes cluster.
@@ -40,7 +38,7 @@ Set the release name to `demo` and create a [Deployment](https://kubernetes.io/d
 $ helm install demo radondb/mysql-operator
 ```
  
-> This step also creates the [custom resource](https://kubernetes.io/zh/docs/concepts/extend-kubernetes/api-extension/custom-resources/) required by the cluster.
+> This step also creates the [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) required by the cluster.
 
 ### Step 3 Deploy a RadonDB MySQL cluster.
 
@@ -49,7 +47,7 @@ Create an instance of the custom resource `mysqlclusters.mysql.radondb.com` and 
 ```shell
 $ kubectl apply -f https://github.com/radondb/radondb-mysql-kubernetes/releases/latest/download/mysql_v1alpha1_mysqlcluster.yaml
 ```
-> To set cluster parameters, see [Parameter Configuration](../config_para).
+> To set cluster parameters, see [Parameter Configuration](../configure_parameters).
 
 ## Verification
 
