@@ -3,9 +3,11 @@ title: "配置参数"
 weight: 6
 ---
 
+查看 [GitHub 文档](https://github.com/radondb/radondb-mysql-kubernetes/blob/main/docs/zh-cn/config_para.md)。
 
-## 容器配置
+## 配置参数
 
+### 容器配置
 
 | 参数                               | 描述                         | 默认值                                                      |
 | :--------------------------------- | :--------------------------- | :---------------------------------------------------------- |
@@ -34,7 +36,7 @@ weight: 6
 | PodPolicy.Labels            | 节点 Pod [标签](https://kubernetes.io/zh/docs/concepts/overview/working-with-objects/labels/)                                                                           | -                            |
 | PodPolicy.Annotations       | 节点 Pod [注解](https://kubernetes.io/zh/docs/concepts/overview/working-with-objects/annotations/)                                                                      | -                            |
 | PodPolicy.Affinity          | 节点 Pod [亲和性](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/assign-pod-node/#%E4%BA%B2%E5%92%8C%E6%80%A7%E4%B8%8E%E5%8F%8D%E4%BA%B2%E5%92%8C%E6%80%A7) | -                            |
-| PodPolicy.PriorityClassName | 节点 Pod [优先级](https://kubernetes.io/zh-cn/docs/concepts/scheduling-eviction/pod-priority-preemption/)对象名称                                                       | -                            |
+| PodPolicy.PriorityClassName | 节点 Pod [优先级](https://kubernetes.io/zh/docs/concepts/configuration/pod-priority-preemption/)对象名称                                                                | -                            |
 | PodPolicy.Tolerations       | 节点 pod [污点容忍度](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/taint-and-toleration/)列表                                                             | -                            |
 | PodPolicy.SchedulerName     | 节点 Pod [调度器](https://kubernetes.io/zh/docs/concepts/scheduling-eviction/kube-scheduler/)名称                                                                       | -                            |
 | PodPolicy.ExtraResources    | 节点容器配额（除 MySQL 和 Xenon 之外的容器）                                                                                                                            | 预留：CPU 10M，内存 32Mi     |
