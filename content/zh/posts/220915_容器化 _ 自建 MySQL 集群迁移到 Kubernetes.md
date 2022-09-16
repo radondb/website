@@ -1,5 +1,5 @@
 ---
-title: "详谈 MySQL 8.0 原子 DDL 原理"
+title: "容器化｜自建 MySQL 集群迁移到 Kubernetes"
 date: 2022-09-15T08:00:00+08:00
 author: "RadonDB 开源社区 "
 # weight从小到达排序，值越小越靠前
