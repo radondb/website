@@ -1,70 +1,58 @@
 ---
-title: "RadonDB MySQL Kubernetes 2.2.0 发布！"
-date: 2022-07-08T14:52:11+08:00
-picture: https://dbg-files.pek3b.qingstor.com/radondb_website/news/220708_RadonDB%20MySQL%20Kubernetes%202_2_0%20%E5%8F%91%E5%B8%83%EF%BC%81/0.png
+title: "RadonDB MySQL Kubernetes 2.2.1 发布！"
+date: 2022-08-25T14:52:11+08:00
+picture: https://dbg-files.pek3b.qingstor.com/radondb_website/news/220825_RadonDB%20MySQL%20Kubernetes%202.2.1%20%E5%8F%91%E5%B8%83%EF%BC%81/%E9%A1%B9%E7%9B%AE%E5%8F%91%E7%89%88%E5%B0%81%E9%9D%A2.png
 ---
-欢迎社区小伙伴试用体验新版本，社区还有精美周边相送！
+欢迎社区小伙伴试用体验新版本！
 <!--more-->
-# 摘要
+[RadonDB MySQL Kubernetes](https://github.com/radondb/radondb-mysql-kubernetes) 于近日正式发布新版本 [2.2.1](https://github.com/radondb/radondb-mysql-kubernetes/releases/tag/v2.2.1)。该版本主要在用户管理、高可用组件等进行了优化，并修复一些问题。
 
-RadonDB MySQL Kubernetes v2.2.0 于近日发布！该版本开始支持 MySQL 8.0，备份功能优化，并全面提升高可用稳定性。社区同步发起“新版试用赢周边”活动！
+### 致谢
 
-## 致谢
-
-感谢 @runkecheng、@acekingke、@andyli029、@zhl003 、@hayleyling 提交的修改。
-
-下载地址：https://github.com/radondb/radondb-mysql-kubernetes/releases
-
-距离上一个版本 v2.1.4 已经过去三个月了。通过下载量分析可知，v2.1.4 较前几个版本受关注度大大增加。所以该版本也成了使用反馈最多的一个版本，这些反馈成为 v2.2.0 在功能性、易用性、稳定性和文档内容等方面提升的重要参考。
-
-![](https://dbg-files.pek3b.qingstor.com/radondb_website/news/220708_RadonDB%20MySQL%20Kubernetes%202_2_0%20%E5%8F%91%E5%B8%83%EF%BC%81/1.png)
-
-另外，根据 Google 搜索结果可知，RadonDB MySQL Kubernetes 是目前最活跃的高可用 MySQL 集群 Operator 之一。
-
-![](https://dbg-files.pek3b.qingstor.com/radondb_website/news/220708_RadonDB%20MySQL%20Kubernetes%202_2_0%20%E5%8F%91%E5%B8%83%EF%BC%81/2.png)
-
-项目不断活跃的同时，社区也在不断完善基础设施，在 Q2 上线了社区官网 [www.radondb.com](https://www.radondb.com)， 欢迎大家访问。
-
-![](https://dbg-files.pek3b.qingstor.com/radondb_website/news/220708_RadonDB%20MySQL%20Kubernetes%202_2_0%20%E5%8F%91%E5%B8%83%EF%BC%81/3.png)
+感谢 @runkecheng @acekingke @zhl003 @qianfen2021 @hayleyling  提交的修改。
 
 # 新版本功能一览
+- 支持自动修复物理节点宕机导致的事务错误
+- 支持 NFS 存储的定时备份功能
+- 支持创建超级用户
+- 支持指定用户 SSL 类型
 
-## 新特性
 
-* **支持 MySQL 8.0**
-    * 镜像 Percona 8.0.25（默认版本 5.7）
-* **支持自定义备份**
-    * 可以将集群数据备份到 S3 或者指定的卷
-* **支持定时备份**
-    * 可以用定时任务的方式，自动备份集群
-* **增加集群恢复功能**
-    * 现在可以基于备份创建新的集群
-* **支持用户自定义 MySQL 参数**
-    * 配置 `my.cnf` 更加灵活
-* 集群服务端支持 TLS 加密
-    * 客户端可以选择使用加密连接和服务端通信
-* 增加自动适配参数的功能
-    * 集群根据 Pod 的配额自动设置一些关键参数
-* 增加 `custom resource` 参数自动校验
-    * 自动检测不合法的参数
-    * 例如，在 MySQL 8.0 中，不能在线修改 `lower_case_table_names` 参数
-* 增加 `custom resource` 附加打印列
-    * 例如，可以通过 `kubectl get clusername` 查看承担当前集群 Leader 角色的 Pod
-* 增加备份状态记录
-    * 支持查询集群的历史备份信息
-## 优化
+# 2.2.1 版本说明
 
-* **极大增强高可用性，故障转移更加可靠**
-* 简化 Operator 日志内容，日志更加简洁和清晰
-* 完善使用文档，并提供英文版本
-## 修复
 
-* 修复集群在启用 IPv6 环境下的适配问题
- 
+## 新功能
 
->注意：如果本地已经安装过历史版本，需要手动更新 CRD。
-## 新版试用赢周边
+- 新增 [Xenon](https://github.com/radondb/xenon) 容器 PreStop 脚本超时限制（#612）
+- 支持通过自定义资源创建超级用户（#601）
+- 支持通过用户管理修改用户密码（#585）
+- 支持创建用户时指定该用户的 SSL 配置(#575）
+- Xenon 容器新增管理脚本 xenonchecker（#596 #600）
+- 防止和自动修复领导者 Pod 所在的物理节点因重启或者掉电造成错误事务的问题（#597）
 
-值此新版本发布之际，社区邀请大家抢先试用新版本，多款社区周边等你领取。活动详情请扫描图中二维码或直接点击[活动页面](https://kubesphere.com.cn/forum/d/7623-radondb-mysql-kubernetes-220)
 
-![](https://dbg-files.pek3b.qingstor.com/radondb_website/news/220708_RadonDB%20MySQL%20Kubernetes%202_2_0%20%E5%8F%91%E5%B8%83%EF%BC%81/4.jpeg)
+## 优化增强
+
+- 增强 GitHub CI 代码检查功能（#613）
+- 修改 Xenon 领导者降级时所运行的钩子脚本的超时时间（#605）
+- 优化 E2E 测试代码 #344（#466）
+- 增加定时备份中英文文档 #564（ #582 #593）
+- 优化用户管理中英文文档 #564（#610 #611）
+
+
+## 问题修复
+
+- 去掉了 MySQL 异步 IO 配置参数，解决了某些不支持异步 IO 的系统无法启动 MySQL 的问题 #576（#577）
+- 修复了删除集群时不删除备份自定义资源的问题 #570（#581）
+- 修复了 NFS 备份失败时不记录状态的问题（#643）
+
+欢迎大家下载体验！
+
+# 版本预告
+
+下一个版本将会是 2.3.0，以下是该版本将支持的功能：
+- 支持指定 MySQL 版本
+- 支持从特定 pod 进行 rebuild
+- 支持用户自定义初始化脚本
+- 支持 Helm Chart 部署集群
+- 支持从指定配置创建集群
