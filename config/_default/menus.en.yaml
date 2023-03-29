@@ -8,10 +8,6 @@ main:
     weight: '1'
     url: "/projects/mysql"
     parent: projects
-  - name: "Radon"
-    weight: '3'
-    url: "/projects/radon"
-    parent: projects
   - name: "Xenon"
     weight: '2'
     url: "/projects/xenon"
